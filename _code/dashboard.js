@@ -11,6 +11,7 @@
 // index parameters
 var timestampIndex = 0;
 var studentIdIndex = 1;
+var answersIndex = 2;
 var firstSubmissionIndex = 2;
 var lastSubmissionIndex = 3;		// not a column in the log file but added when parsing
 var numberOfSubmissionsIndex = 4;	// not a column in the log file but added when parsing
@@ -24,7 +25,7 @@ function getData() {
 
 	$.ajax({
 		type: 'GET',
-		url: "dashLoader.php",
+		url: "../../_code/dashLoader.php",
 		dataType: 'json',
 		success: function(data) {
 			console.log("Dash Loader is done\n\n");

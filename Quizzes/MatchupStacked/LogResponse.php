@@ -3,7 +3,6 @@ session_cache_limiter('nocache');
 header('Content-type: application/json');
 include( '../../_code/logger.php' );
 
-//$url = $_SERVER['REQUEST_URI'];
 $workingDir = getcwd(); // get current working directory
 error_log("LogResponse.php  in  " . $workingDir);
 $studentId = $_POST['si'];  //todo: get it from the environment variable REMOTE_USER
