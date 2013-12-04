@@ -1,7 +1,7 @@
 <?php
 session_cache_limiter('nocache');
 header('Content-type: application/json');
-include( '../common_library/logger.php' );
+include( '../../_code/logger.php' );
 
 //$url = $_SERVER['REQUEST_URI'];
 $workingDir = getcwd(); // get current working directory

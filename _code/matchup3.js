@@ -1,7 +1,7 @@
 // Define the following in the html file:
-//   boolean rejectWrongAnswers (optional; default is true)
-//   boolean requireCompletion (optional; default is true)
-// Define the answer key in php file
+//   boolean rejectWrongAnswers (defaults to true)
+//   boolean requireCompletion (defaults to true)
+//   boolean logResponsesToDashboard (defaults to false)
 
 var questionType = "MC";
 var version = "1.2 November 2013";
