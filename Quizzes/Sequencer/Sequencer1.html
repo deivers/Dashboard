@@ -1,0 +1,222 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<meta name="author" content="One Time Software">
+	<meta name="version" content="1.2">
+	<title>Sequencer Quiz</title>
+	<link href="../../_code/common.css" rel="stylesheet" media="screen" type="text/css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+	<script src="../../_code/jquery.ui.touch-punch.min.js"></script>
+	<style type="text/css">
+		.quiz {
+			width: 260px;		/* for layout in a horizontal row, make this very wide; for a vertical column, make it narrow */
+			margin: auto;
+		}
+		.sortGroup {
+			margin: 30px;
+		}
+		#sortable1, #sortable2 {
+			margin: 20px;
+			padding: 0;
+		}
+		.draggable {
+			/*float: left;*/		/* for vertical layout, remove this line */
+			/*width: 110px;*/		/* for vertical layout, remove this line */
+			cursor: move;
+			margin: 5px;
+			padding: 5px;
+			vertical-align: middle;
+			text-align: center;
+			font-size: 1.2em;
+			background-color: #DFDFDF;
+			border:1px solid #000;
+			border-radius: 10px;
+			-o-border-radius: 10px;
+			-ms-border-radius: 10px;
+			-moz-border-radius: 10px;
+			-webkit-border-radius: 10px;
+		}
+		.clearFloat {
+			clear: both;
+		}
+		.correct {
+			background-color: #0f0;
+		}
+		.dragging {
+			background-color: #DDD;
+			box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+			-moz-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+			-webkit-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+		}
+
+
+/*TODO arrange folders to use common.css*/
+.prominentButton {
+	position: relative;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0 0;
+	width: 180px;
+	height: 36px;
+	color: #fff;
+	background-color: #125182;
+	text-align: center;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #125182), color-stop(.5, #1269ab), color-stop(.51, #004375), to(#00345b));
+	background: -moz-linear-gradient(top, #125182, #1269ab 50%, #004375 51%, #00345b);
+	-moz-border-radius: 18px;
+	-webkit-border-radius: 18px;
+	border-radius: 18px;
+	-moz-box-shadow:inset 0 0 10px #000000;
+	-webkit-box-shadow:  inset 0 0 10px #000000;
+	box-shadow: inset 0 0 10px #000000;
+}
+.prominentButton div {
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-size: 18px;
+	line-height: 15px;
+	padding: 5% 0;	/* force vertical centering */
+	font-weight: 200;
+	text-shadow: 0px 0px 3px #555;
+}
+.blandButton div {
+	position: relative;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 180px;
+	height: 24px;
+	color: #999;
+	text-align: center;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-size: 14px;
+	line-height: 15px;
+	padding: 5% 0;	/* force vertical centering */
+}
+a {
+	text-decoration: none;
+	color: ddd;
+}
+.prominentButton:hover {
+	cursor: pointer;
+	-moz-box-shadow: inset 0 0 40px #000000;
+	-webkit-box-shadow: inset 0 0 40px #000000;
+	box-shadow:inset 0 0 40px #000000;
+}
+.prominentButton div:hover {
+	cursor: pointer;
+	text-shadow: 0px 0px 3px #888;
+}
+.blandButton div:hover {
+	cursor: pointer;
+}
+	</style>
+
+	<script>
+		var questionType = "SQ";
+		var version = "1.0 November 2013";
+		var rejectOption = (typeof rejectWrongAnswers === 'undefined' || rejectWrongAnswers);
+		var studentList = [];
+		var dragList;
+		var allList;
+		var akList;
+		$('.draggable').draggable();
+		$(function() {
+			$("#sortable1, #sortable2").sortable({
+				connectWith: ".connectedSortable",
+				start: function(event, ui) {
+					$(ui.item).addClass("dragging");
+				},
+				stop: function(event, ui) {
+					$(ui.item).removeClass("dragging correct");
+				}
+			}).disableSelection();
+
+			// shuffle
+			allList = $(".draggable");
+			$("#sortable1").prepend(allList[allList.length-1]);
+			for (var i=0; i<allList.length/2+1; i++)
+				$("#sortable1").prepend(allList[Math.floor(Math.random()*allList.length)]);
+			if ($("#sortable1").children()[0] == allList[0]) {
+				// make sure the first is not first
+				$("#sortable1").append(allList[0]);
+			}
+ 			dragList = $(".draggable");
+
+			$("#checkButton").click(function(){checkAnswers()});
+			$("#resetButton").click(function(){resetQuiz()});
+			showMetaInfo();
+
+
+			function showMetaInfo() {
+				var copyrightText = "Copyright 2013";
+				var createdByText = "";
+				var versionText = "Version "+version+".";
+				var centerNode = $("<center></center>");
+				centerNode.append($("<span></span>").text(copyrightText+" "+createdByText+" "));
+				centerNode.append($("<a href='http://www.onetimesoftware.com' target='_blank'></a>").text("One Time Software"));
+				centerNode.append($("<span></span>").text(". "+versionText));
+				centerNode.append("<br>");
+				centerNode.append($("<span></span>").text("Free for academic use when displaying this notice."));
+				centerNode.css({
+					color: "gray",
+					"font-size": "x-small"
+				});
+				$("body").append(centerNode);
+			}
+
+			function checkAnswers() {
+				console.log("check answers here...");
+				console.log("original: "+$(allList[0]).html());
+				console.log("shuffled: "+$(dragList[0]).html());
+				console.log("     now: "+$(".draggable").html());
+				var allCorrect = true;
+				for (var i=0; i<allList.length; i++) {
+					if (allList[i] != $(".draggable")[i]) {
+						allCorrect = false;
+						break;
+					}
+				}
+				// give feedback to student
+				if (allCorrect) {
+					$(".draggable").addClass("correct",400);
+					setTimeout(function() {alert("CORRECT!\n\nIf you want to do it again, tap Reset.");}, 600);		// make sure the tabs are moved before the alert shows
+				} else {
+					$(".draggable").removeClass("correct",400);
+					setTimeout(function() {alert("One or more of the items is out of order.  Please try again...");}, 600);		// make sure the tabs are moved before the alert shows
+				}
+			}
+			function resetQuiz() {
+				location.reload();
+			}
+		})
+	</script>
+
+</head>
+<body>
+	<div class="quiz">
+		<div class="sortGroup">
+			<div id="sortable1" class="connectedSortable">
+				<div class="draggable">Item 1</div>
+				<div class="draggable">Item 2</div>
+				<div class="draggable">Item 3</div>
+				<div class="draggable">Item 4</div>
+				<div class="draggable">Item 5</div>
+			</div>
+			<div id="sortable2" class="connectedSortable">
+			</div>
+			<div class="clearFloat"></div>
+		</div>
+<!-- buttons -->
+		<div id="checkButton" class="prominentButton">
+			<div>Check answers</div>
+		</div>
+		<div id="resetButton" class="blandButton">
+			<div>RESET</div>
+		</div>
+
+	</div><!-- End quiz -->
+
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+		<meta name="author" content="One Time Software">
+		<meta name="version" content="1.2">
+		<title>Matchup Quiz</title>
+		<link href="../../_code/common.css" rel="stylesheet" media="screen" type="text/css">
+		<link href="matchupLeftRight.css" rel="stylesheet" media="screen" type="text/css">
+		<style>
+			/* if desired, in this style section override the default styles defined in the external css */
+			/* the most useful classes for styling are .upperTab, .dropZone, .dragTab, and .correct */
+			/* the following makes sure all the heights are the same; adjust to suit your content */
+			.upperTab, .dragTab, .dropZone, img {
+				height: 80px;
+			}
+			.upperTab {
+				width: 300px;
+				background-color: #ccc;
+			}
+			.dragTab, .dropZone {
+				width: 200px;
+			}
+		</style>
+		<script>
+			var questionNumber = 1;				// must be unique across files in this folder
+			var questionSummaryText = "DNA structures";
+			var shuffleWhich = "dropZones";	// dropZones or draggables
+			var rejectWrongAnswers = true;		// false increases difficulty
+			var requireCompletion = true;		// true increases difficulty
+			var logResponsesToDashboard = true;	// true if you want to use the Dashboard
+		</script>
+		<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+		<script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+		<script src="../../_code/jquery.ui.touch-punch.min.js"></script>
+		<script src="../../_code/matchup3.js"></script>
+	</head>
+	<body>
+
+		<h2>Drag from the lower group and drop on the best match in the upper group</h2>
+		<div id="quiz">
+
+<!-- tabs and zones -->
+			<div id="zoneShelf">
+				<div class="zoneGroup">
+					<div class="upperTab">
+						<div class="tabText">
+							A single polypeptide chain folded into a 3-dimensional shape by ionic, polar, or covalent bonds
+						</div>
+					</div>
+					<div class="dropZone"></div>
+				</div>
+
+				<div class="zoneGroup">
+					<div class="upperTab">
+						<div class="tabText">
+							Several polypeptides held together by ionic, polar, or covalent bonds
+						</div>
+					</div>
+					<div class="dropZone"></div>
+				</div>
+
+				<div class="zoneGroup">
+					<div class="upperTab">
+						<div class="tabText">
+							A single polypeptide chain with helical and pleated sheet regions formed by hydrogen bonding
+						</div>
+					</div>
+					<div class="dropZone"></div>
+				</div>
+
+				<div class="zoneGroup">
+					<div class="upperTab">
+						<div class="tabText">
+							A linear chain of amino acids held together by covalent bonds
+						</div>
+					</div>
+					<div class="dropZone"></div>
+				</div>
+			</div>
+
+<!-- choices -->
+			<div id="choiceShelf">
+				<div class="dragParent">
+					<div class="dragTab">
+						<p class="dragText">
+							double helix
+						</p>
+					</div>
+				</div>
+
+				<div class="dragParent">
+					<div class="dragTab">
+						<p class="dragText">
+							primary structure
+						</p>
+					</div>
+				</div>
+
+				<div class="dragParent">
+					<div class="dragTab">
+						<p class="dragText">
+							secondary structure
+						</p>
+					</div>
+				</div>
+
+				<div class="dragParent">
+					<div class="dragTab">
+						<p class="dragText">
+							tertiary structure
+						</p>
+					</div>
+				</div>
+
+				<div class="dragParent">
+					<div class="dragTab">
+						<p class="dragText">
+							quaternary structure
+						</p>
+					</div>
+				</div>
+
+				<div class="dragParent">
+					<div class="dragTab">
+						<p class="dragText">
+							n/a
+						</p>
+					</div>
+				</div>
+			</div>
+
+<!-- buttons -->
+			<div id="checkButton" class="prominentButton">
+				<div>Check answers</div>
+			</div>
+			<div id="resetButton" class="blandButton">
+				<div>RESET</div>
+			</div>
+		</div><!-- End of quiz div -->
+	</body>
+</html>

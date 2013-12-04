@@ -1,0 +1,65 @@
+.draggable .dragTab {
+	cursor: move;
+}
+.prominentButton {
+	position: relative;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0 0;
+	width: 180px;
+	height: 36px;
+	color: #fff;
+	background-color: #125182;
+	text-align: center;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #125182), color-stop(.5, #1269ab), color-stop(.51, #004375), to(#00345b));
+	background: -moz-linear-gradient(top, #125182, #1269ab 50%, #004375 51%, #00345b);
+	-moz-border-radius: 18px;
+	-webkit-border-radius: 18px;
+	border-radius: 18px;
+	-moz-box-shadow:inset 0 0 10px #000000;
+	-webkit-box-shadow:  inset 0 0 10px #000000;
+	box-shadow: inset 0 0 10px #000000;
+}
+.prominentButton div {
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-size: 18px;
+	line-height: 15px;
+	padding: 5% 0;	/* force vertical centering */
+	font-weight: 200;
+	text-shadow: 0px 0px 3px #555;
+}
+.blandButton div {
+	position: relative;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 180px;
+	height: 24px;
+	color: #999;
+	text-align: center;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-size: 14px;
+	line-height: 15px;
+	padding: 5% 0;	/* force vertical centering */
+}
+a {
+	text-decoration: none;
+	color: fff;
+}
+.prominentButton:hover {
+	cursor: pointer;
+	-moz-box-shadow: inset 0 0 40px #000000;
+	-webkit-box-shadow: inset 0 0 40px #000000;
+	box-shadow:inset 0 0 40px #000000;
+}
+.prominentButton div:hover {
+	cursor: pointer;
+	text-shadow: 0px 0px 3px #888;
+}
+.blandButton div:hover {
+	cursor: pointer;
+}
+a:link a:active {
+	color: "gray"
+}

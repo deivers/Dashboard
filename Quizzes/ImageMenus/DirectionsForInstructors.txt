@@ -1,0 +1,9 @@
+
+In Edge Animate, open the .html file
+Replace the image with your own
+Edit/arrange text labels with the text appropriate for your image
+Adjust the width of all labels to be the same and wide enough for the popup menus that will be inserted when the page loads in a browser
+If you want "decoy" choices, create a text label for each and place off stage to the left
+Hit command-return to test in a browser
+Press option-command-S to publish (see File menu > "Publish settings..." to choose the folder to publish to)
+

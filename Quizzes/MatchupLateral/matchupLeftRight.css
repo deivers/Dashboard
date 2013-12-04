@@ -1,0 +1,124 @@
+body {
+	font-family: sans-serif;
+}
+#quiz {
+	width: 750px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+#zoneShelf {
+	width: auto;
+	height: auto;
+	padding: 10px;
+}
+#choiceShelf {
+	width: auto;
+	height: auto;
+	padding: 10px 10px 50px 10px;
+	/*overflow-x: scroll;
+	white-space: nowrap;*/
+}
+.zoneGroup {
+	display: inline-block;
+}
+.dragParent {
+	display: inline-block;
+	vertical-align: middle;
+	clear: both;
+}
+.zoneGroup, .dragParent {
+	margin: 15px;
+}
+.upperTab, .dropZone, .dragTab {
+	height: 80px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+.upperTab, .dropZone {
+	position: relative;
+	float: left;
+}
+.upperTab, .dragTab {
+	background-color: #DFDFDF;
+	border:1px solid #000;
+}
+.upperTab:before {		/* hack to get vertical centering */
+	content: '';
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+	margin-right: -5px; /* this may need to be tweaked */
+}
+.dragTab:before {		/* hack to get vertical centering */
+	content: '';
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+	margin-right: -5px; /* this may need to be tweaked */
+}
+.dragTab, .dropZone {
+	width: 100px;
+	border-top-right-radius: 15px;
+	-o-border-top-right-radius: 15px;
+	-ms-border-top-right-radius: 15px;
+	-moz-border-radius-topright: 15px;
+	-webkit-border-top-right-radius: 15px;
+	border-bottom-right-radius: 15px;
+	-o-border-bottom-right-radius: 15px;
+	-ms-border-bottom-right-radius: 15px;
+	-moz-border-radius-bottomright: 15px;
+	-webkit-border-bottom-right-radius: 15px;
+}
+.upperTab {
+	width: 360px;
+	border-top-left-radius: 15px;
+	-o-border-top-left-radius: 15px;
+	-ms-border-top-left-radius: 15px;
+	-moz-border-radius-topleft: 15px;
+	-webkit-border-top-left-radius: 15px;
+	border-bottom-left-radius: 15px;
+	-o-border-bottom-left-radius: 15px;
+	-ms-border-bottom-left-radius: 15px;
+	-moz-border-radius-bottomleft: 15px;
+	-webkit-border-bottom-left-radius: 15px;
+}
+.dropZone {
+	border: 2px dashed #222;
+}
+.tabText, .dragText {
+	clear: both;
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	margin: auto;
+	width: 100%;				/* see hack above */
+	font-weight: 500;
+	font-style: inherit;
+	font-size: 13pt;
+	text-align: center;
+	border: 0px solid transparent;
+}
+.tabText {
+}
+.dragTab {
+	cursor: move;
+	color: #0000AE;
+}
+.dragging {
+	background-color: #DDD;
+	box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+	-moz-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+	-webkit-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+}
+.dropHover {
+	background-color: #888;
+}
+.vSpace {
+	height: 30px;
+	clear: both;
+}
+.correct {
+	background-color: #0F0;
+}

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+		<meta name="author" content="One Time Software">
+		<meta name="version" content="1.2">
+		<title>Matchup Quiz</title>
+		<link href="../../_code/common.css" rel="stylesheet" media="screen" type="text/css">
+		<link href="MatchupStacked.css" rel="stylesheet" media="screen" type="text/css">
+		<style>
+			/* if desired, in this style section override the default styles defined in the external css */
+			/* the most useful classes for styling are .upperTab, .dropZone, .dragTab, and .correct */
+			/* the following makes sure all the widths are the same; adjust to suit your content */
+			.upperTab, .dragTab, .dropZone, img {
+				width: 300px;
+			}
+			.upperTab {
+				background-color: #ccc;
+			}
+		</style>
+		<script>
+			var questionNumber = 1;				// must be unique across files in this folder
+			var questionSummaryText = "DNA structures";
+			var shuffleWhich = "draggables";	// dropZones or draggables
+			var rejectWrongAnswers = false;		// false increases difficulty
+			var requireCompletion = false;		// true increases difficulty
+			var logResponsesToDashboard = true;	// true if you want to use the Dashboard
+		</script>
+		<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+		<script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+		<script src="../../_code/jquery.ui.touch-punch.min.js"></script>
+		<script src="../../_code/matchup3.js"></script>
+	</head>
+	<body>
+
+		<h2>Drag from the lower group and drop on the best match in the upper group</h2>
+		<div id="quiz">
+
+<!-- tabs and zones -->
+			<div id="zoneShelf">
+				<div class="zoneGroup">
+					<div class="upperTab">
+						<p class="tabText">
+							One
+						</p>
+					</div>
+					<div class="dropZone"></div>
+				</div>
+
+				<div class="zoneGroup">
+					<div class="upperTab">
+						<p class="tabText">
+							Two
+						</p>
+					</div>
+					<div class="dropZone"></div>
+				</div>
+
+				<div class="zoneGroup">
+					<div class="upperTab">
+						<p class="tabText">
+							Three
+						</p>
+					</div>
+					<div class="dropZone"></div>
+				</div>
+
+				<div class="zoneGroup">
+					<div class="upperTab">
+						<p class="tabText">
+							Four
+						</p>
+					</div>
+					<div class="dropZone"></div>
+				</div>
+			</div>
+
+<!-- choices -->
+			<div id="choiceShelf">
+				<div class="dragParent">
+					<div class="dragTab">
+						<p class="dragText">
+							Uno
+						</p>
+					</div>
+				</div>
+
+				<div class="dragParent">
+					<div class="dragTab">
+						<p class="dragText">
+							Dos
+						</p>
+					</div>
+				</div>
+
+				<div class="dragParent">
+					<div class="dragTab">
+						<p class="dragText">
+							Tres
+						</p>
+					</div>
+				</div>
+
+				<div class="dragParent">
+					<div class="dragTab">
+						<p class="dragText">
+							Quatro
+						</p>
+					</div>
+				</div>
+
+				<div class="dragParent">
+					<div class="dragTab">
+						<p class="dragText">
+							Cinco
+						</p>
+					</div>
+				</div>
+
+				<div class="dragParent">
+					<div class="dragTab">
+						<p class="dragText">
+							Sies
+						</p>
+					</div>
+				</div>
+			</div>
+
+<!-- buttons -->
+			<div id="checkButton" class="prominentButton">
+				<div>Check answers</div>
+			</div>
+			<div id="resetButton" class="blandButton">
+				<div>RESET</div>
+			</div>
+		</div><!-- End of quiz div -->
+	</body>
+</html>

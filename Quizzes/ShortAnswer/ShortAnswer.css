@@ -1,0 +1,18 @@
+body {
+	margin: 0px auto;
+	width: 650px;
+	padding: 0px;
+	background-color: #f0f0f0;
+}
+input {
+	font-weight: bold;
+}
+input.correct {
+	color: #090;
+}
+input.incorrect {
+	color: #f00;
+}
+.score {
+	font-weight: bold;
+}
