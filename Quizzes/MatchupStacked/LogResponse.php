@@ -10,7 +10,9 @@ $questionNumber = $_POST['qn'];
 $questionType = $_POST['qt'];
 $questionTextSummary = $_POST['qs'];
 $studentAnswerArray = $_POST['sa'];
-$answerKey = "";
+for ($i=0; $i<count($studentAnswerArray); $i++) {
+	$ak[$i] = $i;
+}
 //error_log("/t".$workingDir." ".$studentId." ".$questionNumber." ".$questionType." ".$questionTextSummary." ".$studentAnswerArray);
 $result = logStudentSubmission(
 		$workingDir,
@@ -19,7 +21,7 @@ $result = logStudentSubmission(
 		$questionType,
 		$questionTextSummary,
 		$studentAnswerArray,
-		$answerKey
+		$ak
 );
 //todo: if ($result <= 0) notify the user to try again
 
