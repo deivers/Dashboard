@@ -78,8 +78,9 @@ $(function() {
 			}
 		});
 	}
-	$("#checkButton").click(function(){checkAnswers()});
+	$("#submitButton").click(function(){checkAnswers()});
 	$("#resetButton").click(function(){resetQuiz()});
+	$("#nextButton").hide();
 	$("body").append(showMetaInfo(version));
 });
 

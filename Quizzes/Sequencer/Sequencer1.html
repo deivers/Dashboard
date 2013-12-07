@@ -8,7 +8,8 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
 	<script src="../../_code/jquery.ui.touch-punch.min.js"></script>
-	<style type="text/css">
+	<script src="../../_code/common.js"></script>
+	<style>
 		.quiz {
 			width: 260px;		/* for layout in a horizontal row, make this very wide; for a vertical column, make it narrow */
 			margin: auto;
@@ -61,6 +62,7 @@
 		var akList;
 		$('.draggable').draggable();
 		$(function() {
+			$("#nextButton").hide();
 			$("#sortable1, #sortable2").sortable({
 				connectWith: ".connectedSortable",
 				start: function(event, ui) {
@@ -82,7 +84,7 @@
 			}
  			dragList = $(".draggable");
 
-			$("#checkButton").click(function(){checkAnswers()});
+			$("#submitButton").click(function(){checkAnswers()});
 			$("#resetButton").click(function(){resetQuiz()});
 			showMetaInfo();
 
@@ -120,6 +122,8 @@
 				if (allCorrect) {
 					$(".draggable").addClass("correct",400);
 					setTimeout(function() {alert("CORRECT!\n\nIf you want to do it again, tap Reset.");}, 600);		// make sure the tabs are moved before the alert shows
+					$("#submitButton").hide();
+					$("#nextButton").show();	// if nextButton exists, show it so student can proceed to next page
 				} else {
 					$(".draggable").removeClass("correct",400);
 					setTimeout(function() {alert("One or more of the items is out of order.  Please try again...");}, 600);		// make sure the tabs are moved before the alert shows
@@ -147,9 +151,10 @@
 			<div class="clearFloat"></div>
 		</div>
 <!-- buttons -->
-		<div id="checkButton" class="prominentButton">
+		<div id="submitButton" class="prominentButton">
 			<div>Check answers</div>
 		</div>
+		<button id="nextButton">Next page</button>
 		<div id="resetButton" class="blandButton">
 			<div>RESET</div>
 		</div>
