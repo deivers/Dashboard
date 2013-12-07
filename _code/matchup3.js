@@ -3,7 +3,7 @@
 //   boolean requireCompletion (defaults to true)
 //   boolean logResponsesToDashboard (defaults to false)
 
-var questionType = "MC";
+var questionType = "MultipleChoice";
 var version = "1.2 November 2013";
 var rejectOption = (typeof rejectWrongAnswers === 'undefined' || rejectWrongAnswers);
 var requireOption = (typeof requireCompletion === 'undefined' || requireCompletion);
@@ -15,7 +15,7 @@ $(function() {
 	dragList = $(".dragTab");
 	zoneList = $(".dropZone");
 	// shuffle
-	if (shuffleWhich == "draggables")
+	if (typeof shuffleWhich === 'undefined' || shuffleWhich == "draggables")
 		shuffleDivs("#choiceShelf",".dragParent");
 	else
 		shuffleDivs("#zoneShelf",".zoneGroup");

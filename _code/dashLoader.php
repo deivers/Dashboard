@@ -1,17 +1,14 @@
 <?php
 error_log("dashLoader.php");
-
-//TODO ask the instructor for the total number of students
-
-//TODO open a file browser so the instructor can find the data file of interest
-
 // load all log files of this folder into an array
 error_log("loadAllSubmissionsInFolder");
+// figure out the working directory (based on assumed folder depth!)
 $sourceUrl = $_SERVER['HTTP_REFERER'];
 $workingDir = dirname($sourceUrl);
 $array = explode("/",$workingDir);
 $relativePath = "../".$array[count($array)-2]."/".$array[count($array)-1];		// assume the quiz is 2 levels deep
 error_log("path = ". $relativePath);
+// build file path/name
 $fileNamePrefix = $relativePath . "/submission_log_"; // the first possible log file
 $fileNameSuffix = ".txt";
 $logContents = array();
