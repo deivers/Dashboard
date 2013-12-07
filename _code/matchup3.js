@@ -80,25 +80,8 @@ $(function() {
 	}
 	$("#checkButton").click(function(){checkAnswers()});
 	$("#resetButton").click(function(){resetQuiz()});
-	showMetaInfo();
+	$("body").append(showMetaInfo(version));
 });
-
-function showMetaInfo() {
-	var copyrightText = "Copyright 2013";
-	var createdByText = "";
-	var versionText = "Version "+version+".";
-	var centerNode = $("<center></center>");
-	centerNode.append($("<span></span>").text(copyrightText+" "+createdByText+" "));
-	centerNode.append($("<a href='http://www.onetimesoftware.com' target='_blank'></a>").text("One Time Software"));
-	centerNode.append($("<span></span>").text(". "+versionText));
-	centerNode.append("<br>");
-	centerNode.append($("<span></span>").text("Free for academic use when displaying this notice."));
-	centerNode.css({
-		color: "gray",
-		"font-size": "x-small"
-	});
-	$("body").append(centerNode);
-}
 
 function resetQuiz() {
 	location.reload();
