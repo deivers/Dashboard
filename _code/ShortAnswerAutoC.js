@@ -15,8 +15,8 @@ $(function() {
 	$("input").attr("autocomplete", "off");
 	$("input").keyup(function(event) {handleKeyup(event);});
 	$("#submitButton").click(submitButtonTapped);
-	$("#nextButton").hide();	// this will be revealed when the quiz is correctly completed
-	$("#nextButton").click(function(){window.open(nextPageUrl,"_self")});
+	$("#nextButton").click(function(){window.open(nextPageUrl,"_self")})
+		.hide();      // this will be revealed when the quiz is correctly completed
 	$("body").append(showMetaInfo(version));
 	extract();
 });

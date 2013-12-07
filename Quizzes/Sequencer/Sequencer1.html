@@ -53,7 +53,7 @@
 	</style>
 
 	<script>
-		var questionType = "SQ";
+		var questionType = "Sequencer";
 		var version = "1.0 November 2013";
 		var rejectOption = (typeof rejectWrongAnswers === 'undefined' || rejectWrongAnswers);
 		var studentList = [];
@@ -62,7 +62,6 @@
 		var akList;
 		$('.draggable').draggable();
 		$(function() {
-			$("#nextButton").hide();
 			$("#sortable1, #sortable2").sortable({
 				connectWith: ".connectedSortable",
 				start: function(event, ui) {
@@ -84,10 +83,12 @@
 			}
  			dragList = $(".draggable");
 
+			// set button handlers
 			$("#submitButton").click(function(){checkAnswers()});
 			$("#resetButton").click(function(){resetQuiz()});
-			showMetaInfo();
-
+			$("#nextButton").click(function(){window.open(nextPageUrl,"_self")})
+				.hide();      // this will be revealed when the quiz is correctly completed
+			$("body").append(showMetaInfo(version));
 
 			function showMetaInfo() {
 				var copyrightText = "Copyright 2013";
