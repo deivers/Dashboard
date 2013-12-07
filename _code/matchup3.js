@@ -11,32 +11,14 @@ var isQuizComplete;
 var studentList = [];
 var dragList;
 var zoneList;
-var allList;
 $(function() {
 	dragList = $(".dragTab");
 	zoneList = $(".dropZone");
 	// shuffle
-	if (shuffleWhich == "draggables") {
-		allList = $(".dragParent");
-		$("#choiceShelf").prepend(allList[allList.length-1]);
-		for (var i=0; i<allList.length/2+1; i++)
-			$("#choiceShelf").prepend(allList[Math.floor(Math.random()*allList.length)]);
-		if ($("#choiceShelf").children()[0] == allList[0]) {
-			// make sure the first is not first
-			$("#choiceShelf").append(allList[0]);
-		}
-	} else {
-		allList = $(".zoneGroup");
-		$("#zoneShelf").prepend(allList[allList.length-1]);
-		for (var i=0; i<allList.length/2+1; i++) {
-			rndint = Math.floor(Math.random()*allList.length);
-			$("#zoneShelf").prepend($(".zoneGroup")[rndint]);
-		}
-		if ($("#zoneShelf").children()[0] == allList[0]) {
-			// make sure the first is not first
-			$("#zoneShelf").append(allList[0]);
-		}
-	}
+	if (shuffleWhich == "draggables")
+		shuffleDivs("#choiceShelf",".dragParent");
+	else
+		shuffleDivs("#zoneShelf",".zoneGroup");
 	// set up draggables
 	var dragList2 = $(".dragTab");
 	for (var i=0; i<dragList.length; i++) {

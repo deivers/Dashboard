@@ -15,3 +15,9 @@ function showMetaInfo(versionString) {
 	return centerNode;
 }
 
+function shuffleDivs(elementSelectorToShuffle,parentSelectorOfElements) {
+	allList = $(parentSelectorOfElements);
+	$(elementSelectorToShuffle).append(allList[0]);	// make sure the first is no longer first
+	for (var i=0; i<allList.length/2+1; i++)
+		$(elementSelectorToShuffle).append(allList[Math.floor(Math.random()*allList.length)]);
+}
