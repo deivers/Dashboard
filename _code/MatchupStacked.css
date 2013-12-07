@@ -85,7 +85,7 @@ body {
 }
 .dragTab {
 	/*position: absolute;*/
-	cursor: pointer;
+	cursor: move;
 }
 .dropZone {
 	border: 2px dashed #222;
@@ -106,7 +106,7 @@ body {
 .tabText {
 }
 .dragText {
-	cursor: pointer;
+	cursor: move;
 	color: #0000AE;
 }
 .dragging {

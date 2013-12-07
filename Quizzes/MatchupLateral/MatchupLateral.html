@@ -6,7 +6,7 @@
 		<meta name="version" content="1.2">
 		<title>Matchup Quiz</title>
 		<link href="../../_code/common.css" rel="stylesheet" media="screen" type="text/css">
-		<link href="MatchupLateral.css" rel="stylesheet" media="screen" type="text/css">
+		<link href="../../_code/MatchupLateral.css" rel="stylesheet" media="screen" type="text/css">
 		<style>
 			/* if desired, in this style section override the default styles defined in the external css */
 			/* the most useful classes for styling are .upperTab, .dropZone, .dragTab, and .correct */
@@ -32,6 +32,7 @@
 		</script>
 		<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
 		<script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+		<script src="../../_code/common.js"></script>
 		<script src="../../_code/jquery.ui.touch-punch.min.js"></script>
 		<script src="../../_code/matchup3.js"></script>
 	</head>
@@ -44,36 +45,36 @@
 			<div id="zoneShelf">
 				<div class="zoneGroup">
 					<div class="upperTab">
-						<div class="tabText">
+						<p class="tabText">
 							A single polypeptide chain folded into a 3-dimensional shape by ionic, polar, or covalent bonds
-						</div>
+						</p>
 					</div>
 					<div class="dropZone"></div>
 				</div>
 
 				<div class="zoneGroup">
 					<div class="upperTab">
-						<div class="tabText">
+						<p class="tabText">
 							Several polypeptides held together by ionic, polar, or covalent bonds
-						</div>
+						</p>
 					</div>
 					<div class="dropZone"></div>
 				</div>
 
 				<div class="zoneGroup">
 					<div class="upperTab">
-						<div class="tabText">
+						<p class="tabText">
 							A single polypeptide chain with helical and pleated sheet regions formed by hydrogen bonding
-						</div>
+						</p>
 					</div>
 					<div class="dropZone"></div>
 				</div>
 
 				<div class="zoneGroup">
 					<div class="upperTab">
-						<div class="tabText">
+						<p class="tabText">
 							A linear chain of amino acids held together by covalent bonds
-						</div>
+						</p>
 					</div>
 					<div class="dropZone"></div>
 				</div>
@@ -134,6 +135,7 @@
 			<div id="submitButton" class="prominentButton">
 				<div>Check answers</div>
 			</div>
+			<button id="nextButton">Next page</button>
 			<div id="resetButton" class="blandButton">
 				<div>RESET</div>
 			</div>
