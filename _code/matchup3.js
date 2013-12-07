@@ -111,6 +111,7 @@ function checkAnswers() {
 	if (typeof logResponsesToDashboard === 'undefined')
 		logResponsesToDashboard = false;
 	if (logResponsesToDashboard) {
+		///////TODO: move this to it's own function
 		// submit to server
 		if (typeof studentId === 'undefined' || studentId == "")
 			var studentId = prompt("Please enter your student ID","")
@@ -123,11 +124,11 @@ function checkAnswers() {
 			questionType = "Multiple Choice with the questions shuffled";
 		if (typeof questionTextSummary === 'undefined')
 			questionTextSummary = "Question text summary isn't defined";
-		console.log(studentId);
-		console.log(questionNumber);
-		console.log(questionType);
-		console.log(questionTextSummary);
-		console.log(studentList);
+		//console.log(studentId);
+		//console.log(questionNumber);
+		//console.log(questionType);
+		//console.log(questionTextSummary);
+		//console.log(studentList);
 		var request = $.ajax({
 			type: 'POST',
 			url: 'LogResponse.php',
@@ -163,9 +164,11 @@ function checkAnswers() {
 		}
 	}
 	// give feedback to student
-	if (allCorrect)
+	if (allCorrect) {
 		setTimeout(function(){alert("CORRECT!\n\nIf you want to do it again, tap Reset.");}, 600);		// make sure the tabs are moved before the alert shows
-	else if (rejectOption) {
+		$("#submitButton").hide();
+		$("#nextButton").show();	// if nextButton exists, show it so student can proceed to next page
+	} else if (rejectOption) {
 		if (correctButIncomplete)
 			setTimeout(function(){alert("So far so good...");}, 600);		// make sure the tabs are moved before the alert shows
 		else
