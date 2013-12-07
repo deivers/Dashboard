@@ -6,32 +6,10 @@
 	<script src="../../_code/common.js"></script>
 	<script src="../../_code/ShortAnswerAutoC.js"></script>
 	<script>
-
-		// Editable Section starts here //
-		var quizpageNumber = 1;		// must be unique across quizzes in this folder
-		var autoCompleteTerms = [
-				"meiosis",
-				"mitosis",
-				"metabolism",
-				"respiration",
-				"photosynthesis",
-				"enzyme",
-				"proton",
-				"protein",
-				"double helix",
-				"deoxyribonucleic acid",
-				"denatured alcohol",
-				"amino acid"
-			];
-		var answerTermsEncoded = [
-				"148304",
-				"476116"
-			];
 		var minNumChars = 4;	// the minimum threshold for auto-complete to occur (the entered characters also have to uniquely match one term in the list above)
 		var logResponsesToDashboard = true;
+		var quizpageNumber = 1;		// required if the above is true; must be unique across quizzes in this folder
 		var nextPageUrl = "../MatchupStacked/MatchupStacked.html";  // any relative or absolute url
-		// End if editable section //
-
 	</script>
 </head>
 <body>
@@ -49,5 +27,8 @@
 	<br>
 	<button id="submitButton">Submit</button><button id="nextButton">Next question</button>
 	<p class="score"></p>
+	<div id="autoCompleteTerms">
+		photosynthesis|deoxyribonucleic acid|meiosis|mitosis|metabolism|respiration|enzyme|proton|protein|double helix|denatured alcohol|amino acid
+	</div>
 </body>
 </html>

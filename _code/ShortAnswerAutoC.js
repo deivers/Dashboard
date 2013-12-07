@@ -1,13 +1,26 @@
 // Define the following in the html file:
-//   boolean logResponsesToDashboard (defaults to false)
-//   integer quizpageNumber (required if the above is true)
+//	integer minNumChars
+//	boolean logResponsesToDashboard (defaults to false)
+//	integer quizpageNumber (required if the above is true)
+//	nextPageUrl
 
 // Note: we dont use jQuery autocomplete because we need the custom behavior of only showing completion when the characters entered have only one match, only in a particular list
 // Another reason is that we need (the option) to hide the candidate autocomplete terms from prying eyes
 
 var version = "1.0 November 2013";
 var questionType = "Short Answer";
+var autoCompleteTerms;
 var answerTerms = [];
+$(function() {
+	$("input").attr("autocomplete", "off");
+	$("input").keyup(function(event) {handleKeyup(event);});
+	$("#submitButton").click(submitButtonTapped);
+	$("#nextButton").hide();	// this will be revealed when the quiz is correctly completed
+	$("#nextButton").click(function(){window.open(nextPageUrl,"_self")});
+	$("body").append(showMetaInfo(version));
+	extract();
+});
+
 function completeFragment(fragment) {
 	//console.log("completeFragment function with arg: "+fragment);
 	var length = fragment.length;
@@ -24,6 +37,17 @@ function completeFragment(fragment) {
 	}
 	//console.log("index of match: "+indexOfMatch);
 	return (indexOfMatch>=0 && isMatchUnique ? autoCompleteTerms[indexOfMatch] : "");
+}
+
+function extract() {
+	var termsString = $("#autoCompleteTerms").html().trim();
+	autoCompleteTerms = termsString.split("|");
+	//autoCompleteTerms = autoCompleteTerms.map(function(str){str.trim()});	// should work...
+	//autoCompleteTerms = autoCompleteTerms.forEach(function(str){str.trim()});	// should work...
+	for (var i=0; i<autoCompleteTerms.length; i++) {
+		autoCompleteTerms[i] = autoCompleteTerms[i].trim();
+	}
+	$("#autoCompleteTerms").remove();
 }
 
 function handleKeyup(event) {
@@ -69,6 +93,7 @@ function submitButtonTapped() {
 	$(".score").html(numCorrect+" of "+numTotal+" correct").css("color","#000");
 	if (numCorrect == numTotal) {
 		$(".score").html("Correct!").css("color","#090");
+		$("#submitButton").hide();
 		$("#nextButton").show();	// if nextButton exists, show it so student can proceed to next page
 	}
 }
@@ -82,24 +107,16 @@ function numberTrue(theArray) {
 function checkAnswers() {
 	var scoreArray = new Array();
 	var studentAnswers = new Array();
-	if (answerTerms === undefined || answerTerms.length == 0) {
-		answerTerms = new Array();
-		for (var i=0; i<answerTermsEncoded.length; i++) {
-			var ate = answerTermsEncoded[i];
-			var j = parseInt(ate.charAt(0)) + parseInt(ate.charAt(ate.length-1)) - 1;
-			answerTerms[i] = autoCompleteTerms[j];
-		}
-	}
 	$("input").each(function(index) {
 		//console.log($(this).val());
 		studentAnswers[index] = $(this).val();
-		scoreArray.push(studentAnswers[index].toLowerCase() == answerTerms[index].toLowerCase());
+		scoreArray.push(studentAnswers[index].toLowerCase() == autoCompleteTerms[index].toLowerCase());
 	});
 	/* log answers */
 	if (typeof logResponsesToDashboard === 'undefined')
 		logResponsesToDashboard = false;
 	if (logResponsesToDashboard)
-		logSubmission(answerTerms,studentAnswers);
+		logSubmission(autoCompleteTerms,studentAnswers);
 	// return true/false array
 	return scoreArray;
 }
@@ -108,15 +125,16 @@ function logSubmission(answers,sAnswers) {
 	// submit to server
 	if (typeof studentId === 'undefined' || studentId == "")
 		var studentId = prompt("Please enter your student ID","")
-	// todo: verify that we got a valid id above
+	// todo: get id from the environment variable
+	// todo: verify that we got a unique valid id above, or create one from the ip address?
 	if (typeof quizpageNumber === 'undefined')
 		quizpageNumber = 0;
 	quizpageTextSummary = answers.join(", ");
-	console.log(studentId);
-	console.log(quizpageNumber);
-	console.log(questionType);
-	console.log(quizpageTextSummary);
-	console.log(sAnswers);
+	//console.log(studentId);
+	//console.log(quizpageNumber);
+	//console.log(questionType);
+	//console.log(quizpageTextSummary);
+	//console.log(sAnswers);
 	var request = $.ajax({
 		type: 'POST',
 		url: 'LogResponse.php',
