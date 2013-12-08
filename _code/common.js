@@ -15,9 +15,9 @@ function showMetaInfo(versionString) {
 	return centerNode;
 }
 
-function shuffleDivs(elementSelectorToShuffle,parentSelectorOfElements) {
-	allList = $(parentSelectorOfElements);
-	$(elementSelectorToShuffle).append(allList[0]);	// make sure the first is no longer first
-	for (var i=0; i<allList.length/2+1; i++)
-		$(elementSelectorToShuffle).append(allList[Math.floor(Math.random()*allList.length)]);
+function shuffleDivs(selectorForContainingElement,selectorOfElementsToBeShuffled) {
+	var list = $(selectorOfElementsToBeShuffled);
+	$(selectorForContainingElement).append(list[0]);	// make sure the first is no longer first
+	for (var i=0; i<list.length/2+1; i++)
+		$(selectorForContainingElement).append(list[Math.floor(Math.random()*list.length)]);
 }
