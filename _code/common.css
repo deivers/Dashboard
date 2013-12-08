@@ -43,7 +43,7 @@
 	line-height: 15px;
 	padding: 5% 0;	/* force vertical centering */
 }
-a {
+.prominentButton a {
 	text-decoration: none;
 	color: fff;
 }
