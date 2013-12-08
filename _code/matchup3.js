@@ -8,7 +8,6 @@ var version = "1.2 November 2013";
 var rejectOption = (typeof rejectWrongAnswers === 'undefined' || rejectWrongAnswers);
 var requireOption = (typeof requireCompletion === 'undefined' || requireCompletion);
 var isQuizComplete;
-var studentList = [];
 var dragList;
 var zoneList;
 $(function() {
@@ -72,6 +71,7 @@ function resetQuiz() {
 }
 
 function checkAnswers() {
+	var studentList = [];
 	isQuizComplete = isComplete();
 	if (requireOption && !isQuizComplete) {
 		alert("You must complete the quiz before answers will be checked.");
@@ -92,45 +92,9 @@ function checkAnswers() {
 		if (studentList[i] != i)
 			allCorrect = false;
 	}
-	if (typeof logResponsesToDashboard === 'undefined')
-		logResponsesToDashboard = false;
-	if (logResponsesToDashboard) {
-		///////TODO: move this to it's own function
-		// submit to server
-		if (typeof studentId === 'undefined' || studentId == "")
-			var studentId = prompt("Please enter your student ID","")
-		// todo: verify that we got a valid id above
-		if (typeof questionNumber === 'undefined')
-			questionNumber = 0;
-		if (shuffleWhich == "draggables")
-			questionType = "Multiple Choice with the answers shuffled";
-		else
-			questionType = "Multiple Choice with the questions shuffled";
-		if (typeof questionTextSummary === 'undefined')
-			questionTextSummary = "Question text summary isn't defined";
-		//console.log(studentId);
-		//console.log(questionNumber);
-		//console.log(questionType);
-		//console.log(questionTextSummary);
-		//console.log(studentList);
-		var request = $.ajax({
-			type: 'POST',
-			url: 'LogResponse.php',
-			data: {	si : studentId,		//todo: get student id from env var
-					qn : questionNumber,
-					qt : questionType,
-					qs : questionTextSummary,
-					sa : studentList
-			},
-			dataType: 'json'
-		});
-		request.done(function(msg) {
-			console.log("Submission successful: ");
-		});
-		request.fail(function(jqXHR, textStatus) {
-			console.log("The submission failed: "+textStatus);
-		});
-	}
+
+	logStudentResponses(studentList);
+
 	// reject wrong answers
 	var parentDiv;
 	if ((!(requireOption && !isQuizComplete) && rejectOption) || allCorrect) {
@@ -159,6 +123,43 @@ function checkAnswers() {
 			setTimeout(function(){alert("Please keep trying...");}, 600);		// make sure the tabs are moved before the alert shows
 	} else
 		alert("One or more of your answers are incorrect.  Please try again...");
+}
+
+function logStudentResponses(list) {
+	if (typeof logResponsesToDashboard === 'undefined')
+		logResponsesToDashboard = false;
+	if (logResponsesToDashboard) {
+		///////TODO: move this to it's own function
+		// submit to server
+		if (typeof studentId === 'undefined' || studentId == "")
+			var studentId = prompt("Please enter your student ID","")
+		// todo: verify that we got a valid id above
+		if (typeof questionNumber === 'undefined')
+			questionNumber = 0;
+		if (shuffleWhich == "draggables")
+			questionType = "Multiple Choice with the answers shuffled";
+		else
+			questionType = "Multiple Choice with the questions shuffled";
+		if (typeof questionTextSummary === 'undefined')
+			questionTextSummary = "Question text summary isn't defined";
+		var request = $.ajax({
+			type: 'POST',
+			url: 'LogResponse.php',
+			data: {	si : studentId,		//todo: get student id from env var
+					qn : questionNumber,
+					qt : questionType,
+					qs : questionTextSummary,
+					sa : list
+			},
+			dataType: 'json'
+		});
+		request.done(function(msg) {
+			console.log("Submission successful: ");
+		});
+		request.fail(function(jqXHR, textStatus) {
+			console.log("The submission failed: "+textStatus);
+		});
+	}
 }
 
 function isComplete() {

@@ -130,11 +130,6 @@ function logSubmission(answers,sAnswers) {
 	if (typeof quizpageNumber === 'undefined')
 		quizpageNumber = 0;
 	quizpageTextSummary = answers.join(", ");
-	//console.log(studentId);
-	//console.log(quizpageNumber);
-	//console.log(questionType);
-	//console.log(quizpageTextSummary);
-	//console.log(sAnswers);
 	var request = $.ajax({
 		type: 'POST',
 		url: 'LogResponse.php',
