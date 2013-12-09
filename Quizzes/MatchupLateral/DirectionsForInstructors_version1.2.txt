@@ -16,7 +16,7 @@ One Time Software created more than one Matchup Quiz template.  These instructio
 Folder structure details here.......
 
 Steps to insert your own content:
-	1.	Locate the MatchupTemplate.html file and rename it according to the topic you will quiz on.  If you will be using the Dashboard, change the .php file to the same name.  Edit the .html file, overwriting the existing text and add/remove div's as needed to match your number of items.
+	1.	Locate the MatchupTemplate.html file and rename it according to the topic you will quiz on.  Edit the .html file, overwriting the existing text and add/remove div's as needed to match your number of items.
 	2.	Optionally, set the following parameters in the html script as you see fit:
 			shuffleWhich
 			rejectWrongAnswers
@@ -24,16 +24,15 @@ Steps to insert your own content:
 		See the inline comments after each variable for more information.
 	4.	Optionally, modify the html above and below the <div id="quiz"> tag to add title, instructions, links, etc.
 	5. 	Save the html file and test it in a browser.  You need to be connected to the internet to test because the code loads javascript libraries when it runs.
+	6.	To log student responses to the Dashboard, copy one of the LogResponse.php files to the same folder as your edited html file.
 
-Note that the html file must be in the same folder with the following files:
-	matchupLeftRight.css  or  matchupUpDown.css  (or both)
-	*.php  (if using the Dashboard)
-The following folder/files need to be up a level in the hierarchy:
+The following folder/files need to be in the _code folder 2 levels above the html file:
 	common.css
 	jquery.ui.touch-punch.min.js
-	matchup.js
+	matchup3.js
+	MatchupStacked.css  or  MatchupLateral.css
 
-As noted before, do not change the name of .css or .js files.  You can in fact have multiple quizzes (html files) in the same folder and only one copy of the .css and .js files.
+As noted before, do not change the name of .css or .js files.
 
 To use images in the left column instead of text, replace:
 			<div class="upperTab">
