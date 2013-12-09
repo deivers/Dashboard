@@ -6,10 +6,6 @@
 	<title>Sequencer Quiz</title>
 	<script src="../../_code/common.js"></script>
 	<link href="../../_code/common.css" rel="stylesheet" media="screen" type="text/css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
-	<script src="../../_code/jquery.ui.touch-punch.min.js"></script>
-	<script src="../../_code/Sequencer.js"></script>
 	<style>
 		.quiz {
 			width: 260px;		/* for layout in a horizontal row, make this very wide; for a vertical column, make it narrow */
@@ -52,6 +48,15 @@
 			-webkit-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
 		}
 	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+	<script src="../../_code/jquery.ui.touch-punch.min.js"></script>
+	<script src="../../_code/Sequencer.js"></script>
+	<script>
+		var logResponsesToDashboard = true;
+		var quizpageNumber = 1;		// required if the above is true; must be unique across quizzes in this folder
+		var nextPageUrl = "../ShortAnswer/ShortAnswer.html";  // any relative or absolute url
+	</script>
 </head>
 <body>
 	<div class="quiz">
