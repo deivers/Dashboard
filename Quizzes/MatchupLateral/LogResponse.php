@@ -24,5 +24,9 @@ $result = logStudentSubmission(
 		$ak
 );
 //todo: if ($result <= 0) notify the user to try again
+if ($result <= 0) {
+	date_default_timezone_set('UTC');
+	error_log("*** Error logging response: ".date("c")."|".$studentId."|".$questionNumber."|".$questionType."|".$questionTextSummary."|".$studentAnswerArray);
+}
 
 ?>
