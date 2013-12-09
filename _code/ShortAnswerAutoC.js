@@ -13,7 +13,7 @@ var autoCompleteTerms;
 var answerTerms = [];
 $(function() {
 	$("input").attr("autocomplete", "off");
-	$("input").keyup(function(event) {handleKeyup(event);});
+	$("input").keyup(function(event){handleKeyup(event);});
 	$("#submitButton").click(submitButtonTapped);
 	$("#nextButton").click(function(){window.open(nextPageUrl,"_self")})
 		.hide();      // this will be revealed when the quiz is correctly completed
