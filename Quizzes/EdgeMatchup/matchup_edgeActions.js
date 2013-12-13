@@ -15,13 +15,13 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       
       Symbol.bindSymbolAction(compId, symbolName, "creationComplete", function(sym, e) {
          var head = document.getElementsByTagName('head')[0];
-         // <link href="DragDrop.css" rel="stylesheet" type="text/css">
+         // the following lines create: <link href="DragDrop.css" rel="stylesheet" type="text/css">
          var styleSheet = document.createElement('link');
          styleSheet.type = 'text/css';
          styleSheet.rel = 'stylesheet';
          styleSheet.href = 'DragDrop.css';
          head.appendChild(styleSheet);
-         // create <script src='jquery-ui-touch-combo.js'></script>
+         // the following lines create: <script src='jquery-ui-touch-combo.js'></script>
          var script = document.createElement('script');
          script.src = 'jquery-ui-touch-combo.js';
          script.onload = function() {
@@ -32,12 +32,15 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          	//   - name the hints on the left: "qHint1", "qHint2", etc. corresponding to each zone
          	//   - name the hints on the right: "dragHint1", "dragHint2", etc. corresponding to each draggable
          	//   - hints are optional - just delete the text if you don't want to use a hint
-         	var targetList = ["zone1"];			// must be in sequential order
-         	var answerList = ["drag1"];			// answer key - order these to match the correct zone
+         	var targetList = ["zone1","zone2"];			// must be in sequential order
+         	var answerList = ["drag2","drag1"];			// answer key - order these to match the correct zone
          													// list all the drags even if you have more drags than zones
          	var rejectWrongAnswers = true;		// false increases difficulty
          	var requireCompletion = true;			// true increases difficulty
          	var introAnimation = true;				// helps convey to user that drag elements are in fact draggable
+         	var logResponsesToDashboard = true;
+         	var questionNumber = 1;
+         	var questionTextSummary = "short description of what is in this quiz"
          	// end if editable section //
          
          	var myLeft, myTop;
@@ -173,6 +176,44 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          		var bCenterH = sym.$(b).offset().left + sym.$(b).width()/2;
          		var bCenterV = sym.$(b).offset().top + sym.$(b).height()/2;
          		return (aCenterH-buffer < bCenterH && bCenterH < aCenterH+buffer && aCenterV-buffer < bCenterV && bCenterV < aCenterV+buffer);
+         	}
+         
+         	function logStudentResponses(list) {
+         		if (typeof logResponsesToDashboard === 'undefined')
+         			logResponsesToDashboard = false;
+         		if (logResponsesToDashboard) {
+         			// submit to server
+         			if (typeof studentId === 'undefined' || studentId == "")
+         				var studentId = prompt("Please enter your student ID","")
+         			// todo: verify that we got a valid id above
+         			if (typeof questionNumber === 'undefined')
+         				var questionNumber = 0;
+         			var questionType;
+         			//if (shuffleWhich == "draggables")
+         			//	questionType = "Edge Matchup with the answers shuffled";
+         			//else
+         			//	questionType = "Edge Matchup with the questions shuffled";
+         			questionType = "Edge Matchup";
+         			if (typeof questionTextSummary === 'undefined')
+         				var questionTextSummary = "Question text summary isn't defined";
+         			var request = $.ajax({
+         				type: 'POST',
+         				url: 'LogResponse.php',
+         				data: {	si : studentId,		//todo: get student id from env var
+         						qn : questionNumber,
+         						qt : questionType,
+         						qs : questionTextSummary,
+         						sa : list
+         				},
+         				dataType: 'json'
+         			});
+         			request.done(function(msg) {
+         				console.log("Submission successful: ");
+         			});
+         			request.fail(function(jqXHR, textStatus) {
+         				console.log("The submission failed: "+textStatus);
+         			});
+         		}
          	}
          }
          head.appendChild(script);
