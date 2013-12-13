@@ -153,7 +153,7 @@ function logStudentResponses(list) {
 			dataType: 'json'
 		});
 		request.done(function(msg) {
-			console.log("Submission successful: ");
+			console.log("Submission successful");
 		});
 		request.fail(function(jqXHR, textStatus) {
 			console.log("The submission failed: "+textStatus);
