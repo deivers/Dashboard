@@ -42,6 +42,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          });
          
          sym.checkAnswers = function() {
+         	var questionType;
          	console.log("checking answers...");
          	var allCorrect = false;
          	var studentChoices = arrayOfCheckmarkedChoices();
@@ -53,14 +54,22 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          		if (checkboxes[i].getSymbolElement().css("opacity") < 1.0)
          			correctChoices.push(i);
          	}
+         	if (correctChoices.length > 1)
+         		questionType = "Multiple Select";
+         	else
+         		questionType = "Multiple Choice";
          	allCorrect = areArraysTheSame(studentChoices,correctChoices);
          	// respond to student
          	if (!isQuizComplete)
          		alert("You must select at least one before answer(s) will be checked.");
-         	else if (allCorrect)
-         		alert("CORRECT!");
-         	else
-         		alert("One or more of your selections are incorrect.  Please try again...");
+         	else {
+         		logStudentResponses(studentChoices,questionType);
+         		if (allCorrect)
+         			alert("CORRECT!");
+         		else
+         			alert("One or more of your selections are incorrect.  Please try again...");
+         	}
+         	//todo: color correct/incorrect checkboxes
          }
          
          function arrayOfCheckmarkedChoices() {
@@ -80,6 +89,38 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          			result = false;
          	});
          	return result;
+         }
+         
+         function logStudentResponses(list, qType) {
+         	if (typeof logResponsesToDashboard === 'undefined')
+         		logResponsesToDashboard = false;
+         	if (logResponsesToDashboard) {
+         		// submit to server
+         		if (typeof studentId === 'undefined' || studentId == "")
+         			var studentId = prompt("Please enter your student ID","")
+         		// todo: verify that we got a valid id above
+         		if (typeof questionNumber === 'undefined')
+         			var questionNumber = 0;
+         		if (typeof questionTextSummary === 'undefined')
+         			var questionTextSummary = "Question text summary isn't defined";
+         		var request = $.ajax({
+         			type: 'POST',
+         			url: 'LogResponse.php',
+         			data: {	si : studentId,		//todo: get student id from env var
+         					qn : questionNumber,
+         					qt : qType,
+         					qs : questionTextSummary,
+         					sa : list
+         			},
+         			dataType: 'json'
+         		});
+         		request.done(function(msg) {
+         			console.log("Submission successful: ");
+         		});
+         		request.fail(function(jqXHR, textStatus) {
+         			console.log("The submission failed: "+textStatus);
+         		});
+         	}
          }
 
       });
