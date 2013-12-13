@@ -21,10 +21,16 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       //Edge binding end
 
       Symbol.bindElementAction(compId, symbolName, "document", "compositionReady", function(sym, e) {
+         {	// Editable section //
+         	var logResponsesToDashboard = true;
+         	var questionNumber = 1;
+         	var questionTextSummary = "short description of what is in this quiz"
+         	// end if editable section //
+         }
+         
          console.log("composition ready");
          var textFields = sym.$(".textSource");
          console.log("number of fields: "+textFields.length);
-         
          var texts = [];
          for (var i=0; i<textFields.length; i++) {
          	texts[i] = $(textFields[i]).html();
@@ -59,25 +65,32 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          	var wrong = [];
          	var k = 0;
          	var answerTexts = [];
+         	var isComplete = true;
          	// which index did the student pick?
          	for (var j=0; j<answerWidgets.length; j++) {
          		answerTexts.push($(answerWidgets[j]).val());
-         		if ($(answerWidgets[j]).val() != texts[j]) {
+         		thisText = $(answerWidgets[j]).val();
+         		if (thisText != texts[j]) {
          			// this one is incorrect
          			wrong[k++] = answerWidgets[j];
+         			if (thisText == "?" || thisText == "-" || thisText == "")
+         				isComplete = false;
          		}
          		//var index = $.inArray($(answerWidgets[j]).val(), textForMenus); // is there an easier way to get the selected index?
          		//console.log(index);
          	}
-         	logStudentResponses(answerTexts);
-         	// clear any previous marks
-         	$(answerWidgets).parent().css({"border":"0px"});
-         	// mark wrong answers
-         	$(wrong).parent().css({"border":"3px solid red"});
-         	if (wrong.length > 0)
-         		alert("Please keep trying.");
-         	else
-         		alert("All correct!");
+         	if (isComplete) {
+         		logStudentResponses(answerTexts);
+         		// clear any previous marks
+         		$(answerWidgets).parent().css({"border":"0px"});
+         		// mark wrong answers
+         		$(wrong).parent().css({"border":"3px solid red"});
+         		if (wrong.length > 0)
+         			alert("Please keep trying.");
+         		else
+         			alert("All correct!");
+         	} else
+         			alert("You must complete the quiz before answers will be checked.");
          }
          
          /**
