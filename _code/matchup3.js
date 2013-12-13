@@ -129,19 +129,18 @@ function logStudentResponses(list) {
 	if (typeof logResponsesToDashboard === 'undefined')
 		logResponsesToDashboard = false;
 	if (logResponsesToDashboard) {
-		///////TODO: move this to it's own function
 		// submit to server
 		if (typeof studentId === 'undefined' || studentId == "")
 			var studentId = prompt("Please enter your student ID","")
 		// todo: verify that we got a valid id above
 		if (typeof questionNumber === 'undefined')
-			questionNumber = 0;
+			var questionNumber = 0;
 		if (shuffleWhich == "draggables")
 			questionType = "Multiple Choice with the answers shuffled";
 		else
 			questionType = "Multiple Choice with the questions shuffled";
 		if (typeof questionTextSummary === 'undefined')
-			questionTextSummary = "Question text summary isn't defined";
+			var questionTextSummary = "Question text summary isn't defined";
 		var request = $.ajax({
 			type: 'POST',
 			url: 'LogResponse.php',
