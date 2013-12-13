@@ -58,9 +58,10 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          	var answerWidgets = sym.$(".menu");
          	var wrong = [];
          	var k = 0;
+         	var answerTexts = [];
          	// which index did the student pick?
          	for (var j=0; j<answerWidgets.length; j++) {
-         		//console.log($(answerWidgets[j]).val());
+         		answerTexts.push($(answerWidgets[j]).val());
          		if ($(answerWidgets[j]).val() != texts[j]) {
          			// this one is incorrect
          			wrong[k++] = answerWidgets[j];
@@ -68,6 +69,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          		//var index = $.inArray($(answerWidgets[j]).val(), textForMenus); // is there an easier way to get the selected index?
          		//console.log(index);
          	}
+         	logStudentResponses(answerTexts);
          	// clear any previous marks
          	$(answerWidgets).parent().css({"border":"0px"});
          	// mark wrong answers
@@ -90,6 +92,40 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
                  array[j] = temp;
              }
              return array;
+         }
+         
+         function logStudentResponses(list) {
+         	if (typeof logResponsesToDashboard === 'undefined')
+         		logResponsesToDashboard = false;
+         	if (logResponsesToDashboard) {
+         		// submit to server
+         		if (typeof studentId === 'undefined' || studentId == "")
+         			var studentId = prompt("Please enter your student ID","")
+         		// todo: verify that we got a valid id above
+         		if (typeof questionNumber === 'undefined')
+         			var questionNumber = 0;
+         		if (typeof questionType === 'undefined')
+         			var questionType = "Image Labeler";
+         		if (typeof questionTextSummary === 'undefined')
+         			var questionTextSummary = "Question text summary isn't defined";
+         		var request = $.ajax({
+         			type: 'POST',
+         			url: 'LogResponse.php',
+         			data: {	si : studentId,		//todo: get student id from env var
+         					qn : questionNumber,
+         					qt : questionType,
+         					qs : questionTextSummary,
+         					sa : list
+         			},
+         			dataType: 'json'
+         		});
+         		request.done(function(msg) {
+         			console.log("Submission successful");
+         		});
+         		request.fail(function(jqXHR, textStatus) {
+         			console.log("The submission failed: "+textStatus);
+         		});
+         	}
          }
          
          

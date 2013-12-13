@@ -147,108 +147,108 @@ var symbols = {
          "${_TextCopy4}": [
             ["style", "top", '192px'],
             ["style", "height", '21px'],
-            ["style", "font-size", '15px'],
+            ["style", "width", '160px'],
             ["style", "left", '537px'],
-            ["style", "width", '160px']
-         ],
-         "${_TextCopy13}": [
-            ["style", "top", '506px'],
-            ["style", "height", '21px'],
-            ["style", "width", '171px'],
-            ["style", "left", '120px'],
             ["style", "font-size", '15px']
-         ],
-         "${_cellmodel}": [
-            ["style", "top", '139px'],
-            ["style", "height", '317px'],
-            ["style", "left", '92px'],
-            ["style", "width", '488px']
-         ],
-         "${_TextCopy5}": [
-            ["style", "top", '175px'],
-            ["style", "height", '21px'],
-            ["style", "font-size", '15px'],
-            ["style", "left", '3px'],
-            ["style", "width", '160px']
-         ],
-         "${_TextCopy12}": [
-            ["style", "top", '283px'],
-            ["style", "height", '21px'],
-            ["style", "font-size", '15px'],
-            ["style", "left", '-190px'],
-            ["style", "width", '160px']
-         ],
-         "${_TextCopy}": [
-            ["style", "top", '366px'],
-            ["style", "height", '21px'],
-            ["style", "font-size", '15px'],
-            ["style", "left", '-190px'],
-            ["style", "width", '160px']
-         ],
-         "${_TextCopy10}": [
-            ["style", "top", '233px'],
-            ["style", "height", '21px'],
-            ["style", "font-size", '15px'],
-            ["style", "left", '580px'],
-            ["style", "width", '160px']
          ],
          "${_TextCopy3}": [
             ["style", "top", '164px'],
             ["style", "height", '21px'],
-            ["style", "font-size", '15px'],
+            ["style", "width", '160px'],
             ["style", "left", '489px'],
+            ["style", "font-size", '15px']
+         ],
+         "${_TextCopy11}": [
+            ["style", "top", '221px'],
+            ["style", "height", '21px'],
+            ["style", "font-size", '15px'],
+            ["style", "left", '-190px'],
             ["style", "width", '160px']
          ],
-         "${_TextCopy9}": [
-            ["style", "top", '164px'],
+         "${_TextCopy5}": [
+            ["style", "top", '175px'],
+            ["style", "height", '21px'],
+            ["style", "width", '160px'],
+            ["style", "left", '3px'],
+            ["style", "font-size", '15px']
+         ],
+         "${_TextCopy12}": [
+            ["style", "top", '283px'],
             ["style", "height", '21px'],
             ["style", "width", '160px'],
             ["style", "left", '-190px'],
             ["style", "font-size", '15px']
          ],
-         "${_TextCopy8}": [
-            ["style", "top", '433px'],
+         "${_TextCopy6}": [
+            ["style", "top", '350px'],
             ["style", "height", '21px'],
-            ["style", "font-size", '15px'],
-            ["style", "left", '17px'],
-            ["style", "width", '160px']
+            ["style", "width", '160px'],
+            ["style", "left", '537px'],
+            ["style", "font-size", '15px']
          ],
-         "${_Text}": [
-            ["style", "top", '506px'],
+         "${_SubmitAnswersButton}": [
+            ["style", "left", '518px']
+         ],
+         "${_TextCopy9}": [
+            ["style", "top", '164px'],
             ["style", "height", '21px'],
             ["style", "font-size", '15px'],
-            ["style", "left", '296px'],
+            ["style", "left", '-190px'],
             ["style", "width", '160px']
          ],
          "${_TextCopy2}": [
             ["style", "top", '133px'],
             ["style", "height", '21px'],
-            ["style", "font-size", '15px'],
+            ["style", "width", '160px'],
             ["style", "left", '438px'],
-            ["style", "width", '160px']
+            ["style", "font-size", '15px']
+         ],
+         "${_TextCopy8}": [
+            ["style", "top", '433px'],
+            ["style", "height", '21px'],
+            ["style", "width", '160px'],
+            ["style", "left", '17px'],
+            ["style", "font-size", '15px']
+         ],
+         "${_Text}": [
+            ["style", "top", '506px'],
+            ["style", "height", '21px'],
+            ["style", "width", '160px'],
+            ["style", "left", '296px'],
+            ["style", "font-size", '15px']
+         ],
+         "${_cellmodel}": [
+            ["style", "height", '317px'],
+            ["style", "top", '139px'],
+            ["style", "left", '92px'],
+            ["style", "width", '488px']
          ],
          "${_Stage}": [
             ["color", "background-color", 'rgba(255,255,255,0.00)'],
-            ["style", "overflow", 'hidden'],
+            ["style", "width", '740px'],
             ["style", "height", '700px'],
-            ["style", "width", '740px']
+            ["style", "overflow", 'hidden']
          ],
-         "${_SubmitAnswersButton}": [
-            ["style", "left", '518px']
-         ],
-         "${_TextCopy6}": [
-            ["style", "top", '350px'],
+         "${_TextCopy10}": [
+            ["style", "top", '233px'],
             ["style", "height", '21px'],
-            ["style", "font-size", '15px'],
-            ["style", "left", '537px'],
-            ["style", "width", '160px']
+            ["style", "width", '160px'],
+            ["style", "left", '580px'],
+            ["style", "font-size", '15px']
          ],
-         "${_TextCopy11}": [
-            ["style", "top", '221px'],
+         "${_TextCopy}": [
+            ["style", "top", '366px'],
             ["style", "height", '21px'],
             ["style", "width", '160px'],
             ["style", "left", '-190px'],
             ["style", "font-size", '15px']
+         ],
+         "${_TextCopy13}": [
+            ["style", "top", '506px'],
+            ["style", "height", '21px'],
+            ["style", "font-size", '15px'],
+            ["style", "left", '120px'],
+            ["style", "width", '171px']
          ]
       }
    },
@@ -284,13 +284,13 @@ var symbols = {
       fill: ['rgba(93,93,93,1.00)',[270,[['rgba(125,125,125,1.00)',0],['rgba(73,73,73,1.00)',100]]]]
    },
    {
-      type: 'text',
       rect: ['30px','6px','72px','auto','auto','auto'],
+      font: ['Arial, Helvetica, sans-serif',16,'rgba(255,255,255,1.00)','500','none',''],
       align: 'center',
       id: 'Text',
       text: 'Submit<br>',
       cursor: ['pointer'],
-      font: ['Arial, Helvetica, sans-serif',16,'rgba(255,255,255,1.00)','500','none','']
+      type: 'text'
    }],
    symbolInstances: [
    ]
@@ -306,21 +306,21 @@ var symbols = {
             ["style", "width", '129px'],
             ["style", "top", '0px'],
             ["style", "border-bottom-left-radius", [14,14], {valueTemplate:'@@0@@px @@1@@px'} ],
-            ["gradient", "background-image", [270,[['rgba(125,125,125,1.00)',0],['rgba(73,73,73,1.00)',100]]]],
+            ["style", "border-top-right-radius", [14,14], {valueTemplate:'@@0@@px @@1@@px'} ],
             ["style", "height", '27px'],
-            ["style", "border-width", '1px'],
             ["style", "left", '0px'],
-            ["style", "border-top-right-radius", [14,14], {valueTemplate:'@@0@@px @@1@@px'} ]
+            ["style", "border-width", '1px'],
+            ["gradient", "background-image", [270,[['rgba(125,125,125,1.00)',0],['rgba(73,73,73,1.00)',100]]]]
          ],
          "${_Text}": [
             ["style", "top", '6px'],
-            ["style", "width", '72px'],
+            ["style", "font-size", '16px'],
             ["style", "text-align", 'center'],
-            ["style", "cursor", 'pointer'],
+            ["style", "left", '30px'],
             ["color", "color", 'rgba(255,255,255,1.00)'],
             ["style", "font-weight", '500'],
-            ["style", "left", '30px'],
-            ["style", "font-size", '16px']
+            ["style", "cursor", 'pointer'],
+            ["style", "width", '72px']
          ],
          "${symbolSelector}": [
             ["style", "height", '31px'],
