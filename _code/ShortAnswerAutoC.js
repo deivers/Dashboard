@@ -15,6 +15,7 @@ $(function() {
 	$("input").attr("autocomplete", "off");
 	$("input").keyup(function(event){handleKeyup(event);});
 	$("#submitButton").click(submitButtonTapped);
+	$("#resetButton").click(function(){resetQuiz()});
 	$("#nextButton").click(function(){window.open(nextPageUrl,"_self")})
 		.hide();      // this will be revealed when the quiz is correctly completed
 	$("body").append(showMetaInfo(version));
@@ -147,4 +148,8 @@ function logSubmission(answers,sAnswers) {
 	request.fail(function(jqXHR, textStatus) {
 		console.log("The submission failed: "+textStatus);
 	});
+}
+
+function resetQuiz() {
+	location.reload();
 }
