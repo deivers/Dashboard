@@ -41,26 +41,25 @@ function computeAndDisplayStats(logArray) {
 	var nFirst, nLast;
 	// for each log file
 	logArray.forEach(function(logString,quizpageIndex) {
-		console.log("Quiz-page number "+(quizpageIndex+1));
 		student = parseLogString(quizpageIndex+1,logString);
-		console.log("Question type: "+student.questionType);
-		console.log("Question text: "+student.questionText);
-		console.log("Answer key: "+student.answerKeyString);
-		console.log("");
 		nFirst = numberCorrectSubmissions(firstSubmissionIndex);
 		nLast = numberCorrectSubmissions(lastSubmissionIndex)
-		console.log("Number of students that responded: "+student.length);
-		console.log("Number of students with all correct on final submission: "+nLast+"  "+toPercent(nLast,student.length)+"%");
-		console.log("Number of students with all correct on first submission: "+nFirst+"  "+toPercent(nFirst,student.length)+"%");
-		console.log("Number correct for each answer on first submission: "+numberCorrectAnswers(firstSubmissionIndex).toString());
-		console.log("Number correct for each answer on first submission: "+toPercentArrayWithUnits(numberCorrectAnswers(firstSubmissionIndex),student.length));
-		console.log("The most common answers on first submission: "+mostCommonAnswers(firstSubmissionIndex));
-		console.log("Answer key again: "+student.answerKeyString);
-		console.log("");
 		console.log("First student's first submitted answers: "+student[0][answersIndex]);
 		console.log("First student's last submitted answers: "+student[0][lastSubmissionIndex]);
 		console.log("Number of submissions by the first student: "+student[0][numberOfSubmissionsIndex]);
-		console.log("----------------");
+		console.log("");
+		$("body")
+			.append($("<h2>Quiz-page #"+(quizpageIndex+1)+"</h2>"))
+			.append($("<p>Question type: "+student.questionType+"</p>"))
+			.append($("<p>Question summary: "+student.questionText+"</p>"))
+			.append($("<p>Answer key: "+student.answerKeyString+"</p>"))
+			.append($("<br />"))
+			.append($("<p>Number of students that responded: "+student.length+"</p>"))
+			.append($("<p>Number of students with all correct on final submission: "+nLast+" which is "+toPercent(nLast,student.length)+"%</p>"))
+			.append($("<p>Number of students with all correct on first submission: "+nFirst+" which is "+toPercent(nFirst,student.length)+"%</p>"))
+			.append($("<p>Number correct for each answer on first submission: "+numberCorrectAnswers(firstSubmissionIndex).toString()+"</p>"))
+			.append($("<p>Percent correct for each answer on first submission: "+toPercentArrayWithUnits(numberCorrectAnswers(firstSubmissionIndex),student.length)+"</p>"))
+			.append($("<p>The most common answers on first submission: "+mostCommonAnswers(firstSubmissionIndex)+"</p>"));
 	});
 }
 
@@ -80,6 +79,7 @@ function parseLogString(qNumber,logString) {
 	// now we have: logArray[which line][timestamp/studentId/answers]  (except first line is different)
 	logArrayOneLinePerStudent = firstSubmissions(logArray,studentIdIndex);
 	// now we have: logArrayOneLinePerStudent[which student][timestamp/student/first submission/last submission/number of submissions]
+
 	//console.log("first student's array, one element per line:");
 	//var student=0;
 	//for (var column=0; column<5; column++)
@@ -88,6 +88,10 @@ function parseLogString(qNumber,logString) {
 	logArrayOneLinePerStudent.questionText = logArray[0][1];
 	logArrayOneLinePerStudent.answerKeyString = logArray[0][2];
 	return logArrayOneLinePerStudent;
+}
+
+function saveParsedDataToFile(dataArray) {
+	// todo: create a file that can be imported into excel
 }
 
 function firstSubmissions(origArr,columnToCompare) {
