@@ -1,0 +1,7 @@
+About cheating
+
+The quizzes and dashboard provided for free are intended for formative assessment rather than a component of the student's grade.  They are designed to be "cheat resistant" not "cheat proof".  The typical student won't be able to use a standard browser's inspect tool to see the answers.  However, if a student's room mate is a web developer, that person would likely be able to figure out how to see the answers.
+
+If you and/or your institution require "cheat proof" quizzes, this can certainly be implemented.  Contact One Time Software for details at support@onetimesoftware.com.
+
+When using images, the filenames should not have any clues for what the image is, or clues about the order of the images....
