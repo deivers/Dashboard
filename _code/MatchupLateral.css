@@ -7,12 +7,12 @@ body {
 	margin-left: auto;
 	margin-right: auto;
 }
-#zoneShelf {
+#questions {
 	width: auto;
 	height: auto;
 	padding: 10px;
 }
-#choiceShelf {
+#choices {
 	width: auto;
 	height: auto;
 	padding: 10px 10px 50px 10px;
@@ -22,29 +22,29 @@ body {
 .zoneGroup {
 	display: inline-block;
 }
-.dragParent {
+.dragGroup {
 	display: inline-block;
 	vertical-align: middle;
 	clear: both;
 }
-.zoneGroup, .dragParent {
+.zoneGroup, .dragGroup {
 	margin: 15px;
 }
-.upperTab, .dropZone, .dragTab {
+.questionTab, .dropZone, .dragTab {
 	height: 80px;
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 }
-.upperTab, .dropZone {
+.questionTab, .dropZone {
 	position: relative;
 	float: left;
 }
-.upperTab, .dragTab {
+.questionTab, .dragTab {
 	background-color: #DFDFDF;
 	border:1px solid #000;
 }
-.upperTab:before {		/* hack to get vertical centering */
+.questionTab:before {		/* hack to get vertical centering */
 	content: '';
 	display: inline-block;
 	height: 100%;
@@ -71,7 +71,7 @@ body {
 	-moz-border-radius-bottomright: 15px;
 	-webkit-border-bottom-right-radius: 15px;
 }
-.upperTab {
+.questionTab {
 	width: 360px;
 	border-top-left-radius: 15px;
 	-o-border-top-left-radius: 15px;

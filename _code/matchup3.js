@@ -15,9 +15,9 @@ $(function() {
 	zoneList = $(".dropZone");
 	// shuffle
 	if (typeof shuffleWhich === 'undefined' || shuffleWhich == "draggables")
-		shuffleDivs("#choiceShelf",".dragParent");
+		shuffleDivs("#choices",".dragGroup");
 	else
-		shuffleDivs("#zoneShelf",".zoneGroup");
+		shuffleDivs("#questions",".zoneGroup");
 	// set up draggables
 	var dragList2 = $(".dragTab");
 	for (var i=0; i<dragList.length; i++) {

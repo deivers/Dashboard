@@ -12,10 +12,11 @@
 			/* if desired, in this style section override the default styles defined in the external css */
 			/* the most useful classes for styling are .upperTab, .dropZone, .dragTab, and .correct */
 			/* the following makes sure all the widths are the same; adjust to suit your content */
-			.upperTab, .dragTab, .dropZone, img {
+			.questionTab, .dragTab, .dropZone, img {
 				width: 300px;
 			}
-			.upperTab {
+			.questionTab {
+				height: 80px;
 				background-color: #ccc;
 			}
 		</style>
@@ -23,7 +24,7 @@
 			/* the following parameters govern the behavior of the quiz */
 			var questionNumber = 1;				// must be unique across files in this folder
 			var questionSummaryText = "DNA structures";
-			var shuffleWhich = "draggables";	// "dropZones" or "draggables"
+			var shuffleWhich = "draggables";	// "questions" or "draggables"
 			var rejectWrongAnswers = false;		// false increases difficulty
 			var requireCompletion = false;		// true increases difficulty
 			var logResponsesToDashboard = true;	// true if you want to use the Dashboard
@@ -39,11 +40,11 @@
 		<h2>Drag from the lower group and drop on the best match in the upper group</h2>
 		<div id="quiz">
 
-<!-- tabs and zones -->
-			<div id="zoneShelf">
+<!-- question tabs and drop zones -->
+			<div id="questions">
 
 				<div class="zoneGroup">
-					<div class="upperTab">
+					<div class="questionTab">
 						<p class="tabText">
 							One
 						</p>
@@ -52,7 +53,7 @@
 				</div>
 
 				<div class="zoneGroup">
-					<div class="upperTab">
+					<div class="questionTab">
 						<p class="tabText">
 							Two
 						</p>
@@ -61,7 +62,7 @@
 				</div>
 
 				<div class="zoneGroup">
-					<div class="upperTab">
+					<div class="questionTab">
 						<p class="tabText">
 							Three
 						</p>
@@ -70,7 +71,7 @@
 				</div>
 
 				<div class="zoneGroup">
-					<div class="upperTab">
+					<div class="questionTab">
 						<p class="tabText">
 							Four
 						</p>
@@ -81,9 +82,9 @@
 			</div>
 
 <!-- draggable choices -->
-			<div id="choiceShelf">
+			<div id="choices">
 
-				<div class="dragParent">
+				<div class="dragGroup">
 					<div class="dragTab">
 						<p class="dragText">
 							Uno
@@ -91,7 +92,7 @@
 					</div>
 				</div>
 
-				<div class="dragParent">
+				<div class="dragGroup">
 					<div class="dragTab">
 						<p class="dragText">
 							Dos
@@ -99,7 +100,7 @@
 					</div>
 				</div>
 
-				<div class="dragParent">
+				<div class="dragGroup">
 					<div class="dragTab">
 						<p class="dragText">
 							Tres
@@ -107,7 +108,7 @@
 					</div>
 				</div>
 
-				<div class="dragParent">
+				<div class="dragGroup">
 					<div class="dragTab">
 						<p class="dragText">
 							Quatro
@@ -115,7 +116,7 @@
 					</div>
 				</div>
 
-				<div class="dragParent">
+				<div class="dragGroup">
 					<div class="dragTab">
 						<p class="dragText">
 							Cinco
@@ -123,7 +124,7 @@
 					</div>
 				</div>
 
-				<div class="dragParent">
+				<div class="dragGroup">
 					<div class="dragTab">
 						<p class="dragText">
 							Sies
