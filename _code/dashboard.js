@@ -57,9 +57,9 @@ function computeAndDisplayStats(logArray) {
 			.append($("<p>Number of students that responded: "+student.length+"</p>"))
 			.append($("<p>Number of students with all correct on final submission: "+nLast+" which is "+toPercent(nLast,student.length)+"%</p>"))
 			.append($("<p>Number of students with all correct on first submission: "+nFirst+" which is "+toPercent(nFirst,student.length)+"%</p>"))
-			.append($("<p>Number correct for each answer on first submission: "+numberCorrectAnswers(firstSubmissionIndex).toString()+"</p>"))
-			.append($("<p>Percent correct for each answer on first submission: "+toPercentArrayWithUnits(numberCorrectAnswers(firstSubmissionIndex),student.length)+"</p>"))
-			.append($("<p>The most common answers on first submission: "+mostCommonAnswers(firstSubmissionIndex)+"</p>"));
+			.append($("<p>Number correct for each answer on first submission: "+numberCorrectAnswers(firstSubmissionIndex).join(", ")+"</p>"))
+			.append($("<p>Percent correct for each answer on first submission: "+toPercentArrayWithUnits(numberCorrectAnswers(firstSubmissionIndex),student.length).join(", ")+"</p>"))
+			.append($("<p>The most common answers on first submission: "+mostCommonAnswers(firstSubmissionIndex).join(", ")+"</p>"));
 	});
 }
 
