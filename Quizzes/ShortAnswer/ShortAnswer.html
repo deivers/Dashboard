@@ -1,34 +1,64 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<link href="../../_code/ShortAnswer.css" rel="stylesheet" type="text/css">
-    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-	<script src="../../_code/common.js"></script>
-	<script src="../../_code/ShortAnswerAutoC.js"></script>
-	<script>
-		var minNumChars = 4;	// the minimum threshold for auto-complete to occur (the entered characters also have to uniquely match one term in the list above)
-		var logResponsesToDashboard = true;
-		var quizpageNumber = 1;		// required if the above is true; must be unique across quizzes in this folder
-		var nextPageUrl = "../MatchupStacked/MatchupStacked.html";  // any relative or absolute url
-	</script>
-</head>
-<body>
-	<h1>Short Answer Questions</h1>
-	<p style="color: #888;">Instructions:  type the first few letters of your answer and if the word or phrase is auto-completed, then it <i>may</i> be the correct answer.  If you don't get auto-completion, then it's definitely not correct.  Answer all questions before pressing the Submit button.</p>
-	<br>
-	<p>1. The process by which plants use the energy of sunlight and simple chemicals to produce their own food:
-		<input type="text" />
-	</p>
-	<p>2. The full name of the molecule depicted in the following image:
-		<input type="text" />
-	</p>
-	<img src="DNA.png">
-	<br>
-	<br>
-	<button id="submitButton">Submit</button><button id="nextButton">Next page</button>
-	<p class="score"></p>
-	<div id="autoCompleteTerms">
-		photosynthesis|deoxyribonucleic acid|meiosis|mitosis|metabolism|respiration|enzyme|proton|protein|double helix|denatured alcohol|amino acid
-	</div>
-</body>
+	<head>
+		<link href="../../_code/common.css" rel="stylesheet" media="screen" type="text/css">
+		<link href="../../_code/ShortAnswer.css" rel="stylesheet" type="text/css">
+		<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+		<script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+		<script src="../../_code/jquery.ui.touch-punch.min.js"></script>
+		<script src="../../_code/common.js"></script>
+		<script src="../../_code/ShortAnswerAutoC.js"></script>
+		<script>
+			var minNumChars = 4;	// the minimum threshold for auto-complete to occur (the entered characters also have to uniquely match one term in the list above)
+			var logResponsesToDashboard = true;
+			var quizpageNumber = 1;		// required if the above is true; must be unique across quizzes in this folder
+			var nextPageUrl = "../MatchupStacked/MatchupStacked.html";  // any relative or absolute url
+		</script>
+	</head>
+	<body>
+		<div id="quiz">
+
+			<h1>Short Answer Questions</h1>
+			<p style="color: #888;">Instructions:  type the first few letters of your answer and if the word or phrase is auto-completed, then it <i>may</i> be the correct answer.  If you don't get auto-completion, then it's definitely not correct.  Answer all questions before pressing the Submit button.</p>
+			<br>
+			<p>1. The process by which plants use the energy of sunlight and simple chemicals to produce their own food:
+				<input type="text" />
+			</p>
+			<p>2. The full name of the molecule depicted in the following image:
+				<input type="text" />
+			</p>
+			<img src="DNA.png">
+			<br>
+			<br>
+			<p class="score"></p>
+
+	<!-- buttons -->
+			<div style="text-align: center">
+				<div style="display: inline-block;">
+					<div id="submitButton" class="button blue">
+						Submit
+					</div>
+				</div>
+			</div>
+			<div style="text-align: center">
+				<div style="display: inline-block;">
+					<div id="nextButton" class="button green">
+						Next page
+					</div>
+				</div>
+			</div>
+			<div style="text-align: center">
+				<div style="display: inline-block;">
+					<div id="resetButton" class="button clearColor">
+						RESET
+					</div>
+				</div>
+			</div>
+
+			<div id="autoCompleteTerms">
+				photosynthesis|deoxyribonucleic acid|meiosis|mitosis|metabolism|respiration|enzyme|proton|protein|double helix|denatured alcohol|amino acid
+			</div>
+		</div><!-- End of quiz div -->
+
+	</body>
 </html>
