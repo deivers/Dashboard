@@ -9,7 +9,7 @@
 	<link href="../../_code/common.css" rel="stylesheet" media="screen" type="text/css">
 	<style>
 		.quiz {
-			width: 260px;		/* for layout in a horizontal row, make this very wide; for a vertical column, make it narrow */
+			width: 1160px;		/* for layout in a horizontal row, make this very wide; for a vertical column, make it narrow */
 			margin: auto;
 		}
 		.sortGroup {
@@ -20,8 +20,7 @@
 			padding: 0;
 		}
 		.draggable {
-			/*float: left;*/		/* for vertical layout, remove this line */
-			/*width: 110px;*/		/* for vertical layout, remove this line */
+			float: left;		/* for horizontal layout, remove this line */
 			cursor: move;
 			margin: 5px;
 			padding: 5px;
@@ -36,11 +35,14 @@
 			-moz-border-radius: 10px;
 			-webkit-border-radius: 10px;
 		}
+		img, .draggable {
+			width: 150px;
+		}
 		.clearFloat {
 			clear: both;
 		}
 		.correct {
-			background-color: #0f0;
+			background-color: #0F0;
 		}
 		.dragging {
 			background-color: #DDD;
@@ -48,9 +50,12 @@
 			-moz-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
 			-webkit-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
 		}
+		.greenBackground {
+			background-color: #090;
+		}
 	</style>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+	<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+	<script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
 	<script src="../../_code/jquery.ui.touch-punch.min.js"></script>
 	<script src="../../_code/Sequencer.js"></script>
 	<script>
@@ -61,28 +66,43 @@
 </head>
 <body>
 	<div class="quiz">
+		<h2>The following are snapshots of the development of a microscopic organism.  Put the images in the proper chronological order (left to right) by dragging.</h2>
 		<div class="sortGroup">
 			<div id="sortable1" class="connectedSortable">
-				<div class="draggable">Item 1</div>
-				<div class="draggable">Item 2</div>
-				<div class="draggable">Item 3</div>
-				<div class="draggable">Item 4</div>
-				<div class="draggable">Item 5</div>
-			</div>
-			<div id="sortable2" class="connectedSortable">
+				<!-- NOTE: for an actual quiz, do not use sequential or self-disclosing file names! -->
+				<div class="draggable"><img src="images/one.jpg"></div>
+				<div class="draggable"><img src="images/two.jpg"></div>
+				<div class="draggable"><img src="images/three.jpg"></div>
+				<div class="draggable"><img src="images/four.jpg"></div>
+				<div class="draggable"><img src="images/five.jpg"></div>
+				<div class="draggable"><img src="images/six.jpg"></div>
 			</div>
 			<div class="clearFloat"></div>
 		</div>
 <!-- buttons -->
-		<div id="submitButton" class="prominentButton">
-			<div>Check answers</div>
+		<div style="text-align: center">
+			<div style="display: inline-block;">
+				<div id="submitButton" class="button blue">
+					Submit
+				</div>
+			</div>
 		</div>
-		<button id="nextButton">Next page</button>
-		<div id="resetButton" class="blandButton">
-			<div>RESET</div>
+		<div style="text-align: center">
+			<div style="display: inline-block;">
+				<div id="nextButton" class="button green">
+					Next page
+				</div>
+			</div>
+		</div>
+		<div style="text-align: center">
+			<div style="display: inline-block;">
+				<div id="resetButton" class="button clearColor">
+					RESET
+				</div>
+			</div>
 		</div>
 
-	</div><!-- End quiz -->
+	</div><!-- End of quiz div -->
 
 </body>
 </html>

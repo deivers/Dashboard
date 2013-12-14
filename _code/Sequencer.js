@@ -1,5 +1,5 @@
 var questionType = "Sequencer";
-var version = "1.0 November 2013";
+var version = "1.0 December 2013";
 var rejectOption = (typeof rejectWrongAnswers === 'undefined' || rejectWrongAnswers);
 var studentList = [];
 var dragList;
@@ -69,6 +69,7 @@ function resetQuiz() {
 }
 
 function logSubmission(answers,sAnswers) {
+	console.log("Logging...");
 	// submit to server
 	if (typeof studentId === 'undefined' || studentId == "")
 		var studentId = prompt("Please enter your student ID","")
@@ -90,7 +91,7 @@ function logSubmission(answers,sAnswers) {
 		dataType: 'json'
 	});
 	request.done(function(msg) {
-		console.log("Submission successful: ");
+		console.log("Submission successful");
 	});
 	request.fail(function(jqXHR, textStatus) {
 		console.log("The submission failed: "+textStatus);
