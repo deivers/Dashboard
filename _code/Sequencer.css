@@ -1,0 +1,28 @@
+.clearFloat {
+	clear: both;
+}
+
+.draggable {
+	cursor: move;
+	vertical-align: middle;
+	text-align: center;
+	font-size: 1.2em;
+	background-color: #DFDFDF;
+	border:1px solid #000;
+	border-radius: 10px;
+	-o-border-radius: 10px;
+	-ms-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+.dragging {
+	background-color: #DDD;
+	box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+	-moz-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+	-webkit-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+}
+
+.correct {
+	background-color: #0B0;
+}
+

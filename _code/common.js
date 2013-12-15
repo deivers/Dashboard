@@ -2,7 +2,7 @@ function showMetaInfo(versionString) {
 	var copyrightText = "Copyright 2013";
 	var createdByText = "";
 	var versionText = "Version "+versionString+".";
-	var centerNode = $("<center></center>");
+	var centerNode = $("<div style='text-align: center; margin-top: 20px'></div>");
 	centerNode.append($("<span></span>").text(copyrightText+" "+createdByText+" "));
 	centerNode.append($("<a href='http://www.onetimesoftware.com' target='_blank'></a>").text("One Time Software"));
 	centerNode.append($("<span></span>").text(". "+versionText));
