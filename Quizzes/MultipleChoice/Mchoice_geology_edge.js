@@ -84,7 +84,7 @@ var symbols = {
          {
             id:'Checkbox4',
             type:'rect',
-            rect:['234px','544px','auto','auto','auto','auto']
+            rect:['233px','543px','auto','auto','auto','auto']
          },
          {
             id:'checkAnswers',
@@ -98,49 +98,45 @@ var symbols = {
             transform:[]
          },
          {
-            id:'Feedback',
-            type:'rect',
-            rect:['464','116','auto','auto','auto','auto']
+            id:'Feedback1',
+            type:'text',
+            rect:['465px','118px','227px','95px','auto','auto'],
+            text:"Feedback if student selects this answer",
+            userClass:"feedback",
+            font:['Arial, Helvetica, sans-serif',15,"rgba(90,90,90,1.00)","normal","none",""]
          },
          {
-            id:'FeedbackCopy',
-            type:'rect',
-            rect:['464','251px','auto','auto','auto','auto']
+            id:'Feedback1Copy',
+            type:'text',
+            rect:['465px','251px','227px','95px','auto','auto'],
+            text:"Feedback if student selects this answer",
+            userClass:"feedback",
+            font:['Arial, Helvetica, sans-serif',15,"rgba(90,90,90,1.00)","normal","none",""]
          },
          {
-            id:'FeedbackCopy2',
-            type:'rect',
-            rect:['464','386px','auto','auto','auto','auto']
+            id:'Feedback1Copy2',
+            type:'text',
+            rect:['465px','386px','227px','95px','auto','auto'],
+            text:"Feedback if student selects this answer",
+            userClass:"feedback",
+            font:['Arial, Helvetica, sans-serif',15,"rgba(90,90,90,1.00)","normal","none",""]
          },
          {
-            id:'FeedbackCopy3',
-            type:'rect',
-            rect:['464','522px','auto','auto','auto','auto']
+            id:'Feedback1Copy3',
+            type:'text',
+            rect:['465px','521px','227px','95px','auto','auto'],
+            text:"Feedback if student selects this answer",
+            userClass:"feedback",
+            font:['Arial, Helvetica, sans-serif',15,"rgba(90,90,90,1.00)","normal","none",""]
          }],
          symbolInstances: [
          {
-            id:'FeedbackCopy2',
-            symbolName:'Feedback'
-         },
-         {
-            id:'Checkbox1',
+            id:'Checkbox4',
             symbolName:'Checkbox'
          },
          {
-            id:'Checkbox2',
-            symbolName:'Checkbox'
-         },
-         {
-            id:'Feedback',
-            symbolName:'Feedback'
-         },
-         {
-            id:'FeedbackCopy',
-            symbolName:'Feedback'
-         },
-         {
-            id:'FeedbackCopy3',
-            symbolName:'Feedback'
+            id:'checkAnswers',
+            symbolName:'SubmitAnswersButton'
          },
          {
             id:'CopyrightAndCredits',
@@ -151,46 +147,20 @@ var symbols = {
             symbolName:'Checkbox'
          },
          {
-            id:'Checkbox4',
+            id:'Checkbox1',
             symbolName:'Checkbox'
          },
          {
-            id:'checkAnswers',
-            symbolName:'SubmitAnswersButton'
+            id:'Checkbox2',
+            symbolName:'Checkbox'
          }
          ]
       },
    states: {
       "Base State": {
-         "${_geo2}": [
-            ["style", "top", '484px'],
-            ["style", "height", '137px'],
-            ["style", "left", '273px'],
-            ["style", "clip", [0,175,137,0], {valueTemplate:'rect(@@0@@px @@1@@px @@2@@px @@3@@px)'} ],
-            ["style", "width", '205px']
-         ],
-         "${_FeedbackCopy2}": [
-            ["style", "top", '386px']
-         ],
-         "${_geo4}": [
-            ["style", "top", '213px'],
-            ["style", "height", '137px'],
-            ["style", "left", '243px'],
-            ["style", "clip", [0,205,137,30], {valueTemplate:'rect(@@0@@px @@1@@px @@2@@px @@3@@px)'} ],
-            ["style", "width", '205px']
-         ],
          "${_Checkbox2}": [
             ["style", "left", '234px'],
             ["style", "top", '273px']
-         ],
-         "${_Checkbox4}": [
-            ["style", "left", '234px'],
-            ["style", "top", '544px']
-         ],
-         "${_Checkbox3}": [
-            ["style", "top", '408px'],
-            ["style", "opacity", '0.99'],
-            ["style", "left", '234px']
          ],
          "${_Text2}": [
             ["style", "top", '700px'],
@@ -200,8 +170,57 @@ var symbols = {
             ["style", "left", '230px'],
             ["style", "width", '247px']
          ],
-         "${_FeedbackCopy3}": [
-            ["style", "top", '522px']
+         "${_geo3}": [
+            ["style", "top", '68px'],
+            ["style", "height", '145px'],
+            ["style", "left", '243px'],
+            ["style", "clip", [0,205,145,30], {valueTemplate:'rect(@@0@@px @@1@@px @@2@@px @@3@@px)'} ],
+            ["style", "width", '205px']
+         ],
+         "${_Feedback1}": [
+            ["style", "top", '118px'],
+            ["style", "font-size", '15px'],
+            ["style", "height", '95px'],
+            ["color", "color", 'rgba(90,90,90,1)'],
+            ["style", "left", '465px'],
+            ["style", "width", '227px']
+         ],
+         "${_CopyrightAndCredits}": [
+            ["style", "top", '726px'],
+            ["style", "left", '54px']
+         ],
+         "${_Checkbox1}": [
+            ["style", "left", '234px'],
+            ["style", "top", '132px']
+         ],
+         "${_geo4}": [
+            ["style", "top", '213px'],
+            ["style", "height", '137px'],
+            ["style", "left", '243px'],
+            ["style", "clip", [0,205,137,30], {valueTemplate:'rect(@@0@@px @@1@@px @@2@@px @@3@@px)'} ],
+            ["style", "width", '205px']
+         ],
+         "${_Checkbox4}": [
+            ["style", "left", '233px'],
+            ["style", "top", '543px']
+         ],
+         "${_Checkbox3}": [
+            ["style", "top", '408px'],
+            ["style", "opacity", '0.99'],
+            ["style", "left", '234px']
+         ],
+         "${_checkAnswers}": [
+            ["style", "top", '650px'],
+            ["style", "left", '284px'],
+            ["style", "cursor", 'auto']
+         ],
+         "${_Feedback1Copy3}": [
+            ["style", "top", '521px'],
+            ["style", "width", '227px'],
+            ["style", "height", '95px'],
+            ["color", "color", 'rgba(90,90,90,1)'],
+            ["style", "left", '465px'],
+            ["style", "font-size", '15px']
          ],
          "${_geo1}": [
             ["style", "top", '350px'],
@@ -210,15 +229,13 @@ var symbols = {
             ["style", "clip", [0,205,134,30], {valueTemplate:'rect(@@0@@px @@1@@px @@2@@px @@3@@px)'} ],
             ["style", "width", '205px']
          ],
-         "${_FeedbackCopy}": [
-            ["style", "top", '251px']
-         ],
-         "${_geo3}": [
-            ["style", "top", '68px'],
-            ["style", "height", '145px'],
-            ["style", "left", '243px'],
-            ["style", "clip", [0,205,145,30], {valueTemplate:'rect(@@0@@px @@1@@px @@2@@px @@3@@px)'} ],
-            ["style", "width", '205px']
+         "${_Feedback1Copy2}": [
+            ["style", "top", '386px'],
+            ["style", "font-size", '15px'],
+            ["style", "height", '95px'],
+            ["color", "color", 'rgba(90,90,90,1)'],
+            ["style", "left", '465px'],
+            ["style", "width", '227px']
          ],
          "${_Text}": [
             ["style", "top", '17px'],
@@ -234,18 +251,20 @@ var symbols = {
             ["style", "height", '770px'],
             ["style", "width", '700px']
          ],
-         "${_checkAnswers}": [
-            ["style", "top", '650px'],
-            ["style", "left", '284px'],
-            ["style", "cursor", 'auto']
+         "${_geo2}": [
+            ["style", "top", '484px'],
+            ["style", "height", '137px'],
+            ["style", "left", '273px'],
+            ["style", "clip", [0,175,137,0], {valueTemplate:'rect(@@0@@px @@1@@px @@2@@px @@3@@px)'} ],
+            ["style", "width", '205px']
          ],
-         "${_CopyrightAndCredits}": [
-            ["style", "top", '726px'],
-            ["style", "left", '54px']
-         ],
-         "${_Checkbox1}": [
-            ["style", "left", '234px'],
-            ["style", "top", '132px']
+         "${_Feedback1Copy}": [
+            ["style", "top", '251px'],
+            ["style", "width", '227px'],
+            ["style", "height", '95px'],
+            ["color", "color", 'rgba(90,90,90,1)'],
+            ["style", "left", '465px'],
+            ["style", "font-size", '15px']
          ]
       }
    },
@@ -605,53 +624,6 @@ var symbols = {
          toState: "",
          duration: 0,
          autoPlay: false,
-         timeline: [
-         ]
-      }
-   }
-},
-"Feedback": {
-   version: "2.0.1",
-   minimumCompatibleVersion: "2.0.0",
-   build: "2.0.1.268",
-   baseState: "Base State",
-   initialState: "Base State",
-   gpuAccelerate: false,
-   resizeInstances: false,
-   content: {
-   dom: [
-   {
-      font: ['Arial, Helvetica, sans-serif',16,'rgba(90,90,90,1.00)','normal','none',''],
-      id: 'Feedback1',
-      text: 'Feedback if student selects this answer',
-      type: 'text',
-      rect: ['0px','0px','227px','95px','auto','auto']
-   }],
-   symbolInstances: [
-   ]
-   },
-   states: {
-      "Base State": {
-         "${_Feedback1}": [
-            ["style", "top", '0px'],
-            ["style", "width", '227px'],
-            ["style", "height", '95px'],
-            ["color", "color", 'rgba(90,90,90,1.00)'],
-            ["style", "left", '0px'],
-            ["style", "font-size", '16px']
-         ],
-         "${symbolSelector}": [
-            ["style", "height", '95px'],
-            ["style", "width", '227px']
-         ]
-      }
-   },
-   timelines: {
-      "Default Timeline": {
-         fromState: "Base State",
-         toState: "",
-         duration: 0,
-         autoPlay: true,
          timeline: [
          ]
       }
