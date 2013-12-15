@@ -87,11 +87,6 @@ var symbols = {
             rect:['233px','543px','auto','auto','auto','auto']
          },
          {
-            id:'checkAnswers',
-            type:'rect',
-            rect:['284px','650px','auto','auto','auto','auto']
-         },
-         {
             id:'CopyrightAndCredits',
             type:'rect',
             rect:['54px','726px','auto','auto','auto','auto'],
@@ -125,18 +120,32 @@ var symbols = {
             id:'Feedback1Copy3',
             type:'text',
             rect:['465px','521px','227px','95px','auto','auto'],
-            text:"Feedback if student selects this answer",
+            text:"This is granite.  Click here to read more about it.",
             userClass:"feedback",
             font:['Arial, Helvetica, sans-serif',15,"rgba(90,90,90,1.00)","normal","none",""]
-         }],
-         symbolInstances: [
+         },
          {
-            id:'Checkbox4',
-            symbolName:'Checkbox'
+            id:'NextPageButton',
+            type:'rect',
+            rect:['284px','658px','auto','auto','auto','auto']
          },
          {
             id:'checkAnswers',
+            type:'rect',
+            rect:['284px','650px','auto','auto','auto','auto']
+         }],
+         symbolInstances: [
+         {
+            id:'checkAnswers',
             symbolName:'SubmitAnswersButton'
+         },
+         {
+            id:'NextPageButton',
+            symbolName:'NextPageButton'
+         },
+         {
+            id:'Checkbox4',
+            symbolName:'Checkbox'
          },
          {
             id:'CopyrightAndCredits',
@@ -158,6 +167,10 @@ var symbols = {
       },
    states: {
       "Base State": {
+         "${_NextPageButton}": [
+            ["style", "left", '284px'],
+            ["style", "top", '658px']
+         ],
          "${_Checkbox2}": [
             ["style", "left", '234px'],
             ["style", "top", '273px']
@@ -367,7 +380,7 @@ var symbols = {
       fill: ['rgba(93,93,93,1.00)',[270,[['rgba(125,125,125,1.00)',0],['rgba(73,73,73,1.00)',100]]]]
    },
    {
-      rect: ['30px','6px','72px','auto','auto','auto'],
+      rect: ['30px','6px','72px','36px','auto','auto'],
       font: ['Arial, Helvetica, sans-serif',16,'rgba(255,255,255,1.00)','500','none',''],
       align: 'center',
       id: 'Text',
@@ -396,14 +409,15 @@ var symbols = {
             ["gradient", "background-image", [270,[['rgba(125,125,125,1.00)',0],['rgba(73,73,73,1.00)',100]]]]
          ],
          "${_Text}": [
-            ["style", "top", '6px'],
-            ["style", "font-size", '16px'],
-            ["style", "text-align", 'center'],
-            ["style", "left", '30px'],
             ["color", "color", 'rgba(255,255,255,1.00)'],
             ["style", "font-weight", '500'],
             ["style", "cursor", 'pointer'],
-            ["style", "width", '72px']
+            ["style", "width", '72px'],
+            ["style", "top", '6px'],
+            ["style", "text-align", 'center'],
+            ["style", "height", '36px'],
+            ["style", "font-size", '16px'],
+            ["style", "left", '30px']
          ],
          "${symbolSelector}": [
             ["style", "height", '31px'],
@@ -624,6 +638,83 @@ var symbols = {
          toState: "",
          duration: 0,
          autoPlay: false,
+         timeline: [
+         ]
+      }
+   }
+},
+"NextPageButton": {
+   version: "2.0.1",
+   minimumCompatibleVersion: "2.0.0",
+   build: "2.0.1.268",
+   baseState: "Base State",
+   initialState: "Base State",
+   gpuAccelerate: false,
+   resizeInstances: false,
+   content: {
+   dom: [
+   {
+      borderRadius: ['14px 14px','14px 14px','14px 14px','14px 14px'],
+      rect: ['0px','1px','129px','27px','auto','auto'],
+      title: 'Check answers',
+      type: 'rect',
+      id: 'RoundRect',
+      stroke: [1,'rgb(0, 0, 0)','solid'],
+      cursor: ['pointer'],
+      fill: ['rgba(93,93,93,1.00)',[270,[['rgba(0,127,42,1.00)',0],['rgba(0,72,23,1.00)',100]]]]
+   },
+   {
+      rect: ['0px','6px','131px','21px','auto','auto'],
+      font: ['Arial, Helvetica, sans-serif',16,'rgba(255,255,255,1.00)','500','none',''],
+      align: 'center',
+      id: 'Text',
+      text: 'Next page',
+      cursor: ['pointer'],
+      type: 'text'
+   }],
+   symbolInstances: [
+   ]
+   },
+   states: {
+      "Base State": {
+         "${_RoundRect}": [
+            ["color", "background-color", 'rgba(93,93,93,1.00)'],
+            ["style", "border-top-left-radius", [14,14], {valueTemplate:'@@0@@px @@1@@px'} ],
+            ["style", "border-bottom-right-radius", [14,14], {valueTemplate:'@@0@@px @@1@@px'} ],
+            ["style", "border-style", 'solid'],
+            ["style", "cursor", 'pointer'],
+            ["style", "width", '129px'],
+            ["style", "top", '1px'],
+            ["style", "border-bottom-left-radius", [14,14], {valueTemplate:'@@0@@px @@1@@px'} ],
+            ["gradient", "background-image", [270,[['rgba(0,127,42,1.00)',0],['rgba(0,72,23,1.00)',100]]]],
+            ["style", "height", '27px'],
+            ["style", "border-width", '1px'],
+            ["style", "left", '0px'],
+            ["style", "border-top-right-radius", [14,14], {valueTemplate:'@@0@@px @@1@@px'} ]
+         ],
+         "${_Text}": [
+            ["color", "color", 'rgba(255,255,255,1.00)'],
+            ["style", "font-weight", '500'],
+            ["style", "cursor", 'pointer'],
+            ["style", "width", '131px'],
+            ["style", "top", '6px'],
+            ["style", "text-align", 'center'],
+            ["style", "height", '21px'],
+            ["style", "left", '0px'],
+            ["style", "font-size", '16px']
+         ],
+         "${symbolSelector}": [
+            ["style", "height", '31px'],
+            ["style", "width", '131px']
+         ]
+      }
+   },
+   timelines: {
+      "Default Timeline": {
+         fromState: "Base State",
+         toState: "",
+         duration: 0,
+         autoPlay: true,
          timeline: [
          ]
       }

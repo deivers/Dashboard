@@ -26,6 +26,8 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          for (var i=0; i<feedbackBoxes.length; i++) {
          	$(feedbackBoxes[i]).css({"opacity":0});
          }
+         // initially hide the Next Page button
+         sym.getComposition().getSymbols("NextPageButton")[0].getSymbolElement().css({"opacity":0});
 
       });
       //Edge binding end
@@ -37,6 +39,11 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       //Edge binding end
 
       Symbol.bindElementAction(compId, symbolName, "document", "compositionReady", function(sym, e) {
+         var questionNumber = 1;
+         var questionSummaryText = "";
+         var logResponsesToDashboard = true;
+         var nextPageUrl = "http://www.wikipedia.org";
+         
          var checkboxes = sym.getComposition().getSymbols("Checkbox");
          // note: no guarantee on the order of the retrieved checkboxes
          // so sort by position (works whether the elements are in columns or rows)
@@ -67,9 +74,11 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          		alert("You must select at least one before answer(s) will be checked.");
          	else {
          		logStudentResponses(studentChoices,questionType);
-         		if (allCorrect)
+         		if (allCorrect) {
          			alert("CORRECT!");
-         		else
+         			sym.getComposition().getSymbols("SubmitAnswersButton")[0].getSymbolElement().css({"opacity":0,"left":-1000});
+         			sym.getComposition().getSymbols("NextPageButton")[0].getSymbolElement().css({"opacity":1});
+         		} else
          			alert("One or more of your selections are incorrect.  Please try again...");
          		// reveal feedback, if any
          		for (var i=0; i<studentChoices.length; i++) {
@@ -144,6 +153,13 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
             return aOffset.top + aOffset.left - bOffset.top - bOffset.left;
          }
          
+
+      });
+      //Edge binding end
+
+      Symbol.bindElementAction(compId, symbolName, "${_Feedback1Copy3}", "click", function(sym, e) {
+         // insert code for mouse click here
+         window.open("http://www.wikipedia.com/granite", "_blank");
 
       });
       //Edge binding end
@@ -238,5 +254,13 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
 
    })("codeByButton");
    //Edge symbol end:'codeByButton'
+
+   //=========================================================
+   
+   //Edge symbol: 'SubmitAnswersButton_1'
+   (function(symbolName) {   
+   
+      })("NextPageButton");
+   //Edge symbol end:'NextPageButton'
 
 })(jQuery, AdobeEdge, "EDGE-276373753");
