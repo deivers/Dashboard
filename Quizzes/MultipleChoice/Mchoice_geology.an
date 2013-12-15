@@ -278,7 +278,8 @@
 		"element_${_Text}":{
 			"timelineColor2":"0xb099ce",
 			"timelineColor3":"0x70657c",
-			"timelineColor":"0xceaef4"}},
+			"timelineColor":"0xceaef4"},
+		"codeTreeElementPopupFilter":""},
 	"usedBOM":"false",
 	"symbol_codeByButton":{
 		"element_${_RoundRect}":{

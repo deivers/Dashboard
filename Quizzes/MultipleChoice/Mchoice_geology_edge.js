@@ -127,7 +127,7 @@ var symbols = {
          {
             id:'NextPageButton',
             type:'rect',
-            rect:['284px','658px','auto','auto','auto','auto']
+            rect:['284px','652px','auto','auto','auto','auto']
          },
          {
             id:'checkAnswers',
@@ -169,7 +169,7 @@ var symbols = {
       "Base State": {
          "${_NextPageButton}": [
             ["style", "left", '284px'],
-            ["style", "top", '658px']
+            ["style", "top", '652px']
          ],
          "${_Checkbox2}": [
             ["style", "left", '234px'],

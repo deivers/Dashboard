@@ -141,6 +141,11 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          	}
          }
          
+         sym.goNextPage = function() {
+         	console.log(">>>"+nextPageUrl);
+         	window.open(nextPageUrl, "_blank");
+         }
+         
          function sortSymbolByPosition(a, b) {
          	var aOffset = a.getSymbolElement().offset();
          	var bOffset = b.getSymbolElement().offset();
@@ -160,6 +165,12 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       Symbol.bindElementAction(compId, symbolName, "${_Feedback1Copy3}", "click", function(sym, e) {
          // insert code for mouse click here
          window.open("http://www.wikipedia.com/granite", "_blank");
+
+      });
+      //Edge binding end
+
+      Symbol.bindElementAction(compId, symbolName, "${_NextPageButton}", "click", function(sym, e) {
+         sym.getComposition().getStage().goNextPage();
 
       });
       //Edge binding end
@@ -254,12 +265,11 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
 
    })("codeByButton");
    //Edge symbol end:'codeByButton'
-
-   //=========================================================
    
    //Edge symbol: 'SubmitAnswersButton_1'
    (function(symbolName) {   
-   
+         
+
       })("NextPageButton");
    //Edge symbol end:'NextPageButton'
 
