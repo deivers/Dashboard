@@ -21,6 +21,11 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          for (var i=0; i<checkboxes.length; i++) {
          	checkboxes[i].uncheck();
          }
+         // initially hide all the feedback
+         var feedbackBoxes = sym.getComposition().getSymbols("Feedback");
+         for (var i=0; i<feedbackBoxes.length; i++) {
+         	feedbackBoxes[i].getSymbolElement().css({"opacity":0});
+         }
 
       });
       //Edge binding end
@@ -36,6 +41,12 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          // note: no guarantee on the order of the retrieved checkboxes
          // so sort by position (works whether the elements are in columns or rows)
          checkboxes.sort(function(a, b) {
+         	var aOffset = a.getSymbolElement().offset();
+         	var bOffset = b.getSymbolElement().offset();
+            return aOffset.top + aOffset.left - bOffset.top - bOffset.left;
+         });
+         var feedbackBoxes = sym.getComposition().getSymbols("Feedback");
+         feedbackBoxes.sort(function(a, b) {
          	var aOffset = a.getSymbolElement().offset();
          	var bOffset = b.getSymbolElement().offset();
             return aOffset.top + aOffset.left - bOffset.top - bOffset.left;
@@ -68,6 +79,11 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          			alert("CORRECT!");
          		else
          			alert("One or more of your selections are incorrect.  Please try again...");
+         		for (var i=0; i<studentChoices.length; i++) {
+         			// for each checkbox checked, if there is a feedbackBox, then show it
+         			if (studentChoices[i] < feedbackBoxes.length) // insure we don't exceed the array size
+         				feedbackBoxes[studentChoices[i]].getSymbolElement().animate({opacity: 1.0});
+         		}
          	}
          	//todo: color correct/incorrect checkboxes
          }
@@ -216,5 +232,13 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
 
    })("codeByButton");
    //Edge symbol end:'codeByButton'
+
+   //=========================================================
+   
+   //Edge symbol: 'Feedback'
+   (function(symbolName) {   
+   
+   })("Feedback");
+   //Edge symbol end:'Feedback'
 
 })(jQuery, AdobeEdge, "EDGE-276373753");
