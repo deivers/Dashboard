@@ -42,9 +42,11 @@ function checkAnswers() {
 	if (typeof logResponsesToDashboard === 'undefined')
 		logResponsesToDashboard = false;
 	if (logResponsesToDashboard) {
+		studentList = [];
 		$(".draggable").each(function(index) {
 			studentList.push($(this).html());
 		});
+		akList = [];
 		$(allList).each(function(index) {
 			akList.push($(this).html());
 		});
@@ -79,7 +81,8 @@ function logSubmission(qNum,answers,sAnswers) {
 		qNum = 0;
 		console.log("Warning: quizpageNumber not found; defaulting to 0");
 	}
-	quizpageTextSummary = answers.join(", ");
+	if (typeof quizpageTextSummary === 'undefined')
+		quizpageTextSummary = answers.join(", ");
 	//console.log(quizpageTextSummary);
 	var request = $.ajax({
 		type: 'POST',
