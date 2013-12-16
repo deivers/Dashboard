@@ -39,7 +39,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          	var requireCompletion = true;			// true increases difficulty
          	var introAnimation = true;				// helps convey to user that drag elements are in fact draggable
          	var logResponsesToDashboard = true;
-         	var questionNumber = 1;
+         	var quizpageNumber = 1;
          	var questionTextSummary = "short description of what is in this quiz"
          	// end if editable section //
          
@@ -186,8 +186,8 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          			if (typeof studentId === 'undefined' || studentId == "")
          				var studentId = prompt("Please enter your student ID","")
          			// todo: verify that we got a valid id above
-         			if (typeof questionNumber === 'undefined')
-         				var questionNumber = 0;
+         			if (typeof quizpageNumber === 'undefined')
+         				var quizpageNumber = 0;
          			var questionType;
          			//if (shuffleWhich == "draggables")
          			//	questionType = "Edge Matchup with the answers shuffled";
@@ -200,7 +200,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          				type: 'POST',
          				url: 'LogResponse.php',
          				data: {	si : studentId,		//todo: get student id from env var
-         						qn : questionNumber,
+         						qn : quizpageNumber,
          						qt : questionType,
          						qs : questionTextSummary,
          						sa : list

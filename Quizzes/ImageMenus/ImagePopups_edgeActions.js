@@ -23,7 +23,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       Symbol.bindElementAction(compId, symbolName, "document", "compositionReady", function(sym, e) {
          {	// Editable section //
          	var logResponsesToDashboard = true;
-         	var questionNumber = 1;
+         	var quizpageNumber = 1;
          	var questionTextSummary = "short description of what is in this quiz"
          	// end if editable section //
          }
@@ -115,8 +115,8 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          		if (typeof studentId === 'undefined' || studentId == "")
          			var studentId = prompt("Please enter your student ID","")
          		// todo: verify that we got a valid id above
-         		if (typeof questionNumber === 'undefined')
-         			var questionNumber = 0;
+         		if (typeof quizpageNumber === 'undefined')
+         			var quizpageNumber = 0;
          		if (typeof questionType === 'undefined')
          			var questionType = "Image Labeler";
          		if (typeof questionTextSummary === 'undefined')
@@ -125,7 +125,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          			type: 'POST',
          			url: 'LogResponse.php',
          			data: {	si : studentId,		//todo: get student id from env var
-         					qn : questionNumber,
+         					qn : quizpageNumber,
          					qt : questionType,
          					qs : questionTextSummary,
          					sa : list

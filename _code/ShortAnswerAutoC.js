@@ -117,25 +117,27 @@ function checkAnswers() {
 	if (typeof logResponsesToDashboard === 'undefined')
 		logResponsesToDashboard = false;
 	if (logResponsesToDashboard)
-		logSubmission(autoCompleteTerms,studentAnswers);
+		logSubmission(quizpageNumber,autoCompleteTerms,studentAnswers);
 	// return true/false array
 	return scoreArray;
 }
 
-function logSubmission(answers,sAnswers) {
+function logSubmission(qNum,answers,sAnswers) {
 	// submit to server
 	if (typeof studentId === 'undefined' || studentId == "")
 		var studentId = prompt("Please enter your student ID","")
 	// todo: get id from the environment variable
 	// todo: verify that we got a unique valid id above, or create one from the ip address?
-	if (typeof quizpageNumber === 'undefined')
-		quizpageNumber = 0;
+	if (typeof qNum === 'undefined') {
+		qNum = 0;
+		console.log("Warning: quizpageNumber not found; defaulting to 0");
+	}
 	quizpageTextSummary = answers.join(", ");
 	var request = $.ajax({
 		type: 'POST',
 		url: 'LogResponse.php',
 		data: {	si : studentId,		//todo: get student id from env var
-				qn : quizpageNumber,
+				qn : qNum,
 				qt : questionType,
 				qs : quizpageTextSummary,
 				sa : sAnswers

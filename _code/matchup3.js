@@ -1,7 +1,11 @@
 // Define the following in the html file:
+//   integer quizpageNumber
+//   string questionSummaryText
+//   string shuffleWhich
 //   boolean rejectWrongAnswers (defaults to true)
 //   boolean requireCompletion (defaults to true)
 //   boolean logResponsesToDashboard (defaults to false)
+//   string nextPageUrl
 
 var questionType = "MultipleChoice";
 var version = "1.2 November 2013";
@@ -92,8 +96,7 @@ function checkAnswers() {
 		if (studentList[i] != i)
 			allCorrect = false;
 	}
-
-	logStudentResponses(studentList);
+	logStudentResponses(quizpageNumber,studentList);
 
 	// reject wrong answers
 	var parentDiv;
@@ -125,7 +128,7 @@ function checkAnswers() {
 		alert("One or more of your answers are incorrect.  Please try again...");
 }
 
-function logStudentResponses(list) {
+function logStudentResponses(qNum, list) {
 	if (typeof logResponsesToDashboard === 'undefined')
 		logResponsesToDashboard = false;
 	if (logResponsesToDashboard) {
@@ -133,8 +136,10 @@ function logStudentResponses(list) {
 		if (typeof studentId === 'undefined' || studentId == "")
 			var studentId = prompt("Please enter your student ID","")
 		// todo: verify that we got a valid id above
-		if (typeof questionNumber === 'undefined')
-			var questionNumber = 0;
+		if (typeof qNum === 'undefined') {
+			qNum = 0;
+			console.log("Warning: quizpageNumber not found; defaulting to 0");
+		}
 		if (shuffleWhich == "draggables")
 			questionType = "Multiple Choice with the answers shuffled";
 		else
@@ -145,7 +150,7 @@ function logStudentResponses(list) {
 			type: 'POST',
 			url: 'LogResponse.php',
 			data: {	si : studentId,		//todo: get student id from env var
-					qn : questionNumber,
+					qn : qNum,
 					qt : questionType,
 					qs : questionTextSummary,
 					sa : list
