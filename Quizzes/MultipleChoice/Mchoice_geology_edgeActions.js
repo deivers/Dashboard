@@ -58,21 +58,21 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          	// flags
          	var isQuizComplete = (studentChoices.length > 0);
          	// check answers
-         	var correctChoices = new Array();
+         	var cc = new Array();
          	for (var i=0; i<checkboxes.length; i++) {
          		if (checkboxes[i].getSymbolElement().css("opacity") < 1.0)
-         			correctChoices.push(i);
+         			cc.push(i);
          	}
-         	if (correctChoices.length > 1)
+         	if (cc.length > 1)
          		questionType = "Multiple Select";
          	else
          		questionType = "Multiple Choice";
-         	allCorrect = areArraysTheSame(studentChoices,correctChoices);
+         	allCorrect = areArraysTheSame(studentChoices,cc);
          	// respond to student
          	if (!isQuizComplete)
          		alert("You must mark at least one checkbox before submitting.");
          	else {
-         		logStudentResponses(studentChoices,questionType);
+         		logStudentResponses(quizpageNumber,studentChoices,questionType,cc);
          		if (allCorrect) {
          			alert("CORRECT!");
          			sym.getComposition().getSymbols("SubmitAnswersButton")[0].getSymbolElement().css({"opacity":0,"left":-1000});
@@ -111,7 +111,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          	return result;
          }
          
-         function logStudentResponses(list, qType) {
+         function logStudentResponses(qNum, list, qType, k) {
          	if (typeof logResponsesToDashboard === 'undefined')
          		logResponsesToDashboard = false;
          	if (logResponsesToDashboard) {
@@ -119,18 +119,21 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          		if (typeof studentId === 'undefined' || studentId == "")
          			var studentId = prompt("Please enter your student ID","")
          		// todo: verify that we got a valid id above
-         		if (typeof quizpageNumber === 'undefined')
-         			var quizpageNumber = 0;
+         		if (typeof qNum === 'undefined') {
+         			qNum = 0;
+         			console.log("Warning: quizpageNumber not found; defaulting to 0");
+         		}
          		if (typeof questionTextSummary === 'undefined')
          			var questionTextSummary = "Question text summary isn't defined";
          		var request = $.ajax({
          			type: 'POST',
          			url: 'LogResponse.php',
          			data: {	si : studentId,		//todo: get student id from env var
-         					qn : quizpageNumber,
+         					qn : qNum,
          					qt : qType,
          					qs : questionTextSummary,
-         					sa : list
+         					sa : list,
+         					ak : k
          			},
          			dataType: 'json'
          		});
