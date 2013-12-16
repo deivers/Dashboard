@@ -40,13 +40,12 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
 
       Symbol.bindElementAction(compId, symbolName, "document", "compositionReady", function(sym, e) {
          var questionNumber = 1;
-         var questionSummaryText = "";
+         var questionSummaryText = "Identify granite out of 4 sample images";
          var logResponsesToDashboard = true;
-         var nextPageUrl = "http://www.wikipedia.org";
+         var nextPageUrl = "../folder/filename.html";
          
          var checkboxes = sym.getComposition().getSymbols("Checkbox");
-         // note: no guarantee on the order of the retrieved checkboxes
-         // so sort by position (works whether the elements are in columns or rows)
+         // note: no guarantee on the order of the retrieved checkboxes, so sort by position
          checkboxes.sort(sortSymbolByPosition);
          var feedbackBoxes = sym.$(".feedback");
          feedbackBoxes.sort(sortElementByPosition);
@@ -71,15 +70,19 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          	allCorrect = areArraysTheSame(studentChoices,correctChoices);
          	// respond to student
          	if (!isQuizComplete)
-         		alert("You must select at least one before answer(s) will be checked.");
+         		alert("You must mark at least one checkbox before submitting.");
          	else {
          		logStudentResponses(studentChoices,questionType);
          		if (allCorrect) {
          			alert("CORRECT!");
          			sym.getComposition().getSymbols("SubmitAnswersButton")[0].getSymbolElement().css({"opacity":0,"left":-1000});
          			sym.getComposition().getSymbols("NextPageButton")[0].getSymbolElement().css({"opacity":1});
-         		} else
+         		} else {
          			alert("One or more of your selections are incorrect.  Please try again...");
+         			for (var i=0; i<checkboxes.length; i++) {
+         				checkboxes[i].uncheck();
+         			}
+         		}
          		// reveal feedback, if any
          		for (var i=0; i<studentChoices.length; i++) {
          			// for each checkbox checked, if there is a feedbackBox, then show it
@@ -87,7 +90,6 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          				$(feedbackBoxes[studentChoices[i]]).animate({opacity: 1.0});
          		}
          	}
-         	//todo: color correct/incorrect checkboxes
          }
          
          function arrayOfCheckmarkedChoices() {
@@ -146,12 +148,14 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          	window.open(nextPageUrl, "_blank");
          }
          
+         // sort by position (works whether the elements are in columns or rows)
          function sortSymbolByPosition(a, b) {
          	var aOffset = a.getSymbolElement().offset();
          	var bOffset = b.getSymbolElement().offset();
             return aOffset.top + aOffset.left - bOffset.top - bOffset.left;
          }
          
+         // sort by position (works whether the elements are in columns or rows)
          function sortElementByPosition(a, b) {
          	var aOffset = $(a).offset();
          	var bOffset = $(b).offset();
@@ -163,8 +167,8 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       //Edge binding end
 
       Symbol.bindElementAction(compId, symbolName, "${_Feedback1Copy3}", "click", function(sym, e) {
-         // insert code for mouse click here
-         window.open("http://www.wikipedia.com/granite", "_blank");
+         if (sym.$(e.target).css("opacity") > 0.1)  // if feedback is visible and the user clicked on it
+         	window.open("http://en.wikipedia.org/wiki/Granite", "_blank");
 
       });
       //Edge binding end
