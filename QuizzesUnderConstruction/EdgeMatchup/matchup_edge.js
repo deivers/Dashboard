@@ -193,11 +193,11 @@ var symbols = {
             ["style", "width", '188px'],
             ["style", "top", '227px'],
             ["style", "border-bottom-left-radius", [15,15], {valueTemplate:'@@0@@px @@1@@px'} ],
-            ["style", "border-top-right-radius", [0,0], {valueTemplate:'@@0@@px @@1@@px'} ],
+            ["style", "border-style", 'solid'],
             ["style", "height", '28px'],
-            ["style", "cursor", 'move'],
             ["style", "border-width", '1px'],
-            ["style", "border-style", 'solid']
+            ["style", "cursor", 'move'],
+            ["style", "border-top-right-radius", [0,0], {valueTemplate:'@@0@@px @@1@@px'} ]
          ],
          "${_qHint1Copy}": [
             ["style", "line-height", 'normal'],
@@ -208,8 +208,8 @@ var symbols = {
             ["style", "top", '192px'],
             ["style", "overflow", 'auto'],
             ["style", "height", '117px'],
-            ["style", "cursor", 'default'],
-            ["style", "width", '133px']
+            ["style", "width", '133px'],
+            ["style", "cursor", 'default']
          ],
          "${_q1}": [
             ["color", "background-color", 'rgba(97,131,159,1.00)'],
@@ -220,8 +220,8 @@ var symbols = {
             ["style", "width", '188px'],
             ["style", "top", '46px'],
             ["style", "border-bottom-left-radius", [0,0], {valueTemplate:'@@0@@px @@1@@px'} ],
-            ["style", "border-width", '1px'],
-            ["style", "left", '196px']
+            ["style", "left", '196px'],
+            ["style", "border-width", '1px']
          ],
          "${_qHint1}": [
             ["style", "line-height", 'normal'],
@@ -232,8 +232,19 @@ var symbols = {
             ["style", "top", '48px'],
             ["style", "overflow", 'auto'],
             ["style", "height", '117px'],
-            ["style", "width", '133px'],
-            ["style", "cursor", 'default']
+            ["style", "cursor", 'default'],
+            ["style", "width", '133px']
+         ],
+         "${_dragText1Copy}": [
+            ["style", "line-height", '30px'],
+            ["color", "color", 'rgba(255,255,255,1.00)'],
+            ["style", "opacity", '0'],
+            ["style", "left", '9px'],
+            ["style", "width", '173px'],
+            ["style", "top", '-2px'],
+            ["style", "text-align", 'center'],
+            ["style", "height", '30px'],
+            ["style", "font-size", '18px']
          ],
          "${_CopyrightAndCredits}": [
             ["style", "top", '684px'],
@@ -254,13 +265,8 @@ var symbols = {
             ["style", "top", '44px'],
             ["style", "overflow", 'auto'],
             ["style", "height", '108px'],
-            ["style", "cursor", 'default'],
-            ["style", "width", '133px']
-         ],
-         "${_resetButton3}": [
-            ["style", "top", '637px'],
-            ["style", "left", '422px'],
-            ["style", "cursor", 'pointer']
+            ["style", "width", '133px'],
+            ["style", "cursor", 'default']
          ],
          "${_q2}": [
             ["color", "background-color", 'rgba(97,131,159,1.00)'],
@@ -271,40 +277,17 @@ var symbols = {
             ["style", "width", '188px'],
             ["style", "top", '190px'],
             ["style", "border-bottom-left-radius", [0,0], {valueTemplate:'@@0@@px @@1@@px'} ],
-            ["style", "left", '195px'],
-            ["style", "border-width", '1px']
-         ],
-         "${_dragText1Copy}": [
-            ["style", "line-height", '30px'],
-            ["color", "color", 'rgba(255,255,255,1.00)'],
-            ["style", "opacity", '0'],
-            ["style", "left", '9px'],
-            ["style", "width", '173px'],
-            ["style", "top", '-2px'],
-            ["style", "text-align", 'center'],
-            ["style", "height", '30px'],
-            ["style", "font-size", '18px']
-         ],
-         "${_dragHint1Copy}": [
-            ["style", "line-height", 'normal'],
-            ["color", "color", 'rgba(0,0,0,1.00)'],
-            ["style", "opacity", '0'],
-            ["style", "left", '747px'],
-            ["style", "font-size", '15px'],
-            ["style", "top", '188px'],
-            ["style", "overflow", 'auto'],
-            ["style", "height", '108px'],
-            ["style", "width", '133px'],
-            ["style", "cursor", 'default']
+            ["style", "border-width", '1px'],
+            ["style", "left", '195px']
          ],
          "${_qText1Copy}": [
             ["style", "top", '0px'],
             ["style", "text-align", 'center'],
-            ["style", "width", '173px'],
+            ["style", "font-size", '20px'],
             ["color", "color", 'rgba(255,255,255,1.00)'],
             ["style", "line-height", '30px'],
             ["style", "left", '7px'],
-            ["style", "font-size", '20px']
+            ["style", "width", '173px']
          ],
          "${_zone1}": [
             ["color", "background-color", 'rgba(220,217,217,1.00)'],
@@ -316,23 +299,46 @@ var symbols = {
             ["style", "top", '135px'],
             ["style", "border-bottom-left-radius", [15,15], {valueTemplate:'@@0@@px @@1@@px'} ],
             ["style", "height", '26px'],
-            ["style", "left", '196px'],
-            ["style", "border-width", '2px']
+            ["style", "border-width", '2px'],
+            ["style", "left", '196px']
          ],
          "${_Stage}": [
             ["color", "background-color", 'rgba(255,255,255,1)'],
-            ["style", "overflow", 'hidden'],
+            ["style", "width", '900px'],
             ["style", "height", '710px'],
-            ["style", "width", '900px']
+            ["style", "overflow", 'hidden']
          ],
-         "${_qText1}": [
-            ["style", "top", '0px'],
-            ["style", "text-align", 'center'],
-            ["style", "font-size", '20px'],
-            ["color", "color", 'rgba(255,255,255,1.00)'],
-            ["style", "line-height", '30px'],
-            ["style", "left", '7px'],
-            ["style", "width", '173px']
+         "${_drag1}": [
+            ["color", "background-color", 'rgba(97,112,159,1.00)'],
+            ["style", "border-top-left-radius", [0,0], {valueTemplate:'@@0@@px @@1@@px'} ],
+            ["style", "border-bottom-right-radius", [15,15], {valueTemplate:'@@0@@px @@1@@px'} ],
+            ["style", "opacity", '0'],
+            ["style", "left", '530px'],
+            ["style", "width", '188px'],
+            ["style", "top", '83px'],
+            ["style", "border-bottom-left-radius", [15,15], {valueTemplate:'@@0@@px @@1@@px'} ],
+            ["style", "border-top-right-radius", [0,0], {valueTemplate:'@@0@@px @@1@@px'} ],
+            ["style", "height", '28px'],
+            ["style", "cursor", 'move'],
+            ["style", "border-width", '1px'],
+            ["style", "border-style", 'solid']
+         ],
+         "${_resetButton3}": [
+            ["style", "top", '637px'],
+            ["style", "left", '422px'],
+            ["style", "cursor", 'pointer']
+         ],
+         "${_dragHint1Copy}": [
+            ["style", "line-height", 'normal'],
+            ["color", "color", 'rgba(0,0,0,1.00)'],
+            ["style", "opacity", '0'],
+            ["style", "left", '747px'],
+            ["style", "font-size", '15px'],
+            ["style", "top", '188px'],
+            ["style", "overflow", 'auto'],
+            ["style", "height", '108px'],
+            ["style", "cursor", 'default'],
+            ["style", "width", '133px']
          ],
          "${_zone2}": [
             ["color", "background-color", 'rgba(220,217,217,1.00)'],
@@ -344,23 +350,17 @@ var symbols = {
             ["style", "top", '279px'],
             ["style", "border-bottom-left-radius", [15,15], {valueTemplate:'@@0@@px @@1@@px'} ],
             ["style", "height", '26px'],
-            ["style", "border-width", '2px'],
-            ["style", "left", '195px']
+            ["style", "left", '195px'],
+            ["style", "border-width", '2px']
          ],
-         "${_drag1}": [
-            ["color", "background-color", 'rgba(97,112,159,1.00)'],
-            ["style", "border-top-left-radius", [0,0], {valueTemplate:'@@0@@px @@1@@px'} ],
-            ["style", "border-bottom-right-radius", [15,15], {valueTemplate:'@@0@@px @@1@@px'} ],
-            ["style", "opacity", '0'],
-            ["style", "left", '530px'],
-            ["style", "width", '188px'],
-            ["style", "top", '83px'],
-            ["style", "border-bottom-left-radius", [15,15], {valueTemplate:'@@0@@px @@1@@px'} ],
-            ["style", "border-style", 'solid'],
-            ["style", "height", '28px'],
-            ["style", "border-width", '1px'],
-            ["style", "cursor", 'move'],
-            ["style", "border-top-right-radius", [0,0], {valueTemplate:'@@0@@px @@1@@px'} ]
+         "${_qText1}": [
+            ["style", "top", '0px'],
+            ["style", "text-align", 'center'],
+            ["style", "width", '173px'],
+            ["color", "color", 'rgba(255,255,255,1.00)'],
+            ["style", "line-height", '30px'],
+            ["style", "left", '7px'],
+            ["style", "font-size", '20px']
          ],
          "${_dragText1}": [
             ["style", "line-height", '30px'],
@@ -394,10 +394,10 @@ var symbols = {
             { id: "eid35", tween: [ "style", "${_dragHint1}", "opacity", '1', { fromValue: '0'}], position: 2000, duration: 0 },
             { id: "eid2", tween: [ "style", "${_dragText1}", "opacity", '0', { fromValue: '0'}], position: 0, duration: 0 },
             { id: "eid4", tween: [ "style", "${_dragText1}", "opacity", '1', { fromValue: '0'}], position: 1000, duration: 0 },
-            { id: "eid36", tween: [ "style", "${_drag2}", "opacity", '0', { fromValue: '0'}], position: 0, duration: 0 },
-            { id: "eid37", tween: [ "style", "${_drag2}", "opacity", '1', { fromValue: '0'}], position: 1000, duration: 0 },
             { id: "eid1", tween: [ "style", "${_drag1}", "opacity", '0', { fromValue: '0'}], position: 0, duration: 0 },
-            { id: "eid3", tween: [ "style", "${_drag1}", "opacity", '1', { fromValue: '0'}], position: 1000, duration: 0 }         ]
+            { id: "eid3", tween: [ "style", "${_drag1}", "opacity", '1', { fromValue: '0'}], position: 1000, duration: 0 },
+            { id: "eid36", tween: [ "style", "${_drag2}", "opacity", '0', { fromValue: '0'}], position: 0, duration: 0 },
+            { id: "eid37", tween: [ "style", "${_drag2}", "opacity", '1', { fromValue: '0'}], position: 1000, duration: 0 }         ]
       }
    }
 },
@@ -422,12 +422,12 @@ var symbols = {
       fill: ['rgba(112,100,252,1.00)']
    },
    {
-      font: ['Arial, Helvetica, sans-serif',16,'rgba(255,255,255,1.00)','500','none',''],
       type: 'text',
+      rect: ['12px','7px','auto','auto','auto','auto'],
       id: 'Text',
       text: 'Check answers',
       align: 'center',
-      rect: ['12px','7px','auto','auto','auto','auto']
+      font: ['Arial, Helvetica, sans-serif',16,'rgba(255,255,255,1.00)','500','none','']
    }],
    symbolInstances: [
    ]
@@ -444,8 +444,8 @@ var symbols = {
             ["style", "top", '0px'],
             ["style", "border-bottom-left-radius", [14,14], {valueTemplate:'@@0@@px @@1@@px'} ],
             ["style", "height", '27px'],
-            ["style", "left", '0px'],
-            ["style", "border-top-right-radius", [14,14], {valueTemplate:'@@0@@px @@1@@px'} ]
+            ["style", "border-top-right-radius", [14,14], {valueTemplate:'@@0@@px @@1@@px'} ],
+            ["style", "left", '0px']
          ],
          "${_Text}": [
             ["style", "top", '7px'],
@@ -483,18 +483,18 @@ var symbols = {
    content: {
    dom: [
    {
-      font: ['Arial, Helvetica, sans-serif',13,'rgba(115,115,115,1.00)','400','none','normal'],
       type: 'text',
+      rect: ['5px','6px','auto','auto','auto','auto'],
       id: 'resetButton',
       text: 'RESET',
       align: 'center',
-      rect: ['5px','6px','auto','auto','auto','auto']
+      font: ['Arial, Helvetica, sans-serif',13,'rgba(115,115,115,1.00)','400','none','normal']
    },
    {
-      type: 'rect',
+      rect: ['0px','0px','56px','24px','auto','auto'],
       id: 'Rectangle2',
       stroke: [1,'rgb(0, 0, 0)','none'],
-      rect: ['0px','0px','56px','24px','auto','auto'],
+      type: 'rect',
       fill: ['rgba(97,112,159,0.00)']
    }],
    symbolInstances: [
@@ -550,12 +550,12 @@ var symbols = {
       rect: ['0px','0px','575','18','auto','auto'],
       c: [
       {
-         type: 'text',
          rect: ['0px','2px','575px','16px','auto','auto'],
+         font: ['Arial, Helvetica, sans-serif',12,'rgba(0,0,0,1)','normal','none',''],
          id: 'Text',
          text: 'Copyright 2013 North Carolina State University. Code by One Time Software. Version 1.0 July 2013.',
          align: 'center',
-         font: ['Arial, Helvetica, sans-serif',12,'rgba(0,0,0,1)','normal','none','']
+         type: 'text'
       },
       {
          id: 'codeByButton',
@@ -590,9 +590,9 @@ var symbols = {
             ["style", "top", '2px'],
             ["style", "text-align", 'center'],
             ["style", "height", '16px'],
-            ["style", "font-size", '12px'],
+            ["style", "width", '575px'],
             ["style", "left", '0px'],
-            ["style", "width", '575px']
+            ["style", "font-size", '12px']
          ],
          "${symbolSelector}": [
             ["style", "height", '18px'],
@@ -644,14 +644,14 @@ var symbols = {
    },
    states: {
       "Base State": {
+         "${symbolSelector}": [
+            ["style", "height", '16px'],
+            ["style", "width", '106px']
+         ],
          "${_RoundRect}": [
             ["style", "top", '0px'],
             ["style", "opacity", '0'],
             ["style", "left", '0px']
-         ],
-         "${symbolSelector}": [
-            ["style", "height", '16px'],
-            ["style", "width", '106px']
          ]
       }
    },
@@ -679,9 +679,9 @@ var symbols = {
    {
       rect: ['0px','0px','168px','16px','auto','auto'],
       borderRadius: ['10px','10px','10px','10px'],
-      stroke: [0,'rgb(0, 0, 0)','none'],
-      id: 'RoundRect2',
       opacity: 0,
+      id: 'RoundRect2',
+      stroke: [0,'rgb(0, 0, 0)','none'],
       type: 'rect',
       fill: ['rgba(192,192,192,1)']
    }],
@@ -690,14 +690,14 @@ var symbols = {
    },
    states: {
       "Base State": {
-         "${symbolSelector}": [
-            ["style", "height", '16px'],
-            ["style", "width", '168px']
-         ],
          "${_RoundRect2}": [
             ["style", "top", '0px'],
             ["style", "opacity", '0'],
             ["style", "left", '0px'],
+            ["style", "width", '168px']
+         ],
+         "${symbolSelector}": [
+            ["style", "height", '16px'],
             ["style", "width", '168px']
          ]
       }

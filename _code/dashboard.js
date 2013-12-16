@@ -28,11 +28,11 @@ function getData() {
 		url: "../../_code/dashLoader.php",
 		dataType: 'json',
 		success: function(data) {
-			console.log("Dash Loader is done\n\n");
+			console.log("  Loader is done\n\n");
 			computeAndDisplayStats(data);
 		},
 		error: function() {
-			console.log("Dash Loader failed!\n\n");
+			console.log("  Loader failed!\n\n");
 		}
 	});
 }

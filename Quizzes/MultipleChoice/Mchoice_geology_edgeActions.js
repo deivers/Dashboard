@@ -39,7 +39,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       //Edge binding end
 
       Symbol.bindElementAction(compId, symbolName, "document", "compositionReady", function(sym, e) {
-         var questionNumber = 1;
+         var quizpageNumber = 1;
          var questionSummaryText = "Identify granite out of 4 sample images";
          var logResponsesToDashboard = true;
          var nextPageUrl = "../folder/filename.html";
@@ -119,15 +119,15 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          		if (typeof studentId === 'undefined' || studentId == "")
          			var studentId = prompt("Please enter your student ID","")
          		// todo: verify that we got a valid id above
-         		if (typeof questionNumber === 'undefined')
-         			var questionNumber = 0;
+         		if (typeof quizpageNumber === 'undefined')
+         			var quizpageNumber = 0;
          		if (typeof questionTextSummary === 'undefined')
          			var questionTextSummary = "Question text summary isn't defined";
          		var request = $.ajax({
          			type: 'POST',
          			url: 'LogResponse.php',
          			data: {	si : studentId,		//todo: get student id from env var
-         					qn : questionNumber,
+         					qn : quizpageNumber,
          					qt : qType,
          					qs : questionTextSummary,
          					sa : list
