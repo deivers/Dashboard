@@ -14,6 +14,7 @@ var requireOption = (typeof requireCompletion === 'undefined' || requireCompleti
 var isQuizComplete;
 var dragList;
 var zoneList;
+var ak;
 $(function() {
 	dragList = $(".dragTab");
 	zoneList = $(".dropZone");
@@ -84,6 +85,7 @@ function checkAnswers() {
 	var allCorrect = true;
 	var correctButIncomplete = true;
 	for (var i=0; i<zoneList.length; i++) { // for each zone
+		ak[i] = i;
 		studentList[i] = -1; // in case no draggable found in this zone
 		for (var j=0; j<dragList.length; j++) {
 			if (isWithin(dragList[j], zoneList[i])) {
@@ -96,7 +98,7 @@ function checkAnswers() {
 		if (studentList[i] != i)
 			allCorrect = false;
 	}
-	logStudentResponses(quizpageNumber,studentList);
+	logStudentResponses(quizpageNumber,studentList,ak);
 
 	// reject wrong answers
 	var parentDiv;
@@ -128,7 +130,7 @@ function checkAnswers() {
 		alert("One or more of your answers are incorrect.  Please try again...");
 }
 
-function logStudentResponses(qNum, list) {
+function logStudentResponses(qNum, list, k) {
 	if (typeof logResponsesToDashboard === 'undefined')
 		logResponsesToDashboard = false;
 	if (logResponsesToDashboard) {
@@ -153,7 +155,8 @@ function logStudentResponses(qNum, list) {
 					qn : qNum,
 					qt : questionType,
 					qs : questionTextSummary,
-					sa : list
+					sa : list,
+					ak : k
 			},
 			dataType: 'json'
 		});
