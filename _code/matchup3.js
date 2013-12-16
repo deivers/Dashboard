@@ -141,9 +141,9 @@ function logStudentResponses(qNum, list) {
 			console.log("Warning: quizpageNumber not found; defaulting to 0");
 		}
 		if (shuffleWhich == "draggables")
-			questionType = "Multiple Choice with the answers shuffled";
+			questionType = "Matchup with the answers shuffled";
 		else
-			questionType = "Multiple Choice with the questions shuffled";
+			questionType = "Matchup with the questions shuffled";
 		if (typeof questionTextSummary === 'undefined')
 			var questionTextSummary = "Question text summary isn't defined";
 		var request = $.ajax({
