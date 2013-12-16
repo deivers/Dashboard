@@ -47,7 +47,7 @@ function computeAndDisplayStats(logArray) {
 		console.log("First student's first submitted answers: "+student[0][answersIndex]);
 		console.log("First student's last submitted answers: "+student[0][lastSubmissionIndex]);
 		console.log("Number of submissions by the first student: "+student[0][numberOfSubmissionsIndex]);
-		console.log("");
+		console.log("Key: "+student.answerKeyString);
 		$("body")
 			.append($("<h2>Quiz-page #"+(quizpageIndex+1)+"</h2>"))
 			.append($("<p>Question type: "+student.questionType+"</p>"))
@@ -86,7 +86,7 @@ function parseLogString(qNumber,logString) {
 	//	console.log(logArrayOneLinePerStudent[student][column]);
 	logArrayOneLinePerStudent.questionType = logArray[0][0];
 	logArrayOneLinePerStudent.questionText = logArray[0][1];
-	logArrayOneLinePerStudent.answerKeyString = logArray[0][2];
+	logArrayOneLinePerStudent.answerKeyString = logArray[0][answersIndex];
 	return logArrayOneLinePerStudent;
 }
 

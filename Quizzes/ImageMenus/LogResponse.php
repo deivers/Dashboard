@@ -13,7 +13,7 @@ $studentAnswerArray = $_POST['sa'];
 for ($i=0; $i<count($studentAnswerArray); $i++) {
 	$ak[$i] = $i;
 }
-//error_log("/t".$workingDir." ".$studentId." ".$questionNumber." ".$questionType." ".$questionTextSummary." ".$studentAnswerArray);
+//error_log("/t".$workingDir." ".$studentId." ".$questionNumber." ".$questionType." ".$questionTextSummary." ".$studentAnswerArray." ".$answerKey);
 $result = logStudentSubmission(
 		$workingDir,
 		$studentId,

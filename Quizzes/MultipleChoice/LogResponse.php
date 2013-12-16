@@ -11,8 +11,8 @@ $questionNumber = $_POST['qn'];
 $questionType = $_POST['qt'];
 $questionTextSummary = $_POST['qs'];
 $studentAnswerArray = $_POST['sa'];
-$answerKey = "";
-//error_log("/t".$workingDir." ".$studentId." ".$questionNumber." ".$questionType." ".$questionTextSummary." ".$studentAnswerArray);
+$answerKey = $_POST['ak'];
+error_log("/t".$workingDir." ".$studentId." ".$questionNumber." ".$questionType." ".$questionTextSummary." ".$studentAnswerArray." ".$answerKey);
 $result = logStudentSubmission(
 		$workingDir,
 		$studentId,
@@ -23,5 +23,9 @@ $result = logStudentSubmission(
 		$answerKey
 );
 //todo: if ($result <= 0) notify the user to try again
+if ($result <= 0) {
+	date_default_timezone_set('UTC');
+	error_log("*** Error logging response: ".date("c")."|".$studentId."|".$questionNumber."|".$questionType."|".$questionTextSummary."|".$studentAnswerArray."|".$answerKey);
+}
 
 ?>
