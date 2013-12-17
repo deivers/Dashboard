@@ -44,14 +44,16 @@ function getData() {
 }
 
 function computeAndDisplayStats(logArray) {
-	var nFirst, nLast, answerKeyHtml;
+	var nFirst, nLast, answerDetailsHtml, answerKeyArray, answerKeyHtml;
 	// for each log file
 	$(".stats").remove(); // if hitting the button again, clear the previously displayed stats
 	logArray.forEach(function(logString,quizpageIndex) {
 		student = parseLogString(quizpageIndex+1,logString);
-		answerKeyHtml = "<ul style='list-style:none'><li>"+replaceAwithBinC(";","</li><li>",student.answerDetails)+"</li></ul>";
+		answerDetailsHtml = "<ul style='list-style:none'><li>"+replaceAwithBinC(";","</li><li>",student.answerDetails)+"</li></ul>";
+		answerKeyArray = student.answerKeyString.split(";");
+		answerKeyHtml = addToEach(answerKeyArray,1).join(", ");
 		nFirst = numberCorrectSubmissions(firstSubmissionIndex);
-		nLast = numberCorrectSubmissions(lastSubmissionIndex)
+		nLast = numberCorrectSubmissions(lastSubmissionIndex);
 		console.log("First student's first submitted answers: "+student[0][firstSubmissionIndex]);
 		console.log("First student's last submitted answers: "+student[0][lastSubmissionIndex]);
 		console.log("Number of submissions by the first student: "+student[0][numberOfSubmissionsIndex]);
@@ -62,15 +64,15 @@ function computeAndDisplayStats(logArray) {
 				.append($("<h2>Quiz-page #"+(quizpageIndex+1)+"</h2>"))
 				.append($("<p>Question type: "+student.questionType+"</p>"))
 				.append($("<p>Question summary: "+student.questionText+"</p>"))
-				.append($("<p>Answer details: </p>"+answerKeyHtml))
-				.append($("<p>Answer key: "+replaceAwithBinC(";",", ",student.answerKeyString)+"</p>"))
-				.append($("<br />"))
+				.append($("<p>Answer details: </p>"+answerDetailsHtml))
+				.append($("<p>Answer key: "+answerKeyHtml+"</p>"))
+				.append($("<h3>Statistics for #"+(quizpageIndex+1)+"</h3>"))
 				.append($("<p>Number of students that responded: "+student.length+"</p>"))
-				.append($("<p>Number of students with all correct on final submission: "+nLast+" which is "+toPercent(nLast,student.length)+"%</p>"))
-				.append($("<p>Number of students with all correct on first submission: "+nFirst+" which is "+toPercent(nFirst,student.length)+"%</p>"))
-				.append($("<p>Number correct for each answer on first submission: "+numberCorrectAnswers(firstSubmissionIndex).join(", ")+"</p>"))
-				.append($("<p>Percent correct for each answer on first submission: "+toPercentArrayWithUnits(numberCorrectAnswers(firstSubmissionIndex),student.length).join(", ")+"</p>"))
-				.append($("<p>The most common answers on first submission: "+mostCommonAnswers(firstSubmissionIndex).join(", ")+"</p>"))
+				.append($("<p>Number of students with all correct on final submission: "+nLast+" &nbsp; "+toPercent(nLast,student.length)+"%</p>"))
+				.append($("<p>Number of students with all correct on first submission: "+nFirst+" &nbsp; "+toPercent(nFirst,student.length)+"%</p>"))
+				.append($("<p>Number correct for each choice on first submission: "+numberCorrectAnswers(firstSubmissionIndex).join(", ")
+						  +" &nbsp; "+toPercentArrayWithUnits(numberCorrectAnswers(firstSubmissionIndex),student.length).join(", ")+"</p>"))
+				.append($("<p>The most common choices on first submission: "+addToEach(mostCommonAnswers(firstSubmissionIndex),1).join(", ")+"</p>"))
 			);
 	});
 }
@@ -233,4 +235,12 @@ function appendToEach(array,stringToAppend) {
 		arrayAppended.push(val+""+stringToAppend);
 	});
 	return arrayAppended;
+}
+
+function addToEach(array,constant) {
+	// changes array itself
+	array.forEach(function(val,index,a){
+		a[index] = parseInt(a[index]) + constant;
+	});
+	return array;
 }
