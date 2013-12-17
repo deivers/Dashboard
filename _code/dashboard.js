@@ -8,10 +8,16 @@
 // number of submissions by a student is 1-based
 // student index is 0-based
 
-// index parameters
+// index parameters, first line
+var qTypeIndex = 0;
+var qTextIndex = 1;
+var aDetailsIndex = 2;
+var aKeyIndex = 3;
+// index parameters for incoming data, after first line
 var timestampIndex = 0;
 var studentIdIndex = 1;
-var answersIndex = 2;
+var studentAnswersIndex = 2;
+// index parameters for student array
 var firstSubmissionIndex = 2;
 var lastSubmissionIndex = 3;		// not a column in the log file but added when parsing
 var numberOfSubmissionsIndex = 4;	// not a column in the log file but added when parsing
@@ -40,26 +46,31 @@ function getData() {
 function computeAndDisplayStats(logArray) {
 	var nFirst, nLast;
 	// for each log file
+	$(".stats").remove(); // if hitting the button again, clear the previously displayed stats
 	logArray.forEach(function(logString,quizpageIndex) {
 		student = parseLogString(quizpageIndex+1,logString);
 		nFirst = numberCorrectSubmissions(firstSubmissionIndex);
 		nLast = numberCorrectSubmissions(lastSubmissionIndex)
-		console.log("First student's first submitted answers: "+student[0][answersIndex]);
+		console.log("First student's first submitted answers: "+student[0][firstSubmissionIndex]);
 		console.log("First student's last submitted answers: "+student[0][lastSubmissionIndex]);
 		console.log("Number of submissions by the first student: "+student[0][numberOfSubmissionsIndex]);
 		console.log("Key: "+student.answerKeyString);
+		console.log("Details: "+student.answerDetails);
 		$("body")
+			.append($("<div id='stats'">))
 			.append($("<h2>Quiz-page #"+(quizpageIndex+1)+"</h2>"))
 			.append($("<p>Question type: "+student.questionType+"</p>"))
 			.append($("<p>Question summary: "+student.questionText+"</p>"))
-			.append($("<p>Answer key: "+student.answerKeyString+"</p>"))
+			.append($("<p>Answer details: </p>"+replaceAwithBinC(";"," ",student.answerDetails)+""))
+			.append($("<p>Answer key: "+replaceAwithBinC(";",", ",student.answerKeyString)+"</p>"))
 			.append($("<br />"))
 			.append($("<p>Number of students that responded: "+student.length+"</p>"))
 			.append($("<p>Number of students with all correct on final submission: "+nLast+" which is "+toPercent(nLast,student.length)+"%</p>"))
 			.append($("<p>Number of students with all correct on first submission: "+nFirst+" which is "+toPercent(nFirst,student.length)+"%</p>"))
 			.append($("<p>Number correct for each answer on first submission: "+numberCorrectAnswers(firstSubmissionIndex).join(", ")+"</p>"))
 			.append($("<p>Percent correct for each answer on first submission: "+toPercentArrayWithUnits(numberCorrectAnswers(firstSubmissionIndex),student.length).join(", ")+"</p>"))
-			.append($("<p>The most common answers on first submission: "+mostCommonAnswers(firstSubmissionIndex).join(", ")+"</p>"));
+			.append($("<p>The most common answers on first submission: "+mostCommonAnswers(firstSubmissionIndex).join(", ")+"</p>"))
+			.append($("</div>"));
 	});
 }
 
@@ -84,9 +95,10 @@ function parseLogString(qNumber,logString) {
 	//var student=0;
 	//for (var column=0; column<5; column++)
 	//	console.log(logArrayOneLinePerStudent[student][column]);
-	logArrayOneLinePerStudent.questionType = logArray[0][0];
-	logArrayOneLinePerStudent.questionText = logArray[0][1];
-	logArrayOneLinePerStudent.answerKeyString = logArray[0][answersIndex];
+	logArrayOneLinePerStudent.questionType = logArray[0][qTypeIndex];
+	logArrayOneLinePerStudent.questionText = logArray[0][qTextIndex];
+	logArrayOneLinePerStudent.answerDetails = logArray[0][aDetailsIndex];
+	logArrayOneLinePerStudent.answerKeyString = logArray[0][aKeyIndex];
 	return logArrayOneLinePerStudent;
 }
 
@@ -109,10 +121,10 @@ function firstSubmissions(origArr,columnToCompare) {
 		}
 		if (!studentPreviouslySubmitted) {
 			newArr.push(origArr[x]);
-			newArr[y].push(origArr[x][answersIndex]);	// the added element is or will become this student's last submitted answer
+			newArr[y].push(origArr[x][studentAnswersIndex]);	// the added element is or will become this student's last submitted answer
 			newArr[y].push(1);		// number of submissions
 		} else {
-			newArr[y][lastSubmissionIndex] = origArr[x][answersIndex];	// keep replacing until it's the last one
+			newArr[y][lastSubmissionIndex] = origArr[x][studentAnswersIndex];	// keep replacing until it's the last one
 			newArr[y][numberOfSubmissionsIndex]++;
 		}
 	}
@@ -139,10 +151,10 @@ function numberCorrectAnswers(whichColumn) {
 	// for last submissions, whichColumn = lastSubmissionIndex
 	// implicit arg: student array
 	var studentAnswers;
-	var answerKey = student.answerKeyString.split(",");
-	var nCorrect = arrayFactory(answerKey.length,0);
+	var answerKey = student.answerKeyString.split(";");
+	var nCorrect = arrayFactory(answerKey.length,0,0);
 	for (var whichStudent=0; whichStudent<student.length; whichStudent++) {
-		studentAnswers = student[whichStudent][whichColumn].split(",");
+		studentAnswers = student[whichStudent][whichColumn].split(";");
 		for (var whichAnswer=0; whichAnswer<answerKey.length; whichAnswer++) {
 			if (studentAnswers[whichAnswer] == answerKey[whichAnswer]) {
 				nCorrect[whichAnswer]++;
@@ -156,11 +168,11 @@ function mostCommonAnswers(whichColumn) {
 	// for first submissions, whichColumn = firstSubmissionIndex
 	// for last submissions, whichColumn = lastSubmissionIndex
 	// implicit arg: student array
-	var answerKey = student.answerKeyString.split(",");
+	var answerKey = student.answerKeyString.split(";");
 	var accumulationArray = new Array(answerKey.length);
 	var studentAnswers, key;
 	for (var whichStudent=0; whichStudent<student.length; whichStudent++) {
-		studentAnswers = student[whichStudent][whichColumn].split(",");
+		studentAnswers = student[whichStudent][whichColumn].split(";");
 		for (var whichQuestion=0; whichQuestion<studentAnswers.length; whichQuestion++) {
 			// if accumulation array doesn't yet contain this answer, then push it on with value of 1
 			// else add to the sum
@@ -197,13 +209,6 @@ function mostCommonAnswers(whichColumn) {
 }
 
 // utility functions
-
-function arrayFactory(numberOfElements,commonElement) {
-	var array = new Array(numberOfElements);
-	for (var i=0; i<numberOfElements; i++)
-		array[i] = commonElement;
-	return array;
-}
 
 function toPercent(aNumber,total) {
 	return Math.round((aNumber*100)/total);
