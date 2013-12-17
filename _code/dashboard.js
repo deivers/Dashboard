@@ -57,20 +57,20 @@ function computeAndDisplayStats(logArray) {
 		console.log("Key: "+student.answerKeyString);
 		console.log("Details: "+student.answerDetails);
 		$("body")
-			.append($("<div id='stats'">))
-			.append($("<h2>Quiz-page #"+(quizpageIndex+1)+"</h2>"))
-			.append($("<p>Question type: "+student.questionType+"</p>"))
-			.append($("<p>Question summary: "+student.questionText+"</p>"))
-			.append($("<p>Answer details: </p>"+replaceAwithBinC(";"," ",student.answerDetails)+""))
-			.append($("<p>Answer key: "+replaceAwithBinC(";",", ",student.answerKeyString)+"</p>"))
-			.append($("<br />"))
-			.append($("<p>Number of students that responded: "+student.length+"</p>"))
-			.append($("<p>Number of students with all correct on final submission: "+nLast+" which is "+toPercent(nLast,student.length)+"%</p>"))
-			.append($("<p>Number of students with all correct on first submission: "+nFirst+" which is "+toPercent(nFirst,student.length)+"%</p>"))
-			.append($("<p>Number correct for each answer on first submission: "+numberCorrectAnswers(firstSubmissionIndex).join(", ")+"</p>"))
-			.append($("<p>Percent correct for each answer on first submission: "+toPercentArrayWithUnits(numberCorrectAnswers(firstSubmissionIndex),student.length).join(", ")+"</p>"))
-			.append($("<p>The most common answers on first submission: "+mostCommonAnswers(firstSubmissionIndex).join(", ")+"</p>"))
-			.append($("</div>"));
+			.append($("<div class='stats'></div>")
+				.append($("<h2>Quiz-page #"+(quizpageIndex+1)+"</h2>"))
+				.append($("<p>Question type: "+student.questionType+"</p>"))
+				.append($("<p>Question summary: "+student.questionText+"</p>"))
+				.append($("<p>Answer details: </p>"+replaceAwithBinC(";"," ",student.answerDetails)+""))
+				.append($("<p>Answer key: "+replaceAwithBinC(";",", ",student.answerKeyString)+"</p>"))
+				.append($("<br />"))
+				.append($("<p>Number of students that responded: "+student.length+"</p>"))
+				.append($("<p>Number of students with all correct on final submission: "+nLast+" which is "+toPercent(nLast,student.length)+"%</p>"))
+				.append($("<p>Number of students with all correct on first submission: "+nFirst+" which is "+toPercent(nFirst,student.length)+"%</p>"))
+				.append($("<p>Number correct for each answer on first submission: "+numberCorrectAnswers(firstSubmissionIndex).join(", ")+"</p>"))
+				.append($("<p>Percent correct for each answer on first submission: "+toPercentArrayWithUnits(numberCorrectAnswers(firstSubmissionIndex),student.length).join(", ")+"</p>"))
+				.append($("<p>The most common answers on first submission: "+mostCommonAnswers(firstSubmissionIndex).join(", ")+"</p>"))
+			);
 	});
 }
 
