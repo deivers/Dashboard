@@ -44,11 +44,12 @@ function getData() {
 }
 
 function computeAndDisplayStats(logArray) {
-	var nFirst, nLast;
+	var nFirst, nLast, answerKeyHtml;
 	// for each log file
 	$(".stats").remove(); // if hitting the button again, clear the previously displayed stats
 	logArray.forEach(function(logString,quizpageIndex) {
 		student = parseLogString(quizpageIndex+1,logString);
+		answerKeyHtml = "<ul style='list-style:none'><li>"+replaceAwithBinC(";","</li><li>",student.answerDetails)+"</li></ul>";
 		nFirst = numberCorrectSubmissions(firstSubmissionIndex);
 		nLast = numberCorrectSubmissions(lastSubmissionIndex)
 		console.log("First student's first submitted answers: "+student[0][firstSubmissionIndex]);
@@ -61,7 +62,7 @@ function computeAndDisplayStats(logArray) {
 				.append($("<h2>Quiz-page #"+(quizpageIndex+1)+"</h2>"))
 				.append($("<p>Question type: "+student.questionType+"</p>"))
 				.append($("<p>Question summary: "+student.questionText+"</p>"))
-				.append($("<p>Answer details: </p>"+replaceAwithBinC(";"," ",student.answerDetails)+""))
+				.append($("<p>Answer details: </p>"+answerKeyHtml))
 				.append($("<p>Answer key: "+replaceAwithBinC(";",", ",student.answerKeyString)+"</p>"))
 				.append($("<br />"))
 				.append($("<p>Number of students that responded: "+student.length+"</p>"))

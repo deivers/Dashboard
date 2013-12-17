@@ -2,6 +2,7 @@
 //	integer minNumChars
 //	boolean logResponsesToDashboard (defaults to false)
 //	integer quizpageNumber (required if the above is true)
+//  string qTextSummary
 //	nextPageUrl
 
 // Note: we dont use jQuery autocomplete because we need the custom behavior of only showing completion when the characters entered have only one match, only in a particular list
@@ -116,40 +117,13 @@ function checkAnswers() {
 	/* log answers */
 	if (typeof logResponsesToDashboard === 'undefined')
 		logResponsesToDashboard = false;
-	if (logResponsesToDashboard)
-		logSubmission(quizpageNumber,autoCompleteTerms,studentAnswers);
+	if (logResponsesToDashboard) {
+		var saList = convertToIndexes(studentAnswers,autoCompleteTerms)
+		var akList = arrayFactory(studentAnswers.length,1,0);
+		logSubmission(quizpageNumber,questionType,qTextSummary,autoCompleteTerms,saList,akList);
+	}
 	// return true/false array
 	return scoreArray;
-}
-
-function logSubmission(qNum,answers,sAnswers) {
-	// submit to server
-	if (typeof studentId === 'undefined' || studentId == "")
-		var studentId = prompt("Please enter your student ID","")
-	// todo: get id from the environment variable
-	// todo: verify that we got a unique valid id above, or create one from the ip address?
-	if (typeof qNum === 'undefined') {
-		qNum = 0;
-		console.log("Warning: quizpageNumber not found; defaulting to 0");
-	}
-	quizpageTextSummary = answers.join(", ");
-	var request = $.ajax({
-		type: 'POST',
-		url: 'LogResponse.php',
-		data: {	si : studentId,		//todo: get student id from env var
-				qn : qNum,
-				qt : questionType,
-				qs : quizpageTextSummary,
-				sa : sAnswers
-		},
-		dataType: 'json'
-	});
-	request.done(function(msg) {
-		console.log("Submission successful: ");
-	});
-	request.fail(function(jqXHR, textStatus) {
-		console.log("The submission failed: "+textStatus);
-	});
 }
 
 function resetQuiz() {

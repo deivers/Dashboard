@@ -1,10 +1,8 @@
 var questionType = "Sequencer";
 var version = "1.0 December 2013";
 var rejectOption = (typeof rejectWrongAnswers === 'undefined' || rejectWrongAnswers);
-var saList = [];
 var dragList;
 var allList;
-var akList = [];
 $('.draggable').draggable();
 $(function() {
 	$("#sortable1, #sortable2").sortable({
@@ -46,9 +44,9 @@ function checkAnswers() {
 		$(allList).each(function(index) {
 			aDetailedList.push($(this).html());
 		});
-		saList = convertToIndexes($(".draggable"),allList);
-		akList = arrayFactory(allList.length);
-		logSubmission(quizpageNumber,questionType,questionTextSummary,aDetailedList,saList,akList);
+		var saList = convertToIndexes($(".draggable"),allList);
+		var akList = arrayFactory(allList.length);
+		logSubmission(quizpageNumber,questionType,qTextSummary,aDetailedList,saList,akList);
 	}
 	// give feedback to student
 	if (allCorrect) {

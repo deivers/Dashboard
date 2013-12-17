@@ -69,9 +69,9 @@ function arrayFactory(numberOfElements,multiplier,offset) {
 }
 
 function convertToIndexes(arrayWithUnknownOrder,referenceArray) {
-	// assume the arrays have same length!
-	var resultArray = [];
+	var resultArray = new Array(arrayWithUnknownOrder.length);
 	for (var i=0; i<arrayWithUnknownOrder.length; i++) {
+		resultArray[i] = -1;  // in case no match is found
 		for (var j=0; j<referenceArray.length; j++) {
 			if (arrayWithUnknownOrder[i] == referenceArray[j]) {
 				resultArray[i] = j;
