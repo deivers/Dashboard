@@ -24,10 +24,22 @@ function shuffleDivs(selectorForContainingElement,selectorOfElementsToBeShuffled
 
 function logSubmission(qNum,qType,qSummary,aSummary,saArray,akArray) {
 	console.log("Logging...");
-	if (typeof studentId === 'undefined' || studentId == "")
-		studentId = prompt("Please enter your student ID","");			// intentionally global
-	// todo: get id from the environment variable
-	// todo: verify that we got a unique valid id above, or create one from the ip address?
+	if (typeof studentId === 'undefined' || studentId.length == 0) {
+		if (typeof Storage !== 'undefined') {
+			studentId = sessionStorage.dashboardStudentId;
+		}
+		if (typeof studentId === 'undefined' || studentId.length == 0) {
+			// todo: get id from the environment variable
+			studentId = prompt("Please enter your student ID","");			// intentionally global
+			// todo: verify that we got a unique valid id above, or create one from the ip address?
+			if (typeof Storage !== 'undefined' && studentId.length > 0)
+				sessionStorage.dashboardStudentId = studentId;
+			else {
+				alert("You must provide a valid student ID in order to get credit for completing the quiz.");
+				return false;
+			}
+		}
+	}
 	if (typeof qNum === 'undefined') {
 		qNum = 0;
 		console.log("Warning: quizpageNumber not found; defaulting to 0");
@@ -57,6 +69,7 @@ function logSubmission(qNum,qType,qSummary,aSummary,saArray,akArray) {
 	//		console.log("The submission failed: "+textStatus);
 	//	});
 	//}
+	return true;
 }
 
 // utility functions
