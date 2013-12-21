@@ -115,13 +115,17 @@ function checkAnswers() {
 		studentAnswers[index] = $(this).val();
 		scoreArray.push(studentAnswers[index].toLowerCase() == autoCompleteTerms[index].toLowerCase());
 	});
-	/* log answers */
+	// log answers //
 	if (typeof logResponsesToDashboard === 'undefined')
 		logResponsesToDashboard = false;
 	if (logResponsesToDashboard) {
 		var saList = convertToIndexes(studentAnswers,autoCompleteTerms)
 		var akList = arrayFactory(studentAnswers.length,1,0);
-		logSubmission(quizpageNumber,questionType,qTextSummary,autoCompleteTerms,saList,akList);
+		var logSuccess = logSubmission(quizpageNumber,questionType,qTextSummary,autoCompleteTerms,saList,akList);
+		if (logSuccess == false) {
+			alert("You must provide a valid student ID for answers to be checked.");
+			return;
+		}
 	}
 	// return true/false array
 	return scoreArray;

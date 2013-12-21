@@ -38,7 +38,7 @@ function checkAnswers() {
 		}
 		nCorrect++;
 	}
-	/* log answers */
+	// log answers //
 	if (typeof logResponsesToDashboard === 'undefined')
 		logResponsesToDashboard = false;
 	if (logResponsesToDashboard) {
@@ -50,7 +50,7 @@ function checkAnswers() {
 		var akList = arrayFactory(allList.length);
 		var logSuccess = logSubmission(quizpageNumber,questionType,qTextSummary,aDetailedList,saList,akList);
 		if (logSuccess == false) {
-			alert("You must provide a valid student ID in order to see what you got right/wrong.");
+			alert("You must provide a valid student ID for answers to be checked.");
 			return;
 		}
 	}
