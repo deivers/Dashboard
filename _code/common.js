@@ -19,7 +19,9 @@ function shuffleDivs(selectorForContainingElement,selectorOfElementsToBeShuffled
 	var list = $(selectorOfElementsToBeShuffled);
 	$(selectorForContainingElement).append(list[0]);	// make sure the first is no longer first
 	for (var i=0; i<list.length/2+1; i++)
-		$(selectorForContainingElement).append(list[Math.floor(Math.random()*list.length)]);
+		$(selectorForContainingElement).append(list[Math.floor(Math.random()*(list.length-1))]);  // -1 because there's no sense in appending the last element to the elements
+	if (jQuerySame(list,$(selectorOfElementsToBeShuffled)))		// then the order is unchanged
+		$(selectorForContainingElement).append($(selectorOfElementsToBeShuffled).get().reverse());	// reverse the order
 }
 
 function logSubmission(qNum,qType,qSummary,aSummary,saArray,akArray) {
@@ -40,13 +42,13 @@ function logSubmission(qNum,qType,qSummary,aSummary,saArray,akArray) {
 			}
 		}
 	}
+	// validate incoming parameters
 	if (typeof qNum === 'undefined') {
 		qNum = 0;
 		console.log("Warning: quizpageNumber not found; defaulting to 0");
 	}
 	if (typeof qSummary === 'undefined')
 		qSummary = "question summary not defined in .html";
-	//console.log(qSummary);
 	// submit to server
 	var request = $.ajax({
 		type: 'POST',
@@ -73,6 +75,18 @@ function logSubmission(qNum,qType,qSummary,aSummary,saArray,akArray) {
 }
 
 // utility functions
+
+function jQuerySame(a, b) {
+    if (a.length != b.length) {
+        return false;
+    }
+    for (var i = 0; i < a.length; i++) {
+        if (a.get(i) != b.get(i)) {
+            return false;
+        }
+    }
+    return true;
+}
 
 function arrayFactory(numberOfElements,multiplier,offset) {
 	var array = new Array(numberOfElements);
