@@ -44,7 +44,7 @@ Steps to author your own quiz pages:
 	1.	Decide wither you want the MatchupStacked style or the MatchupLateral style.  Duplicate the folder and rename the html file according to the topic you will quiz on.  Edit the html file, overwriting the existing question text and answer text.  Add/remove div groups as needed to match your number of items.
 	2.	Set the following parameters in the html script as you see fit:
 			quizpageNumber
-			questionSummaryText = "DNA structures";
+			qTextSummary = "DNA structures";
 			shuffleWhich
 			rejectWrongAnswers
 			requireCompletion
