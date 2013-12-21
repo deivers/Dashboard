@@ -39,10 +39,12 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       //Edge binding end
 
       Symbol.bindElementAction(compId, symbolName, "document", "compositionReady", function(sym, e) {
-         var quizpageNumber = 1;
-         var questionSummaryText = "Identify granite out of 4 sample images";
-         var logResponsesToDashboard = true;
-         var nextPageUrl = "../folder/filename.html";
+         // instructor editable section //
+         	var qTextSummary = "Identify granite out of 4 sample images";
+         	var logResponsesToDashboard = true;	// true if you want to use the Dashboard
+         	var quizpageNumber = 1;					// required if the above is true; must be unique across quiz-pages in this folder
+         	var nextPageUrl = "../folder/filename.html";
+         // end of editable section //
          
          var checkboxes = sym.getComposition().getSymbols("Checkbox");
          // note: no guarantee on the order of the retrieved checkboxes, so sort by position
@@ -72,7 +74,17 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          	if (!isQuizComplete)
          		alert("You must mark at least one checkbox before submitting.");
          	else {
-         		logStudentResponses(quizpageNumber,studentChoices,questionType,cc);
+         		// log answers //
+         		if (typeof logResponsesToDashboard === 'undefined')
+         			logResponsesToDashboard = false;
+         		if (logResponsesToDashboard) {
+         			var logSuccess = logSubmission(quizpageNumber,questionType,qTextSummary," ",studentChoices,cc);
+         			if (logSuccess == false) {
+         				alert("You must provide a valid student ID for answers to be checked.");
+         				return;
+         			}
+         		}
+         		// score
          		if (allCorrect) {
          			alert("CORRECT!");
          			sym.getComposition().getSymbols("SubmitAnswersButton")[0].getSymbolElement().css({"opacity":0,"left":-1000});
@@ -103,47 +115,13 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          }
          
          function areArraysTheSame(a,b) {
+         	// order insensitive
          	var result = true;
          	a.forEach(function(elementInA) {
          		if (b.indexOf(elementInA) == -1) // not found
          			result = false;
          	});
          	return result;
-         }
-         
-         function logStudentResponses(qNum, list, qType, k) {
-         	if (typeof logResponsesToDashboard === 'undefined')
-         		logResponsesToDashboard = false;
-         	if (logResponsesToDashboard) {
-         		// submit to server
-         		if (typeof studentId === 'undefined' || studentId == "")
-         			var studentId = prompt("Please enter your student ID","")
-         		// todo: verify that we got a valid id above
-         		if (typeof qNum === 'undefined') {
-         			qNum = 0;
-         			console.log("Warning: quizpageNumber not found; defaulting to 0");
-         		}
-         		if (typeof questionTextSummary === 'undefined')
-         			var questionTextSummary = "Question text summary isn't defined";
-         		var request = $.ajax({
-         			type: 'POST',
-         			url: 'LogResponse.php',
-         			data: {	si : studentId,		//todo: get student id from env var
-         					qn : qNum,
-         					qt : qType,
-         					qs : questionTextSummary,
-         					sa : list,
-         					ak : k
-         			},
-         			dataType: 'json'
-         		});
-         		request.done(function(msg) {
-         			console.log("Submission successful");
-         		});
-         		request.fail(function(jqXHR, textStatus) {
-         			console.log("The submission failed: "+textStatus);
-         		});
-         	}
          }
          
          sym.goNextPage = function() {
