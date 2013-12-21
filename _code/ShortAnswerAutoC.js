@@ -80,24 +80,25 @@ function submitButtonTapped() {
 		alert("Type in answers for all of the questions before submitting.");
 		return;
 	}
-	/* mark the answers right or wrong */
+	/* check student's answer(s) */
 	var responseArray = checkAnswers();
-	//console.log("responseArray: "+responseArray);
-	$("input").each(function(index) {
-		if (responseArray[index])
-			$(this).removeClass("incorrect").addClass("correct");
-		else
-			$(this).removeClass("correct").addClass("incorrect");
-	});
-	/* add score summary below the submit button */
 	var numCorrect = numberTrue(responseArray);
 	var numTotal = responseArray.length;
-	$(".score").html(numCorrect+" of "+numTotal+" correct").css("color","#000");
+	//console.log("responseArray: "+responseArray);
+	if (showWrongAnswers || numCorrect == numTotal)
+		$("input").each(function(index) {
+			if (responseArray[index])
+				$(this).removeClass("incorrect").addClass("correct",500);
+			else
+				$(this).removeClass("correct").addClass("incorrect",500);
+		});
+	/* add score summary below the submit button */
 	if (numCorrect == numTotal) {
 		$(".score").html("Correct!").css("color","#090");
 		$("#submitButton").hide();
 		$("#nextButton").show();	// if nextButton exists, show it so student can proceed to next page
-	}
+	} else
+		$(".score").html(numCorrect+" of "+numTotal+" correct - please try again").css("color","#000");
 }
 
 function numberTrue(theArray) {
