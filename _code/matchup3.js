@@ -14,7 +14,6 @@ var requireOption = (typeof requireCompletion === 'undefined' || requireCompleti
 var isQuizComplete;
 var dragList;
 var zoneList;
-var ak;
 $(function() {
 	dragList = $(".dragTab");
 	zoneList = $(".dropZone");
@@ -84,6 +83,7 @@ function checkAnswers() {
 	}
 	var allCorrect = true;
 	var correctButIncomplete = true;
+	var ak = [];
 	for (var i=0; i<zoneList.length; i++) { // for each zone
 		ak[i] = i;
 		studentList[i] = -1; // in case no draggable found in this zone
