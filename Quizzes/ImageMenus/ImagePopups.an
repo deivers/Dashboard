@@ -2,7 +2,7 @@
 
 	"HTMLFileName":"ImagePopups.html",
 	"PubUseChromeFrameInstaller":"false",
-	"PubWebDir":"/Users/deivers/_Dev-OTSbiz/OTSW site 2010/biology/EdgeImageMenu/",
+	"PubWebDir":"/Users/deivers/_Dev-OTSbiz/OTSW site 2010/BioTestArea/Dashboard2/Quizzes/ImageMenus/",
 	"ModelData":"{\
 \"stage\": {\
    \"timelines\": {\
@@ -32,6 +32,7 @@
 	"symbol_SubmitAnswersButton":{
 		"codeTreeElementPopupFilter":""},
 	"pref__general__AutoKeyframePropertiesArmed":"false",
+	"UseCDN":"false",
 	"symbol_stage":{
 		"element_${_TextCopy5}":{
 			"timelineColor2":"0x107faa",
@@ -68,6 +69,10 @@
 			"timelineColor2":"0xd35d6e",
 			"timelineColor3":"0x7e4b52",
 			"timelineColor":"0xfb657a"},
+		"element_${_Text2}":{
+			"timelineColor2":"0x326a96",
+			"timelineColor3":"0x385063",
+			"timelineColor":"0x2f73ad"},
 		"element_${_TextCopy10}":{
 			"timelineColor2":"0xd8b467",
 			"timelineColor3":"0x81714f",
@@ -120,7 +125,7 @@
 	"viewStartY":"0",
 	"pixelsPerMs":"0.2",
 	"usedBOM":"false",
-	"nextElementColorIndex":"6",
+	"nextElementColorIndex":"7",
 	"stage-Default Timeline_playhead_ms":"0",
 	"PubChromeFrameInstallerPrompt":"none",
 	"StageZoomFactor":"100"}

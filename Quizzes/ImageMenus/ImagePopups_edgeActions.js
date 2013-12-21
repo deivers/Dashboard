@@ -22,25 +22,28 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       //Edge binding end
 
       Symbol.bindElementAction(compId, symbolName, "document", "compositionReady", function(sym, e) {
-         {	// instructor editable section //
+         // instructor editable section //
+         	var questionType = "Image with Popup Menus";
          	var qTextSummary = "short description of what is in this quiz"
          	var showWrongAnswers = true;		// false increases difficulty
          	var logResponsesToDashboard = true;	// true if you want to use the Dashboard
          	var quizpageNumber = 1;					// required if the above is true; must be unique across quiz-pages in this folder
          	var nextPageUrl = "../folder/filename.html";
-         	// end of editable section //
-         }
+         // end of editable section //
+         
          
          console.log("composition ready");
+         var texts = [];
          // load external css file
          yepnope({
-           load: ["../../_code/ImagePopups.css", "../../_code/common.js"]
-           //,complete: function() {}
+         	load: ["../../_code/ImagePopups.css", "../../_code/common.js"],
+         	complete: init
          });
+         
+         function init() {
          // collect all possible menu options
          var textFields = sym.$(".textSource");
          console.log("number of fields: "+textFields.length);
-         var texts = [];
          for (var i=0; i<textFields.length; i++) {
          	texts[i] = $(textFields[i]).html();
          	//console.log("text found at position "+i+": "+texts[i]);
@@ -66,10 +69,11 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          		j++;
          	}
          }
+         }
+         
          
          sym.checkStudentAnswers = function() {
          	console.log("checking answers");
-         	// implicit args: answerKey, textForMenus
          	var answerWidgets = sym.$(".menu");
          	var wrong = [];
          	var k = 0;
@@ -89,13 +93,20 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          		//console.log(index);
          	}
          	if (isComplete) {
-         		// dashboard logging
-         		var saArray = convertToIndexes(answerTexts,texts);
-         		var akArray = arrayFactory(answerTexts.length,1,0);
-         		//console.log(texts);
-         		//console.log(saArray);
-         		//console.log(akArray);
-         		logStudentResponses(texts,saArray,akArray);
+         		// log answers //
+         		if (typeof logResponsesToDashboard === 'undefined')
+         			logResponsesToDashboard = false;
+         		if (logResponsesToDashboard) {
+         			var saArray = convertToIndexes(answerTexts,texts);
+         			var akArray = arrayFactory(answerTexts.length,1,0);
+         			//console.log(texts); console.log(saArray); console.log(akArray);
+         			var logSuccess = logSubmission(quizpageNumber,questionType,qTextSummary,texts,saArray,akArray);
+         			if (logSuccess == false) {
+         				alert("You must provide a valid student ID for answers to be checked.");
+         				return;
+         			}
+         		}
+         		// scoring //
          		// clear any previous marks
          		$(answerWidgets).parent().removeClass("incorrect");
          		// mark wrong answers
@@ -110,40 +121,11 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          			sym.getComposition().getSymbols("NextPageButton")[0].getSymbolElement().css({"opacity":1});
          		}
          	} else
-         			alert("You must complete the quiz before answers will be checked.");
-         }
-         
-         /**
-          * Randomize array element order in-place.
-          * Using Fisher-Yates shuffle algorithm.
-          */
-         function shuffleArray(array) {
-             for (var i = array.length - 1; i > 0; i--) {
-                 var j = Math.floor(Math.random() * (i + 1));
-                 var temp = array[i];
-                 array[i] = array[j];
-                 array[j] = temp;
-             }
-             return array;
-         }
-         
-         function logStudentResponses(textList,saList,akList) {
-         	if (typeof logResponsesToDashboard === 'undefined')
-         		logResponsesToDashboard = false;
-         	if (logResponsesToDashboard) {
-         		if (typeof quizpageNumber === 'undefined')
-         			var quizpageNumber = 0;
-         		if (typeof questionType === 'undefined')
-         			var questionType = "Image with Popup Menus";
-         		if (typeof qTextSummary === 'undefined')
-         			var qTextSummary = "Text summary isn't defined for this quiz";
-         		// submit to server
-         		logSubmission(quizpageNumber,questionType,qTextSummary,textList,saList,akList);
-         	}
+         		alert("You must complete the quiz before answers will be checked.");
          }
          
          sym.goNextPage = function() {
-         	console.log(">>>"+nextPageUrl);
+         	console.log(">>> "+nextPageUrl);
          	window.open(nextPageUrl, "_blank");
          }
          

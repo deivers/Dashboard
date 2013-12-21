@@ -15,15 +15,6 @@ function showMetaInfo(versionString) {
 	return centerNode;
 }
 
-function shuffleDivs(selectorForContainingElement,selectorOfElementsToBeShuffled) {
-	var list = $(selectorOfElementsToBeShuffled);
-	$(selectorForContainingElement).append(list[0]);	// make sure the first is no longer first
-	for (var i=0; i<list.length/2+1; i++)
-		$(selectorForContainingElement).append(list[Math.floor(Math.random()*(list.length-1))]);  // -1 because there's no sense in appending the last element to the elements
-	if (jQuerySame(list,$(selectorOfElementsToBeShuffled)))		// then the order is unchanged
-		$(selectorForContainingElement).append($(selectorOfElementsToBeShuffled).get().reverse());	// reverse the order
-}
-
 function logSubmission(qNum,qType,qSummary,aSummary,saArray,akArray) {
 	console.log("Logging...");
 	if (typeof studentId === 'undefined' || studentId.length == 0) {
@@ -74,7 +65,27 @@ function logSubmission(qNum,qType,qSummary,aSummary,saArray,akArray) {
 	return true;
 }
 
-// utility functions
+// utility functions //
+
+function shuffleDivs(selectorForContainingElement,selectorOfElementsToBeShuffled) {
+	var list = $(selectorOfElementsToBeShuffled);
+	$(selectorForContainingElement).append(list[0]);	// make sure the first is no longer first
+	for (var i=0; i<list.length/2+1; i++)
+		$(selectorForContainingElement).append(list[Math.floor(Math.random()*(list.length-1))]);  // -1 because there's no sense in appending the last element to the elements
+	if (jQuerySame(list,$(selectorOfElementsToBeShuffled)))		// then the order is unchanged
+		$(selectorForContainingElement).append($(selectorOfElementsToBeShuffled).get().reverse());	// reverse the order
+}
+
+function shuffleArray(array) {
+	// Randomize array element order in-place using Fisher-Yates shuffle algorithm
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+    return array;
+}
 
 function jQuerySame(a, b) {
     if (a.length != b.length) {

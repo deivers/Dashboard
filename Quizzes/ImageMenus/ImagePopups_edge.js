@@ -139,6 +139,13 @@ var symbols = {
             id:'SubmitAnswersButton',
             type:'rect',
             rect:['569','527','auto','auto','auto','auto']
+         },
+         {
+            id:'Text2',
+            type:'text',
+            rect:['215px','30px','auto','auto','auto','auto'],
+            text:"Cell Anatomy",
+            font:['Arial, Helvetica, sans-serif',36,"rgba(0,0,0,1)","normal","none",""]
          }],
          symbolInstances: [
          {
@@ -159,6 +166,11 @@ var symbols = {
             ["style", "width", '171px'],
             ["style", "left", '120px'],
             ["style", "font-size", '15px']
+         ],
+         "${_Text2}": [
+            ["style", "top", '30px'],
+            ["style", "left", '215px'],
+            ["style", "font-size", '36px']
          ],
          "${_TextCopy2}": [
             ["style", "top", '133px'],
