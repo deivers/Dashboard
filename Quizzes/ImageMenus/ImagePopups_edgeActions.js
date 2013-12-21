@@ -14,18 +14,20 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       
       
       Symbol.bindSymbolAction(compId, symbolName, "creationComplete", function(sym, e) {
-         console.log("creation complete fn");
-         
+         // initially hide the Next Page button
+         sym.getComposition().getSymbols("NextPageButton")[0].getSymbolElement().css({"opacity":0});
 
       });
       //Edge binding end
 
       Symbol.bindElementAction(compId, symbolName, "document", "compositionReady", function(sym, e) {
-         {	// Editable section //
-         	var logResponsesToDashboard = true;
-         	var quizpageNumber = 1;
-         	var questionTextSummary = "short description of what is in this quiz"
-         	// end if editable section //
+         {	// instructor editable section //
+         	var qTextSummary = "short description of what is in this quiz"
+         	var showWrongAnswers = false;		// false increases difficulty
+         	var logResponsesToDashboard = true;	// true if you want to use the Dashboard
+         	var quizpageNumber = 1;					// required if the above is true; must be unique across quiz-pages in this folder
+         	var nextPageUrl = "../folder/filename.html";
+         	// end of editable section //
          }
          
          console.log("composition ready");
@@ -80,15 +82,20 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          		//console.log(index);
          	}
          	if (isComplete) {
-         		logStudentResponses(answerTexts);
+         		// dashboard logging
+         		logStudentResponses(answerTexts,texts);
          		// clear any previous marks
-         		$(answerWidgets).parent().css({"border":"0px"});
+         		$(answerWidgets).parent().css({"border":"0px"}); //todo: use css class
          		// mark wrong answers
-         		$(wrong).parent().css({"border":"3px solid red"});
+         		if (showWrongAnswers)
+         			$(wrong).parent().css({"border":"3px solid red"}); //todo: use css class
          		if (wrong.length > 0)
-         			alert("Please keep trying.");
-         		else
+         			alert("Not all are correct.  Please try again.");
+         		else {
          			alert("All correct!");
+         			sym.getComposition().getSymbols("SubmitAnswersButton")[0].getSymbolElement().css({"opacity":0,"left":-1000});
+         			sym.getComposition().getSymbols("NextPageButton")[0].getSymbolElement().css({"opacity":1});
+         		}
          	} else
          			alert("You must complete the quiz before answers will be checked.");
          }
@@ -107,7 +114,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
              return array;
          }
          
-         function logStudentResponses(list) {
+         function logStudentResponses(list,ak) {
          	if (typeof logResponsesToDashboard === 'undefined')
          		logResponsesToDashboard = false;
          	if (logResponsesToDashboard) {
@@ -128,7 +135,8 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          					qn : quizpageNumber,
          					qt : questionType,
          					qs : questionTextSummary,
-         					sa : list
+         					sa : list,
+         					ak : ak
          			},
          			dataType: 'json'
          		});
@@ -141,7 +149,10 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          	}
          }
          
-         
+         sym.goNextPage = function() {
+         	console.log(">>>"+nextPageUrl);
+         	window.open(nextPageUrl, "_blank");
+         }
          
 
       });
@@ -149,6 +160,13 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
 
       Symbol.bindElementAction(compId, symbolName, "${_SubmitAnswersButton}", "click", function(sym, e) {
          sym.getComposition().getStage().checkStudentAnswers();
+
+      });
+      //Edge binding end
+
+      Symbol.bindElementAction(compId, symbolName, "${_NextPageButton}", "click", function(sym, e) {
+         sym.getComposition().getStage().goNextPage();
+         
 
       });
       //Edge binding end
@@ -169,5 +187,14 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
 
    })("SubmitAnswersButton");
    //Edge symbol end:'SubmitAnswersButton'
+
+   //=========================================================
+   
+   //Edge symbol: 'SubmitAnswersButton_1'
+   (function(symbolName) {   
+         
+
+      })("NextPageButton");
+   //Edge symbol end:'NextPageButton'
 
 })(jQuery, AdobeEdge, "EDGE-749678393");
