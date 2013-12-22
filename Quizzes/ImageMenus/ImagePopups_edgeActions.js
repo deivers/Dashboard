@@ -17,6 +17,8 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          // initially hide the Next Page button
          sym.getComposition().getSymbols("NextPageButton")[0].getSymbolElement().css({"opacity":0});
          
+         // make sure the text boxes aren't visible while page loads
+         sym.$(".textSource").css({"opacity": 0});
 
       });
       //Edge binding end
@@ -41,34 +43,35 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          });
          
          function init() {
-         // collect all possible menu options
-         var textFields = sym.$(".textSource");
-         console.log("number of fields: "+textFields.length);
-         for (var i=0; i<textFields.length; i++) {
-         	texts[i] = $(textFields[i]).html();
-         	//console.log("text found at position "+i+": "+texts[i]);
-         }
-         // randomize the menu options
-         var textForMenus = texts.slice(0);
-         shuffleArray(textForMenus);
-         var optionString = "<option>?</option>";
-         for (var i=0; i<textFields.length; i++) {
-         	optionString += "<option>"+textForMenus[i]+"</option>";
-         }
-         // insert the menus into the DOM
-         //todo: but don't populate textFields off stage left
-         var j = 0;
-         var answerKey = [];
-         for (var i=0; i<textFields.length; i++) {
-         	if ($(textFields[i]).position().left < -10) {
-         		;//console.log("#"+i+" is off stage left");
-         	} else {
-         		answerKey[j] = $(textFields[i]).html();
-         		$(textFields[i]).html("");
-         		$("<select id="+j+" class='menu'>"+optionString+"</select>").appendTo($(textFields[i]));
-         		j++;
+         	// collect all possible menu options
+         	var textFields = sym.$(".textSource");
+         	console.log("number of fields: "+textFields.length);
+         	for (var i=0; i<textFields.length; i++) {
+         		texts[i] = $(textFields[i]).html();
+         		//console.log("text found at position "+i+": "+texts[i]);
          	}
-         }
+         	// randomize the menu options
+         	var textForMenus = texts.slice(0);
+         	shuffleArray(textForMenus);
+         	var optionString = "<option>?</option>";
+         	for (var i=0; i<textFields.length; i++) {
+         		optionString += "<option>"+textForMenus[i]+"</option>";
+         	}
+         	// insert the menus into the DOM
+         	//todo: but don't populate textFields off stage left
+         	var j = 0;
+         	var answerKey = [];
+         	for (var i=0; i<textFields.length; i++) {
+         		if ($(textFields[i]).position().left < -10) {
+         			;//console.log("#"+i+" is off stage left");
+         		} else {
+         			answerKey[j] = $(textFields[i]).html();
+         			$(textFields[i]).html("");
+         			$("<select id="+j+" class='menu'>"+optionString+"</select>").appendTo($(textFields[i]));
+         			j++;
+         		}
+         	}
+         	sym.$(".textSource").css({"opacity": 1});
          }
          
          
