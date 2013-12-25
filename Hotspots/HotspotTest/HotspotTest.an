@@ -1,42 +1,8 @@
 {
 
 	"HTMLFileName":"HotspotTest.html",
-	"pref__general__AutoKeyframePropertiesArmed":"false",
-	"symbol_stage":{
-		"defaultStageParentHeight":"400px",
-		"codeTreeElementPopupFilter":"",
-		"dummyStageParentHeight":"400px",
-		"defaultStageParentWidth":"550px",
-		"dummyStageParentWidth":"550px",
-		"element_${_Stage}":{
-			"timelineColor2":"0xcbbd71",
-			"timelineColor3":"0x7b7652",
-			"timelineColor":"0xeedf79"},
-		"element_${_HotspotEllipse}":{
-			"timelineColor2":"0x81aa62",
-			"timelineColor3":"0x5b6c4d",
-			"animationEnabled":"true",
-			"timelineColor":"0x91c767"}},
-	"TransitionIdCounter":"4",
-	"CompZoomFactor":"100",
-	"StageZoomFactor":"100",
-	"pixelsPerMs":"0.2",
-	"HotspotEllipse-Default Timeline_playhead_ms":"0",
-	"symbol_HotspotEllipse":{
-		"element_${_checkmark_outlined2}":{
-			"timelineColor2":"0x4fa275",
-			"timelineColor3":"0x456a55",
-			"timelineColor":"0x50bd82"},
-		"codeTreeElementPopupFilter":"",
-		"element_${_Ellipse}":{
-			"timelineColor2":"0x1aa38f",
-			"timelineColor3":"0x2a6a61",
-			"timelineColor":"0x00bda4"}},
-	"usedBOM":"false",
-	"nextElementColorIndex":"5",
-	"stage-Default Timeline_playhead_ms":"0",
-	"pref__general__FilterNonAnimatedElements":"false",
-	"viewStartY":"0",
+	"PubUseChromeFrameInstaller":"false",
+	"UseCDN":"false",
 	"ModelData":"{\
 \"stage\": {\
    \"timelines\": {\
@@ -56,4 +22,42 @@
    \"timelines\": {\
 \
    }}\
-}"}
+}",
+	"symbol_HotspotEllipse":{
+		"element_${_checkmark_outlined2}":{
+			"timelineColor2":"0x4fa275",
+			"timelineColor3":"0x456a55",
+			"timelineColor":"0x50bd82"},
+		"codeTreeElementPopupFilter":"",
+		"element_${_Ellipse}":{
+			"timelineColor2":"0x1aa38f",
+			"timelineColor3":"0x2a6a61",
+			"timelineColor":"0x00bda4"}},
+	"pref__general__FilterNonAnimatedElements":"false",
+	"pref__general__AutoKeyframePropertiesArmed":"true",
+	"symbol_stage":{
+		"defaultStageParentHeight":"600px",
+		"codeTreeElementPopupFilter":"",
+		"dummyStageParentHeight":"600px",
+		"defaultStageParentWidth":"700px",
+		"dummyStageParentWidth":"700px",
+		"element_${_Stage}":{
+			"timelineColor2":"0xcbbd71",
+			"timelineColor3":"0x7b7652",
+			"timelineColor":"0xeedf79"},
+		"element_${_HotspotEllipse}":{
+			"timelineColor2":"0x81aa62",
+			"timelineColor3":"0x5b6c4d",
+			"animationEnabled":"true",
+			"timelineColor":"0x91c767"}},
+	"TransitionIdCounter":"6",
+	"CompZoomFactor":"100",
+	"StageZoomFactor":"100",
+	"pixelsPerMs":"0.2",
+	"HotspotEllipse-Default Timeline_playhead_ms":"0",
+	"usedBOM":"false",
+	"nextElementColorIndex":"5",
+	"stage-Default Timeline_playhead_ms":"0",
+	"PubWebDir":"/Users/deivers/_Dev-OTSbiz/OTSW site 2010/BioTestArea/Dashboard2/Hotspots/HotspotExample/",
+	"PubChromeFrameInstallerPrompt":"none",
+	"viewStartY":"0"}

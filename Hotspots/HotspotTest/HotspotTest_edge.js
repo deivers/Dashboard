@@ -25,7 +25,7 @@ var symbols = {
             id:'HotspotEllipse',
             type:'rect',
             rect:['204','160','auto','auto','auto','auto'],
-            userClass:"hotspot"
+            userClass:"hotspot fancybox"
          }],
          symbolInstances: [
          {
@@ -39,12 +39,12 @@ var symbols = {
          "${_Stage}": [
             ["color", "background-color", 'rgba(255,255,255,1)'],
             ["style", "overflow", 'hidden'],
-            ["style", "height", '400px'],
-            ["style", "width", '550px']
+            ["style", "height", '600px'],
+            ["style", "width", '700px']
          ],
          "${_HotspotEllipse}": [
-            ["style", "left", '224px'],
-            ["style", "top", '162px']
+            ["style", "left", '319px'],
+            ["style", "top", '53px']
          ]
       }
    },
@@ -55,8 +55,8 @@ var symbols = {
          duration: 0,
          autoPlay: true,
          timeline: [
-            { id: "eid3", tween: [ "style", "${_HotspotEllipse}", "top", '162px', { fromValue: '162px'}], position: 0, duration: 0 },
-            { id: "eid1", tween: [ "style", "${_HotspotEllipse}", "left", '224px', { fromValue: '224px'}], position: 0, duration: 0 }         ]
+            { id: "eid5", tween: [ "style", "${_HotspotEllipse}", "top", '53px', { fromValue: '53px'}], position: 0, duration: 0 },
+            { id: "eid4", tween: [ "style", "${_HotspotEllipse}", "left", '319px', { fromValue: '319px'}], position: 0, duration: 0 }         ]
       }
    }
 },

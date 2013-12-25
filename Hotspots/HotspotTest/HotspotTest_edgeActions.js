@@ -18,14 +18,17 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          
          yepnope ({
          	nope: [
-                   'Hotspots.js',
+         				'../../_code/jquery.fancybox.css',
+         				'../../_code/jquery.fancybox.pack.js',
+         				'../../_code/Hotspots.js',
          
           	], complete: init
           });
          
-          function init() {
-          	console.log("init function");
-          }
+         function init() {
+         	console.log("init function");
+         
+         }
 
       });
       //Edge binding end
@@ -34,6 +37,12 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          console.log("composition ready");
          
 
+      });
+      //Edge binding end
+
+      Symbol.bindElementAction(compId, symbolName, "${_HotspotEllipse}", "click", function(sym, e) {
+         // insert code for mouse click here
+         
       });
       //Edge binding end
 
@@ -48,7 +57,10 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
    (function(symbolName) {   
    
       Symbol.bindElementAction(compId, symbolName, "${_Ellipse}", "click", function(sym, e) {
-         hotspotOver(e.target);
+         hotspotClick(e.target);
+         
+         sym.$("checkmark_outlined2").css({"opacity": "inherit", "z-index": 3});
+         
 
       });
       //Edge binding end
@@ -60,6 +72,8 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       //Edge binding end
 
       Symbol.bindSymbolAction(compId, symbolName, "creationComplete", function(sym, e) {
+         sym.getSymbolElement().css({opacity: 0});
+         sym.$("checkmark_outlined2").css({"opacity": 0, "z-index": -1});
          
 
       });
@@ -72,14 +86,6 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       //Edge binding end
 
       Symbol.bindElementAction(compId, symbolName, "${_Ellipse}", "mouseout", function(sym, e) {
-         // if mouse location is within the bounds of the hotspot, then ignore it
-         // this happens when the mouse crosses into an interior element, in this case the checkmark
-         var elementLeft = sym.getSymbolElement().offset().left;
-         var elementRight = sym.getSymbolElement().offset().left + sym.getSymbolElement().width();
-         var elementTop = sym.getSymbolElement().offset().top;
-         var elementBottom = sym.getSymbolElement().offset().top + sym.getSymbolElement().height();
-         if (elementLeft < e.pageX && e.pageX < elementRight && elementTop < e.pageY && e.pageY < elementBottom)
-         	return;
          hotspotOut(e.target);
 
       });
