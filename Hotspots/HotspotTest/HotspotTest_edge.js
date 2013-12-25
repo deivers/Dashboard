@@ -25,7 +25,7 @@ var symbols = {
             id:'HotspotEllipse',
             type:'rect',
             rect:['204','160','auto','auto','auto','auto'],
-            userClass:"hotspot fancybox"
+            userClass:"hotspot"
          }],
          symbolInstances: [
          {

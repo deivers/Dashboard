@@ -29,8 +29,8 @@ jumpToWebPage = function(pageUrl) {
 
 hotspotClick = function(target, pageUrl) {
 	var whichHotspot = $(target).parent(); // the hotspot div corresponding to the edge symbol
-	console.log("click on hotspot..");
-	$.fancybox({type:"iframe", href:'http://en.wikipedia.org/wiki/Mosquito', openEffect:"elastic", minWidth:500, minHeight:400, afterClose: function(){markVisited(whichHotspot)}});
+	console.log("click on hotspot..  "+pageUrl);
+	$.fancybox({type:"iframe", href:pageUrl, openEffect:"elastic", minWidth:500, minHeight:400, afterClose: function(){markVisited(whichHotspot)}});
 }
 
 markVisited = function(whichElement) {

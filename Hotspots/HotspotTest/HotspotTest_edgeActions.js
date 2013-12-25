@@ -41,8 +41,16 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       //Edge binding end
 
       Symbol.bindElementAction(compId, symbolName, "${_HotspotEllipse}", "click", function(sym, e) {
-         // insert code for mouse click here
          
+
+      });
+      //Edge binding end
+
+      Symbol.bindElementAction(compId, symbolName, "${_HotspotEllipse}", "mousedown", function(sym, e) {
+         console.log("Mousedown on this particular hotspot");
+         hotspotUrlToOpen = "http://en.wikipedia.org/Mexico";
+         
+
       });
       //Edge binding end
 
@@ -57,9 +65,10 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
    (function(symbolName) {   
    
       Symbol.bindElementAction(compId, symbolName, "${_Ellipse}", "click", function(sym, e) {
-         hotspotClick(e.target);
-         
-         sym.$("checkmark_outlined2").css({"opacity": "inherit", "z-index": 3});
+         console.log("Click handler in hotspot symbol");
+         hotspotClick(e.target, hotspotUrlToOpen);
+         // when the user returns from the modal fancybox, we want the checkmark to be visible
+         sym.$("checkmark_outlined2").delay(2000).animate({"opacity": "inherit", "z-index": 3});
          
 
       });
@@ -72,8 +81,8 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       //Edge binding end
 
       Symbol.bindSymbolAction(compId, symbolName, "creationComplete", function(sym, e) {
-         sym.getSymbolElement().css({opacity: 0});
-         sym.$("checkmark_outlined2").css({"opacity": 0, "z-index": -1});
+         sym.getSymbolElement().css({opacity: 0}); // initially hide self
+         sym.$("checkmark_outlined2").css({"opacity": 0, "z-index": -1});  // initially hide the checkmark
          
 
       });
