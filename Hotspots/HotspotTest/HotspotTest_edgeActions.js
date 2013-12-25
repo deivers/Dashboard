@@ -14,14 +14,11 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       
       
       Symbol.bindSymbolAction(compId, symbolName, "creationComplete", function(sym, e) {
-         console.log("creation complete");
-         
          yepnope ({
          	nope: [
          				'../../_code/jquery.fancybox.css',
          				'../../_code/jquery.fancybox.pack.js',
-         				'../../_code/Hotspots.js',
-         
+         				'../../_code/Hotspots.js'
           	], complete: init
           });
          
@@ -34,22 +31,31 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       //Edge binding end
 
       Symbol.bindElementAction(compId, symbolName, "document", "compositionReady", function(sym, e) {
-         console.log("composition ready");
-         
-
-      });
-      //Edge binding end
-
-      Symbol.bindElementAction(compId, symbolName, "${_HotspotEllipse}", "click", function(sym, e) {
          
 
       });
       //Edge binding end
 
       Symbol.bindElementAction(compId, symbolName, "${_HotspotEllipse}", "mousedown", function(sym, e) {
-         console.log("Mousedown on this particular hotspot");
-         hotspotUrlToOpen = "http://en.wikipedia.org/Mexico";
-         
+         hotspotUrlToOpen = "http://en.wikipedia.org/wiki/microscope";
+
+      });
+      //Edge binding end
+
+      Symbol.bindElementAction(compId, symbolName, "${_HotspotEllipse2}", "mousedown", function(sym, e) {
+         hotspotUrlToOpen = "http://dictionary.reference.com/browse/specimen";
+
+      });
+      //Edge binding end
+
+      Symbol.bindElementAction(compId, symbolName, "${_HotspotEllipse3}", "mousedown", function(sym, e) {
+         hotspotUrlToOpen = "http://en.wikipedia.org/wiki/genetics";
+
+      });
+      //Edge binding end
+
+      Symbol.bindElementAction(compId, symbolName, "${_HotspotEllipse4}", "mousedown", function(sym, e) {
+         hotspotUrlToOpen = "mosquito.html";
 
       });
       //Edge binding end
@@ -65,9 +71,9 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
    (function(symbolName) {   
    
       Symbol.bindElementAction(compId, symbolName, "${_Ellipse}", "click", function(sym, e) {
-         console.log("Click handler in hotspot symbol");
-         hotspotClick(e.target, hotspotUrlToOpen);
-         // when the user returns from the modal fancybox, we want the checkmark to be visible
+         //console.log("Click handler in hotspot symbol");
+         hotspotClick(e.target, hotspotUrlToOpen);  // hotspotUrlToOpen must be set in the mousedown for each
+         // when the user returns from the modal iframe, we want the checkmark to be visible
          sym.$("checkmark_outlined2").delay(2000).animate({"opacity": "inherit", "z-index": 3});
          
 

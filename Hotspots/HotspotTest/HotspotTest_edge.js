@@ -22,6 +22,30 @@ var symbols = {
    content: {
          dom: [
          {
+            id:'Lab_floorplan',
+            type:'image',
+            rect:['0px','0px','680px','330px','auto','auto'],
+            fill:["rgba(0,0,0,0)",im+"Lab_floorplan.jpg",'0px','0px']
+         },
+         {
+            id:'HotspotEllipse2',
+            type:'rect',
+            rect:['327','314','auto','auto','auto','auto'],
+            userClass:"hotspot"
+         },
+         {
+            id:'HotspotEllipse3',
+            type:'rect',
+            rect:['581','210','auto','auto','auto','auto'],
+            userClass:"hotspot"
+         },
+         {
+            id:'HotspotEllipse4',
+            type:'rect',
+            rect:['103','257','auto','auto','auto','auto'],
+            userClass:"hotspot"
+         },
+         {
             id:'HotspotEllipse',
             type:'rect',
             rect:['204','160','auto','auto','auto','auto'],
@@ -31,20 +55,40 @@ var symbols = {
          {
             id:'HotspotEllipse',
             symbolName:'HotspotEllipse'
+         },
+         {
+            id:'HotspotEllipse4',
+            symbolName:'HotspotEllipse'
+         },
+         {
+            id:'HotspotEllipse3',
+            symbolName:'HotspotEllipse'
+         },
+         {
+            id:'HotspotEllipse2',
+            symbolName:'HotspotEllipse'
          }
          ]
       },
    states: {
       "Base State": {
+         "${_Lab_floorplan}": [
+            ["style", "left", '0px'],
+            ["style", "top", '0px']
+         ],
          "${_Stage}": [
             ["color", "background-color", 'rgba(255,255,255,1)'],
             ["style", "overflow", 'hidden'],
-            ["style", "height", '600px'],
-            ["style", "width", '700px']
+            ["style", "height", '340px'],
+            ["style", "width", '685px']
+         ],
+         "${_HotspotEllipse2}": [
+            ["style", "left", '361px'],
+            ["style", "top", '41px']
          ],
          "${_HotspotEllipse}": [
-            ["style", "left", '319px'],
-            ["style", "top", '53px']
+            ["style", "left", '152px'],
+            ["style", "top", '41px']
          ]
       }
    },
@@ -55,8 +99,10 @@ var symbols = {
          duration: 0,
          autoPlay: true,
          timeline: [
-            { id: "eid5", tween: [ "style", "${_HotspotEllipse}", "top", '53px', { fromValue: '53px'}], position: 0, duration: 0 },
-            { id: "eid4", tween: [ "style", "${_HotspotEllipse}", "left", '319px', { fromValue: '319px'}], position: 0, duration: 0 }         ]
+            { id: "eid11", tween: [ "style", "${_HotspotEllipse}", "top", '41px', { fromValue: '41px'}], position: 0, duration: 0 },
+            { id: "eid15", tween: [ "style", "${_HotspotEllipse2}", "top", '41px', { fromValue: '41px'}], position: 0, duration: 0 },
+            { id: "eid14", tween: [ "style", "${_HotspotEllipse2}", "left", '361px', { fromValue: '361px'}], position: 0, duration: 0 },
+            { id: "eid10", tween: [ "style", "${_HotspotEllipse}", "left", '152px', { fromValue: '152px'}], position: 0, duration: 0 }         ]
       }
    }
 },
