@@ -3,7 +3,7 @@ var faintOpacity = 0.3;
 
 var previousNavigationDiv;
 
-// initially "hide" all hotspots and their checkmarks
+// initially faintly show all hotspots
 $(".hotspot").animate({opacity: faintOpacity},2000);
 
 jumpToWebPage = function(pageUrl) {
@@ -25,13 +25,13 @@ markVisited = function(whichElement) {
 hotspotOver = function(target) {
 	var whichHotspot = $(target).parent(); // the hotspot div corresponding to the edge symbol
 	var currentOpacity = whichHotspot.css("opacity");
-	if (currentOpacity <= midOpacity)
+	if (Math.floor(100*currentOpacity) <= 100*midOpacity)
 		whichHotspot.animate({opacity: midOpacity}, 200);
 }
 
 hotspotOut = function(target) {
 	var whichHotspot = $(target).parent(); // the hotspot div corresponding to the edge symbol
 	var currentOpacity = whichHotspot.css("opacity");
-	if (currentOpacity <= midOpacity)
+	if (Math.floor(100*currentOpacity) <= 100*midOpacity)	// tolerates decimal to binary rounding errors
 		whichHotspot.animate({opacity: faintOpacity}, 400);
 }

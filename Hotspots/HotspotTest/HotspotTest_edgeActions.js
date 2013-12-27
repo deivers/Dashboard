@@ -23,7 +23,6 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
           });
          
          function init() {
-         	console.log("init function");
          
          }
 
@@ -43,7 +42,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       //Edge binding end
 
       Symbol.bindElementAction(compId, symbolName, "${_HotspotEllipse2}", "mousedown", function(sym, e) {
-         hotspotUrlToOpen = "http://dictionary.reference.com/browse/specimen";
+         hotspotUrlToOpen = "../../Quizzes/MatchupLateral/MatchupLateral.html";
 
       });
       //Edge binding end
