@@ -214,9 +214,12 @@ var symbols = {
             ["style", "left", '-190px'],
             ["style", "font-size", '15px']
          ],
-         "${_NextPageButton}": [
-            ["style", "top", '527px'],
-            ["style", "left", '518px']
+         "${_TextCopy11}": [
+            ["style", "top", '221px'],
+            ["style", "height", '21px'],
+            ["style", "font-size", '15px'],
+            ["style", "left", '-190px'],
+            ["style", "width", '160px']
          ],
          "${_TextCopy6}": [
             ["style", "top", '350px'],
@@ -225,12 +228,9 @@ var symbols = {
             ["style", "left", '537px'],
             ["style", "font-size", '15px']
          ],
-         "${_TextCopy11}": [
-            ["style", "top", '221px'],
-            ["style", "height", '21px'],
-            ["style", "font-size", '15px'],
-            ["style", "left", '-190px'],
-            ["style", "width", '160px']
+         "${_NextPageButton}": [
+            ["style", "top", '527px'],
+            ["style", "left", '518px']
          ],
          "${_TextCopy8}": [
             ["style", "top", '433px'],
@@ -246,11 +246,12 @@ var symbols = {
             ["style", "left", '296px'],
             ["style", "font-size", '15px']
          ],
-         "${_cellmodel}": [
-            ["style", "height", '317px'],
-            ["style", "top", '139px'],
-            ["style", "left", '92px'],
-            ["style", "width", '488px']
+         "${_TextCopy9}": [
+            ["style", "top", '164px'],
+            ["style", "height", '21px'],
+            ["style", "font-size", '15px'],
+            ["style", "left", '-190px'],
+            ["style", "width", '160px']
          ],
          "${_Stage}": [
             ["color", "background-color", 'rgba(255,255,255,0.00)'],
@@ -268,12 +269,11 @@ var symbols = {
             ["style", "left", '-190px'],
             ["style", "font-size", '15px']
          ],
-         "${_TextCopy9}": [
-            ["style", "top", '164px'],
-            ["style", "height", '21px'],
-            ["style", "font-size", '15px'],
-            ["style", "left", '-190px'],
-            ["style", "width", '160px']
+         "${_cellmodel}": [
+            ["style", "height", '317px'],
+            ["style", "top", '139px'],
+            ["style", "left", '92px'],
+            ["style", "width", '488px']
          ]
       }
    },
@@ -311,13 +311,13 @@ var symbols = {
       fill: ['rgba(93,93,93,1.00)',[270,[['rgba(125,125,125,1.00)',0],['rgba(73,73,73,1.00)',100]]]]
    },
    {
+      rect: ['30px','6px','72px','auto','auto','auto'],
       font: ['Arial, Helvetica, sans-serif',16,'rgba(255,255,255,1.00)','500','none',''],
-      type: 'text',
       align: 'center',
       id: 'Text',
       text: 'Submit<br>',
       cursor: ['pointer'],
-      rect: ['30px','6px','72px','auto','auto','auto']
+      type: 'text'
    }],
    symbolInstances: [
    ]
@@ -387,13 +387,13 @@ var symbols = {
       fill: ['rgba(93,93,93,1.00)',[270,[['rgba(0,127,42,1.00)',0],['rgba(0,72,23,1.00)',100]]]]
    },
    {
+      rect: ['0px','6px','131px','21px','auto','auto'],
       font: ['Arial, Helvetica, sans-serif',16,'rgba(255,255,255,1.00)','500','none',''],
-      type: 'text',
       align: 'center',
       id: 'Text',
       text: 'Next page',
       cursor: ['pointer'],
-      rect: ['0px','6px','131px','21px','auto','auto']
+      type: 'text'
    }],
    symbolInstances: [
    ]

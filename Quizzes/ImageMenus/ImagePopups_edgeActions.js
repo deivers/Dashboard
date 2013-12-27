@@ -25,8 +25,8 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
 
       Symbol.bindElementAction(compId, symbolName, "document", "compositionReady", function(sym, e) {
          // instructor editable section //
-         	var questionType = "Image with Popup Menus";
-         	var qTextSummary = "short description of what is in this quiz"
+         	var questionType = "Image Labeler with Popup Menus";
+         	var qTextSummary = "";		// short description of what is in this quiz"
          	var showWrongAnswers = true;		// false increases difficulty
          	var logResponsesToDashboard = true;	// true if you want to use the Dashboard
          	var quizpageNumber = 1;					// required if the above is true; must be unique across quiz-pages in this folder
@@ -121,7 +121,8 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          			$(answerWidgets).parent().addClass("correct");
          			alert("All correct!");
          			sym.getComposition().getSymbols("SubmitAnswersButton")[0].getSymbolElement().css({"opacity":0,"left":-1000});
-         			sym.getComposition().getSymbols("NextPageButton")[0].getSymbolElement().css({"opacity":1});
+         			if (typeof nextPageUrl !== 'undefined' && nextPageUrl != "")
+         				sym.getComposition().getSymbols("NextPageButton")[0].getSymbolElement().css({"opacity":1});
          		}
          	} else
          		alert("You must complete the quiz before answers will be checked.");
@@ -129,7 +130,8 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          
          sym.goNextPage = function() {
          	console.log(">>> "+nextPageUrl);
-         	window.open(nextPageUrl, "_blank");
+         	if (typeof nextPageUrl !== 'undefined' && nextPageUrl != "")
+         		window.open(nextPageUrl, "_self");
          }
          
 

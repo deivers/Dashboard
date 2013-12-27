@@ -41,9 +41,9 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       Symbol.bindElementAction(compId, symbolName, "document", "compositionReady", function(sym, e) {
          // instructor editable section //
          	var qTextSummary = "Identify granite out of 4 sample images";
-         	var logResponsesToDashboard = true;	// true if you want to use the Dashboard
+         	var logResponsesToDashboard = false;	// true if you want to use the Dashboard
          	var quizpageNumber = 1;					// required if the above is true; must be unique across quiz-pages in this folder
-         	var nextPageUrl = "../folder/filename.html";
+         	var nextPageUrl = "";					// example for a local file: "../folder/filename.html"
          // end of editable section //
          
          var checkboxes = sym.getComposition().getSymbols("Checkbox");
@@ -88,7 +88,8 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          		if (allCorrect) {
          			alert("CORRECT!");
          			sym.getComposition().getSymbols("SubmitAnswersButton")[0].getSymbolElement().css({"opacity":0,"left":-1000});
-         			sym.getComposition().getSymbols("NextPageButton")[0].getSymbolElement().css({"opacity":1});
+         			if (typeof nextPageUrl !== 'undefined' && nextPageUrl != "")
+         				sym.getComposition().getSymbols("NextPageButton")[0].getSymbolElement().css({"opacity":1});
          		} else {
          			alert("One or more of your selections are incorrect.  Please try again...");
          			for (var i=0; i<checkboxes.length; i++) {
@@ -126,7 +127,8 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          
          sym.goNextPage = function() {
          	console.log(">>>"+nextPageUrl);
-         	window.open(nextPageUrl, "_blank");
+         	if (typeof nextPageUrl !== 'undefined' && nextPageUrl != "")
+         		window.open(nextPageUrl, "_self");
          }
          
          // sort by position (works whether the elements are in columns or rows)
