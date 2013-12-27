@@ -17,8 +17,14 @@ $(function() {
 	$("input").keyup(function(event){handleKeyup(event);});
 	$("#submitButton").click(submitButtonTapped);
 	$("#resetButton").click(function(){resetQuiz()});
-	$("#nextButton").click(function(){window.open(nextPageUrl,"_self")})
-		.hide();      // this will be revealed when the quiz is correctly completed
+	if (typeof nextPageUrl === 'undefined' || nextPageUrl == "")
+		$("#nextButton").html("End of Quiz")
+			.removeClass()
+			.addClass("button clearColor")
+			.hide();
+	else
+		$("#nextButton").click(function(){window.open(nextPageUrl,"_self")})
+			.hide();      // this will be revealed when the quiz is correctly completed
 	$("body").append(showMetaInfo(version));
 	extract();
 });
@@ -97,6 +103,7 @@ function submitButtonTapped() {
 		$(".score").html("Correct!").css("color","#090");
 		$("#submitButton").hide();
 		$("#nextButton").show();	// if nextButton exists, show it so student can proceed to next page
+		$("#resetButton").hide();
 	} else
 		$(".score").html(numCorrect+" of "+numTotal+" correct - please try again").css("color","#000");
 }

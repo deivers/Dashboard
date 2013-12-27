@@ -65,8 +65,14 @@ $(function() {
 	}
 	$("#submitButton").click(function(){checkAnswers()});
 	$("#resetButton").click(function(){resetQuiz()});
-	$("#nextButton").click(function(){window.open(nextPageUrl,"_self")})
-		.hide();      // this will be revealed when the quiz is correctly completed
+	if (typeof nextPageUrl === 'undefined' || nextPageUrl == "")
+		$("#nextButton").html("End of Quiz")
+			.removeClass()
+			.addClass("button clearColor")
+			.hide();
+	else
+		$("#nextButton").click(function(){window.open(nextPageUrl,"_self")})
+			.hide();      // this will be revealed when the quiz is correctly completed
 	$("body").append(showMetaInfo(version));
 });
 
@@ -134,9 +140,10 @@ function checkAnswers() {
 	}
 	// give feedback to student
 	if (allCorrect) {
-		setTimeout(function(){alert("CORRECT!\n\nIf you want to do it again, tap Reset.");}, 600);		// make sure the tabs are moved before the alert shows
+		setTimeout(function(){alert("CORRECT!");}, 600);		// make sure the tabs are moved before the alert shows
 		$("#submitButton").hide();
 		$("#nextButton").show();	// if nextButton exists, show it so student can proceed to next page
+		$("#resetButton").hide();
 	} else if (rejectOption) {
 		if (correctButIncomplete)
 			setTimeout(function(){alert("So far so good...");}, 600);		// make sure the tabs are moved before the alert shows
