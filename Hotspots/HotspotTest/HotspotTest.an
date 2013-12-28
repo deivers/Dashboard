@@ -35,8 +35,8 @@
 			"timelineColor2":"0x4fa275",
 			"timelineColor3":"0x456a55",
 			"timelineColor":"0x50bd82"},
-		"dummyStageParentWidth":"685px",
-		"codeTreeElementPopupFilter":""},
+		"codeTreeElementPopupFilter":"",
+		"dummyStageParentWidth":"685px"},
 	"pref__general__FilterNonAnimatedElements":"false",
 	"pref__general__AutoKeyframePropertiesArmed":"true",
 	"symbol_stage":{
@@ -48,12 +48,10 @@
 			"timelineColor":"0x91c767",
 			"timelineTreeOpened":"false",
 			"animationEnabled":"true"},
-		"element_${_HotspotEllipse4}":{
-			"timelineColor2":"0x107faa",
-			"timelineColor3":"0x295a6d",
-			"timelineColor":"0x008dc8",
-			"timelineTreeOpened":"false",
-			"animationEnabled":"true"},
+		"element_${_Lab_floorplan}":{
+			"timelineColor2":"0x326a96",
+			"timelineColor3":"0x385063",
+			"timelineColor":"0x2f73ad"},
 		"defaultStageParentHeight":"340px",
 		"codeTreeElementPopupFilter":"",
 		"element_${_HotspotEllipse2}":{
@@ -73,10 +71,12 @@
 			"timelineColor2":"0xcbbd71",
 			"timelineColor3":"0x7b7652",
 			"timelineColor":"0xeedf79"},
-		"element_${_Lab_floorplan}":{
-			"timelineColor2":"0x326a96",
-			"timelineColor3":"0x385063",
-			"timelineColor":"0x2f73ad"}},
+		"element_${_HotspotEllipse4}":{
+			"timelineColor2":"0x107faa",
+			"timelineColor3":"0x295a6d",
+			"timelineColor":"0x008dc8",
+			"timelineTreeOpened":"false",
+			"animationEnabled":"true"}},
 	"TransitionIdCounter":"16",
 	"CompZoomFactor":"100",
 	"StageZoomFactor":"100",
@@ -85,6 +85,6 @@
 	"usedBOM":"false",
 	"nextElementColorIndex":"9",
 	"stage-Default Timeline_playhead_ms":"0",
-	"PubWebDir":"/Users/deivers/_Dev-OTSbiz/OTSW site 2010/BioTestArea/Dashboard2/Hotspots/HotspotExample/",
+	"viewStartY":"0",
 	"PubChromeFrameInstallerPrompt":"none",
-	"viewStartY":"0"}
+	"PubWebDir":"/Users/deivers/_Dev-OTSbiz/OTSW site 2010/BioTestArea/Dashboard2/Hotspots/HotspotExample/"}

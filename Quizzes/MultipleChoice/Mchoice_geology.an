@@ -24,7 +24,7 @@
 	"stage-Default Timeline_playhead_ms":"0",
 	"HTMLFileName":"Mchoice_geology.html",
 	"PubUseChromeFrameInstaller":"false",
-	"PubWebDir":"/Users/deivers/_Dev-OTSbiz/OTSW site 2010/BioTestArea/dashboard/Quizzes/MultipleChoice/",
+	"PubWebDir":"/Users/deivers/_Dev-OTSbiz/OTSW site 2010/BioTestArea/Dashboard2/Quizzes/MultipleChoice/",
 	"CopyrightAndCredits-Default Timeline_playhead_ms":"0",
 	"symbol_CopyrightAndCredits":{
 		"element_${_TextCopy2}":{
@@ -73,6 +73,8 @@
 			"animationEnabled":"false",
 			"timelineColor":"0xfb657a"}},
 	"checkAnswers-Default Timeline_playhead_ms":"0",
+	"pref__general__GenerateSmoothTransitions":"false",
+	"Checkbox-Default Timeline_playhead_ms":"0",
 	"pref__general__AutoKeyframePropertiesArmed":"true",
 	"symbol_Feedback":{
 		"dummyStageParentWidth":"700px",
@@ -264,9 +266,7 @@
 			"timelineColor":"0xceaef4"}},
 	"viewStartY":"63",
 	"Feedback-Default Timeline_playhead_ms":"0",
-	"pref__general__GenerateSmoothTransitions":"false",
 	"usedBOM":"false",
-	"Checkbox-Default Timeline_playhead_ms":"0",
 	"ModelData":"{\
 \"stage\": {\
    \"timelines\": {\

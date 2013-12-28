@@ -19,12 +19,8 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          				'../../_code/jquery.fancybox.css',
          				'../../_code/jquery.fancybox.pack.js',
          				'../../_code/Hotspots.js'
-          	], complete: init
+          	]
           });
-         
-         function init() {
-         
-         }
 
       });
       //Edge binding end
@@ -42,13 +38,13 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       //Edge binding end
 
       Symbol.bindElementAction(compId, symbolName, "${_HotspotEllipse2}", "mousedown", function(sym, e) {
-         hotspotUrlToOpen = "../../Quizzes/MatchupLateral/MatchupLateral.html";
+         hotspotUrlToOpen = "http://en.wikipedia.org/wiki/spectrophotometer";
 
       });
       //Edge binding end
 
       Symbol.bindElementAction(compId, symbolName, "${_HotspotEllipse3}", "mousedown", function(sym, e) {
-         hotspotUrlToOpen = "http://en.wikipedia.org/wiki/genetics";
+         hotspotUrlToOpen = "../../Quizzes/MatchupLateral/MatchupLateral.html";
 
       });
       //Edge binding end
