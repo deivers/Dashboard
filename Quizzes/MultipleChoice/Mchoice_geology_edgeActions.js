@@ -94,18 +94,6 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
    //=========================================================
 
    //=========================================================
-   
-   //Edge symbol: 'checkAnswers'
-   (function(symbolName) {   
-   
-      
-
-   })("SubmitAnswersButton");
-   //Edge symbol end:'SubmitAnswersButton'
-
-   //=========================================================
-
-   //=========================================================
 
    //=========================================================
    
@@ -142,12 +130,5 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
 
    })("codeByButton");
    //Edge symbol end:'codeByButton'
-   
-   //Edge symbol: 'SubmitAnswersButton_1'
-   (function(symbolName) {   
-         
-
-      })("NextPageButton");
-   //Edge symbol end:'NextPageButton'
 
 })(jQuery, AdobeEdge, "EDGE-276373753");
