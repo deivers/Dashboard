@@ -27,9 +27,10 @@ for (var i=0; i<textFields.length; i++) {
 		j++;
 	}
 }
-$(".textSource").css({"opacity": 1});
+$(".textSource").css({"opacity": 1});	// it's now safe to reveal these
+setUpSubmitButton();
 
-checkStudentAnswers = function() {
+checkAnswers = function() {
 	console.log("checking answers");
 	var answerWidgets = $(".menu");
 	var wrong = [];
@@ -74,9 +75,7 @@ checkStudentAnswers = function() {
 		else {
 			$(answerWidgets).parent().addClass("correct");
 			alert("All correct!");
-			/////$(".SubmitAnswersButton")[0].css({"opacity":0,"left":-1000});
-			//if (typeof nextPageUrl !== 'undefined' && nextPageUrl != "")
-			//	$("NextPageButton")[0].getSymbolElement().css({"opacity":1});
+			setUpNextButton();
 		}
 	} else
 		alert("You must complete the quiz before answers will be checked.");

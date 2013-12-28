@@ -40,24 +40,13 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          	nextPageUrl = "../folder/filename.html";
          // end of editable section //
          // the above are intentionally global
-         
-         console.log("composition ready");
-         
 
       });
       //Edge binding end
 
-      Symbol.bindElementAction(compId, symbolName, "${_SubmitAnswersButton}", "click", function(sym, e) {
-         checkStudentAnswers();
+      
 
-      });
-      //Edge binding end
-
-      Symbol.bindElementAction(compId, symbolName, "${_NextPageButton}", "click", function(sym, e) {
-         goNextPage();
-
-      });
-      //Edge binding end
+      
 
    })("stage");
    //Edge symbol end:'stage'
@@ -67,22 +56,41 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
    //=========================================================
 
    //=========================================================
-   
-   //Edge symbol: 'checkAnswers'
-   (function(symbolName) {   
-   
-      
-
-   })("SubmitAnswersButton");
-   //Edge symbol end:'SubmitAnswersButton'
 
    //=========================================================
    
-   //Edge symbol: 'SubmitAnswersButton_1'
+   //Edge symbol: 'copyrightButton'
    (function(symbolName) {   
-         
+   
+      Symbol.bindElementAction(compId, symbolName, "${_RoundRect2}", "click", function(sym, e) {
+         window.open("http://harvest.cals.ncsu.edu/biology", "_blank");
 
-      })("NextPageButton");
-   //Edge symbol end:'NextPageButton'
+      });
+      //Edge binding end
+
+   })("copyrightButton");
+   //Edge symbol end:'copyrightButton'
+
+   //=========================================================
+   
+   //Edge symbol: 'CopyrightAndCredits'
+   (function(symbolName) {   
+   
+   })("CopyrightAndCredits");
+   //Edge symbol end:'CopyrightAndCredits'
+
+   //=========================================================
+   
+   //Edge symbol: 'codeByButton'
+   (function(symbolName) {   
+   
+      Symbol.bindElementAction(compId, symbolName, "${_RoundRect}", "click", function(sym, e) {
+         window.open("http://www.onetimesoftware.com", "_blank");
+
+      });
+      //Edge binding end
+
+   })("codeByButton");
+   //Edge symbol end:'codeByButton'
 
 })(jQuery, AdobeEdge, "EDGE-749678393");

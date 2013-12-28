@@ -146,3 +146,23 @@ jQuery.fn.hCenter = function () {
     this.css("left", Math.max(0, (($("#Stage").width() - $(this).outerWidth())/2)) + "px");
     return this;
 }
+
+// the following methods are for AEA projects //
+
+function setUpSubmitButton() {
+	$(".submit").click(function() {checkAnswers()});
+	$(".submit").css("width","4em").hCenter();
+}
+function setUpNextButton() {
+	// convert Submit button into NextPage/EndOfQuiz button
+	$(".submit").unbind().click(function() {
+		goNextPage();
+	});
+	if (typeof nextPageUrl !== 'undefined' && nextPageUrl != "") {
+		$(".submit").html("Next page").removeClass("blue").addClass("green");
+		$(".submit").css("width","6em").hCenter();
+	} else {
+		$(".submit").html("End of Quiz").removeClass("button blue green");
+		$(".submit").css("width","9em").hCenter();
+	}
+}

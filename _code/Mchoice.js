@@ -66,24 +66,6 @@ function arrayOfCheckmarkedChoices() {
 	return arrayOfChoices;
 }
 
-function setUpSubmitButton() {
-	$(".submit").click(function() {checkAnswers()});
-	$(".submit").css("width","4em").hCenter();
-}
-function setUpNextButton() {
-	// convert Submit button into NextPage/EndOfQuiz button
-	$(".submit").unbind().click(function() {
-		goNextPage();
-	});
-	if (typeof nextPageUrl !== 'undefined' && nextPageUrl != "") {
-		$(".submit").html("Next page").removeClass("blue").addClass("green");
-		$(".submit").css("width","6em").hCenter();
-	} else {
-		$(".submit").html("End of Quiz").removeClass("button blue green");
-		$(".submit").css("width","9em").hCenter();
-	}
-}
-
 function goNextPage() {
 	//console.log(">>> "+nextPageUrl);
 	if (typeof nextPageUrl !== 'undefined' && nextPageUrl != "")
