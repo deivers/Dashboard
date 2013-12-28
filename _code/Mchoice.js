@@ -1,9 +1,9 @@
 var checkboxes = $(".checkbox");
-// note: no guarantee on the order of the retrieved checkboxes, so sort by position
 checkboxes.sort(sortElementByPosition);
+// note: no guarantee on the order of the retrieved checkboxes, so sort by position; same for feedbackBoxes
 var feedbackBoxes = $(".feedback");
 feedbackBoxes.sort(sortElementByPosition);
-$(".submit").click(function() {checkAnswers()});
+setUpSubmitButton();
 
 checkAnswers = function() {
 	var questionType;
@@ -66,14 +66,22 @@ function arrayOfCheckmarkedChoices() {
 	return arrayOfChoices;
 }
 
+function setUpSubmitButton() {
+	$(".submit").click(function() {checkAnswers()});
+	$(".submit").css("width","4em").hCenter();
+}
 function setUpNextButton() {
-	$(".submit").click(function() {
+	// convert Submit button into NextPage/EndOfQuiz button
+	$(".submit").unbind().click(function() {
 		goNextPage();
 	});
-	if (typeof nextPageUrl !== 'undefined' && nextPageUrl != "")
-		$(".submit").html("Next page").removeClass("blue").addClass("green"); //sym.getComposition().getSymbols("NextPageButton")[0].getSymbolElement().css({"opacity":1});
-	else
-		$(".submit").html("End of Quiz").removeClass("blue green").addClass("clearColor");
+	if (typeof nextPageUrl !== 'undefined' && nextPageUrl != "") {
+		$(".submit").html("Next page").removeClass("blue").addClass("green");
+		$(".submit").css("width","6em").hCenter();
+	} else {
+		$(".submit").html("End of Quiz").removeClass("button blue green");
+		$(".submit").css("width","9em").hCenter();
+	}
 }
 
 function goNextPage() {
@@ -90,5 +98,3 @@ jQuery.fn.extend({
     this.children().last().css({"opacity":0, "z-index":-1});
   }
 });
-
-

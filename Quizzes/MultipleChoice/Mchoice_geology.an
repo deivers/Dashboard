@@ -73,7 +73,7 @@
 			"animationEnabled":"false",
 			"timelineColor":"0xfb657a"}},
 	"checkAnswers-Default Timeline_playhead_ms":"0",
-	"pref__general__AutoKeyframePropertiesArmed":"true",
+	"pref__general__AutoKeyframePropertiesArmed":"false",
 	"symbol_Feedback":{
 		"dummyStageParentWidth":"700px",
 		"dummyStageParentHeight":"770px",
@@ -159,7 +159,7 @@
 			"timelineColor3":"0x4a485e",
 			"timelineColor":"0x63599f",
 			"timelineTreeOpened":"false",
-			"animationEnabled":"true"},
+			"animationEnabled":"false"},
 		"element_${_Feedback1}":{
 			"timelineColor2":"0x326a96",
 			"timelineColor3":"0x385063",
@@ -193,7 +193,7 @@
 			"timelineColor3":"0x2a6a61",
 			"timelineColor":"0x00bda4",
 			"timelineTreeOpened":"false",
-			"animationEnabled":"true"},
+			"animationEnabled":"false"},
 		"element_${_FeedbackCopy}":{
 			"timelineColor2":"0x1095d2",
 			"timelineColor3":"0x29647e",
@@ -262,7 +262,7 @@
 			"timelineColor3":"0x70657c",
 			"invisible":"false",
 			"timelineColor":"0xceaef4"}},
-	"viewStartY":"63",
+	"viewStartY":"0",
 	"Feedback-Default Timeline_playhead_ms":"0",
 	"pref__general__GenerateSmoothTransitions":"false",
 	"usedBOM":"false",

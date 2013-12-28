@@ -39,18 +39,18 @@ The Multiple Choice/Select template was created with Adobe Edge Animate.  The te
 	2.	Choose File > Save As\'85  and give it a location and name that describes the question it will contain.\
 	3.	Set the following parameters in the compositionReady code as you see fit:\
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
-
-\f1 \cf0 {{\NeXTGraphic 1__#$!@%!#__Pasted Graphic.tiff \width19200 \height3900
-}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
-
-\f0 \cf0 \
+\cf0 			
+\f1 {{\NeXTGraphic 1__#$!@%!#__Pasted Graphic.tiff \width15540 \height3860
+}¬}
+\f0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 \cf0 		Note: questionNumber must be unique among all the quizzes in a given folder.\
 	4.	Each checkbox must have a corresponding feedbackBox, though you may delete the text in the box if you don't want to provide feedback to the student for that checkbox.  If you want the feedback to link to a web page, right-click (Mac: control-click) the feedback text box and select "Open Actions for\'85", choose "click", and add the following code:\
 	if (sym.$(e.target).css("opacity") > 0.1)  // if feedback is visible and the user clicked on it\
 	window.open("http://en.wikipedia.org/wiki/Granite", "_self");\
-replacing the link with your own.  Then in the feedback text itself append something like "Click here for more info".\
-	5. 	Save the project and test it by pressing cmd-return.  Some features, such as logging (and maybe even scoring), won\'92t work until you deploy on a server.  Generating a set of files suitable for deployment on a server is called "publishing".  Press option-command-S to publish (see File menu > "Publish settings..." to choose the folder to publish to, typically just another folder on your local drive for the time being).  Your school\'92s IT department should be able to assist you with deployment.\
+replacing the link with your own.  Then in the feedback text itself append something like "Click here for more info".  For an extra nice touch, set the Cursor option in the left panel to the hand.\
+	5.	Do not style or resize the Submit button, since the code handles that task.\
+	6. 	Save the project and test it by pressing cmd-return.  Some features, such as logging (and maybe even scoring), won\'92t work until you deploy on a server.  Generating a set of files suitable for deployment on a server is called "publishing".  Press option-command-S to publish (see File menu > "Publish settings..." to choose the folder to publish to, typically just another folder on your local drive for the time being).  Your school\'92s IT department should be able to assist you with deployment.\
 \
 \
 \

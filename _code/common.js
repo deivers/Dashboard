@@ -141,3 +141,8 @@ function replaceAwithBinC(a,b,c) {
 	// replace all occurences of a with b in c
 	return c.replace(RegExp(a,"gm"),b);  // "g" for global replace, "m" for multi-line
 }
+
+jQuery.fn.hCenter = function () {
+    this.css("left", Math.max(0, (($("#Stage").width() - $(this).outerWidth())/2)) + "px");
+    return this;
+}

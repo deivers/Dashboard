@@ -133,33 +133,16 @@ var symbols = {
             font:['Arial, Helvetica, sans-serif',15,"rgba(90,90,90,1.00)","normal","none",""]
          },
          {
-            id:'NextPageButton',
-            type:'rect',
-            rect:['284px','652px','auto','auto','auto','auto']
-         },
-         {
-            id:'checkAnswers',
-            type:'rect',
-            rect:['284px','650px','auto','auto','auto','auto']
-         },
-         {
             id:'Text3',
             type:'text',
-            rect:['119px','650px','107px','19px','auto','auto'],
+            rect:['332px','653px','70px','19px','auto','auto'],
+            cursor:['pointer'],
             text:"Submit",
             align:"center",
             userClass:"submit button blue",
             font:['Arial, Helvetica, sans-serif',18,"rgba(0,0,0,1)","normal","none",""]
          }],
          symbolInstances: [
-         {
-            id:'checkAnswers',
-            symbolName:'SubmitAnswersButton'
-         },
-         {
-            id:'NextPageButton',
-            symbolName:'NextPageButton'
-         },
          {
             id:'Checkbox4',
             symbolName:'Checkbox'
@@ -184,10 +167,6 @@ var symbols = {
       },
    states: {
       "Base State": {
-         "${_NextPageButton}": [
-            ["style", "left", '284px'],
-            ["style", "top", '652px']
-         ],
          "${_geo4}": [
             ["style", "top", '213px'],
             ["style", "height", '137px'],
@@ -200,11 +179,12 @@ var symbols = {
             ["style", "top", '273px']
          ],
          "${_Text3}": [
-            ["style", "top", '650px'],
+            ["style", "top", '653px'],
             ["style", "text-align", 'center'],
+            ["style", "cursor", 'pointer'],
             ["style", "height", '19px'],
-            ["style", "width", '107px'],
-            ["style", "left", '119px'],
+            ["style", "width", '70px'],
+            ["style", "left", '332px'],
             ["style", "font-size", '18px']
          ],
          "${_Feedback1Copy3}": [
@@ -248,11 +228,6 @@ var symbols = {
             ["style", "top", '408px'],
             ["style", "opacity", '0.99'],
             ["style", "left", '234px']
-         ],
-         "${_checkAnswers}": [
-            ["style", "top", '650px'],
-            ["style", "left", '284px'],
-            ["style", "cursor", 'auto']
          ],
          "${_geo1}": [
             ["style", "top", '350px'],

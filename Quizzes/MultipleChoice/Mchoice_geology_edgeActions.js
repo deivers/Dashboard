@@ -21,7 +21,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          for (var i=0; i<checkboxes.length; i++) {
          	checkboxes[i].$("checkmark").css({opacity: 0, "z-index": -1});
          }
-         // initially hide all the feedback
+         // initially hide all feedback
          var feedbackBoxes = sym.$(".feedback");
          for (var i=0; i<feedbackBoxes.length; i++) {
          	$(feedbackBoxes[i]).css({"opacity":0});
@@ -32,30 +32,22 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          				'../../_code/common.css',
          				'../../_code/common.js',
          				'../../_code/Mchoice.js'
-          	], complete: init
+          	]
           });
-         
-         function init() {
-         
-         }
 
       });
       //Edge binding end
 
-      Symbol.bindElementAction(compId, symbolName, "${_checkAnswers}", "click", function(sym, e) {
-         ///checkAnswers();
-
-      });
-      //Edge binding end
+      
 
       Symbol.bindElementAction(compId, symbolName, "document", "compositionReady", function(sym, e) {
          // instructor editable section //
-         	var qTextSummary = "Identify granite out of 4 sample images";
-         	var logResponsesToDashboard = false;	// true if you want to use the Dashboard
-         	var quizpageNumber = 1;					// required if the above is true; must be unique across quiz-pages in this folder
-         	var nextPageUrl = "";					// example for a local file: "../folder/filename.html"
+         	qTextSummary = "Identify granite out of 4 sample images";
+         	logResponsesToDashboard = false;	// true if you want to use the Dashboard
+         	quizpageNumber = 1;					// required if the above is true; must be unique across quiz-pages in this folder
+         	nextPageUrl = "../MatchupLateral/MatchupLateral.html";						// example for a local file: "../folder/filename.html"
          // end of editable section //
-         
+         // the above are intentionally global
          
 
       });
@@ -68,11 +60,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       });
       //Edge binding end
 
-      Symbol.bindElementAction(compId, symbolName, "${_NextPageButton}", "click", function(sym, e) {
-         goNextPage();
-
-      });
-      //Edge binding end
+      
 
    })("stage");
    //Edge symbol end:'stage'
