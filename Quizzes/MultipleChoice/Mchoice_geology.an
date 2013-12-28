@@ -75,7 +75,7 @@
 	"checkAnswers-Default Timeline_playhead_ms":"0",
 	"pref__general__GenerateSmoothTransitions":"false",
 	"Checkbox-Default Timeline_playhead_ms":"0",
-	"pref__general__AutoKeyframePropertiesArmed":"true",
+	"pref__general__AutoKeyframePropertiesArmed":"false",
 	"symbol_Feedback":{
 		"dummyStageParentWidth":"700px",
 		"dummyStageParentHeight":"770px",
@@ -264,7 +264,7 @@
 			"timelineColor3":"0x70657c",
 			"invisible":"false",
 			"timelineColor":"0xceaef4"}},
-	"viewStartY":"63",
+	"viewStartY":"0",
 	"Feedback-Default Timeline_playhead_ms":"0",
 	"usedBOM":"false",
 	"ModelData":"{\

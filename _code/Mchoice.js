@@ -1,3 +1,5 @@
+function init() {}		// prevent errors in AEA projects
+
 var checkboxes = $(".checkbox");
 checkboxes.sort(sortElementByPosition);
 // note: no guarantee on the order of the retrieved checkboxes, so sort by position; same for feedbackBoxes

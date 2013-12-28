@@ -18,8 +18,9 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          	nope: [
          				'../../_code/jquery.fancybox.css',
          				'../../_code/jquery.fancybox.pack.js',
+         				"../../_code/common.js",
          				'../../_code/Hotspots.js'
-          	]
+         	], complete: function() {init()}
           });
 
       });

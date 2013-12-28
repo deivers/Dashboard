@@ -1,3 +1,5 @@
+function init() {}		// prevent errors in AEA projects
+
 var texts = [];
 // collect all possible menu options
 var textFields = $(".textSource");
@@ -28,6 +30,11 @@ for (var i=0; i<textFields.length; i++) {
 		j++;
 	}
 }
+var questionType;
+if (imageLabelerType !== 'undefined' && imageLabelerType == "menus")
+	questionType = "Image Labeler with Popup Menus";
+else
+	questionType = "Image Labeler with Short Answer Boxes";
 $(".textSource").css({"opacity": 1});	// it's now safe to reveal these
 setUpSubmitButton();
 

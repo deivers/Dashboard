@@ -1,3 +1,5 @@
+function init() {}		// prevent errors in AEA projects
+
 var midOpacity = 0.6;
 var faintOpacity = 0.3;
 

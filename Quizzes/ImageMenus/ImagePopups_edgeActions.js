@@ -24,7 +24,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          		"../../_code/ImagePopups.css",
          		"../../_code/common.js",
          		"../../_code/ImageLabeler.js"
-         	]
+         	], complete: function() {init()}
          });
 
       });
@@ -32,12 +32,12 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
 
       Symbol.bindElementAction(compId, symbolName, "document", "compositionReady", function(sym, e) {
          // instructor editable section //
-         	questionType = "Image Labeler with Popup Menus";
-         	qTextSummary = "";		// short description of what is in this quiz"
-         	showWrongAnswers = true;		// false increases difficulty
+         	imageLabelerType = "menus";		// "menus" or "shortAnswer"
+         	qTextSummary = "";					// short description of what is in this quiz"
+         	showWrongAnswers = true;			// false increases difficulty
          	logResponsesToDashboard = true;	// true if you want to use the Dashboard
          	quizpageNumber = 1;					// required if the above is true; must be unique across quiz-pages in this folder
-         	nextPageUrl = "../folder/filename.html";
+         	nextPageUrl = "../folder/filename.html"; // either a relative url: "../folder/filename.html" or an absolute url: "https://www.dictionary.com"
          // end of editable section //
          // the above are intentionally global
 

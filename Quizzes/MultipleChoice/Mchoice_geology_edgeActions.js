@@ -32,7 +32,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          				'../../_code/common.css',
          				'../../_code/common.js',
          				'../../_code/Mchoice.js'
-          	]
+         	], complete: function() {init()}
           });
 
       });
@@ -45,7 +45,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          	qTextSummary = "Identify granite out of 4 sample images";
          	logResponsesToDashboard = false;	// true if you want to use the Dashboard
          	quizpageNumber = 1;					// required if the above is true; must be unique across quiz-pages in this folder
-         	nextPageUrl = "../MatchupLateral/MatchupLateral.html";						// example for a local file: "../folder/filename.html"
+         	nextPageUrl = "../MatchupLateral/MatchupLateral.html"; // either a relative url: "../folder/filename.html" or an absolute url: "https://www.dictionary.com"
          // end of editable section //
          // the above are intentionally global
          
