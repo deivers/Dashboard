@@ -19,15 +19,13 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          // initially uncheck all checkboxes
          var checkboxes = sym.getComposition().getSymbols("Checkbox");
          for (var i=0; i<checkboxes.length; i++) {
-         	checkboxes[i].$("checkmark").css({opacity: 0, "z-index": -1});///$(checkboxes[i]).uncheck();
+         	checkboxes[i].$("checkmark").css({opacity: 0, "z-index": -1});
          }
          // initially hide all the feedback
          var feedbackBoxes = sym.$(".feedback");
          for (var i=0; i<feedbackBoxes.length; i++) {
          	$(feedbackBoxes[i]).css({"opacity":0});
          }
-         // initially hide the Next Page button
-         //sym.getComposition().getSymbols("NextPageButton")[0].getSymbolElement().css({"opacity":0});
          
          yepnope ({
          	nope: [
@@ -45,7 +43,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       //Edge binding end
 
       Symbol.bindElementAction(compId, symbolName, "${_checkAnswers}", "click", function(sym, e) {
-         checkAnswers();
+         ///checkAnswers();
 
       });
       //Edge binding end

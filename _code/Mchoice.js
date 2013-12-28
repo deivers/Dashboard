@@ -3,6 +3,7 @@ var checkboxes = $(".checkbox");
 checkboxes.sort(sortElementByPosition);
 var feedbackBoxes = $(".feedback");
 feedbackBoxes.sort(sortElementByPosition);
+$(".submit").click(function() {checkAnswers()});
 
 checkAnswers = function() {
 	var questionType;
@@ -39,11 +40,7 @@ checkAnswers = function() {
 		// score
 		if (allCorrect) {
 			alert("CORRECT!");
-			//sym.getComposition().getSymbols("SubmitAnswersButton")[0].getSymbolElement().css({"opacity":0,"left":-1000});
-			if (typeof nextPageUrl !== 'undefined' && nextPageUrl != "")
-				$(".submit").html("Next page").removeClass("blue").addClass("green"); //sym.getComposition().getSymbols("NextPageButton")[0].getSymbolElement().css({"opacity":1});
-			else
-				$(".submit").html("End of Quiz").removeClass("blue green").addClass("clearColor");
+			setUpNextButton();
 		} else {
 			alert("One or more of your selections are incorrect.  Please try again...");
 			for (var i=0; i<checkboxes.length; i++) {
@@ -69,18 +66,20 @@ function arrayOfCheckmarkedChoices() {
 	return arrayOfChoices;
 }
 
-//
-//function goNextPage() {
-//	console.log(">>> "+nextPageUrl);
-//	if (typeof nextPageUrl !== 'undefined' && nextPageUrl != "")
-//		window.open(nextPageUrl, "_self");
-//}
+function setUpNextButton() {
+	$(".submit").click(function() {
+		goNextPage();
+	});
+	if (typeof nextPageUrl !== 'undefined' && nextPageUrl != "")
+		$(".submit").html("Next page").removeClass("blue").addClass("green"); //sym.getComposition().getSymbols("NextPageButton")[0].getSymbolElement().css({"opacity":1});
+	else
+		$(".submit").html("End of Quiz").removeClass("blue green").addClass("clearColor");
+}
 
-// sort by position (works whether the elements are in columns or rows)
-function sortElementByPosition(a, b) {
-	var aOffset = $(a).offset();
-	var bOffset = $(b).offset();
-   return aOffset.top + aOffset.left - bOffset.top - bOffset.left;
+function goNextPage() {
+	//console.log(">>> "+nextPageUrl);
+	if (typeof nextPageUrl !== 'undefined' && nextPageUrl != "")
+		window.open(nextPageUrl, "_self");
 }
 
 jQuery.fn.extend({

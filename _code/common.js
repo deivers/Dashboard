@@ -87,9 +87,15 @@ function shuffleArray(array) {
     return array;
 }
 
+// sort by position (works whether the elements are in columns or rows)
+function sortElementByPosition(a, b) {
+	var aOffset = $(a).offset();
+	var bOffset = $(b).offset();
+   return aOffset.top + aOffset.left - bOffset.top - bOffset.left;
+}
+
 function areArraysTheSame(a,b) {
 	// order insensitive
-	console.log("*******");
 	var result = true;
 	a.forEach(function(elementInA) {
 		if (b.indexOf(elementInA) == -1) // not found
