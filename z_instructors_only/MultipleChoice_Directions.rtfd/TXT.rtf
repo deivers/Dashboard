@@ -48,7 +48,7 @@ The Multiple Choice/Select template was created with Adobe Edge Animate.  The te
 \cf0 		Note: questionNumber must be unique among all the quizzes in a given folder.\
 	4.	Each checkbox must have a corresponding feedbackBox, though you may delete the text in the box if you don't want to provide feedback to the student for that checkbox.  If you want the feedback to link to a web page, right-click (Mac: control-click) the feedback text box and select "Open Actions for\'85", choose "click", and add the following code:\
 	if (sym.$(e.target).css("opacity") > 0.1)  // if feedback is visible and the user clicked on it\
-	window.open("http://en.wikipedia.org/wiki/Granite", "_blank");\
+	window.open("http://en.wikipedia.org/wiki/Granite", "_self");\
 replacing the link with your own.  Then in the feedback text itself append something like "Click here for more info".\
 	5. 	Save the project and test it by pressing cmd-return.  Some features, such as logging (and maybe even scoring), won\'92t work until you deploy on a server.  Generating a set of files suitable for deployment on a server is called "publishing".  Press option-command-S to publish (see File menu > "Publish settings..." to choose the folder to publish to, typically just another folder on your local drive for the time being).  Your school\'92s IT department should be able to assist you with deployment.\
 \

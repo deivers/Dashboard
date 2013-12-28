@@ -19,7 +19,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          // initially uncheck all checkboxes
          var checkboxes = sym.getComposition().getSymbols("Checkbox");
          for (var i=0; i<checkboxes.length; i++) {
-         	checkboxes[i].uncheck();
+         	checkboxes[i].$("checkmark").css({opacity: 0, "z-index": -1});///$(checkboxes[i]).uncheck();
          }
          // initially hide all the feedback
          var feedbackBoxes = sym.$(".feedback");
@@ -27,13 +27,25 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          	$(feedbackBoxes[i]).css({"opacity":0});
          }
          // initially hide the Next Page button
-         sym.getComposition().getSymbols("NextPageButton")[0].getSymbolElement().css({"opacity":0});
+         //sym.getComposition().getSymbols("NextPageButton")[0].getSymbolElement().css({"opacity":0});
+         
+         yepnope ({
+         	nope: [
+         				'../../_code/common.css',
+         				'../../_code/common.js',
+         				'../../_code/Mchoice.js'
+          	], complete: init
+          });
+         
+         function init() {
+         
+         }
 
       });
       //Edge binding end
 
       Symbol.bindElementAction(compId, symbolName, "${_checkAnswers}", "click", function(sym, e) {
-         sym.getComposition().getStage().checkAnswers();
+         checkAnswers();
 
       });
       //Edge binding end
@@ -46,104 +58,6 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          	var nextPageUrl = "";					// example for a local file: "../folder/filename.html"
          // end of editable section //
          
-         var checkboxes = sym.getComposition().getSymbols("Checkbox");
-         // note: no guarantee on the order of the retrieved checkboxes, so sort by position
-         checkboxes.sort(sortSymbolByPosition);
-         var feedbackBoxes = sym.$(".feedback");
-         feedbackBoxes.sort(sortElementByPosition);
-         
-         sym.checkAnswers = function() {
-         	var questionType;
-         	console.log("checking answers...");
-         	var allCorrect = false;
-         	var studentChoices = arrayOfCheckmarkedChoices();
-         	// flags
-         	var isQuizComplete = (studentChoices.length > 0);
-         	// check answers
-         	var cc = new Array();
-         	for (var i=0; i<checkboxes.length; i++) {
-         		if (checkboxes[i].getSymbolElement().css("opacity") < 1.0)
-         			cc.push(i);
-         	}
-         	if (cc.length > 1)
-         		questionType = "Multiple Select";
-         	else
-         		questionType = "Multiple Choice";
-         	allCorrect = areArraysTheSame(studentChoices,cc);
-         	// respond to student
-         	if (!isQuizComplete)
-         		alert("You must mark at least one checkbox before submitting.");
-         	else {
-         		// log answers //
-         		if (typeof logResponsesToDashboard === 'undefined')
-         			logResponsesToDashboard = false;
-         		if (logResponsesToDashboard) {
-         			var logSuccess = logSubmission(quizpageNumber,questionType,qTextSummary," ",studentChoices,cc);
-         			if (logSuccess == false) {
-         				alert("You must provide a valid student ID for answers to be checked.");
-         				return;
-         			}
-         		}
-         		// score
-         		if (allCorrect) {
-         			alert("CORRECT!");
-         			sym.getComposition().getSymbols("SubmitAnswersButton")[0].getSymbolElement().css({"opacity":0,"left":-1000});
-         			if (typeof nextPageUrl !== 'undefined' && nextPageUrl != "")
-         				sym.getComposition().getSymbols("NextPageButton")[0].getSymbolElement().css({"opacity":1});
-         		} else {
-         			alert("One or more of your selections are incorrect.  Please try again...");
-         			for (var i=0; i<checkboxes.length; i++) {
-         				checkboxes[i].uncheck();
-         			}
-         		}
-         		// reveal feedback, if any
-         		for (var i=0; i<studentChoices.length; i++) {
-         			// for each checkbox checked, if there is a feedbackBox, then show it
-         			if (studentChoices[i] < feedbackBoxes.length) // insure we don't exceed the array size
-         				$(feedbackBoxes[studentChoices[i]]).animate({opacity: 1.0});
-         		}
-         	}
-         }
-         
-         function arrayOfCheckmarkedChoices() {
-         	// checkbox numbering starts at 0
-         	var arrayOfChoices = new Array();
-         	for (var i=0; i<checkboxes.length; i++) {
-         		if (checkboxes[i].isChecked())
-         			arrayOfChoices.push(i);
-         	}
-         	return arrayOfChoices;
-         }
-         
-         function areArraysTheSame(a,b) {
-         	// order insensitive
-         	var result = true;
-         	a.forEach(function(elementInA) {
-         		if (b.indexOf(elementInA) == -1) // not found
-         			result = false;
-         	});
-         	return result;
-         }
-         
-         sym.goNextPage = function() {
-         	console.log(">>>"+nextPageUrl);
-         	if (typeof nextPageUrl !== 'undefined' && nextPageUrl != "")
-         		window.open(nextPageUrl, "_self");
-         }
-         
-         // sort by position (works whether the elements are in columns or rows)
-         function sortSymbolByPosition(a, b) {
-         	var aOffset = a.getSymbolElement().offset();
-         	var bOffset = b.getSymbolElement().offset();
-            return aOffset.top + aOffset.left - bOffset.top - bOffset.left;
-         }
-         
-         // sort by position (works whether the elements are in columns or rows)
-         function sortElementByPosition(a, b) {
-         	var aOffset = $(a).offset();
-         	var bOffset = $(b).offset();
-            return aOffset.top + aOffset.left - bOffset.top - bOffset.left;
-         }
          
 
       });
@@ -151,13 +65,13 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
 
       Symbol.bindElementAction(compId, symbolName, "${_Feedback1Copy3}", "click", function(sym, e) {
          if (sym.$(e.target).css("opacity") > 0.1)  // if feedback is visible and the user clicked on it
-         	window.open("http://en.wikipedia.org/wiki/Granite", "_blank");
+         	window.open("http://en.wikipedia.org/wiki/Granite", "_self");
 
       });
       //Edge binding end
 
       Symbol.bindElementAction(compId, symbolName, "${_NextPageButton}", "click", function(sym, e) {
-         sym.getComposition().getStage().goNextPage();
+         goNextPage();
 
       });
       //Edge binding end
@@ -186,17 +100,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       });
       //Edge binding end
 
-      Symbol.bindSymbolAction(compId, symbolName, "creationComplete", function(sym, e) {
-         sym.uncheck = function() {
-         	sym.$("checkmark").css({opacity: 0, "z-index": -1});
-         }
-         
-         sym.isChecked = function() {
-         	return (sym.$("checkmark").css("opacity") == 1);
-         }
-
-      });
-      //Edge binding end
+      
 
    })("Checkbox");
    //Edge symbol end:'Checkbox'

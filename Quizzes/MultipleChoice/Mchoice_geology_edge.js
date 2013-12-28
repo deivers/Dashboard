@@ -68,23 +68,27 @@ var symbols = {
          {
             id:'Checkbox1',
             type:'rect',
-            rect:['234px','132px','auto','auto','auto','auto']
+            rect:['234px','132px','auto','auto','auto','auto'],
+            userClass:"checkbox"
          },
          {
             id:'Checkbox2',
             type:'rect',
-            rect:['234px','273px','auto','auto','auto','auto']
+            rect:['234px','273px','auto','auto','auto','auto'],
+            userClass:"checkbox"
          },
          {
             id:'Checkbox3',
             type:'rect',
             rect:['234px','408px','auto','auto','auto','auto'],
-            opacity:0.99
+            opacity:0.99,
+            userClass:"checkbox"
          },
          {
             id:'Checkbox4',
             type:'rect',
-            rect:['233px','543px','auto','auto','auto','auto']
+            rect:['233px','543px','auto','auto','auto','auto'],
+            userClass:"checkbox"
          },
          {
             id:'CopyrightAndCredits',
@@ -137,6 +141,15 @@ var symbols = {
             id:'checkAnswers',
             type:'rect',
             rect:['284px','650px','auto','auto','auto','auto']
+         },
+         {
+            id:'Text3',
+            type:'text',
+            rect:['119px','650px','107px','19px','auto','auto'],
+            text:"Submit",
+            align:"center",
+            userClass:"submit button blue",
+            font:['Arial, Helvetica, sans-serif',18,"rgba(0,0,0,1)","normal","none",""]
          }],
          symbolInstances: [
          {
@@ -185,6 +198,14 @@ var symbols = {
          "${_Checkbox2}": [
             ["style", "left", '234px'],
             ["style", "top", '273px']
+         ],
+         "${_Text3}": [
+            ["style", "top", '650px'],
+            ["style", "text-align", 'center'],
+            ["style", "height", '19px'],
+            ["style", "width", '107px'],
+            ["style", "left", '119px'],
+            ["style", "font-size", '18px']
          ],
          "${_Feedback1Copy3}": [
             ["style", "top", '521px'],

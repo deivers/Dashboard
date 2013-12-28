@@ -87,6 +87,17 @@ function shuffleArray(array) {
     return array;
 }
 
+function areArraysTheSame(a,b) {
+	// order insensitive
+	console.log("*******");
+	var result = true;
+	a.forEach(function(elementInA) {
+		if (b.indexOf(elementInA) == -1) // not found
+			result = false;
+	});
+	return result;
+}
+
 function jQuerySame(a, b) {
     if (a.length != b.length) {
         return false;
