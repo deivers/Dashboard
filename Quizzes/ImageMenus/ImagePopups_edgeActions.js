@@ -14,65 +14,34 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       
       
       Symbol.bindSymbolAction(compId, symbolName, "creationComplete", function(sym, e) {
-         // initially hide the Next Page button
-         sym.getComposition().getSymbols("NextPageButton")[0].getSymbolElement().css({"opacity":0});
-         
          // make sure the text boxes aren't visible while page loads
          sym.$(".textSource").css({"opacity": 0});
+         
+         // load external files
+         yepnope({
+         	load: [
+         		'../../_code/common.css',
+         		"../../_code/ImagePopups.css",
+         		"../../_code/common.js",
+         		"../../_code/ImageLabeler.js"
+         	]
+         });
 
       });
       //Edge binding end
 
       Symbol.bindElementAction(compId, symbolName, "document", "compositionReady", function(sym, e) {
          // instructor editable section //
-         	var questionType = "Image Labeler with Popup Menus";
-         	var qTextSummary = "";		// short description of what is in this quiz"
-         	var showWrongAnswers = true;		// false increases difficulty
-         	var logResponsesToDashboard = true;	// true if you want to use the Dashboard
-         	var quizpageNumber = 1;					// required if the above is true; must be unique across quiz-pages in this folder
-         	var nextPageUrl = "../folder/filename.html";
+         	questionType = "Image Labeler with Popup Menus";
+         	qTextSummary = "";		// short description of what is in this quiz"
+         	showWrongAnswers = true;		// false increases difficulty
+         	logResponsesToDashboard = true;	// true if you want to use the Dashboard
+         	quizpageNumber = 1;					// required if the above is true; must be unique across quiz-pages in this folder
+         	nextPageUrl = "../folder/filename.html";
          // end of editable section //
-         
+         // the above are intentionally global
          
          console.log("composition ready");
-         var texts = [];
-         // load external css file
-         yepnope({
-         	load: ["../../_code/ImagePopups.css", "../../_code/common.js"],
-         	complete: init
-         });
-         
-         function init() {
-         	// collect all possible menu options
-         	var textFields = sym.$(".textSource");
-         	console.log("number of fields: "+textFields.length);
-         	for (var i=0; i<textFields.length; i++) {
-         		texts[i] = $(textFields[i]).html();
-         		//console.log("text found at position "+i+": "+texts[i]);
-         	}
-         	// randomize the menu options
-         	var textForMenus = texts.slice(0);
-         	shuffleArray(textForMenus);
-         	var optionString = "<option>?</option>";
-         	for (var i=0; i<textFields.length; i++) {
-         		optionString += "<option>"+textForMenus[i]+"</option>";
-         	}
-         	// insert the menus into the DOM
-         	//todo: but don't populate textFields off stage left
-         	var j = 0;
-         	var answerKey = [];
-         	for (var i=0; i<textFields.length; i++) {
-         		if ($(textFields[i]).position().left < -10) {
-         			;//console.log("#"+i+" is off stage left");
-         		} else {
-         			answerKey[j] = $(textFields[i]).html();
-         			$(textFields[i]).html("");
-         			$("<select id="+j+" class='menu'>"+optionString+"</select>").appendTo($(textFields[i]));
-         			j++;
-         		}
-         	}
-         	sym.$(".textSource").css({"opacity": 1});
-         }
          
          
          sym.checkStudentAnswers = function() {
