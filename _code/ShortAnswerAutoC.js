@@ -15,6 +15,7 @@ var answerTerms = [];
 $(function() {
 	$("input").attr("autocomplete", "off");
 	$("input").keyup(function(event){handleKeyup(event);});
+	$("input").each(function(index) {this.id = index});	// used later to move focus to the next box
 	$("#submitButton").click(submitButtonTapped);
 	$("#resetButton").click(function(){resetQuiz()});
 	if (typeof nextPageUrl === 'undefined' || nextPageUrl == "")
@@ -31,13 +32,15 @@ $(function() {
 
 function completeFragment(fragment) {
 	//console.log("completeFragment function with arg: "+fragment);
-	var length = fragment.length;
+	var len = fragment.length;
 	var indexOfMatch = -1;
 	var isMatchUnique = true;
-	if (length < minNumChars)
+	if (minNumChars === 'undefined' || minNumChars < 1)
+		minNumChars = 3;
+	if (len < minNumChars)
 		return ""; // no match yet
 	for (var i=0; i<autoCompleteTerms.length; i++) {
-		if (fragment.toLowerCase() == autoCompleteTerms[i].substring(0,length)) {
+		if (fragment.toLowerCase() == autoCompleteTerms[i].substring(0,len).toLowerCase()) {
 			if (indexOfMatch >= 0)
 				isMatchUnique = false;
 			indexOfMatch = i;
@@ -72,6 +75,9 @@ function handleKeyup(event) {
 	if (completedString.length > 0) {
 		event.target.value = completedString;
 		event.target.blur();
+		var nextId = parseInt(event.target.id) + 1;
+		if (nextId < $("input").length)
+			$("#"+nextId).focus();
 	}
 }
 
@@ -91,7 +97,7 @@ function submitButtonTapped() {
 	var numCorrect = numberTrue(responseArray);
 	var numTotal = responseArray.length;
 	//console.log("responseArray: "+responseArray);
-	if (showWrongAnswers || numCorrect == numTotal)
+	if (typeof showWrongAnswers === 'undefined' || showWrongAnswers || numCorrect == numTotal)
 		$("input").each(function(index) {
 			if (responseArray[index])
 				$(this).removeClass("incorrect").addClass("correct",500);
