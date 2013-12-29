@@ -1,10 +1,8 @@
 var questionType = "Sequencer";
 var version = "1.0 December 2013";
 var rejectOption = (typeof rejectWrongAnswers === 'undefined' || rejectWrongAnswers);
-var studentList = [];
 var dragList;
 var allList;
-var akList = [];
 $('.draggable').draggable();
 $(function() {
 	$("#sortable1, #sortable2").sortable({
@@ -25,44 +23,55 @@ $(function() {
 	// set button handlers
 	$("#submitButton").click(function(){checkAnswers()});
 	$("#resetButton").click(function(){resetQuiz()});
-	$("#nextButton").click(function(){window.open(nextPageUrl,"_self")})
-		.hide();      // this will be revealed when the quiz is correctly completed
+	if (typeof nextPageUrl === 'undefined' || nextPageUrl == "")
+		$("#nextButton").html("End of Quiz")
+			.removeClass()
+			.addClass("button clearColor")
+			.hide();
+	else
+		$("#nextButton").click(function(){window.open(nextPageUrl,"_self")})
+			.hide();      // this will be revealed when the quiz is correctly completed
 	$("body").append(showMetaInfo(version));
 });
 
 function checkAnswers() {
 	var allCorrect = true;
+	var nCorrect = 0;
 	for (var i=0; i<allList.length; i++) {
 		if (allList[i] != $(".draggable")[i]) {
 			allCorrect = false;
 			break;
 		}
+		nCorrect++;
 	}
-	/* log answers */
+	// log answers //
 	if (typeof logResponsesToDashboard === 'undefined')
 		logResponsesToDashboard = false;
 	if (logResponsesToDashboard) {
-		studentList = [];
-		$(".draggable").each(function(index) {
-			studentList.push($(this).html());
-		});
-		akList = [];
+		var aDetailedList = [];
 		$(allList).each(function(index) {
-			akList.push($(this).html());
+			aDetailedList.push($(this).html());
 		});
-		//console.log(akList);
-		//console.log(studentList);
-		logSubmission(quizpageNumber,akList,studentList);
+		var saList = convertToIndexes($(".draggable"),allList);
+		var akList = arrayFactory(allList.length);
+		var logSuccess = logSubmission(quizpageNumber,questionType,qTextSummary,aDetailedList,saList,akList);
+		if (logSuccess == false) {
+			alert("You must provide a valid student ID for answers to be checked.");
+			return;
+		}
 	}
 	// give feedback to student
 	if (allCorrect) {
 		$(".draggable").addClass("correct", 400);
-		setTimeout(function() {alert("CORRECT!\n\nIf you want to do it again, tap Reset.");}, 600);		// make sure the tabs are moved before the alert shows
+		setTimeout(function() {alert("CORRECT!");}, 600);		// make sure the animation is finished before the alert shows
 		$("#submitButton").hide();
 		$("#nextButton").show();	// if nextButton exists, show it so student can proceed to next page
+		$("#resetButton").hide();
 	} else {
-		$(".draggable").removeClass("correct", 400);
-		setTimeout(function() {alert("One or more of the items is out of order.  Please try again...");}, 600);		// make sure the tabs are moved before the alert shows
+		if (showWrongAnswers)
+			addClassToDraggables(0,nCorrect,"correct",400);
+		else
+			setTimeout(function() {alert("One or more of the items is out of order.  Please try again...");}, 600);		// make sure the animation is finished before the alert shows
 	}
 }
 
@@ -70,35 +79,11 @@ function resetQuiz() {
 	location.reload();
 }
 
-function logSubmission(qNum,answers,sAnswers) {
-	console.log("Logging...");
-	// submit to server
-	if (typeof studentId === 'undefined' || studentId == "")
-		var studentId = prompt("Please enter your student ID","")
-	// todo: get id from the environment variable
-	// todo: verify that we got a unique valid id above, or create one from the ip address?
-	if (typeof qNum === 'undefined') {
-		qNum = 0;
-		console.log("Warning: quizpageNumber not found; defaulting to 0");
-	}
-	if (typeof quizpageTextSummary === 'undefined')
-		quizpageTextSummary = answers.join(", ");
-	//console.log(quizpageTextSummary);
-	var request = $.ajax({
-		type: 'POST',
-		url: 'LogResponse.php',
-		data: {	si : studentId,		//todo: get student id from env var
-				qn : qNum,
-				qt : questionType,
-				qs : quizpageTextSummary,
-				sa : sAnswers
-		},
-		dataType: 'json'
-	});
-	request.done(function(msg) {
-		console.log("Submission successful");
-	});
-	request.fail(function(jqXHR, textStatus) {
-		console.log("The submission failed: "+textStatus);
+function addClassToDraggables(start,stop,className,duration) {
+	$(".draggable").each(function(index){
+		if (start <= index && index < stop)
+			$(this).addClass(className,duration);
+		else
+			$(this).removeClass(className,duration);
 	});
 }

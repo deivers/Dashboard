@@ -2,6 +2,7 @@
 //	integer minNumChars
 //	boolean logResponsesToDashboard (defaults to false)
 //	integer quizpageNumber (required if the above is true)
+//  string qTextSummary
 //	nextPageUrl
 
 // Note: we dont use jQuery autocomplete because we need the custom behavior of only showing completion when the characters entered have only one match, only in a particular list
@@ -16,8 +17,14 @@ $(function() {
 	$("input").keyup(function(event){handleKeyup(event);});
 	$("#submitButton").click(submitButtonTapped);
 	$("#resetButton").click(function(){resetQuiz()});
-	$("#nextButton").click(function(){window.open(nextPageUrl,"_self")})
-		.hide();      // this will be revealed when the quiz is correctly completed
+	if (typeof nextPageUrl === 'undefined' || nextPageUrl == "")
+		$("#nextButton").html("End of Quiz")
+			.removeClass()
+			.addClass("button clearColor")
+			.hide();
+	else
+		$("#nextButton").click(function(){window.open(nextPageUrl,"_self")})
+			.hide();      // this will be revealed when the quiz is correctly completed
 	$("body").append(showMetaInfo(version));
 	extract();
 });
@@ -79,24 +86,26 @@ function submitButtonTapped() {
 		alert("Type in answers for all of the questions before submitting.");
 		return;
 	}
-	/* mark the answers right or wrong */
+	/* check student's answer(s) */
 	var responseArray = checkAnswers();
-	//console.log("responseArray: "+responseArray);
-	$("input").each(function(index) {
-		if (responseArray[index])
-			$(this).removeClass("incorrect").addClass("correct");
-		else
-			$(this).removeClass("correct").addClass("incorrect");
-	});
-	/* add score summary below the submit button */
 	var numCorrect = numberTrue(responseArray);
 	var numTotal = responseArray.length;
-	$(".score").html(numCorrect+" of "+numTotal+" correct").css("color","#000");
+	//console.log("responseArray: "+responseArray);
+	if (showWrongAnswers || numCorrect == numTotal)
+		$("input").each(function(index) {
+			if (responseArray[index])
+				$(this).removeClass("incorrect").addClass("correct",500);
+			else
+				$(this).removeClass("correct").addClass("incorrect",500);
+		});
+	/* add score summary below the submit button */
 	if (numCorrect == numTotal) {
 		$(".score").html("Correct!").css("color","#090");
 		$("#submitButton").hide();
 		$("#nextButton").show();	// if nextButton exists, show it so student can proceed to next page
-	}
+		$("#resetButton").hide();
+	} else
+		$(".score").html(numCorrect+" of "+numTotal+" correct - please try again").css("color","#000");
 }
 
 function numberTrue(theArray) {
@@ -113,43 +122,20 @@ function checkAnswers() {
 		studentAnswers[index] = $(this).val();
 		scoreArray.push(studentAnswers[index].toLowerCase() == autoCompleteTerms[index].toLowerCase());
 	});
-	/* log answers */
+	// log answers //
 	if (typeof logResponsesToDashboard === 'undefined')
 		logResponsesToDashboard = false;
-	if (logResponsesToDashboard)
-		logSubmission(quizpageNumber,autoCompleteTerms,studentAnswers);
+	if (logResponsesToDashboard) {
+		var saList = convertToIndexes(studentAnswers,autoCompleteTerms)
+		var akList = arrayFactory(studentAnswers.length,1,0);
+		var logSuccess = logSubmission(quizpageNumber,questionType,qTextSummary,autoCompleteTerms,saList,akList);
+		if (logSuccess == false) {
+			alert("You must provide a valid student ID for answers to be checked.");
+			return;
+		}
+	}
 	// return true/false array
 	return scoreArray;
-}
-
-function logSubmission(qNum,answers,sAnswers) {
-	// submit to server
-	if (typeof studentId === 'undefined' || studentId == "")
-		var studentId = prompt("Please enter your student ID","")
-	// todo: get id from the environment variable
-	// todo: verify that we got a unique valid id above, or create one from the ip address?
-	if (typeof qNum === 'undefined') {
-		qNum = 0;
-		console.log("Warning: quizpageNumber not found; defaulting to 0");
-	}
-	quizpageTextSummary = answers.join(", ");
-	var request = $.ajax({
-		type: 'POST',
-		url: 'LogResponse.php',
-		data: {	si : studentId,		//todo: get student id from env var
-				qn : qNum,
-				qt : questionType,
-				qs : quizpageTextSummary,
-				sa : sAnswers
-		},
-		dataType: 'json'
-	});
-	request.done(function(msg) {
-		console.log("Submission successful: ");
-	});
-	request.fail(function(jqXHR, textStatus) {
-		console.log("The submission failed: "+textStatus);
-	});
 }
 
 function resetQuiz() {

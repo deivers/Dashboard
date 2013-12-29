@@ -14,144 +14,39 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       
       
       Symbol.bindSymbolAction(compId, symbolName, "creationComplete", function(sym, e) {
-         console.log("creation complete fn");
+         // make sure the text boxes aren't visible while page loads
+         sym.$(".textSource").css({"opacity": 0});
          
+         // load external files
+         yepnope({
+         	load: [
+         		'../../_code/common.css',
+         		"../../_code/ImagePopups.css",
+         		"../../_code/common.js",
+         		"../../_code/ImageLabeler.js"
+         	], complete: function() {init()}
+         });
 
       });
       //Edge binding end
 
       Symbol.bindElementAction(compId, symbolName, "document", "compositionReady", function(sym, e) {
-         {	// Editable section //
-         	var logResponsesToDashboard = true;
-         	var quizpageNumber = 1;
-         	var questionTextSummary = "short description of what is in this quiz"
-         	// end if editable section //
-         }
-         
-         console.log("composition ready");
-         var textFields = sym.$(".textSource");
-         console.log("number of fields: "+textFields.length);
-         var texts = [];
-         for (var i=0; i<textFields.length; i++) {
-         	texts[i] = $(textFields[i]).html();
-         	//console.log("text found at position "+i+": "+texts[i]);
-         }
-         // randomize the menu options
-         var textForMenus = texts.slice(0);
-         shuffleArray(textForMenus);
-         var optionString = "<option>?</option>";
-         for (var i=0; i<textFields.length; i++) {
-         	optionString += "<option>"+textForMenus[i]+"</option>";
-         }
-         // insert the menus into the DOM
-         //todo: but don't populate textFields off stage left
-         var j = 0;
-         var answerKey = [];
-         for (var i=0; i<textFields.length; i++) {
-         	if ($(textFields[i]).position().left < -10) {
-         		;//console.log("#"+i+" is off stage left");
-         	} else {
-         		answerKey[j] = $(textFields[i]).html();
-         		$(textFields[i]).html("");
-         		$("<select id="+j+" class='menu'>"+optionString+"</select>").appendTo($(textFields[i]));
-         		j++;
-         	}
-         }
-         
-         sym.checkStudentAnswers = function() {
-         	console.log("checking answers");
-         	// implicit args: answerKey, textForMenus
-         	var answerWidgets = sym.$(".menu");
-         	var wrong = [];
-         	var k = 0;
-         	var answerTexts = [];
-         	var isComplete = true;
-         	// which index did the student pick?
-         	for (var j=0; j<answerWidgets.length; j++) {
-         		answerTexts.push($(answerWidgets[j]).val());
-         		thisText = $(answerWidgets[j]).val();
-         		if (thisText != texts[j]) {
-         			// this one is incorrect
-         			wrong[k++] = answerWidgets[j];
-         			if (thisText == "?" || thisText == "-" || thisText == "")
-         				isComplete = false;
-         		}
-         		//var index = $.inArray($(answerWidgets[j]).val(), textForMenus); // is there an easier way to get the selected index?
-         		//console.log(index);
-         	}
-         	if (isComplete) {
-         		logStudentResponses(answerTexts);
-         		// clear any previous marks
-         		$(answerWidgets).parent().css({"border":"0px"});
-         		// mark wrong answers
-         		$(wrong).parent().css({"border":"3px solid red"});
-         		if (wrong.length > 0)
-         			alert("Please keep trying.");
-         		else
-         			alert("All correct!");
-         	} else
-         			alert("You must complete the quiz before answers will be checked.");
-         }
-         
-         /**
-          * Randomize array element order in-place.
-          * Using Fisher-Yates shuffle algorithm.
-          */
-         function shuffleArray(array) {
-             for (var i = array.length - 1; i > 0; i--) {
-                 var j = Math.floor(Math.random() * (i + 1));
-                 var temp = array[i];
-                 array[i] = array[j];
-                 array[j] = temp;
-             }
-             return array;
-         }
-         
-         function logStudentResponses(list) {
-         	if (typeof logResponsesToDashboard === 'undefined')
-         		logResponsesToDashboard = false;
-         	if (logResponsesToDashboard) {
-         		// submit to server
-         		if (typeof studentId === 'undefined' || studentId == "")
-         			var studentId = prompt("Please enter your student ID","")
-         		// todo: verify that we got a valid id above
-         		if (typeof quizpageNumber === 'undefined')
-         			var quizpageNumber = 0;
-         		if (typeof questionType === 'undefined')
-         			var questionType = "Image Labeler";
-         		if (typeof questionTextSummary === 'undefined')
-         			var questionTextSummary = "Question text summary isn't defined";
-         		var request = $.ajax({
-         			type: 'POST',
-         			url: 'LogResponse.php',
-         			data: {	si : studentId,		//todo: get student id from env var
-         					qn : quizpageNumber,
-         					qt : questionType,
-         					qs : questionTextSummary,
-         					sa : list
-         			},
-         			dataType: 'json'
-         		});
-         		request.done(function(msg) {
-         			console.log("Submission successful");
-         		});
-         		request.fail(function(jqXHR, textStatus) {
-         			console.log("The submission failed: "+textStatus);
-         		});
-         	}
-         }
-         
-         
-         
+         // instructor editable section //
+         	imageLabelerType = "menus";		// "menus" or "shortAnswer"
+         	qTextSummary = "";					// short description of what is in this quiz"
+         	showWrongAnswers = true;			// false increases difficulty
+         	logResponsesToDashboard = true;	// true if you want to use the Dashboard
+         	quizpageNumber = 1;					// required if the above is true; must be unique across quiz-pages in this folder
+         	nextPageUrl = "../folder/filename.html"; // either a relative url: "../folder/filename.html" or an absolute url: "https://www.dictionary.com"
+         // end of editable section //
+         // the above are intentionally global
 
       });
       //Edge binding end
 
-      Symbol.bindElementAction(compId, symbolName, "${_SubmitAnswersButton}", "click", function(sym, e) {
-         sym.getComposition().getStage().checkStudentAnswers();
+      
 
-      });
-      //Edge binding end
+      
 
    })("stage");
    //Edge symbol end:'stage'
@@ -161,13 +56,41 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
    //=========================================================
 
    //=========================================================
+
+   //=========================================================
    
-   //Edge symbol: 'checkAnswers'
+   //Edge symbol: 'copyrightButton'
    (function(symbolName) {   
    
-      
+      Symbol.bindElementAction(compId, symbolName, "${_RoundRect2}", "click", function(sym, e) {
+         window.open("http://harvest.cals.ncsu.edu/biology", "_blank");
 
-   })("SubmitAnswersButton");
-   //Edge symbol end:'SubmitAnswersButton'
+      });
+      //Edge binding end
+
+   })("copyrightButton");
+   //Edge symbol end:'copyrightButton'
+
+   //=========================================================
+   
+   //Edge symbol: 'CopyrightAndCredits'
+   (function(symbolName) {   
+   
+   })("CopyrightAndCredits");
+   //Edge symbol end:'CopyrightAndCredits'
+
+   //=========================================================
+   
+   //Edge symbol: 'codeByButton'
+   (function(symbolName) {   
+   
+      Symbol.bindElementAction(compId, symbolName, "${_RoundRect}", "click", function(sym, e) {
+         window.open("http://www.onetimesoftware.com", "_blank");
+
+      });
+      //Edge binding end
+
+   })("codeByButton");
+   //Edge symbol end:'codeByButton'
 
 })(jQuery, AdobeEdge, "EDGE-749678393");

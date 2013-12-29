@@ -6,25 +6,27 @@ include( '../../_code/logger.php' );
 $workingDir = getcwd(); // get current working directory
 error_log("LogResponse.php  in  " . $workingDir);
 $studentId = $_POST['si'];  //todo: get it from the environment variable REMOTE_USER
-$questionNumber = $_POST['qn'];
-$questionType = $_POST['qt'];
-$questionTextSummary = $_POST['qs'];
+$qNumber = $_POST['qn'];
+$qType = $_POST['qt'];
+$qTextSummary = $_POST['qs'];
+$answerDetailArray = $_POST['ad'];
 $studentAnswerArray = $_POST['sa'];
 $answerArray = $_POST['ak'];
-//error_log("/t".$workingDir." ".$studentId." ".$questionNumber." ".$questionType." ".$questionTextSummary." ".$studentAnswerArray." ".$answerKey);
+//error_log("/t".$workingDir." ".$studentId." ".$qNumber." ".$qType." ".$qTextSummary." ".$answerDetailArray." ".$studentAnswerArray." ".$answerArray);
 $result = logStudentSubmission(
 		$workingDir,
 		$studentId,
-		$questionNumber,
-		$questionType,
-		$questionTextSummary,
+		$qNumber,
+		$qType,
+		$qTextSummary,
+		$answerDetailArray,
 		$studentAnswerArray,
 		$answerArray
 );
 //todo: if ($result <= 0) notify the user to try again
 if ($result <= 0) {
 	date_default_timezone_set('UTC');
-	error_log("*** Error logging response: ".date("c")."|".$studentId."|".$questionNumber."|".$questionType."|".$questionTextSummary."|".$studentAnswerArray);
+	error_log("*** Error logging response: ".date("c")."|".$studentId."|".$qNumber."|".$qType."|".$qTextSummary."|".$studentAnswerArray);
 }
 
 ?>

@@ -3,13 +3,13 @@
 // example return value:  "2014-01-31T23:59:00+0000|smith15|6,4,5,3,1"
 // date-time is ISO8601 format (GMT)
 
-function logStudentSubmission($loggerDir, $studentId, $quizpageNumber, $questionType, $questionText, $answers, $answerKey) {
+function logStudentSubmission($saveDir, $studentId, $qNumber, $qType, $qText, $answerDetails, $answers, $answerKey) {
 	//* Log student answers *//
-	$logFile = $loggerDir . '/' . "submission_log_" . $quizpageNumber . ".txt";
+	$logFile = $saveDir . '/' . "submission_log_" . $qNumber . ".txt";
 	if (!file_exists($logFile)) {
 		// the first row is unique
-		error_log('Creating log file '.$quizpageNumber.' in '.$loggerDir);
-		$logEntry = buildMetaRow($questionType, $questionText, $answerKey);
+		error_log('Creating log file '.$qNumber.' in '.$saveDir);
+		$logEntry = buildMetaRow($qType, $qText, $answerDetails, $answerKey);
 		file_put_contents($logFile, $logEntry);
 	}
 	$logEntry = buildLogEntry($studentId, $answers);
@@ -25,14 +25,14 @@ function buildLogEntry($studentId, $submission) {
 	return $logEntry;
 }
 
-function buildMetaRow($typeOfQuestion, $questionText, $correctAnswer) {
-	$logEntry = $typeOfQuestion . "|" . removePipes($questionText) . "|" . removePipes(arrayOrValueToString($correctAnswer)) . "\n";
+function buildMetaRow($typeOfQuestion, $questionText, $answerDetails, $correctAnswer) {
+	$logEntry = removePipes($typeOfQuestion) . "|" . removePipes($questionText) . "|" . removePipes(arrayOrValueToString($answerDetails)) . "|" . removePipes(arrayOrValueToString($correctAnswer)) . "\n";
 	return $logEntry;
 }
 
 function arrayOrValueToString($arrayOrValue) {
 	if (is_array($arrayOrValue))
-		return join(",",$arrayOrValue);
+		return join(";",$arrayOrValue);
 	else
 		return "" . $arrayOrValue;
 }

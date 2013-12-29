@@ -40,7 +40,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          	var introAnimation = true;				// helps convey to user that drag elements are in fact draggable
          	var logResponsesToDashboard = true;
          	var quizpageNumber = 1;
-         	var questionTextSummary = "short description of what is in this quiz"
+         	var qTextSummary = "short description of what is in this quiz"
          	// end if editable section //
          
          	var myLeft, myTop;
@@ -194,15 +194,15 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          			//else
          			//	questionType = "Edge Matchup with the questions shuffled";
          			questionType = "Edge Matchup";
-         			if (typeof questionTextSummary === 'undefined')
-         				var questionTextSummary = "Question text summary isn't defined";
+         			if (typeof qTextSummary === 'undefined')
+         				var qTextSummary = "Question text summary isn't defined";
          			var request = $.ajax({
          				type: 'POST',
          				url: 'LogResponse.php',
          				data: {	si : studentId,		//todo: get student id from env var
          						qn : quizpageNumber,
          						qt : questionType,
-         						qs : questionTextSummary,
+         						qs : qTextSummary,
          						sa : list
          				},
          				dataType: 'json'

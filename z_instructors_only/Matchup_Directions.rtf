@@ -1,0 +1,71 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1265
+{\fonttbl\f0\fnil\fcharset0 Verdana;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww14000\viewh18000\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\b\fs24 \cf0 About the Matchup Quiz template
+\b0 \
+Version 1.2  November 2013\
+Created by One Time Software (www.onetimesoftware.com)\
+\
+One Time Software created more than one Matchup Quiz template.  These instructions are for the Matchup Quizzes NOT created with Adobe Edge Animate.  The template has the following features and limitations:\
+	-  The quizzes are built with html5, css, javascript, and jQuery and work in all standard browsers.  The quizzes also work with touch interfaces such as iPad and Android mobile devices.\
+	-  Students cannot from a standard browser inspect the html in order to see the answers.  See the file "aboutCheating.txt" for more info.\
+	-  Setting up the quiz with your own content is easy, but you should be comfortable with editing html using a plain text editor.\
+	-  When authoring the content of a quiz, you arrange the quiz in correct answer order and when loaded in a browser the javascript shuffles either the questions or the answers.  Specify which you want shuffled using the parameter shuffleWhich in the html file, setting it to either "draggables" to shuffle the answers or "questions" to shuffle the non-draggable items.\
+	-  You can specify whether incorrect answers are immediately rejected versus forcing the student to complete the quiz before giving any feedback.  See the rejectWrongAnswers and requireCompletion parameters.\
+	-  The number of draggable items can be equal to the number of questions, or the draggables can have one or more extra items to make the quiz more challenging.\
+	-  Optionally, you can adjust the styling (color, font, widths, etc.) in the style tag near the top of the html file.\
+	-  You can use images instead of text for the questions and/or answers.\
+	-  You can even use audio - contact One Time Software if you need assistance.\
+	-  You can log student answers and see a summary using the Dashboard.  See the instructions for the Dashboard for details.\
+\
+Folder structure\
+	-  The files in a particular folder need to stay together:\
+		MatchupStacked.html    ok to rename\
+		LogResponse.php    don't rename\
+		Dashboard.html    don't rename, but can be removed if you won't be using this feature\
+	-  Folders can be renamed and moved as long as they remain 2 levels deeper than the _code folder and share the same parent folder.  See Overall_Directions.rtf for details.\
+	-  The Matchup quiz is really just a single web page.  What you normally think of as a quiz at the end of a biology topic could contain, for example, a matchup page plus a multiple choice page plus a short answer page, etc.\
+\
+\
+
+\b Directions for authoring Matchup quizzes
+\b0 \
+	1.	Decide wither you want the MatchupStacked style or the MatchupLateral style.  Duplicate the folder and rename the html file according to the topic you will quiz on.  Edit the html file, overwriting the existing question text and answer text.  Add/remove div groups as needed to match your number of items.\
+	2.	Set the following parameters in the html script as you see fit:\
+			quizpageNumber\
+			qTextSummary = "DNA structures";\
+			shuffleWhich\
+			rejectWrongAnswers\
+			requireCompletion\
+			logResponsesToDashboard\
+			nextPageUrl\
+		See the inline comments after each variable for more information.\
+	4.	Optionally, modify the html above and below the <div id="quiz"> tag pair to add title, instructions, links, etc.\
+	5. 	Save the html file and test it in a browser.  You need to be connected to the internet to test because the code loads external javascript libraries when it runs.\
+\
+The following folder/files need to be in the _code folder 2 levels above the html file:\
+	common.css\
+	common.js\
+	jquery.ui.touch-punch.min.js\
+	matchup3.js\
+	MatchupStacked.css  or  MatchupLateral.css\
+\
+As noted before, do not change the name of .css or .js files.\
+\
+To use images in the left column instead of text, replace:\
+			<div class="questionTab">\
+				<p class="tabText">\
+					One\
+				</p>\
+			</div>\
+with something like:\
+			<div>\
+				<img src="img/one.jpg">\
+			</div>\
+Of course, the corresponding image files must be in a sub-folder named "img" in this example.  Control the size of the images with 'width' in the style section.  The layout of the quiz works best if the images are displayed at the same size (but you don't need to edit the image file itself since the width parameter will scale it).\
+\
+If you have questions or need help, send an email to support@onetimesoftware.com.\
+}

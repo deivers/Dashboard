@@ -68,23 +68,27 @@ var symbols = {
          {
             id:'Checkbox1',
             type:'rect',
-            rect:['234px','132px','auto','auto','auto','auto']
+            rect:['234px','132px','auto','auto','auto','auto'],
+            userClass:"checkbox"
          },
          {
             id:'Checkbox2',
             type:'rect',
-            rect:['234px','273px','auto','auto','auto','auto']
+            rect:['234px','273px','auto','auto','auto','auto'],
+            userClass:"checkbox"
          },
          {
             id:'Checkbox3',
             type:'rect',
             rect:['234px','408px','auto','auto','auto','auto'],
-            opacity:0.99
+            opacity:0.99,
+            userClass:"checkbox"
          },
          {
             id:'Checkbox4',
             type:'rect',
-            rect:['233px','543px','auto','auto','auto','auto']
+            rect:['233px','543px','auto','auto','auto','auto'],
+            userClass:"checkbox"
          },
          {
             id:'CopyrightAndCredits',
@@ -129,24 +133,16 @@ var symbols = {
             font:['Arial, Helvetica, sans-serif',15,"rgba(90,90,90,1.00)","normal","none",""]
          },
          {
-            id:'NextPageButton',
-            type:'rect',
-            rect:['284px','652px','auto','auto','auto','auto']
-         },
-         {
-            id:'checkAnswers',
-            type:'rect',
-            rect:['284px','650px','auto','auto','auto','auto']
+            id:'Text3',
+            type:'text',
+            rect:['332px','653px','70px','19px','auto','auto'],
+            cursor:['pointer'],
+            text:"Submit",
+            align:"center",
+            userClass:"submit button blue",
+            font:['Arial, Helvetica, sans-serif',18,"rgba(0,0,0,1)","normal","none",""]
          }],
          symbolInstances: [
-         {
-            id:'checkAnswers',
-            symbolName:'SubmitAnswersButton'
-         },
-         {
-            id:'NextPageButton',
-            symbolName:'NextPageButton'
-         },
          {
             id:'Checkbox4',
             symbolName:'Checkbox'
@@ -171,45 +167,50 @@ var symbols = {
       },
    states: {
       "Base State": {
-         "${_NextPageButton}": [
-            ["style", "left", '284px'],
-            ["style", "top", '652px']
-         ],
          "${_geo4}": [
             ["style", "top", '213px'],
             ["style", "height", '137px'],
-            ["style", "left", '243px'],
             ["style", "clip", [0,205,137,30], {valueTemplate:'rect(@@0@@px @@1@@px @@2@@px @@3@@px)'} ],
+            ["style", "left", '243px'],
             ["style", "width", '205px']
          ],
          "${_Checkbox2}": [
             ["style", "left", '234px'],
             ["style", "top", '273px']
          ],
+         "${_Text3}": [
+            ["style", "top", '653px'],
+            ["style", "text-align", 'center'],
+            ["style", "cursor", 'pointer'],
+            ["style", "height", '19px'],
+            ["style", "width", '70px'],
+            ["style", "left", '332px'],
+            ["style", "font-size", '18px']
+         ],
          "${_Feedback1Copy3}": [
             ["style", "top", '521px'],
-            ["style", "width", '227px'],
-            ["style", "left", '465px'],
+            ["style", "font-size", '15px'],
+            ["style", "cursor", 'default'],
             ["style", "height", '95px'],
             ["color", "color", 'rgba(90,90,90,1)'],
-            ["style", "cursor", 'default'],
-            ["style", "font-size", '15px']
+            ["style", "left", '465px'],
+            ["style", "width", '227px']
          ],
          "${_geo3}": [
             ["style", "top", '68px'],
             ["style", "height", '145px'],
-            ["style", "left", '243px'],
             ["style", "clip", [0,205,145,30], {valueTemplate:'rect(@@0@@px @@1@@px @@2@@px @@3@@px)'} ],
+            ["style", "left", '243px'],
             ["style", "width", '205px']
          ],
          "${_Feedback1}": [
             ["style", "top", '118px'],
-            ["style", "font-size", '15px'],
-            ["style", "left", '465px'],
+            ["style", "width", '227px'],
+            ["style", "cursor", 'default'],
             ["style", "height", '95px'],
             ["color", "color", 'rgba(90,90,90,1)'],
-            ["style", "cursor", 'default'],
-            ["style", "width", '227px']
+            ["style", "left", '465px'],
+            ["style", "font-size", '15px']
          ],
          "${_CopyrightAndCredits}": [
             ["style", "top", '726px'],
@@ -228,64 +229,59 @@ var symbols = {
             ["style", "opacity", '0.99'],
             ["style", "left", '234px']
          ],
-         "${_checkAnswers}": [
-            ["style", "top", '650px'],
-            ["style", "left", '284px'],
-            ["style", "cursor", 'auto']
-         ],
          "${_geo1}": [
             ["style", "top", '350px'],
             ["style", "height", '134px'],
-            ["style", "left", '243px'],
             ["style", "clip", [0,205,134,30], {valueTemplate:'rect(@@0@@px @@1@@px @@2@@px @@3@@px)'} ],
+            ["style", "left", '243px'],
             ["style", "width", '205px']
          ],
          "${_Text}": [
             ["style", "top", '17px'],
             ["style", "text-align", 'center'],
             ["style", "height", '36px'],
-            ["style", "width", '518px'],
+            ["style", "font-size", '22px'],
             ["style", "left", '91px'],
-            ["style", "font-size", '22px']
-         ],
-         "${_Text2}": [
-            ["style", "top", '700px'],
-            ["style", "font-size", '11px'],
-            ["color", "color", 'rgba(118,118,118,1.00)'],
-            ["style", "height", '18px'],
-            ["style", "left", '230px'],
-            ["style", "width", '247px']
+            ["style", "width", '518px']
          ],
          "${_Stage}": [
             ["color", "background-color", 'rgba(255,255,255,0.00)'],
-            ["style", "overflow", 'hidden'],
+            ["style", "width", '700px'],
             ["style", "height", '770px'],
-            ["style", "width", '700px']
+            ["style", "overflow", 'hidden']
+         ],
+         "${_Feedback1Copy2}": [
+            ["style", "top", '386px'],
+            ["style", "width", '227px'],
+            ["style", "cursor", 'default'],
+            ["style", "height", '95px'],
+            ["color", "color", 'rgba(90,90,90,1)'],
+            ["style", "left", '465px'],
+            ["style", "font-size", '15px']
          ],
          "${_geo2}": [
             ["style", "top", '484px'],
             ["style", "height", '137px'],
-            ["style", "left", '273px'],
             ["style", "clip", [0,175,137,0], {valueTemplate:'rect(@@0@@px @@1@@px @@2@@px @@3@@px)'} ],
+            ["style", "left", '273px'],
             ["style", "width", '205px']
          ],
          "${_Feedback1Copy}": [
             ["style", "top", '251px'],
-            ["style", "width", '227px'],
-            ["style", "left", '465px'],
-            ["style", "height", '95px'],
-            ["color", "color", 'rgba(90,90,90,1)'],
-            ["style", "cursor", 'default'],
-            ["style", "font-size", '15px']
-         ],
-         "${_Feedback1Copy2}": [
-            ["style", "top", '386px'],
             ["style", "font-size", '15px'],
-            ["style", "left", '465px'],
+            ["style", "cursor", 'default'],
             ["style", "height", '95px'],
             ["color", "color", 'rgba(90,90,90,1)'],
-            ["style", "cursor", 'default'],
+            ["style", "left", '465px'],
             ["style", "width", '227px']
+         ],
+         "${_Text2}": [
+            ["style", "top", '700px'],
+            ["style", "width", '247px'],
+            ["color", "color", 'rgba(118,118,118,1.00)'],
+            ["style", "height", '18px'],
+            ["style", "left", '230px'],
+            ["style", "font-size", '11px']
          ]
       }
    },
@@ -329,8 +325,10 @@ var symbols = {
    },
    states: {
       "Base State": {
-         "${symbolSelector}": [
+         "${_checkmark}": [
+            ["style", "top", '0px'],
             ["style", "height", '18px'],
+            ["style", "left", '0px'],
             ["style", "width", '18px']
          ],
          "${_box_rounded}": [
@@ -342,16 +340,14 @@ var symbols = {
             ["style", "width", '16px'],
             ["style", "top", '0px'],
             ["style", "border-bottom-left-radius", [5,5], {valueTemplate:'@@0@@px @@1@@px'} ],
-            ["style", "border-top-right-radius", [5,5], {valueTemplate:'@@0@@px @@1@@px'} ],
+            ["style", "border-style", 'solid'],
             ["style", "height", '16px'],
             ["color", "border-color", 'rgba(0,0,0,0.70)'],
             ["style", "border-width", '1px'],
-            ["style", "border-style", 'solid']
+            ["style", "border-top-right-radius", [5,5], {valueTemplate:'@@0@@px @@1@@px'} ]
          ],
-         "${_checkmark}": [
+         "${symbolSelector}": [
             ["style", "height", '18px'],
-            ["style", "top", '0px'],
-            ["style", "left", '0px'],
             ["style", "width", '18px']
          ]
       }
@@ -362,83 +358,6 @@ var symbols = {
          toState: "",
          duration: 0,
          autoPlay: false,
-         timeline: [
-         ]
-      }
-   }
-},
-"SubmitAnswersButton": {
-   version: "2.0.1",
-   minimumCompatibleVersion: "2.0.0",
-   build: "2.0.1.268",
-   baseState: "Base State",
-   initialState: "Base State",
-   gpuAccelerate: false,
-   resizeInstances: false,
-   content: {
-   dom: [
-   {
-      borderRadius: ['14px 14px','14px 14px','14px 14px','14px 14px'],
-      rect: ['0px','0px','129px','27px','auto','auto'],
-      title: 'Check answers',
-      type: 'rect',
-      id: 'RoundRect',
-      stroke: [1,'rgb(0, 0, 0)','solid'],
-      cursor: ['pointer'],
-      fill: ['rgba(93,93,93,1.00)',[270,[['rgba(125,125,125,1.00)',0],['rgba(73,73,73,1.00)',100]]]]
-   },
-   {
-      rect: ['30px','6px','72px','36px','auto','auto'],
-      font: ['Arial, Helvetica, sans-serif',16,'rgba(255,255,255,1.00)','500','none',''],
-      align: 'center',
-      id: 'Text',
-      text: 'Submit<br>',
-      cursor: ['pointer'],
-      type: 'text'
-   }],
-   symbolInstances: [
-   ]
-   },
-   states: {
-      "Base State": {
-         "${_RoundRect}": [
-            ["color", "background-color", 'rgba(93,93,93,1.00)'],
-            ["style", "border-top-left-radius", [14,14], {valueTemplate:'@@0@@px @@1@@px'} ],
-            ["style", "border-bottom-right-radius", [14,14], {valueTemplate:'@@0@@px @@1@@px'} ],
-            ["style", "border-style", 'solid'],
-            ["style", "cursor", 'pointer'],
-            ["style", "width", '129px'],
-            ["style", "top", '0px'],
-            ["style", "border-bottom-left-radius", [14,14], {valueTemplate:'@@0@@px @@1@@px'} ],
-            ["style", "border-top-right-radius", [14,14], {valueTemplate:'@@0@@px @@1@@px'} ],
-            ["style", "height", '27px'],
-            ["style", "left", '0px'],
-            ["style", "border-width", '1px'],
-            ["gradient", "background-image", [270,[['rgba(125,125,125,1.00)',0],['rgba(73,73,73,1.00)',100]]]]
-         ],
-         "${_Text}": [
-            ["color", "color", 'rgba(255,255,255,1.00)'],
-            ["style", "font-weight", '500'],
-            ["style", "cursor", 'pointer'],
-            ["style", "width", '72px'],
-            ["style", "top", '6px'],
-            ["style", "text-align", 'center'],
-            ["style", "height", '36px'],
-            ["style", "font-size", '16px'],
-            ["style", "left", '30px']
-         ],
-         "${symbolSelector}": [
-            ["style", "height", '31px'],
-            ["style", "width", '131px']
-         ]
-      }
-   },
-   timelines: {
-      "Default Timeline": {
-         fromState: "Base State",
-         toState: "",
-         duration: 0,
-         autoPlay: true,
          timeline: [
          ]
       }
@@ -501,22 +420,13 @@ var symbols = {
    states: {
       "Base State": {
          "${_Group}": [
-            ["style", "top", '0px'],
             ["style", "height", '36px'],
+            ["style", "top", '0px'],
             ["style", "left", '0px'],
             ["style", "width", '700px']
          ],
          "${_Text}": [
             ["style", "top", '2px'],
-            ["style", "text-align", 'center'],
-            ["style", "font-size", '12px'],
-            ["color", "color", 'rgba(119,119,119,1.00)'],
-            ["style", "height", '16px'],
-            ["style", "left", '0px'],
-            ["style", "width", '602px']
-         ],
-         "${_TextCopy2}": [
-            ["style", "top", '20px'],
             ["style", "text-align", 'center'],
             ["style", "width", '602px'],
             ["color", "color", 'rgba(119,119,119,1.00)'],
@@ -524,10 +434,18 @@ var symbols = {
             ["style", "left", '0px'],
             ["style", "font-size", '12px']
          ],
-         "${_copyrightButton}": [
-            ["style", "top", '2px'],
-            ["style", "cursor", 'pointer'],
-            ["style", "left", '101px']
+         "${_TextCopy2}": [
+            ["style", "top", '20px'],
+            ["style", "text-align", 'center'],
+            ["style", "font-size", '12px'],
+            ["color", "color", 'rgba(119,119,119,1.00)'],
+            ["style", "height", '16px'],
+            ["style", "left", '0px'],
+            ["style", "width", '602px']
+         ],
+         "${symbolSelector}": [
+            ["style", "height", '19px'],
+            ["style", "width", '600px']
          ],
          "${_codeByButton}": [
             ["style", "top", '0px'],
@@ -536,15 +454,16 @@ var symbols = {
          ],
          "${_TextCopy}": [
             ["style", "top", '2px'],
-            ["style", "width", '602px'],
+            ["style", "font-size", '12px'],
             ["color", "color", 'rgba(119,119,119,1.00)'],
             ["style", "height", '16px'],
             ["style", "left", '0px'],
-            ["style", "font-size", '12px']
+            ["style", "width", '602px']
          ],
-         "${symbolSelector}": [
-            ["style", "height", '19px'],
-            ["style", "width", '600px']
+         "${_copyrightButton}": [
+            ["style", "top", '2px'],
+            ["style", "cursor", 'pointer'],
+            ["style", "left", '101px']
          ]
       }
    },
@@ -582,14 +501,14 @@ var symbols = {
    },
    states: {
       "Base State": {
+         "${symbolSelector}": [
+            ["style", "height", '16px'],
+            ["style", "width", '106px']
+         ],
          "${_RoundRect}": [
             ["style", "top", '0px'],
             ["style", "opacity", '0'],
             ["style", "left", '0px']
-         ],
-         "${symbolSelector}": [
-            ["style", "height", '16px'],
-            ["style", "width", '106px']
          ]
       }
    },
@@ -617,9 +536,9 @@ var symbols = {
    {
       rect: ['0px','0px','168px','16px','auto','auto'],
       borderRadius: ['10px','10px','10px','10px'],
-      stroke: [0,'rgb(0, 0, 0)','none'],
-      id: 'RoundRect2',
       opacity: 0,
+      id: 'RoundRect2',
+      stroke: [0,'rgb(0, 0, 0)','none'],
       type: 'rect',
       fill: ['rgba(192,192,192,1)']
    }],
@@ -628,14 +547,14 @@ var symbols = {
    },
    states: {
       "Base State": {
-         "${symbolSelector}": [
-            ["style", "height", '16px'],
-            ["style", "width", '168px']
-         ],
          "${_RoundRect2}": [
             ["style", "top", '0px'],
             ["style", "opacity", '0'],
             ["style", "left", '0px'],
+            ["style", "width", '168px']
+         ],
+         "${symbolSelector}": [
+            ["style", "height", '16px'],
             ["style", "width", '168px']
          ]
       }
@@ -646,83 +565,6 @@ var symbols = {
          toState: "",
          duration: 0,
          autoPlay: false,
-         timeline: [
-         ]
-      }
-   }
-},
-"NextPageButton": {
-   version: "2.0.1",
-   minimumCompatibleVersion: "2.0.0",
-   build: "2.0.1.268",
-   baseState: "Base State",
-   initialState: "Base State",
-   gpuAccelerate: false,
-   resizeInstances: false,
-   content: {
-   dom: [
-   {
-      borderRadius: ['14px 14px','14px 14px','14px 14px','14px 14px'],
-      rect: ['0px','1px','129px','27px','auto','auto'],
-      title: 'Check answers',
-      type: 'rect',
-      id: 'RoundRect',
-      stroke: [1,'rgb(0, 0, 0)','solid'],
-      cursor: ['pointer'],
-      fill: ['rgba(93,93,93,1.00)',[270,[['rgba(0,127,42,1.00)',0],['rgba(0,72,23,1.00)',100]]]]
-   },
-   {
-      rect: ['0px','6px','131px','21px','auto','auto'],
-      font: ['Arial, Helvetica, sans-serif',16,'rgba(255,255,255,1.00)','500','none',''],
-      align: 'center',
-      id: 'Text',
-      text: 'Next page',
-      cursor: ['pointer'],
-      type: 'text'
-   }],
-   symbolInstances: [
-   ]
-   },
-   states: {
-      "Base State": {
-         "${_RoundRect}": [
-            ["color", "background-color", 'rgba(93,93,93,1.00)'],
-            ["style", "border-top-left-radius", [14,14], {valueTemplate:'@@0@@px @@1@@px'} ],
-            ["style", "border-bottom-right-radius", [14,14], {valueTemplate:'@@0@@px @@1@@px'} ],
-            ["style", "border-style", 'solid'],
-            ["style", "cursor", 'pointer'],
-            ["style", "width", '129px'],
-            ["style", "top", '1px'],
-            ["style", "border-bottom-left-radius", [14,14], {valueTemplate:'@@0@@px @@1@@px'} ],
-            ["gradient", "background-image", [270,[['rgba(0,127,42,1.00)',0],['rgba(0,72,23,1.00)',100]]]],
-            ["style", "height", '27px'],
-            ["style", "border-width", '1px'],
-            ["style", "left", '0px'],
-            ["style", "border-top-right-radius", [14,14], {valueTemplate:'@@0@@px @@1@@px'} ]
-         ],
-         "${_Text}": [
-            ["color", "color", 'rgba(255,255,255,1.00)'],
-            ["style", "font-weight", '500'],
-            ["style", "cursor", 'pointer'],
-            ["style", "width", '131px'],
-            ["style", "top", '6px'],
-            ["style", "text-align", 'center'],
-            ["style", "height", '21px'],
-            ["style", "left", '0px'],
-            ["style", "font-size", '16px']
-         ],
-         "${symbolSelector}": [
-            ["style", "height", '31px'],
-            ["style", "width", '131px']
-         ]
-      }
-   },
-   timelines: {
-      "Default Timeline": {
-         fromState: "Base State",
-         toState: "",
-         duration: 0,
-         autoPlay: true,
          timeline: [
          ]
       }

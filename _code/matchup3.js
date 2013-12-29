@@ -1,20 +1,19 @@
 // Define the following in the html file:
 //   integer quizpageNumber
-//   string questionSummaryText
+//   string qTextSummary
 //   string shuffleWhich
 //   boolean rejectWrongAnswers (defaults to true)
 //   boolean requireCompletion (defaults to true)
 //   boolean logResponsesToDashboard (defaults to false)
 //   string nextPageUrl
 
-var questionType = "MultipleChoice";
+var questionType = "MatchUp";
 var version = "1.2 November 2013";
 var rejectOption = (typeof rejectWrongAnswers === 'undefined' || rejectWrongAnswers);
 var requireOption = (typeof requireCompletion === 'undefined' || requireCompletion);
 var isQuizComplete;
 var dragList;
 var zoneList;
-var ak;
 $(function() {
 	dragList = $(".dragTab");
 	zoneList = $(".dropZone");
@@ -66,8 +65,14 @@ $(function() {
 	}
 	$("#submitButton").click(function(){checkAnswers()});
 	$("#resetButton").click(function(){resetQuiz()});
-	$("#nextButton").click(function(){window.open(nextPageUrl,"_self")})
-		.hide();      // this will be revealed when the quiz is correctly completed
+	if (typeof nextPageUrl === 'undefined' || nextPageUrl == "")
+		$("#nextButton").html("End of Quiz")
+			.removeClass()
+			.addClass("button clearColor")
+			.hide();
+	else
+		$("#nextButton").click(function(){window.open(nextPageUrl,"_self")})
+			.hide();      // this will be revealed when the quiz is correctly completed
 	$("body").append(showMetaInfo(version));
 });
 
@@ -84,6 +89,7 @@ function checkAnswers() {
 	}
 	var allCorrect = true;
 	var correctButIncomplete = true;
+	var ak = [];
 	for (var i=0; i<zoneList.length; i++) { // for each zone
 		ak[i] = i;
 		studentList[i] = -1; // in case no draggable found in this zone
@@ -98,8 +104,24 @@ function checkAnswers() {
 		if (studentList[i] != i)
 			allCorrect = false;
 	}
-	logStudentResponses(quizpageNumber,studentList,ak);
-
+	// log answers //
+	if (typeof logResponsesToDashboard === 'undefined')
+		logResponsesToDashboard = false;
+	if (logResponsesToDashboard) {
+		if (shuffleWhich == "draggables")
+			questionType = "Matchup with the answers shuffled";
+		else
+			questionType = "Matchup with the questions shuffled";
+		var aDetailedList = [];
+		$(dragList).each(function(index) {
+			aDetailedList.push($(this).html());
+		});
+		var logSuccess = logSubmission(quizpageNumber,questionType,qTextSummary,aDetailedList,studentList,ak);
+		if (logSuccess == false) {
+			alert("You must provide a valid student ID for answers to be checked.");
+			return;
+		}
+	}
 	// reject wrong answers
 	var parentDiv;
 	if ((!(requireOption && !isQuizComplete) && rejectOption) || allCorrect) {
@@ -118,9 +140,10 @@ function checkAnswers() {
 	}
 	// give feedback to student
 	if (allCorrect) {
-		setTimeout(function(){alert("CORRECT!\n\nIf you want to do it again, tap Reset.");}, 600);		// make sure the tabs are moved before the alert shows
+		setTimeout(function(){alert("CORRECT!");}, 600);		// make sure the tabs are moved before the alert shows
 		$("#submitButton").hide();
 		$("#nextButton").show();	// if nextButton exists, show it so student can proceed to next page
+		$("#resetButton").hide();
 	} else if (rejectOption) {
 		if (correctButIncomplete)
 			setTimeout(function(){alert("So far so good...");}, 600);		// make sure the tabs are moved before the alert shows
@@ -128,45 +151,6 @@ function checkAnswers() {
 			setTimeout(function(){alert("Please keep trying...");}, 600);		// make sure the tabs are moved before the alert shows
 	} else
 		alert("One or more of your answers are incorrect.  Please try again...");
-}
-
-function logStudentResponses(qNum, list, k) {
-	if (typeof logResponsesToDashboard === 'undefined')
-		logResponsesToDashboard = false;
-	if (logResponsesToDashboard) {
-		// submit to server
-		if (typeof studentId === 'undefined' || studentId == "")
-			var studentId = prompt("Please enter your student ID","")
-		// todo: verify that we got a valid id above
-		if (typeof qNum === 'undefined') {
-			qNum = 0;
-			console.log("Warning: quizpageNumber not found; defaulting to 0");
-		}
-		if (shuffleWhich == "draggables")
-			questionType = "Matchup with the answers shuffled";
-		else
-			questionType = "Matchup with the questions shuffled";
-		if (typeof questionTextSummary === 'undefined')
-			var questionTextSummary = "Question text summary isn't defined";
-		var request = $.ajax({
-			type: 'POST',
-			url: 'LogResponse.php',
-			data: {	si : studentId,		//todo: get student id from env var
-					qn : qNum,
-					qt : questionType,
-					qs : questionTextSummary,
-					sa : list,
-					ak : k
-			},
-			dataType: 'json'
-		});
-		request.done(function(msg) {
-			console.log("Submission successful");
-		});
-		request.fail(function(jqXHR, textStatus) {
-			console.log("The submission failed: "+textStatus);
-		});
-	}
 }
 
 function isComplete() {
