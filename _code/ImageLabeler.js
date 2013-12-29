@@ -36,18 +36,27 @@ buildMenus = function() {
 	for (var i=0; i<textFields.length; i++) {
 		optionString += "<option>"+textForMenus[i]+"</option>";
 	}
+	var htmlPrefix = "<select id=";
+	var htmlSuffix = " class='menu'>"+optionString+"</select>";
+	insertIntoHtml(htmlPrefix,htmlSuffix);
+}
+
+buildTextBoxes = function() {
+	var htmlPrefix = "<input type='text'";
+	var htmlSuffix = " class='textBox' />";
+}
+
+insertIntoHtml = function(prefix,suffix) {
 	// insert the menus into the DOM
 	//todo: but don't use textFields that are off stage left
 	var j = 0;
-	var answerKey = [];
 	var stageLeftEdge = $("#Stage").position().left;
 	for (var i=0; i<textFields.length; i++) {
 		if ($(textFields[i]).position().left < stageLeftEdge) {
 			;//console.log("#"+i+" is off stage left");
 		} else {
-			answerKey[j] = $(textFields[i]).html();
 			$(textFields[i]).html("");
-			$("<select id="+j+" class='menu'>"+optionString+"</select>").appendTo($(textFields[i]));
+			$(prefix+j+suffix).appendTo($(textFields[i]));
 			j++;
 		}
 	}
