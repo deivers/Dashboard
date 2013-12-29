@@ -1,11 +1,18 @@
-function init() {}		// prevent errors in AEA projects
-
+// globals
 var checkboxes = $(".checkbox");
-checkboxes.sort(sortElementByPosition);
-// note: no guarantee on the order of the retrieved checkboxes, so sort by position; same for feedbackBoxes
 var feedbackBoxes = $(".feedback");
-feedbackBoxes.sort(sortElementByPosition);
-setUpSubmitButton();
+// globals defined elsewhere but needed herein
+//	logResponsesToDashboard
+//	quizpageNumber
+//	qTextSummary
+//	nextPageUrl
+
+function init() {
+	// note: no guarantee on the order of the retrieved checkboxes, so sort by position; same for feedbackBoxes
+	checkboxes.sort(sortElementByPosition);
+	feedbackBoxes.sort(sortElementByPosition);
+	setUpSubmitButton();
+}
 
 checkAnswers = function() {
 	var questionType;

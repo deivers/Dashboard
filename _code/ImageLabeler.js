@@ -6,8 +6,10 @@ var questionType;
 //	logResponsesToDashboard
 //	quizpageNumber
 //	qTextSummary
+//	showWrongAnswers
+//	nextPageUrl
 
-function init() {		// prevent errors in AEA projects
+function init() {
 	// collect all possible answers
 	textFields = $(".textSource");
 	console.log("number of fields: "+textFields.length);
