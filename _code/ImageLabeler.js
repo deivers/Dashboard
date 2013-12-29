@@ -1,42 +1,55 @@
-function init() {}		// prevent errors in AEA projects
-
+// globals
 var texts = [];
-// collect all possible menu options
-var textFields = $(".textSource");
-console.log("number of fields: "+textFields.length);
-for (var i=0; i<textFields.length; i++) {
-	texts[i] = $(textFields[i]).html();
-	//console.log("text found at position "+i+": "+texts[i]);
-}
-// randomize the menu options
-var textForMenus = texts.slice(0);	// duplicate the array
-shuffleArray(textForMenus);
-var optionString = "<option>?</option>";
-for (var i=0; i<textFields.length; i++) {
-	optionString += "<option>"+textForMenus[i]+"</option>";
-}
-// insert the menus into the DOM
-//todo: but don't use textFields that are off stage left
-var j = 0;
-var answerKey = [];
-var stageLeftEdge = $("#Stage").position().left;
-for (var i=0; i<textFields.length; i++) {
-	if ($(textFields[i]).position().left < stageLeftEdge) {
-		;//console.log("#"+i+" is off stage left");
+var textFields;
+var questionType;
+// globals defined elsewhere but needed herein
+//	logResponsesToDashboard
+//	quizpageNumber
+//	qTextSummary
+
+function init() {		// prevent errors in AEA projects
+	// collect all possible answers
+	textFields = $(".textSource");
+	console.log("number of fields: "+textFields.length);
+	for (var i=0; i<textFields.length; i++) {
+		texts[i] = $(textFields[i]).html();
+		//console.log("text found at position "+i+": "+texts[i]);
+	}
+	if (imageLabelerType !== 'undefined' && imageLabelerType == "menus") {
+		questionType = "Image Labeler with Popup Menus";
+		buildMenus();
 	} else {
-		answerKey[j] = $(textFields[i]).html();
-		$(textFields[i]).html("");
-		$("<select id="+j+" class='menu'>"+optionString+"</select>").appendTo($(textFields[i]));
-		j++;
+		questionType = "Image Labeler with Short Answer Boxes";
+		//buildTextBoxes();
+	}
+	$(".textSource").css({"opacity": 1});	// it's now safe to reveal these
+	setUpSubmitButton();
+}
+
+buildMenus = function() {
+	// randomize
+	var textForMenus = texts.slice(0);	// duplicate the array
+	shuffleArray(textForMenus);
+	var optionString = "<option>?</option>";
+	for (var i=0; i<textFields.length; i++) {
+		optionString += "<option>"+textForMenus[i]+"</option>";
+	}
+	// insert the menus into the DOM
+	//todo: but don't use textFields that are off stage left
+	var j = 0;
+	var answerKey = [];
+	var stageLeftEdge = $("#Stage").position().left;
+	for (var i=0; i<textFields.length; i++) {
+		if ($(textFields[i]).position().left < stageLeftEdge) {
+			;//console.log("#"+i+" is off stage left");
+		} else {
+			answerKey[j] = $(textFields[i]).html();
+			$(textFields[i]).html("");
+			$("<select id="+j+" class='menu'>"+optionString+"</select>").appendTo($(textFields[i]));
+			j++;
+		}
 	}
 }
-var questionType;
-if (imageLabelerType !== 'undefined' && imageLabelerType == "menus")
-	questionType = "Image Labeler with Popup Menus";
-else
-	questionType = "Image Labeler with Short Answer Boxes";
-$(".textSource").css({"opacity": 1});	// it's now safe to reveal these
-setUpSubmitButton();
 
 checkAnswers = function() {
 	console.log("checking answers");
