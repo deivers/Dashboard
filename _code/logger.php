@@ -1,4 +1,6 @@
 <?php
+session_cache_limiter('nocache');
+header('Content-type: application/json');
 
 // example return value:  "2014-01-31T23:59:00+0000|smith15|6,4,5,3,1"
 // date-time is ISO8601 format (GMT)
@@ -14,7 +16,10 @@ function logStudentSubmission($saveDir, $studentId, $qNumber, $qType, $qText, $a
 	}
 	$logEntry = buildLogEntry($studentId, $answers);
 	$result = file_put_contents($logFile, $logEntry, FILE_APPEND);
-	if ($result <= 0) // if zero characters were written, then try again
+	$tryLimit = 50;
+	$counter = 0;
+	while ($result <= 0 && $counter++ < $tryLimit) { // if zero characters were written, then try again
+		sleep(0.1);
 		$result = file_put_contents($logFile, $logEntry, FILE_APPEND);
 	return $result;
 }
