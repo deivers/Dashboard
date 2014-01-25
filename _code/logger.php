@@ -21,12 +21,12 @@ function logStudentSubmission($saveDir, $studentId, $qNumber, $qType, $qText, $a
 
 function buildLogEntry($studentId, $submission) {
 	date_default_timezone_set('UTC');
-	$logEntry = date("c") . "|" . removePipes($studentId) . "|" . removePipes(arrayOrValueToString($submission)) . "\n";
+	$logEntry = date("c") . "|" . removeDelimiters($studentId) . "|" . removeDelimiters(arrayOrValueToString($submission)) . "\n";
 	return $logEntry;
 }
 
 function buildMetaRow($typeOfQuestion, $questionText, $answerDetails, $correctAnswer) {
-	$logEntry = removePipes($typeOfQuestion) . "|" . removePipes($questionText) . "|" . removePipes(arrayOrValueToString($answerDetails)) . "|" . removePipes(arrayOrValueToString($correctAnswer)) . "\n";
+	$logEntry = removeDelimiters($typeOfQuestion) . "|" . removeDelimiters($questionText) . "|" . removeDelimiters(arrayOrValueToString($answerDetails)) . "|" . removeDelimiters(arrayOrValueToString($correctAnswer)) . "\n";
 	return $logEntry;
 }
 
@@ -37,8 +37,8 @@ function arrayOrValueToString($arrayOrValue) {
 		return "" . $arrayOrValue;
 }
 
-function removePipes($text) {
-	return str_replace("|", "", $text);
+function removeDelimiters($text) {
+	return str_replace(array("|","\n"), array(), $text);
 }
 
 ?>
