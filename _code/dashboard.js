@@ -72,7 +72,8 @@ function computeAndDisplayStats(logArray) {
 				.append($("<p>Number of students with all correct on first submission: "+nFirst+" &nbsp; "+toPercent(nFirst,student.length)+"%</p>"))
 				.append($("<p>Number correct for each choice on first submission: "+numberCorrectAnswers(firstSubmissionIndex).join(", ")
 						  +" &nbsp; "+toPercentArrayWithUnits(numberCorrectAnswers(firstSubmissionIndex),student.length).join(", ")+"</p>"))
-				.append($("<p>The most common choices on first submission: "+addToEach(mostCommonAnswers(firstSubmissionIndex),1).join(", ")+"</p>"))
+				.append($("<p>The most common <i>incorrect</i> choices on first submission: "+mostCommonIncorrectAnswers(firstSubmissionIndex)[0].join(", ")+"</p>"))
+				.append($("<p>Percent of students submitting each of the above: "+toPercentArrayWithUnits(mostCommonIncorrectAnswers(firstSubmissionIndex)[1],student.length).join(", ")+"</p>"))
 			);
 	});
 }
@@ -167,7 +168,7 @@ function numberCorrectAnswers(whichColumn) {
 	return nCorrect;
 }
 
-function mostCommonAnswers(whichColumn) {
+function mostCommonIncorrectAnswers(whichColumn) {
 	// for first submissions, whichColumn = firstSubmissionIndex
 	// for last submissions, whichColumn = lastSubmissionIndex
 	// implicit arg: student array
@@ -191,7 +192,10 @@ function mostCommonAnswers(whichColumn) {
 	}
 	// which has the most?
 	var sumsForThisQuestion, thisValue, maxValue, keyOfMaxValue;
-	var results = new Array(answerKey.length);
+	var results = new Array(2);
+	results[0] = new Array(answerKey.length);
+	results[1] = new Array(answerKey.length);
+	var numberOfOccurences = new Array(answerKey.length);
 	for (var whichQuestion=0; whichQuestion<studentAnswers.length; whichQuestion++) {
 		// which key has the largest value?
 		sumsForThisQuestion = accumulationArray[whichQuestion];
@@ -200,13 +204,19 @@ function mostCommonAnswers(whichColumn) {
 		Object.keys(sumsForThisQuestion).forEach(function(key){
 			///console.log(key+"  "+sumsForThisQuestion[key]);
 			thisValue = sumsForThisQuestion[key];
-			if (thisValue > maxValue) {
+			if (thisValue > maxValue && key != answerKey[whichQuestion]) {	// ignore correct answers
 				maxValue = thisValue;
 				keyOfMaxValue = key;
 			}
 		});
 		///console.log(keyOfMaxValue);
-		results[whichQuestion] = keyOfMaxValue;
+		if (maxValue == 0) {	// all students got this one right
+			results[0][whichQuestion] = "*";
+			results[1][whichQuestion] = 0;
+		} else {
+			results[0][whichQuestion] = parseInt(keyOfMaxValue)+1;					// convert to 1-based counting
+			results[1][whichQuestion] = sumsForThisQuestion[keyOfMaxValue];
+		}
 	}
 	return results;
 }
