@@ -51,7 +51,7 @@ function computeAndDisplayStats(logArray) {
 		student = parseLogString(quizpageIndex+1,logString);
 		answerDetailsHtml = "<ul style='list-style:none'><li>"+replaceAwithBinC(";","</li><li>",student.answerDetails)+"</li></ul>";
 		answerKeyArray = student.answerKeyString.split(";");
-		answerKeyHtml = addToEach(answerKeyArray,1).join(", ");
+		///answerKeyHtml = addToEach(answerKeyArray,1).join(", ");
 		nFirst = numberCorrectSubmissions(firstSubmissionIndex);
 		nLast = numberCorrectSubmissions(lastSubmissionIndex);
 		console.log("First student's first submitted answers: "+student[0][firstSubmissionIndex]);
@@ -65,15 +65,23 @@ function computeAndDisplayStats(logArray) {
 				.append($("<p>Question type: "+student.questionType+"</p>"))
 				.append($("<p>Question summary: "+student.questionText+"</p>"))
 				.append($("<p>Answer details: </p>"+answerDetailsHtml))
-				.append($("<p>Answer key: "+answerKeyHtml+"</p>"))
+				///.append($("<p>Answer key: "+answerKeyHtml+"</p>"))
 				.append($("<h3>Statistics for #"+(quizpageIndex+1)+"</h3>"))
 				.append($("<p>Number of students that responded: "+student.length+"</p>"))
 				.append($("<p>Number of students with all correct on final submission: "+nLast+" &nbsp; "+toPercent(nLast,student.length)+"%</p>"))
 				.append($("<p>Number of students with all correct on first submission: "+nFirst+" &nbsp; "+toPercent(nFirst,student.length)+"%</p>"))
-				.append($("<p>Number correct for each choice on first submission: "+numberCorrectAnswers(firstSubmissionIndex).join(", ")
-						  +" &nbsp; "+toPercentArrayWithUnits(numberCorrectAnswers(firstSubmissionIndex),student.length).join(", ")+"</p>"))
-				.append($("<p>The most common <i>incorrect</i> choices on first submission: "+mostCommonIncorrectAnswers(firstSubmissionIndex)[0].join(", ")+"</p>"))
-				.append($("<p>Percent of students submitting each of the above: "+toPercentArrayWithUnits(mostCommonIncorrectAnswers(firstSubmissionIndex)[1],student.length).join(", ")+"</p>"))
+			);
+		$("body")
+			.append($("<table></table>")
+				.append($("<tr></tr>")
+						.append($("<td class='right'>Answer key</td>"+wrapElementsInTableCellTags(addToEach(answerKeyArray,1))))
+				).append($("<tr></tr>")
+						.append($("<td class='right'>Percent correct for each choice on first submission</td>"+wrapElementsInTableCellTags(toPercentArrayWithUnits(numberCorrectAnswers(firstSubmissionIndex),student.length))))
+				).append($("<tr></tr>")
+						.append($("<td class='right'>The most common <i>incorrect</i> choices on first submission</td>"+wrapElementsInTableCellTags(mostCommonIncorrectAnswers(firstSubmissionIndex)[0])))
+				).append($("<tr></tr>")
+						.append($("<td class='right'>Percent of students submitting each of the above</td>"+wrapElementsInTableCellTags(toPercentArrayWithUnits(mostCommonIncorrectAnswers(firstSubmissionIndex)[1],student.length))))
+				)
 			);
 	});
 }
@@ -253,4 +261,12 @@ function addToEach(array,constant) {
 		a[index] = parseInt(a[index]) + constant;
 	});
 	return array;
+}
+
+function wrapElementsInTableCellTags(array) {
+	var htmlString = "";
+	array.forEach(function(val) {
+		htmlString +="<td>"+ val +"</td>";
+	});
+	return htmlString;
 }

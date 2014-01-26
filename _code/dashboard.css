@@ -1,0 +1,8 @@
+td, tr {
+	text-align: center;
+	min-width: 4.5em;
+	min-height: 1.5em;
+}
+td.right {
+	text-align: right;
+}
