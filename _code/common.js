@@ -142,16 +142,11 @@ function replaceAwithBinC(a,b,c) {
 	return c.replace(RegExp(a,"gm"),b);  // "g" for global replace, "m" for multi-line
 }
 
-jQuery.fn.hCenter = function () {
-    this.css("left", Math.max(0, (($("#Stage").width() - $(this).outerWidth())/2)) + "px");
-    return this;
-}
-
 // the following methods are for AEA projects //
 
 function setUpSubmitButton() {
 	$(".submit").click(function() {checkAnswers()});
-	$(".submit").css("width","4em").hCenter();
+	$(".submit").css("width","4em").css("left", Math.max(0, (($("#Stage").width() - $(this).outerWidth())/2)) + "px");
 }
 function setUpNextButton() {
 	// convert Submit button into NextPage/EndOfQuiz button
@@ -160,9 +155,9 @@ function setUpNextButton() {
 	});
 	if (typeof nextPageUrl !== 'undefined' && nextPageUrl != "") {
 		$(".submit").html("Next page").removeClass("blue").addClass("green");
-		$(".submit").css("width","6em").hCenter();
+		$(".submit").css("width","6em").css("left", Math.max(0, (($("#Stage").width() - $(this).outerWidth())/2)) + "px");
 	} else {
 		$(".submit").html("End of Quiz").removeClass("button blue green");
-		$(".submit").css("width","9em").hCenter();
+		$(".submit").css("width","9em").css("left", Math.max(0, (($("#Stage").width() - $(this).outerWidth())/2)) + "px");
 	}
 }
