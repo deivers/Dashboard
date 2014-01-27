@@ -8,6 +8,7 @@ header('Content-type: application/json');
 function logStudentSubmission($saveDir, $studentId, $qNumber, $qType, $qText, $answerDetails, $answers, $answerKey) {
 	//* Log student answers *//
 	$logFile = $saveDir . '/' . "submission_log_" . $qNumber . ".txt";
+	error_log("log file name:  ". $logFile);
 	if (!file_exists($logFile)) {
 		// the first row is unique
 		error_log('Creating log file '.$qNumber.' in '.$saveDir);
@@ -21,6 +22,7 @@ function logStudentSubmission($saveDir, $studentId, $qNumber, $qType, $qText, $a
 	while ($result <= 0 && $counter++ < $tryLimit) { // if zero characters were written, then try again
 		sleep(0.1);
 		$result = file_put_contents($logFile, $logEntry, FILE_APPEND);
+	}
 	return $result;
 }
 
