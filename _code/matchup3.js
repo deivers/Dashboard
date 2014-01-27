@@ -18,9 +18,11 @@ $(function() {
 	dragList = $(".dragTab");
 	zoneList = $(".dropZone");
 	// shuffle
-	if (typeof shuffleWhich === 'undefined' || shuffleWhich == "draggables")
+	if (typeof shuffleWhich === 'undefined' || shuffleWhich == "draggables" || shuffleWhich == "both") {
 		shuffleDivs("#choices",".dragGroup");
-	else
+		if (shuffleWhich == "both")
+			shuffleDivs("#questions",".zoneGroup");
+	} else
 		shuffleDivs("#questions",".zoneGroup");
 	// set up draggables
 	var dragList2 = $(".dragTab");
