@@ -6,3 +6,7 @@ td, tr {
 td.right {
 	text-align: right;
 }
+img {
+	max-width: 200px;
+	max-height: 200px;
+}

@@ -21,7 +21,7 @@ function init() {
 		//console.log("text found at position "+i+": "+texts[i]);
 		$(textFields[i]).css("height","24");
 	}
-	if (imageLabelerType !== 'undefined' && imageLabelerType == "menus") {
+	if (typeof imageLabelerType !== 'undefined' && imageLabelerType == "menus") {
 		questionType = "Image Labeler with Popup Menus";
 		buildMenus();
 	} else {
@@ -29,7 +29,7 @@ function init() {
 		buildTextBoxes();
 	}
 	$(".textSource").css({"opacity": 1});	// it's now safe to reveal these
-	if (minNumChars === 'undefined' || minNumChars < 1)
+	if (typeof minNumChars === 'undefined' || minNumChars < 1)
 		var minNumChars = 3;
 	setUpSubmitButton();
 }
@@ -116,7 +116,7 @@ checkAnswers = function() {
 	var wrong = [];
 	var isComplete = true;
 	var answerTexts = [];
-	var answerWidgets = (imageLabelerType !== 'undefined' && imageLabelerType == "menus") ? $(".menu") : $(".textBox");
+	var answerWidgets = (typeof imageLabelerType !== 'undefined' && imageLabelerType == "menus") ? $(".menu") : $(".textBox");
 	// collect student answers
 	var k = 0;
 	for (var j=0; j<answerWidgets.length; j++) {

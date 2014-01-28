@@ -53,7 +53,7 @@ function checkAnswers() {
 			aDetailedList.push($(this).html());
 		});
 		var saList = convertToIndexes($(".draggable"),allList);
-		var akList = arrayFactory(allList.length);
+		var akList = arrayFactory(allList.length,1,0);
 		var logSuccess = logSubmission(quizpageNumber,questionType,qTextSummary,aDetailedList,saList,akList);
 		if (logSuccess == false) {
 			alert("You must provide a valid student ID for answers to be checked.");
@@ -68,9 +68,11 @@ function checkAnswers() {
 		$("#nextButton").show();	// if nextButton exists, show it so student can proceed to next page
 		$("#resetButton").hide();
 	} else {
-		if (showWrongAnswers)
+		if (showWrongAnswers) {
 			addClassToDraggables(0,nCorrect,"correct",400);
-		else
+			if (nCorrect == 0)		// provide some kind of feedback since nothing will be colored
+				alert("The first item in the sequence is not correct. Please try again.");
+		} else
 			setTimeout(function() {alert("One or more of the items is out of order.  Please try again...");}, 600);		// make sure the animation is finished before the alert shows
 	}
 }
