@@ -95,6 +95,8 @@ function sortElementByPosition(a, b) {
 }
 
 function areArraysTheSame(a,b) {
+	if (a.length != b.length)
+		return false;
 	// order insensitive
 	var result = true;
 	a.forEach(function(elementInA) {
@@ -105,13 +107,11 @@ function areArraysTheSame(a,b) {
 }
 
 function jQuerySame(a, b) {
-    if (a.length != b.length) {
+    if (a.length != b.length)
         return false;
-    }
     for (var i = 0; i < a.length; i++) {
-        if (a.get(i) != b.get(i)) {
+        if (a.get(i) != b.get(i))
             return false;
-        }
     }
     return true;
 }
