@@ -146,7 +146,6 @@ function replaceAwithBinC(a,b,c) {
 
 function setUpSubmitButton() {
 	$(".submit").click(function() {checkAnswers()});
-	$(".submit").css("width","4em").css("left", Math.max(0, (($("#Stage").width() - $(this).outerWidth())/2)) + "px");
 }
 function setUpNextButton() {
 	// convert Submit button into NextPage/EndOfQuiz button

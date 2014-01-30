@@ -17,12 +17,12 @@ a:link a:active {
 .button {
 	display: inline-block;
 	vertical-align: baseline !important;
-	margin: 0 2px;
+	/*margin: 0 2px;*/
 	outline: none;
 	cursor: pointer;
 	text-align: center;
 	text-decoration: none;
-	font: 15px/100% Arial, Helvetica, sans-serif !important;
+	font: 16px/100% Arial, Helvetica, sans-serif !important;
 	font-weight: bold !important;
 	padding: .5em 2em .55em !important;
 	text-shadow: 0 1px 1px rgba(0,0,0,.3);
