@@ -76,8 +76,8 @@ function handleKeyup(event) {
 		event.target.value = completedString;
 		event.target.blur();
 		var nextId = parseInt(event.target.id) + 1;
-		if (nextId < $("input").length)
-			$("#"+nextId).focus();
+		//if (nextId < $("input").length)
+		//	$("#"+nextId).focus();
 	}
 }
 
