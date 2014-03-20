@@ -35,7 +35,7 @@ function completeFragment(fragment) {
 	var len = fragment.length;
 	var indexOfMatch = -1;
 	var isMatchUnique = true;
-	if (minNumChars === 'undefined' || minNumChars < 1)
+	if (typeof minNumChars === 'undefined' || minNumChars < 1)
 		minNumChars = 3;
 	if (len < minNumChars)
 		return ""; // no match yet
