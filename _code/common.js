@@ -77,14 +77,14 @@ function shuffleDivs(selectorForContainingElement,selectorOfElementsToBeShuffled
 }
 
 function shuffleArray(array) {
-	// Randomize array element order in-place using Fisher-Yates shuffle algorithm
-    for (var i = array.length - 1; i > 0; i--) {
-        var j = Math.floor(Math.random() * (i + 1));
-        var temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
-    }
-    return array;
+	// Randomize order in-place using Fisher-Yates shuffle algorithm
+	for (var i = array.length - 1; i > 0; i--) {
+		var j = Math.floor(Math.random() * (i + 1));
+		var temp = array[i];
+		array[i] = array[j];
+		array[j] = temp;
+	}
+	return array;
 }
 
 // sort by position (works whether the elements are in columns or rows)
@@ -107,13 +107,13 @@ function areArraysTheSame(a,b) {
 }
 
 function jQuerySame(a, b) {
-    if (a.length != b.length)
-        return false;
-    for (var i = 0; i < a.length; i++) {
-        if (a.get(i) != b.get(i))
-            return false;
-    }
-    return true;
+	if (a.length != b.length)
+		return false;
+	for (var i = 0; i < a.length; i++) {
+		if (a.get(i) != b.get(i))
+			return false;
+	}
+	return true;
 }
 
 function arrayFactory(numberOfElements,multiplier,offset) {
