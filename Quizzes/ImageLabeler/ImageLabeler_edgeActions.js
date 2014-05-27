@@ -16,7 +16,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       Symbol.bindSymbolAction(compId, symbolName, "creationComplete", function(sym, e) {
          // make sure the text boxes aren't visible while page loads
          sym.$(".textSource").css({"opacity": 0});
-         
+      
          // load external files
          yepnope({
          	load: [
@@ -26,26 +26,26 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          		"../../_code/ImageLabeler.js"
          	], complete: function() {init()}
          });
-
+      
       });
       //Edge binding end
-
+      
       Symbol.bindElementAction(compId, symbolName, "document", "compositionReady", function(sym, e) {
          // instructor editable section //
          	imageLabelerType = "shortAnswer";// "menus" or "shortAnswer"
-         	qTextSummary = "";					// short description of what is in this quiz"
+         	qTextSummary = "";					// short description of what is in this quiz for the purpose of the dashboard
          	showWrongAnswers = true;			// false increases difficulty
          	logResponsesToDashboard = true;	// true if you want to use the Dashboard
          	quizpageNumber = 1;					// required if the above is true; must be unique across quiz-pages in this folder
          	nextPageUrl = "../folder/filename.html"; // either a relative url: "../folder/filename.html" or an absolute url: "https://www.dictionary.com"
          // end of editable section //
-         // the above are intentionally global
-
+         // note: the above parameters are intentionally global
+      
       });
       //Edge binding end
-
       
-
+      
+      
       
 
    })("stage");

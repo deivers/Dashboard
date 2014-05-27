@@ -108,6 +108,14 @@ var symbols = {
                 font: ['Arial, Helvetica, sans-serif', 15, "rgba(0,0,0,1)", "normal", "none", ""]
             },
             {
+                id: 'TextCopy7',
+                type: 'text',
+                rect: ['-190px', '420px','160px','21px','auto', 'auto'],
+                text: "single cell",
+                userClass: "textSource",
+                font: ['Arial, Helvetica, sans-serif', 15, "rgba(0,0,0,1)", "normal", "none", ""]
+            },
+            {
                 id: 'TextCopy9',
                 type: 'text',
                 rect: ['-190px', '152px','160px','21px','auto', 'auto'],
@@ -231,6 +239,13 @@ var symbols = {
                 ["style", "width", '160px'],
                 ["style", "left", '-190px'],
                 ["style", "font-size", '15px']
+            ],
+            "${_TextCopy7}": [
+                ["style", "top", '420px'],
+                ["style", "height", '21px'],
+                ["style", "font-size", '15px'],
+                ["style", "left", '-190px'],
+                ["style", "width", '160px']
             ],
             "${_TextCopy11}": [
                 ["style", "top", '209px'],
