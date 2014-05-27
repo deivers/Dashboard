@@ -105,9 +105,9 @@ function handleKeyup(event) {
 	if (completedString.length > 0) {
 		event.target.value = completedString;
 		event.target.blur();
-		var nextId = parseInt(event.target.id) + 1;
-		if (nextId < textFields.length)
-			$("#"+nextId).focus();
+		// var nextId = parseInt(event.target.id) + 1;
+		// if (nextId < textFields.length)
+		// 	$("#"+nextId).focus();
 	}
 }
 
