@@ -154,9 +154,13 @@ function setUpNextButton() {
 	});
 	if (typeof nextPageUrl !== 'undefined' && nextPageUrl != "") {
 		$(".submit").html("Next page").removeClass("blue").addClass("green");
-		$(".submit").css("width","6em").css("left", Math.max(0, (($("#Stage").width() - $(this).outerWidth())/2)) + "px");
+		$(".submit").css("width","6em");
+		var newWidth = $(".submit").outerWidth();
+		$(".submit").css("left", Math.max(0, (($("#Stage").width() - newWidth)/2)) + "px");
 	} else {
 		$(".submit").html("End of Quiz").removeClass("button blue green");
-		$(".submit").css("width","9em").css("left", Math.max(0, (($("#Stage").width() - $(this).outerWidth())/2)) + "px");
+		$(".submit").css("width","9em");
+		var newWidth = $(".submit").outerWidth();
+		$(".submit").css("left", Math.max(0, (($("#Stage").width() - newWidth)/2)) + "px");
 	}
 }
