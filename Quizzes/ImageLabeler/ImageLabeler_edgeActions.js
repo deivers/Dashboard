@@ -32,7 +32,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
 
       Symbol.bindElementAction(compId, symbolName, "document", "compositionReady", function(sym, e) {
          // instructor editable section //
-         	imageLabelerType = "menus";		// "menus" or "shortAnswer"
+         	imageLabelerType = "shortAnswer";// "menus" or "shortAnswer"
          	qTextSummary = "";					// short description of what is in this quiz"
          	showWrongAnswers = true;			// false increases difficulty
          	logResponsesToDashboard = true;	// true if you want to use the Dashboard

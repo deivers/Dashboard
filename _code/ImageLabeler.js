@@ -56,8 +56,8 @@ buildTextBoxes = function() {
 }
 
 insertIntoHtml = function(prefix,suffix) {
-	// insert the menus into the DOM
-	//todo: but don't use textFields that are off stage left
+	// insert the menus/boxes into the DOM
+	// ignore textFields that are off stage left
 	var j = 0;
 	var stageLeftEdge = $("#Stage").position().left;
 	for (var i=0; i<textFields.length; i++) {
