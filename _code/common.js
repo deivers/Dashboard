@@ -145,7 +145,9 @@ function replaceAwithBinC(a,b,c) {
 // the following methods are for AEA projects //
 
 function setUpSubmitButton() {
-	$(".submit").click(function() {checkAnswers()});
+	var myWidth = $(".submit").outerWidth();
+	$(".submit").click(function() {checkAnswers()})
+		.css("left", Math.max(0, (($("#Stage").width() - myWidth)/2)) + "px"); // center it
 }
 function setUpNextButton() {
 	// convert Submit button into NextPage/EndOfQuiz button
