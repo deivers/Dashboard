@@ -16,10 +16,7 @@ function init() {
 	// collect all possible answers
 	textFields = $(".textSource");
 	console.log("number of fields: "+textFields.length);
-	for (var i=0; i<textFields.length; i++) {
-		//console.log("text found at position "+i+": "+texts[i]);
-		$(textFields[i]).css("height","24");
-	}
+	buildTextsArray();
 	if (typeof imageLabelerType !== 'undefined' && imageLabelerType == "menus") {
 		questionType = "Image Labeler with Popup Menus";
 		buildMenus();
@@ -31,6 +28,22 @@ function init() {
 	if (typeof minNumChars === 'undefined' || minNumChars < 1)
 		var minNumChars = 3;
 	setUpSubmitButton();
+}
+
+buildTextsArray = function() {
+	// insert the menus/boxes into the DOM
+	// ignore textFields that are off stage left
+	var stageLeftEdge = $("#Stage").position().left;
+	var decoys = [];
+	for (var i=0; i<textFields.length; i++) {
+		if ($(textFields[i]).position().left < stageLeftEdge) {
+			//console.log("#"+i+" is off stage left");
+			decoys[decoys.length] = $(textFields[i]).html();
+		} else {
+			texts[texts.length] = $(textFields[i]).html();
+		}
+	}
+	texts = texts.concat(decoys);
 }
 
 buildMenus = function() {
@@ -50,28 +63,22 @@ buildTextBoxes = function() {
 	var htmlPrefix = "<input type='text' id=";
 	var htmlSuffix = " class='textBox' style='width:96%;' />";
 	insertIntoHtml(htmlPrefix,htmlSuffix);
-	$(".textBox").attr("autocomplete", "off");
-	$(".textBox").keyup(function(event){handleKeyup(event);});
+	$(".textBox").attr("autocomplete", "off")
+		.keyup(function(event){handleKeyup(event);})
 }
 
 insertIntoHtml = function(prefix,suffix) {
-	// insert the menus/boxes into the DOM
-	// ignore textFields that are off stage left
 	var j = 0;
 	var stageLeftEdge = $("#Stage").position().left;
-	var decoys = [];
 	for (var i=0; i<textFields.length; i++) {
 		if ($(textFields[i]).position().left < stageLeftEdge) {
-			//console.log("#"+i+" is off stage left");
-			decoys[decoys.length] = $(textFields[i]).html();
+			;//console.log("#"+i+" is off stage left");
 		} else {
-			texts[j] = $(textFields[i]).html();
 			$(textFields[i]).html("");
 			$(prefix+j+suffix).appendTo($(textFields[i]));
 			j++;
 		}
 	}
-	texts = texts.concat(decoys);
 }
 
 function completeFragment(fragment) {
