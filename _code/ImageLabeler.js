@@ -17,7 +17,6 @@ function init() {
 	textFields = $(".textSource");
 	console.log("number of fields: "+textFields.length);
 	for (var i=0; i<textFields.length; i++) {
-		texts[i] = $(textFields[i]).html();
 		//console.log("text found at position "+i+": "+texts[i]);
 		$(textFields[i]).css("height","24");
 	}
@@ -60,15 +59,19 @@ insertIntoHtml = function(prefix,suffix) {
 	// ignore textFields that are off stage left
 	var j = 0;
 	var stageLeftEdge = $("#Stage").position().left;
+	var decoys = [];
 	for (var i=0; i<textFields.length; i++) {
 		if ($(textFields[i]).position().left < stageLeftEdge) {
-			;//console.log("#"+i+" is off stage left");
+			//console.log("#"+i+" is off stage left");
+			decoys[decoys.length] = $(textFields[i]).html();
 		} else {
+			texts[j] = $(textFields[i]).html();
 			$(textFields[i]).html("");
 			$(prefix+j+suffix).appendTo($(textFields[i]));
 			j++;
 		}
 	}
+	texts = texts.concat(decoys);
 }
 
 function completeFragment(fragment) {
