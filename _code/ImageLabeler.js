@@ -15,7 +15,7 @@ var questionType;
 function init() {
 	// collect all possible answers
 	textFields = $(".textSource");
-	console.log("number of fields: "+textFields.length);
+	// console.log("number of fields: "+textFields.length);
 	buildTextsArray();
 	if (typeof imageLabelerType !== 'undefined' && imageLabelerType == "menus") {
 		questionType = "Image Labeler with Popup Menus";
@@ -49,7 +49,7 @@ buildTextsArray = function() {
 			$(textFields[i]).remove();
 	}
 	textFields = $(".textSource");
-	console.log("number of fields: "+textFields.length);
+	// console.log("number of fields: "+textFields.length);
 }
 
 buildMenus = function() {
