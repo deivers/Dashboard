@@ -44,6 +44,12 @@ buildTextsArray = function() {
 		}
 	}
 	texts = texts.concat(decoys);
+	for (var i=0; i<textFields.length; i++) {
+		if ($(textFields[i]).position().left < stageLeftEdge)
+			$(textFields[i]).remove();
+	}
+	textFields = $(".textSource");
+	console.log("number of fields: "+textFields.length);
 }
 
 buildMenus = function() {
