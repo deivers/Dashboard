@@ -25,7 +25,7 @@ function logSubmission(qNum,qType,qSummary,aSummary,saArray,akArray) {
 			// todo: get id from the environment variable
 			studentId = prompt("Please enter your student ID","");			// intentionally global
 			// todo: verify that we got a unique valid id above, or create one from the ip address?
-			if (typeof Storage !== 'undefined' && studentId.length > 0)
+			if (typeof Storage !== 'undefined' && typeof studentId !== 'undefined' && studentId.length > 0)
 				sessionStorage.dashboardStudentId = studentId;
 			else {
 				alert("You must provide a valid student ID in order to get credit for completing the quiz.");
