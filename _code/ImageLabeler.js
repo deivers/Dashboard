@@ -57,7 +57,7 @@ buildMenus = function() {
 	var textForMenus = texts.slice(0);	// duplicate the array
 	shuffleArray(textForMenus);
 	var optionString = "<option>?</option>";
-	for (var i=0; i<textFields.length; i++) {
+	for (var i=0; i<textForMenus.length; i++) {
 		optionString += "<option>"+textForMenus[i]+"</option>";
 	}
 	var htmlPrefix = "<select id=";
