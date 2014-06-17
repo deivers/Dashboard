@@ -77,13 +77,19 @@ function shuffleDivs(selectorForContainingElement,selectorOfElementsToBeShuffled
 }
 
 function shuffleArray(array) {
+	if (array.length < 3)
+		return array.reverse();
 	// Randomize order in-place using Fisher-Yates shuffle algorithm
-	for (var i = array.length - 1; i > 0; i--) {
-		var j = Math.floor(Math.random() * (i + 1));
-		var temp = array[i];
-		array[i] = array[j];
-		array[j] = temp;
-	}
+	// inside a loop to prevent returning the same array
+	var arrayCopy = array.slice(0);
+	do {
+		for (var i = array.length - 1; i > 0; i--) {
+			var j = Math.floor(Math.random() * (i + 1));
+			var temp = array[i];
+			array[i] = array[j];
+			array[j] = temp;
+		}
+	} while(array.toString() == arrayCopy.toString());
 	return array;
 }
 
@@ -95,6 +101,7 @@ function sortElementByPosition(a, b) {
 }
 
 function areArraysTheSame(a,b) {
+	// supposedly this would work:  return a == b;
 	if (a.length != b.length)
 		return false;
 	// order insensitive
