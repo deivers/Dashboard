@@ -54,7 +54,7 @@ buildTextsArray = function() {
 
 buildMenus = function() {
 	// randomize
-	var textForMenus = texts.slice(0);	// duplicate the array
+	var textForMenus = texts.slice(0);	// duplicate the array  // someone reported that this doesn't work on IE10...?
 	shuffleArray(textForMenus);
 	var optionString = "<option>?</option>";
 	for (var i=0; i<textForMenus.length; i++) {
