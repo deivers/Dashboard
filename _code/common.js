@@ -25,7 +25,7 @@ function logSubmission(qNum,qType,qSummary,aSummary,saArray,akArray) {
 			// todo: get id from the environment variable
 			studentId = prompt("Please enter your student ID","");			// intentionally global
 			// todo: verify that we got a unique valid id above, or create one from the ip address?
-			if (typeof Storage !== 'undefined' && studentId.length > 0)
+			if (typeof Storage !== 'undefined' && typeof studentId !== 'undefined' && studentId.length > 0)
 				sessionStorage.dashboardStudentId = studentId;
 			else {
 				alert("You must provide a valid student ID in order to get credit for completing the quiz.");
@@ -77,14 +77,20 @@ function shuffleDivs(selectorForContainingElement,selectorOfElementsToBeShuffled
 }
 
 function shuffleArray(array) {
-	// Randomize array element order in-place using Fisher-Yates shuffle algorithm
-    for (var i = array.length - 1; i > 0; i--) {
-        var j = Math.floor(Math.random() * (i + 1));
-        var temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
-    }
-    return array;
+	if (array.length < 3)
+		return array.reverse();
+	// Randomize order in-place using Fisher-Yates shuffle algorithm
+	// inside a loop to prevent returning the same array
+	var arrayCopy = array.slice(0);
+	do {
+		for (var i = array.length - 1; i > 0; i--) {
+			var j = Math.floor(Math.random() * (i + 1));
+			var temp = array[i];
+			array[i] = array[j];
+			array[j] = temp;
+		}
+	} while(array.toString() == arrayCopy.toString());
+	return array;
 }
 
 // sort by position (works whether the elements are in columns or rows)
@@ -95,6 +101,7 @@ function sortElementByPosition(a, b) {
 }
 
 function areArraysTheSame(a,b) {
+	// supposedly this would work:  return a == b;
 	if (a.length != b.length)
 		return false;
 	// order insensitive
@@ -107,13 +114,13 @@ function areArraysTheSame(a,b) {
 }
 
 function jQuerySame(a, b) {
-    if (a.length != b.length)
-        return false;
-    for (var i = 0; i < a.length; i++) {
-        if (a.get(i) != b.get(i))
-            return false;
-    }
-    return true;
+	if (a.length != b.length)
+		return false;
+	for (var i = 0; i < a.length; i++) {
+		if (a.get(i) != b.get(i))
+			return false;
+	}
+	return true;
 }
 
 function arrayFactory(numberOfElements,multiplier,offset) {
@@ -145,7 +152,9 @@ function replaceAwithBinC(a,b,c) {
 // the following methods are for AEA projects //
 
 function setUpSubmitButton() {
-	$(".submit").click(function() {checkAnswers()});
+	var myWidth = $(".submit").outerWidth();
+	$(".submit").click(function() {checkAnswers()})
+		.css("left", Math.max(0, (($("#Stage").width() - myWidth)/2)) + "px"); // center it
 }
 function setUpNextButton() {
 	// convert Submit button into NextPage/EndOfQuiz button
@@ -154,9 +163,11 @@ function setUpNextButton() {
 	});
 	if (typeof nextPageUrl !== 'undefined' && nextPageUrl != "") {
 		$(".submit").html("Next page").removeClass("blue").addClass("green");
-		$(".submit").css("width","6em").css("left", Math.max(0, (($("#Stage").width() - $(this).outerWidth())/2)) + "px");
+		$(".submit").css("width","6em");
 	} else {
 		$(".submit").html("End of Quiz").removeClass("button blue green");
-		$(".submit").css("width","9em").css("left", Math.max(0, (($("#Stage").width() - $(this).outerWidth())/2)) + "px");
+		$(".submit").css("width","9em");
 	}
+	var newWidth = $(".submit").outerWidth();
+	$(".submit").css("left", Math.max(0, (($("#Stage").width() - newWidth)/2)) + "px"); // center it
 }
