@@ -1,6 +1,3 @@
-function copyrightString() {
-	return "Copyright 2014 North Carolina State University. Code by One Time Software. Version 1.4 July 2014.";
-}
 function showMetaInfo(versionString) {
 	var copyrightText = "Copyright 2014";
 	var createdByText = "";
