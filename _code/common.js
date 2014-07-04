@@ -1,5 +1,8 @@
+function copyrightString() {
+	return "Copyright 2014 North Carolina State University. Code by One Time Software. Version 1.4 July 2014.";
+}
 function showMetaInfo(versionString) {
-	var copyrightText = "Copyright 2013";
+	var copyrightText = "Copyright 2014";
 	var createdByText = "";
 	var versionText = "Version "+versionString+".";
 	var centerNode = $("<div style='text-align: center; margin-top: 20px'></div>");

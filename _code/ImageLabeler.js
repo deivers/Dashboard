@@ -13,6 +13,12 @@ var questionType;
 //	minNumChars
 
 function init() {
+	// update copyright/credits/version text so I only need to update it in one place (common.js)
+	var latestCopyrightText = copyrightString() || ""; // fn is in common.js
+	if (latestCopyrightText.length > 0) {
+		var textField = $("#Stage_CopyrightAndCredits_Text"); //var textField = sym.getComposition().getSymbols("CopyrightAndCredits");
+		textField.html(latestCopyrightText);
+	}
 	// collect all possible answers
 	textFields = $(".textSource");
 	// console.log("number of fields: "+textFields.length);
