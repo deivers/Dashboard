@@ -34,7 +34,10 @@ function getData() {
 		url: "../../_code/dashLoader.php",
 		dataType: 'json',
 		success: function(data) {
-			console.log("  Loader is done\n\n");
+			if (data.length == 0)
+				console.log("  Dashboard loader found no logged data!\n");
+			else
+				console.log("  Dashboard loader is done\n\n");
 			computeAndDisplayStats(data);
 		},
 		error: function() {
