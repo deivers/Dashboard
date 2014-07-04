@@ -70,7 +70,8 @@ buildTextBoxes = function() {
 	var htmlSuffix = " class='textBox' style='width:96%;' />";
 	insertIntoHtml(htmlPrefix,htmlSuffix);
 	$(".textBox").attr("autocomplete", "off")
-		.keyup(function(event){handleKeyup(event);})
+		.keyup(function(event){handleKeyup(event);});
+	$("body").keydown(function(event){handleKeydownNotInInput(event);});
 }
 
 insertIntoHtml = function(prefix,suffix) {
@@ -107,13 +108,26 @@ function completeFragment(fragment) {
 	return (indexOfMatch>=0 && isMatchUnique ? texts[indexOfMatch] : "");
 }
 
+function handleKeydownNotInInput(event) {
+	if (event.keyCode == 9) { // tab key
+		if (event.target.tagName != "BODY")
+			return;
+		event.preventDefault();
+		// put focus on the first empty input field
+		for (var i=0; i<textFields.length; i++) {
+			var theInputField = $(textFields[i]).children()[0];
+			if ($(theInputField).val() == "") {
+				$(theInputField).focus(); // the actual input element
+				break;
+			}
+		}
+	}
+}
+
 function handleKeyup(event) {
 	/* reset style */
 	$(event.target).removeClass("incorrect correct");
-	/* if it was the tab key, then tab to next field */
-	if (event.keyCode == 9) // tab key
-		return true; // allow default behavior of tabbing to next field
-	else if ((event.keyCode == 8))
+	if ((event.keyCode == 8))
 		return true; // allow default behavior of backspace
 	/* check for an autocomplete match */
 	var userTypedString = event.target.value;
