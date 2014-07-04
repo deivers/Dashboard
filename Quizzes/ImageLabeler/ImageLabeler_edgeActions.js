@@ -16,17 +16,17 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       Symbol.bindSymbolAction(compId, symbolName, "creationComplete", function(sym, e) {
          // make sure the text boxes aren't visible while page loads
          sym.$(".textSource").css({"opacity": 0});
-      
+         
          // load external files
          yepnope({
          	load: [
          		'../../_code/common.css',
-         		"../../_code/ImagePopups.css",
+         		"../../_code/ImageLabeler.css",
          		"../../_code/common.js",
          		"../../_code/ImageLabeler.js"
          	], complete: function() {init()}
          });
-      
+
       });
       //Edge binding end
       
