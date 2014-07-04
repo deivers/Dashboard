@@ -417,7 +417,7 @@ var symbols = {
                         rect: ['0px', '2px', '602px', '16px', 'auto', 'auto'],
                         font: ['Arial, Helvetica, sans-serif', 12, 'rgba(119,119,119,1.00)', 'normal', 'none', ''],
                         id: 'Text',
-                        text: 'Copyright 2013 North Carolina State University. Code by One Time Software. Version 1.0 November 2013.',
+                        text: 'Copyright 2014 North Carolina State University. Code by One Time Software. Version 1.4 July 2014.',
                         align: 'center',
                         type: 'text'
                     },
@@ -446,11 +446,17 @@ var symbols = {
             symbolInstances: [
             {
                 id: 'codeByButton',
-                symbolName: 'codeByButton'
+                symbolName: 'codeByButton',
+                autoPlay: {
+
+               }
             },
             {
                 id: 'copyrightButton',
-                symbolName: 'copyrightButton'
+                symbolName: 'copyrightButton',
+                autoPlay: {
+
+               }
             }            ]
         },
     states: {
@@ -470,17 +476,13 @@ var symbols = {
                 ["style", "left", '0px'],
                 ["style", "width", '602px']
             ],
+            "${symbolSelector}": [
+                ["style", "height", '19px'],
+                ["style", "width", '600px']
+            ],
             "${_TextCopy2}": [
                 ["style", "top", '20px'],
                 ["style", "text-align", 'center'],
-                ["style", "width", '602px'],
-                ["color", "color", 'rgba(119,119,119,1.00)'],
-                ["style", "height", '16px'],
-                ["style", "left", '0px'],
-                ["style", "font-size", '12px']
-            ],
-            "${_TextCopy}": [
-                ["style", "top", '2px'],
                 ["style", "width", '602px'],
                 ["color", "color", 'rgba(119,119,119,1.00)'],
                 ["style", "height", '16px'],
@@ -497,9 +499,13 @@ var symbols = {
                 ["style", "cursor", 'pointer'],
                 ["style", "left", '101px']
             ],
-            "${symbolSelector}": [
-                ["style", "height", '19px'],
-                ["style", "width", '600px']
+            "${_TextCopy}": [
+                ["style", "top", '2px'],
+                ["style", "width", '602px'],
+                ["color", "color", 'rgba(119,119,119,1.00)'],
+                ["style", "height", '16px'],
+                ["style", "left", '0px'],
+                ["style", "font-size", '12px']
             ]
         }
     },
@@ -577,9 +583,8 @@ var symbols = {
                 {
                     rect: ['0px', '0px', '168px', '16px', 'auto', 'auto'],
                     borderRadius: ['10px', '10px', '10px', '10px'],
-                    stroke: [0, 'rgb(0, 0, 0)', 'none'],
                     id: 'RoundRect2',
-                    opacity: 0,
+                    stroke: [0, 'rgb(0, 0, 0)', 'none'],
                     type: 'rect',
                     fill: ['rgba(192,192,192,1)']
                 }

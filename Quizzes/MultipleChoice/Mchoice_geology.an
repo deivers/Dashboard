@@ -21,7 +21,7 @@
 	"StageZoomFactor":"100",
 	"pixelsPerMs":"0.2",
 	"NextPageButton-Default Timeline_playhead_ms":"0",
-	"nextElementColorIndex":"14",
+	"nextElementColorIndex":"2",
 	"stage-Default Timeline_playhead_ms":"0",
 	"HTMLFileName":"Mchoice_geology.html",
 	"PubUseChromeFrameInstaller":"false",
@@ -74,7 +74,12 @@
 			"animationEnabled":"true",
 			"timelineColor":"0xffd46d"}},
 	"checkAnswers-Default Timeline_playhead_ms":"0",
-	"pref__general__AutoKeyframePropertiesArmed":"false",
+	"symbol_copyrightButton":{
+		"element_${_RoundRect2}":{
+			"timelineColor2":"0xcbbd71",
+			"timelineColor3":"0x7b7652",
+			"timelineColor":"0xeedf79"}},
+	"pref__general__AutoKeyframePropertiesArmed":"true",
 	"symbol_Feedback":{
 		"dummyStageParentWidth":"700px",
 		"dummyStageParentHeight":"770px",
@@ -267,8 +272,9 @@
 			"timelineColor3":"0x70657c",
 			"invisible":"false",
 			"timelineColor":"0xceaef4"}},
-	"viewStartY":"0",
+	"viewStartY":"51",
 	"Checkbox-Default Timeline_playhead_ms":"0",
+	"copyrightButton-Default Timeline_playhead_ms":"0",
 	"symbol_SubmitAnswersButton":{
 		"element_${_RoundRect}":{
 			"timelineColor2":"0x326a96",
