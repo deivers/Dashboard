@@ -31,25 +31,18 @@ function init() {
 }
 
 buildTextsArray = function() {
-	// insert the menus/boxes into the DOM
-	// ignore textFields that are off stage left
-	var stageLeftEdge = $("#Stage").position().left;
 	var decoys = [];
-	for (var i=0; i<textFields.length; i++) {
-		if ($(textFields[i]).position().left < stageLeftEdge) {
-			//console.log("#"+i+" is off stage left");
-			decoys[decoys.length] = $(textFields[i]).html();
-		} else {
-			texts[texts.length] = $(textFields[i]).html();
-		}
-	}
-	texts = texts.concat(decoys);
-	for (var i=0; i<textFields.length; i++) {
-		if ($(textFields[i]).position().left < stageLeftEdge)
-			$(textFields[i]).remove();
-	}
+	var decoyFields = $(".decoy");
+	for (var i=0; i<decoyFields.length; i++)
+		decoys.push($(decoyFields[i]).html());
+	$(decoyFields).remove();
 	textFields = $(".textSource");
-	// console.log("number of fields: "+textFields.length);
+	for (var i=0; i<textFields.length; i++)
+		texts.push($(textFields[i]).html());
+	for (var i=0; i<decoys.length; i++)
+		texts.push(decoys[i]);
+	console.log("number of fields: "+textFields.length);
+	console.log(texts.length);
 }
 
 buildMenus = function() {

@@ -49,7 +49,7 @@ var symbols = {
                 type: 'text',
                 rect: ['-190px', '310px','170px','22px','auto', 'auto'],
                 text: "enzyme",
-                userClass: "textSource",
+                userClass: "textSource decoy",
                 font: ['Arial, Helvetica, sans-serif', 16, "rgba(0,0,0,1)", "normal", "none", ""]
             },
             {
@@ -57,7 +57,7 @@ var symbols = {
                 type: 'text',
                 rect: ['-190px', '239px','170px','22px','auto', 'auto'],
                 text: "metabolism",
-                userClass: "textSource",
+                userClass: "textSource decoy",
                 font: ['Arial, Helvetica, sans-serif', 16, "rgba(0,0,0,1)", "normal", "none", ""]
             },
             {
@@ -89,7 +89,7 @@ var symbols = {
                 type: 'text',
                 rect: ['-190px', '354px','170px','22px','auto', 'auto'],
                 text: "protein",
-                userClass: "textSource",
+                userClass: "textSource decoy",
                 font: ['Arial, Helvetica, sans-serif', 16, "rgba(0,0,0,1)", "normal", "none", ""]
             },
             {
@@ -97,7 +97,7 @@ var symbols = {
                 type: 'text',
                 rect: ['-190px', '420px','170px','22px','auto', 'auto'],
                 text: "denatured alcohol",
-                userClass: "textSource",
+                userClass: "textSource decoy",
                 font: ['Arial, Helvetica, sans-serif', 16, "rgba(0,0,0,1)", "normal", "none", ""]
             },
             {
@@ -105,7 +105,7 @@ var symbols = {
                 type: 'text',
                 rect: ['-190px', '470px','170px','22px','auto', 'auto'],
                 text: "amino acid",
-                userClass: "textSource",
+                userClass: "textSource decoy",
                 font: ['Arial, Helvetica, sans-serif', 16, "rgba(0,0,0,1)", "normal", "none", ""]
             },
             {
@@ -113,7 +113,7 @@ var symbols = {
                 type: 'text',
                 rect: ['-190px', '152px','170px','22px','auto', 'auto'],
                 text: "meiosis",
-                userClass: "textSource",
+                userClass: "textSource decoy",
                 font: ['Arial, Helvetica, sans-serif', 16, "rgba(0,0,0,1)", "normal", "none", ""]
             },
             {
@@ -121,7 +121,7 @@ var symbols = {
                 type: 'text',
                 rect: ['-190px', '271px','170px','22px','auto', 'auto'],
                 text: "respiration",
-                userClass: "textSource",
+                userClass: "textSource decoy",
                 font: ['Arial, Helvetica, sans-serif', 16, "rgba(0,0,0,1)", "normal", "none", ""]
             },
             {
@@ -129,7 +129,7 @@ var symbols = {
                 type: 'text',
                 rect: ['-190px', '209px','170px','22px','auto', 'auto'],
                 text: "mitosis",
-                userClass: "textSource",
+                userClass: "textSource decoy",
                 font: ['Arial, Helvetica, sans-serif', 16, "rgba(0,0,0,1)", "normal", "none", ""]
             },
             {
@@ -175,31 +175,31 @@ var symbols = {
     states: {
         "Base State": {
             "${_TextCopy13}": [
-                ["style", "line-height", '24px'],
-                ["style", "font-size", '16px'],
-                ["style", "text-align", 'left'],
                 ["style", "top", '171px'],
+                ["style", "width", '619px'],
+                ["style", "text-align", 'left'],
+                ["style", "line-height", '24px'],
                 ["transform", "scaleX", '1'],
                 ["style", "height", '49px'],
                 ["style", "left", '74px'],
-                ["style", "width", '619px']
+                ["style", "font-size", '16px']
             ],
             "${_Text3Copy}": [
                 ["style", "top", '547px'],
-                ["style", "width", '174px'],
+                ["style", "font-size", '12px'],
                 ["style", "height", '60px'],
                 ["color", "color", 'rgba(255,255,255,1)'],
                 ["style", "left", '770px'],
-                ["style", "font-size", '12px']
+                ["style", "width", '174px']
             ],
             "${_Text3}": [
                 ["style", "top", '558px'],
                 ["style", "text-align", 'center'],
-                ["style", "font-size", '18px'],
+                ["style", "width", '70px'],
                 ["style", "height", '19px'],
-                ["style", "left", '322px'],
                 ["style", "cursor", 'pointer'],
-                ["style", "width", '70px']
+                ["style", "left", '322px'],
+                ["style", "font-size", '18px']
             ],
             "${_Text2}": [
                 ["style", "top", '25px'],
@@ -207,22 +207,22 @@ var symbols = {
                 ["style", "font-size", '36px']
             ],
             "${_TextCopy2}": [
-                ["style", "line-height", '24px'],
-                ["style", "width", '170px'],
                 ["style", "top", '257px'],
+                ["style", "font-size", '16px'],
+                ["style", "line-height", '24px'],
                 ["style", "height", '22px'],
                 ["transform", "scaleX", '1'],
                 ["style", "left", '539px'],
-                ["style", "font-size", '16px']
+                ["style", "width", '170px']
             ],
             "${_TextCopy10}": [
                 ["style", "top", '239px'],
+                ["style", "font-size", '16px'],
                 ["color", "color", 'rgba(0,0,0,1)'],
-                ["style", "width", '170px'],
                 ["style", "height", '22px'],
                 ["transform", "scaleX", '1'],
                 ["style", "left", '-190px'],
-                ["style", "font-size", '16px']
+                ["style", "width", '170px']
             ],
             "${_CopyrightAndCredits}": [
                 ["style", "left", '77px'],
@@ -235,48 +235,48 @@ var symbols = {
             ],
             "${_TextCopy4}": [
                 ["style", "top", '310px'],
-                ["color", "color", 'rgba(0,0,0,1)'],
-                ["style", "width", '170px'],
-                ["style", "height", '22px'],
-                ["transform", "scaleX", '1'],
-                ["style", "left", '-190px'],
-                ["style", "font-size", '16px']
-            ],
-            "${_TextCopy3}": [
-                ["style", "line-height", '24px'],
-                ["style", "width", '170px'],
-                ["style", "height", '22px'],
-                ["style", "top", '194px'],
-                ["style", "left", '255px'],
-                ["style", "font-size", '16px']
-            ],
-            "${_TextCopy5}": [
-                ["style", "top", '258px'],
-                ["style", "width", '600px'],
-                ["style", "text-align", 'left'],
-                ["style", "line-height", '24px'],
-                ["transform", "scaleX", '1'],
-                ["style", "height", '49px'],
-                ["style", "left", '74px'],
-                ["style", "font-size", '16px']
-            ],
-            "${_TextCopy12}": [
-                ["style", "top", '271px'],
-                ["color", "color", 'rgba(0,0,0,1)'],
-                ["style", "width", '170px'],
-                ["style", "height", '22px'],
-                ["transform", "scaleX", '1'],
-                ["style", "left", '-190px'],
-                ["style", "font-size", '16px']
-            ],
-            "${_TextCopy7}": [
-                ["style", "top", '420px'],
-                ["color", "color", 'rgba(0,0,0,1)'],
                 ["style", "font-size", '16px'],
+                ["color", "color", 'rgba(0,0,0,1)'],
                 ["style", "height", '22px'],
                 ["transform", "scaleX", '1'],
                 ["style", "left", '-190px'],
                 ["style", "width", '170px']
+            ],
+            "${_TextCopy3}": [
+                ["style", "top", '194px'],
+                ["style", "font-size", '16px'],
+                ["style", "height", '22px'],
+                ["style", "line-height", '24px'],
+                ["style", "left", '255px'],
+                ["style", "width", '170px']
+            ],
+            "${_TextCopy5}": [
+                ["style", "line-height", '24px'],
+                ["style", "font-size", '16px'],
+                ["style", "text-align", 'left'],
+                ["style", "top", '258px'],
+                ["transform", "scaleX", '1'],
+                ["style", "height", '49px'],
+                ["style", "left", '74px'],
+                ["style", "width", '600px']
+            ],
+            "${_TextCopy12}": [
+                ["style", "top", '271px'],
+                ["style", "font-size", '16px'],
+                ["color", "color", 'rgba(0,0,0,1)'],
+                ["style", "height", '22px'],
+                ["transform", "scaleX", '1'],
+                ["style", "left", '-190px'],
+                ["style", "width", '170px']
+            ],
+            "${_TextCopy11}": [
+                ["style", "top", '209px'],
+                ["style", "width", '170px'],
+                ["color", "color", 'rgba(0,0,0,1)'],
+                ["style", "height", '22px'],
+                ["transform", "scaleX", '1'],
+                ["style", "left", '-190px'],
+                ["style", "font-size", '16px']
             ],
             "${_Text}": [
                 ["transform", "scaleX", '1'],
@@ -286,46 +286,46 @@ var symbols = {
                 ["style", "top", '67px'],
                 ["style", "text-align", 'justify'],
                 ["style", "height", '66px'],
-                ["color", "color", 'rgba(154,154,154,1.00)'],
-                ["style", "width", '388px']
+                ["style", "width", '388px'],
+                ["color", "color", 'rgba(154,154,154,1.00)']
             ],
-            "${_TextCopy6}": [
-                ["style", "top", '470px'],
-                ["color", "color", 'rgba(0,0,0,1)'],
-                ["style", "width", '170px'],
-                ["style", "height", '22px'],
-                ["transform", "scaleX", '1'],
-                ["style", "left", '-190px'],
-                ["style", "font-size", '16px']
-            ],
-            "${_Stage}": [
-                ["color", "background-color", 'rgba(255,255,255,0.00)'],
-                ["style", "width", '754px'],
-                ["style", "height", '700px'],
-                ["style", "overflow", 'hidden']
-            ],
-            "${_TextCopy9}": [
-                ["style", "top", '152px'],
-                ["color", "color", 'rgba(0,0,0,1)'],
+            "${_TextCopy}": [
+                ["style", "top", '354px'],
                 ["style", "font-size", '16px'],
+                ["color", "color", 'rgba(0,0,0,1)'],
                 ["style", "height", '22px'],
                 ["transform", "scaleX", '1'],
                 ["style", "left", '-190px'],
                 ["style", "width", '170px']
             ],
-            "${_TextCopy}": [
-                ["style", "top", '354px'],
-                ["color", "color", 'rgba(0,0,0,1)'],
+            "${_Stage}": [
+                ["color", "background-color", 'rgba(255,255,255,0.00)'],
+                ["style", "overflow", 'hidden'],
+                ["style", "height", '700px'],
+                ["style", "width", '754px']
+            ],
+            "${_TextCopy9}": [
+                ["style", "top", '152px'],
                 ["style", "width", '170px'],
+                ["color", "color", 'rgba(0,0,0,1)'],
                 ["style", "height", '22px'],
                 ["transform", "scaleX", '1'],
                 ["style", "left", '-190px'],
                 ["style", "font-size", '16px']
             ],
-            "${_TextCopy11}": [
-                ["style", "top", '209px'],
+            "${_TextCopy7}": [
+                ["style", "top", '420px'],
+                ["style", "width", '170px'],
                 ["color", "color", 'rgba(0,0,0,1)'],
+                ["style", "height", '22px'],
+                ["transform", "scaleX", '1'],
+                ["style", "left", '-190px'],
+                ["style", "font-size", '16px']
+            ],
+            "${_TextCopy6}": [
+                ["style", "top", '470px'],
                 ["style", "font-size", '16px'],
+                ["color", "color", 'rgba(0,0,0,1)'],
                 ["style", "height", '22px'],
                 ["transform", "scaleX", '1'],
                 ["style", "left", '-190px'],
@@ -340,8 +340,8 @@ var symbols = {
             duration: 0,
             autoPlay: true,
             timeline: [
-                { id: "eid14", tween: [ "style", "${_CopyrightAndCredits}", "top", '654px', { fromValue: '654px'}], position: 0, duration: 0 },
-                { id: "eid9", tween: [ "style", "${_CopyrightAndCredits}", "left", '77px', { fromValue: '77px'}], position: 0, duration: 0 }            ]
+                { id: "eid9", tween: [ "style", "${_CopyrightAndCredits}", "left", '77px', { fromValue: '77px'}], position: 0, duration: 0 },
+                { id: "eid14", tween: [ "style", "${_CopyrightAndCredits}", "top", '654px', { fromValue: '654px'}], position: 0, duration: 0 }            ]
         }
     }
 },
@@ -363,20 +363,20 @@ var symbols = {
                     rect: ['0px', '0px', '700px', '36px', 'auto', 'auto'],
                     c: [
                     {
-                        rect: ['0px', '2px', '602px', '16px', 'auto', 'auto'],
                         font: ['Arial, Helvetica, sans-serif', 12, 'rgba(119,119,119,1.00)', 'normal', 'none', ''],
+                        type: 'text',
                         id: 'Text',
                         text: 'Copyright 2014 North Carolina State University. Code by One Time Software. Version 1.4 July 2014.',
                         align: 'center',
-                        type: 'text'
+                        rect: ['0px', '2px', '602px', '16px', 'auto', 'auto']
                     },
                     {
-                        rect: ['0px', '20px', '602px', '16px', 'auto', 'auto'],
                         font: ['Arial, Helvetica, sans-serif', 12, 'rgba(119,119,119,1.00)', 'normal', 'none', ''],
+                        type: 'text',
                         id: 'TextCopy2',
                         text: 'Free for academic use when displaying this notice.',
                         align: 'center',
-                        type: 'text'
+                        rect: ['0px', '20px', '602px', '16px', 'auto', 'auto']
                     },
                     {
                         id: 'codeByButton',
@@ -411,13 +411,22 @@ var symbols = {
     states: {
         "Base State": {
             "${_Group}": [
-                ["style", "top", '0px'],
                 ["style", "height", '36px'],
+                ["style", "top", '0px'],
                 ["style", "left", '0px'],
                 ["style", "width", '700px']
             ],
             "${_Text}": [
                 ["style", "top", '2px'],
+                ["style", "text-align", 'center'],
+                ["style", "width", '602px'],
+                ["color", "color", 'rgba(119,119,119,1.00)'],
+                ["style", "height", '16px'],
+                ["style", "left", '0px'],
+                ["style", "font-size", '12px']
+            ],
+            "${_TextCopy2}": [
+                ["style", "top", '20px'],
                 ["style", "text-align", 'center'],
                 ["style", "font-size", '12px'],
                 ["color", "color", 'rgba(119,119,119,1.00)'],
@@ -425,36 +434,27 @@ var symbols = {
                 ["style", "left", '0px'],
                 ["style", "width", '602px']
             ],
-            "${_TextCopy2}": [
-                ["style", "top", '20px'],
-                ["style", "text-align", 'center'],
-                ["style", "width", '602px'],
-                ["color", "color", 'rgba(119,119,119,1.00)'],
-                ["style", "height", '16px'],
-                ["style", "left", '0px'],
-                ["style", "font-size", '12px']
-            ],
-            "${_TextCopy}": [
-                ["style", "top", '2px'],
-                ["style", "width", '602px'],
-                ["color", "color", 'rgba(119,119,119,1.00)'],
-                ["style", "height", '16px'],
-                ["style", "left", '0px'],
-                ["style", "font-size", '12px']
+            "${symbolSelector}": [
+                ["style", "height", '19px'],
+                ["style", "width", '600px']
             ],
             "${_codeByButton}": [
                 ["style", "top", '0px'],
                 ["style", "cursor", 'pointer'],
                 ["style", "left", '327px']
             ],
+            "${_TextCopy}": [
+                ["style", "top", '2px'],
+                ["style", "font-size", '12px'],
+                ["color", "color", 'rgba(119,119,119,1.00)'],
+                ["style", "height", '16px'],
+                ["style", "left", '0px'],
+                ["style", "width", '602px']
+            ],
             "${_copyrightButton}": [
                 ["style", "top", '2px'],
                 ["style", "cursor", 'pointer'],
                 ["style", "left", '101px']
-            ],
-            "${symbolSelector}": [
-                ["style", "height", '19px'],
-                ["style", "width", '600px']
             ]
         }
     },
@@ -495,14 +495,14 @@ var symbols = {
         },
     states: {
         "Base State": {
+            "${symbolSelector}": [
+                ["style", "height", '16px'],
+                ["style", "width", '106px']
+            ],
             "${_RoundRect}": [
                 ["style", "top", '0px'],
                 ["style", "opacity", '0'],
                 ["style", "left", '0px']
-            ],
-            "${symbolSelector}": [
-                ["style", "height", '16px'],
-                ["style", "width", '106px']
             ]
         }
     },
@@ -532,9 +532,9 @@ var symbols = {
                 {
                     rect: ['0px', '0px', '168px', '16px', 'auto', 'auto'],
                     borderRadius: ['10px', '10px', '10px', '10px'],
-                    stroke: [0, 'rgb(0, 0, 0)', 'none'],
-                    id: 'RoundRect2',
                     opacity: 0,
+                    id: 'RoundRect2',
+                    stroke: [0, 'rgb(0, 0, 0)', 'none'],
                     type: 'rect',
                     fill: ['rgba(192,192,192,1)']
                 }
@@ -544,14 +544,14 @@ var symbols = {
         },
     states: {
         "Base State": {
-            "${symbolSelector}": [
-                ["style", "height", '16px'],
-                ["style", "width", '168px']
-            ],
             "${_RoundRect2}": [
                 ["style", "top", '0px'],
                 ["style", "opacity", '0'],
                 ["style", "left", '0px'],
+                ["style", "width", '168px']
+            ],
+            "${symbolSelector}": [
+                ["style", "height", '16px'],
                 ["style", "width", '168px']
             ]
         }
