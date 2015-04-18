@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+
+	<title>Encoder Tool</title>
+
+</head>
+
+<body>
+	<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+	<script src="../_code/common.js"></script>
+	<script>
+		function encodeUserString() {
+			var originalString = $('#original').val();
+			var encodedString = encode(originalString);
+			$('#encoded').val(encodedString);
+		}
+		function decodeUserString() {
+			var encodedString = $('#encoded').val();
+			$('#unencoded').val(unencode(encodedString));
+			// verify
+		}
+	</script>
+
+	<h2>Encoder Tool
+	</h2>
+	<p>Plain English:
+	</p>
+	<textarea id="original" rows="5" cols="50"></textarea>
+	<br>
+	<input value="Encode" type="button" onclick="encodeUserString()"
+	/>
+	<p>Encoded string:
+	</p>
+	<textarea id="encoded" rows="5" cols="50" ></textarea>
+	<br>
+	<input value="Unencode" type="button" onclick="decodeUserString()"
+	/>
+	<p>Unencoded string:
+	</p>
+	<textarea id="unencoded" rows="5" cols="50" ></textarea>
+
+</body>
+</html>

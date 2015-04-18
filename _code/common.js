@@ -171,3 +171,24 @@ function setUpNextButton() {
 	var newWidth = $(".submit").outerWidth();
 	$(".submit").css("left", Math.max(0, (($("#Stage").width() - newWidth)/2)) + "px"); // center it
 }
+
+function encode(string) {
+	var result = "", chr;
+	for (var i=0; i<string.length; i++) {
+		chr = string.charCodeAt(i);
+		result += String.fromCharCode( (chr < 32) ? chr : chr + 3 + i%2); // + 3 + i%2 avoids converting anything to double quote
+	}
+	return result;	
+}
+function unencode(string) {
+	var result = "", chr;
+	for (var i=0; i<string.length; i++) {
+		chr = string.charCodeAt(i);
+		result += String.fromCharCode((chr < 32) ? chr : chr - 3 - i%2);
+	}
+	return result;
+}
+
+String.prototype.contains = function(subString) {
+	return this.indexOf(subString) != -1;
+}
