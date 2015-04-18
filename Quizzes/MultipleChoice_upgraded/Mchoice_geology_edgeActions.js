@@ -53,7 +53,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       });
       //Edge binding end
 
-      Symbol.bindElementAction(compId, symbolName, "${_Feedback1Copy3}", "click", function(sym, e) {
+      Symbol.bindElementAction(compId, symbolName, "${Feedback1Copy3}", "click", function(sym, e) {
          if (sym.$(e.target).css("opacity") > 0.1)  // if feedback is visible and the user clicked on it
          	window.open("http://en.wikipedia.org/wiki/Granite", "_self");
 
@@ -71,14 +71,14 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
    (function(symbolName) {   
          
 
-      Symbol.bindElementAction(compId, symbolName, "${_box_rounded}", "click", function(sym, e) {
+      Symbol.bindElementAction(compId, symbolName, "${box_rounded}", "click", function(sym, e) {
          sym.$("checkmark").css({opacity: 1, "z-index": 1});
          
 
       });
       //Edge binding end
 
-      Symbol.bindElementAction(compId, symbolName, "${_checkmark}", "click", function(sym, e) {
+      Symbol.bindElementAction(compId, symbolName, "${checkmark}", "click", function(sym, e) {
          sym.$("checkmark").css({opacity: 0, "z-index": -1});
          
          
@@ -100,7 +100,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
    //Edge symbol: 'copyrightButton'
    (function(symbolName) {   
    
-      Symbol.bindElementAction(compId, symbolName, "${_RoundRect2}", "click", function(sym, e) {
+      Symbol.bindElementAction(compId, symbolName, "${RoundRect2}", "click", function(sym, e) {
          window.open("http://harvest.cals.ncsu.edu/biology", "_blank");
 
       });
@@ -122,7 +122,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
    //Edge symbol: 'codeByButton'
    (function(symbolName) {   
    
-      Symbol.bindElementAction(compId, symbolName, "${_RoundRect}", "click", function(sym, e) {
+      Symbol.bindElementAction(compId, symbolName, "${RoundRect}", "click", function(sym, e) {
          window.open("http://www.onetimesoftware.com", "_blank");
 
       });
@@ -131,4 +131,4 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
    })("codeByButton");
    //Edge symbol end:'codeByButton'
 
-})(jQuery, AdobeEdge, "EDGE-276373753");
+})(window.jQuery || AdobeEdge.$, AdobeEdge, "EDGE-276373753");

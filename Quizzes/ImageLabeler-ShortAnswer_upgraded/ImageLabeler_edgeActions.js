@@ -32,11 +32,11 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       
       Symbol.bindElementAction(compId, symbolName, "document", "compositionReady", function(sym, e) {
          // instructor editable section //
-         	imageLabelerType = "shortAnswer";// "menus" or "shortAnswer"
+         	imageLabelerType = "menus";      // "menus" or "shortAnswer"
          	showWrongAnswers = true;			// false increases difficulty
          	nextPageUrl = "../folder/filename.html"; // either a relative url: "../folder/filename.html" or an absolute url: "https://www.dictionary.com"
          // stop here if you are not using the Dashboard feature
-         	logResponsesToDashboard = true;	// true if you want to use the Dashboard
+         	logResponsesToDashboard = false;	// true if you want to use the Dashboard
          	quizpageNumber = 1;					// required if the above is true; must be unique across quiz-pages in this folder
          	qTextSummary = "";					// short description of what is in this quiz for the purpose of the dashboard
          // end of editable section //
@@ -66,7 +66,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
    //Edge symbol: 'copyrightButton'
    (function(symbolName) {   
    
-      Symbol.bindElementAction(compId, symbolName, "${_RoundRect2}", "click", function(sym, e) {
+      Symbol.bindElementAction(compId, symbolName, "${RoundRect2}", "click", function(sym, e) {
          window.open("http://harvest.cals.ncsu.edu/biology", "_blank");
 
       });
@@ -88,7 +88,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
    //Edge symbol: 'codeByButton'
    (function(symbolName) {   
    
-      Symbol.bindElementAction(compId, symbolName, "${_RoundRect}", "click", function(sym, e) {
+      Symbol.bindElementAction(compId, symbolName, "${RoundRect}", "click", function(sym, e) {
          window.open("http://www.onetimesoftware.com", "_blank");
 
       });
@@ -97,4 +97,4 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
    })("codeByButton");
    //Edge symbol end:'codeByButton'
 
-})(jQuery, AdobeEdge, "EDGE-749678393");
+})(window.jQuery || AdobeEdge.$, AdobeEdge, "EDGE-749678393");
