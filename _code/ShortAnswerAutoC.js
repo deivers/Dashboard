@@ -51,14 +51,15 @@ function completeFragment(fragment) {
 }
 
 function extract() {
-	var termsString = $("#autoCompleteTerms").html().trim();
+	console.log($("#autoCompleteTerms"))///
+
+	var termsString = ($("#autoCompleteTerms").exists()) ? $("#autoCompleteTerms").html().trim() : unencode($("#encodedList").html().trim());
 	autoCompleteTerms = termsString.split("|");
-	//autoCompleteTerms = autoCompleteTerms.map(function(str){str.trim()});	// should work...
-	//autoCompleteTerms = autoCompleteTerms.forEach(function(str){str.trim()});	// should work...
+	$("#autoCompleteTerms").remove();
+	$("#encodedList").remove();
 	for (var i=0; i<autoCompleteTerms.length; i++) {
 		autoCompleteTerms[i] = autoCompleteTerms[i].trim();
 	}
-	$("#autoCompleteTerms").remove();
 }
 
 function handleKeyup(event) {

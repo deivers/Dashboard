@@ -176,7 +176,7 @@ function encode(string) {
 	var result = "", chr;
 	for (var i=0; i<string.length; i++) {
 		chr = string.charCodeAt(i);
-		result += String.fromCharCode( (chr < 32) ? chr : chr + 3 + i%2); // + 3 + i%2 avoids converting anything to double quote
+		result += String.fromCharCode( (chr < 34) ? chr : chr + 1 + i%2);
 	}
 	return result;	
 }
@@ -184,11 +184,15 @@ function unencode(string) {
 	var result = "", chr;
 	for (var i=0; i<string.length; i++) {
 		chr = string.charCodeAt(i);
-		result += String.fromCharCode((chr < 32) ? chr : chr - 3 - i%2);
+		result += String.fromCharCode((chr < 34) ? chr : chr - 1 - i%2);
 	}
 	return result;
 }
 
 String.prototype.contains = function(subString) {
 	return this.indexOf(subString) != -1;
+}
+
+jQuery.fn.exists = function(){
+	return jQuery(this).length>0;
 }
