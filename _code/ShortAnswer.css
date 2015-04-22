@@ -6,6 +6,7 @@ body {
 }
 input {
 	font-weight: bold;
+	border: 1px #bbb solid;
 }
 input.correct {
 	color: #090;
