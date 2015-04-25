@@ -14,29 +14,29 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       
       
       Symbol.bindElementAction(compId, symbolName, "document", "compositionReady", function(sym, e) {
-         console.log("Click handler in compositionReady");
-         
          console.log($(".answer-button").length)////
          
+         var overOpacity = 0.6;
          var thresholdOpacity = 0.7;
+         var selectedOpacity = 0.8;
          
          sym.answerButtonClicked = function(which) {
          	// toggle-off all the answer buttons
          	$(".answer-button").css({"opacity": 0});
          	// toggle-on the clicked answer button
-         	$(which).css({"opacity": 0.8});
+         	$(which).css({"opacity": selectedOpacity});
          
          }
          
          sym.answerButtonOver = function(which) {
          	console.log("answerButtonOver")////
          	if ($(which).css("opacity") == 0)
-         		$(which).css({"opacity": 0.6});
+         		$(which).css({"opacity": overOpacity});
          }
          
          sym.answerButtonOut = function(which) {
          	console.log("answerButtonOut")////
-         	if ($(which).css("opacity") < 0.7)
+         	if ($(which).css("opacity") < thresholdOpacity)
          		$(which).css({"opacity": 0});
          }
 
@@ -67,6 +67,20 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       Symbol.bindSymbolAction(compId, symbolName, "creationComplete", function(sym, e) {
          // set all answer buttons to 0 opacity before displaying anything
          $(".answer-button").css({"opacity": 0});
+         
+         
+         yepnope ({
+         	nope: [
+         				'../../_code/common.css',
+         				'../../_code/common.js',
+         				'../../_code/Locator.js'
+         	],
+         	complete: function() {
+         		init()
+         	}
+          });
+         // see in the library scripts:  https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js
+         // alternate:  https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js
 
       });
       //Edge binding end

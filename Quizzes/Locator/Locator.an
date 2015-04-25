@@ -93,11 +93,12 @@
 			"timelineColor":"0x63599f"}},
 	"TransitionIdCounter":"8",
 	"CompZoomFactor":"100",
-	"viewStartY":"0",
+	"StageZoomFactor":"150",
 	"pixelsPerMs":"0.2",
 	"HotspotEllipse-Default Timeline_playhead_ms":"0",
 	"usedBOM":"false",
-	"expanded:images/checkmark_outlined.png":"nil",
+	"nextElementColorIndex":"14",
 	"stage-Default Timeline_playhead_ms":"0",
-	"StageZoomFactor":"150",
-	"nextElementColorIndex":"14"}
+	"UseCDN":"false",
+	"viewStartY":"0",
+	"expanded:images/checkmark_outlined.png":"nil"}
