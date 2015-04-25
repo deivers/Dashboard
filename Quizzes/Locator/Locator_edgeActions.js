@@ -15,43 +15,19 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       
       Symbol.bindElementAction(compId, symbolName, "document", "compositionReady", function(sym, e) {
          console.log($(".answer-button").length)////
-         
-         var overOpacity = 0.6;
-         var thresholdOpacity = 0.7;
-         var selectedOpacity = 0.8;
-         
-         sym.answerButtonClicked = function(which) {
-         	// toggle-off all the answer buttons
-         	$(".answer-button").css({"opacity": 0});
-         	// toggle-on the clicked answer button
-         	$(which).css({"opacity": selectedOpacity});
-         
-         }
-         
-         sym.answerButtonOver = function(which) {
-         	console.log("answerButtonOver")////
-         	if ($(which).css("opacity") == 0)
-         		$(which).css({"opacity": overOpacity});
-         }
-         
-         sym.answerButtonOut = function(which) {
-         	console.log("answerButtonOut")////
-         	if ($(which).css("opacity") < thresholdOpacity)
-         		$(which).css({"opacity": 0});
-         }
 
       });
       //Edge binding end
 
       Symbol.bindElementAction(compId, symbolName, "${RoundRect}", "click", function(sym, e) {
-         sym.answerButtonClicked(e.target);
+         answerButtonClicked(e.target);
          
 
       });
       //Edge binding end
 
       Symbol.bindElementAction(compId, symbolName, "${RoundRect}", "mouseover", function(sym, e) {
-         sym.answerButtonOver(e.target);
+         answerButtonOver(e.target);
          
          
 
@@ -59,7 +35,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       //Edge binding end
 
       Symbol.bindElementAction(compId, symbolName, "${RoundRect}", "mouseout", function(sym, e) {
-         sym.answerButtonOut(e.target);
+         answerButtonOut(e.target);
 
       });
       //Edge binding end
@@ -86,14 +62,14 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       //Edge binding end
 
       Symbol.bindElementAction(compId, symbolName, "${RoundRectCopy}", "click", function(sym, e) {
-         sym.answerButtonClicked(e.target);
+         answerButtonClicked(e.target);
          
 
       });
       //Edge binding end
 
       Symbol.bindElementAction(compId, symbolName, "${RoundRectCopy}", "mouseover", function(sym, e) {
-         sym.answerButtonOver(e.target);
+         answerButtonOver(e.target);
          
          
 
@@ -101,20 +77,20 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       //Edge binding end
 
       Symbol.bindElementAction(compId, symbolName, "${RoundRectCopy}", "mouseout", function(sym, e) {
-         sym.answerButtonOut(e.target);
+         answerButtonOut(e.target);
 
       });
       //Edge binding end
 
       Symbol.bindElementAction(compId, symbolName, "${RoundRectCopy2}", "click", function(sym, e) {
-         sym.answerButtonClicked(e.target);
+         answerButtonClicked(e.target);
          
 
       });
       //Edge binding end
 
       Symbol.bindElementAction(compId, symbolName, "${RoundRectCopy2}", "mouseover", function(sym, e) {
-         sym.answerButtonOver(e.target);
+         answerButtonOver(e.target);
          
          
 
@@ -122,7 +98,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       //Edge binding end
 
       Symbol.bindElementAction(compId, symbolName, "${RoundRectCopy2}", "mouseout", function(sym, e) {
-         sym.answerButtonOut(e.target);
+         answerButtonOut(e.target);
 
       });
       //Edge binding end
