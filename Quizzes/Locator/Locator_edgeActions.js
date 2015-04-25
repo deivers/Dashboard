@@ -15,79 +15,105 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       
       Symbol.bindElementAction(compId, symbolName, "document", "compositionReady", function(sym, e) {
          console.log("Click handler in compositionReady");
-         function answerButtonClicked(which){
-         	
-         };
          
+         console.log($(".answer-button").length)////
+         
+         var thresholdOpacity = 0.7;
+         
+         sym.answerButtonClicked = function(which) {
+         	// toggle-off all the answer buttons
+         	$(".answer-button").css({"opacity": 0});
+         	// toggle-on the clicked answer button
+         	$(which).css({"opacity": 0.8});
+         
+         }
+         
+         sym.answerButtonOver = function(which) {
+         	console.log("answerButtonOver")////
+         	if ($(which).css("opacity") == 0)
+         		$(which).css({"opacity": 0.6});
+         }
+         
+         sym.answerButtonOut = function(which) {
+         	console.log("answerButtonOut")////
+         	if ($(which).css("opacity") < 0.7)
+         		$(which).css({"opacity": 0});
+         }
+
+      });
+      //Edge binding end
+
+      Symbol.bindElementAction(compId, symbolName, "${RoundRect}", "click", function(sym, e) {
+         sym.answerButtonClicked(e.target);
+         
+
+      });
+      //Edge binding end
+
+      Symbol.bindElementAction(compId, symbolName, "${RoundRect}", "mouseover", function(sym, e) {
+         sym.answerButtonOver(e.target);
+         
+         
+
+      });
+      //Edge binding end
+
+      Symbol.bindElementAction(compId, symbolName, "${RoundRect}", "mouseout", function(sym, e) {
+         sym.answerButtonOut(e.target);
+
+      });
+      //Edge binding end
+
+      Symbol.bindSymbolAction(compId, symbolName, "creationComplete", function(sym, e) {
+         // set all answer buttons to 0 opacity before displaying anything
+         $(".answer-button").css({"opacity": 0});
+
+      });
+      //Edge binding end
+
+      Symbol.bindElementAction(compId, symbolName, "${RoundRectCopy}", "click", function(sym, e) {
+         sym.answerButtonClicked(e.target);
+         
+
+      });
+      //Edge binding end
+
+      Symbol.bindElementAction(compId, symbolName, "${RoundRectCopy}", "mouseover", function(sym, e) {
+         sym.answerButtonOver(e.target);
+         
+         
+
+      });
+      //Edge binding end
+
+      Symbol.bindElementAction(compId, symbolName, "${RoundRectCopy}", "mouseout", function(sym, e) {
+         sym.answerButtonOut(e.target);
+
+      });
+      //Edge binding end
+
+      Symbol.bindElementAction(compId, symbolName, "${RoundRectCopy2}", "click", function(sym, e) {
+         sym.answerButtonClicked(e.target);
+         
+
+      });
+      //Edge binding end
+
+      Symbol.bindElementAction(compId, symbolName, "${RoundRectCopy2}", "mouseover", function(sym, e) {
+         sym.answerButtonOver(e.target);
+         
+         
+
+      });
+      //Edge binding end
+
+      Symbol.bindElementAction(compId, symbolName, "${RoundRectCopy2}", "mouseout", function(sym, e) {
+         sym.answerButtonOut(e.target);
 
       });
       //Edge binding end
 
    })("stage");
    //Edge symbol end:'stage'
-
-   //=========================================================
-
-   //=========================================================
-
-   //=========================================================
-   
-   //Edge symbol: 'Hotspot'
-   (function(symbolName) {   
-   
-      Symbol.bindElementAction(compId, symbolName, "${Ellipse}", "click", function(sym, e) {
-         //console.log("Click handler in hotspot symbol");
-         hotspotClick(e.target, hotspotUrlToOpen);
-         // when the user returns from the modal iframe, we want the checkmark to be visible
-         sym.$("checkmark_outlined2").delay(2000).animate({"opacity": "inherit", "z-index": 3});
-         
-
-      });
-      //Edge binding end
-
-      Symbol.bindElementAction(compId, symbolName, "${checkmark_outlined2}", "click", function(sym, e) {
-         sym.$("Ellipse").click();
-
-      });
-      //Edge binding end
-
-      Symbol.bindSymbolAction(compId, symbolName, "creationComplete", function(sym, e) {
-         sym.getSymbolElement().css({opacity: 0}); // initially hide self
-         sym.$("checkmark_outlined2").css({"opacity": 0, "z-index": -1});  // initially hide the checkmark
-         
-
-      });
-      //Edge binding end
-
-      Symbol.bindElementAction(compId, symbolName, "${Ellipse}", "mouseover", function(sym, e) {
-         hotspotOver(e.target);
-
-      });
-      //Edge binding end
-
-      Symbol.bindElementAction(compId, symbolName, "${Ellipse}", "mouseout", function(sym, e) {
-         hotspotOut(e.target);
-
-      });
-      //Edge binding end
-
-   })("HotspotEllipse");
-   //Edge symbol end:'HotspotEllipse'
-
-   //=========================================================
-   
-   //Edge symbol: 'answerButton'
-   (function(symbolName) {   
-   
-      Symbol.bindElementAction(compId, symbolName, "${RoundRect}", "click", function(sym, e) {
-         console.log("Click handler in answerButton symbol script: ",e.target);
-         answerButtonClicked(e.target);
-         
-
-      });
-      //Edge binding end
-
-   })("answerButton");
-   //Edge symbol end:'answerButton'
 
 })(window.jQuery || AdobeEdge.$, AdobeEdge, "EDGE-152311472");
