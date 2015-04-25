@@ -67,12 +67,22 @@
                             fill: ["rgba(22,0,255,0.2471)"],
                             stroke: [0,"rgb(0, 0, 0)","none"],
                             userClass: "answer-button"
+                        },
+                        {
+                            id: 'SubmitButton',
+                            type: 'text',
+                            rect: ['227px', '402px', '70', '19', 'auto', 'auto'],
+                            cursor: 'pointer',
+                            text: "Submit",
+                            align: "center",
+                            userClass: "submit button blue",
+                            font: ['Arial, Helvetica, sans-serif', [18, "px"], "rgba(0,0,0,1)", "normal", "none", "", "break-word", ""]
                         }
                     ],
                     style: {
                         '${Stage}': {
                             isStage: true,
-                            rect: ['null', 'null', '550px', '400px', 'auto', 'auto'],
+                            rect: ['null', 'null', '550px', '550px', 'auto', 'auto'],
                             overflow: 'hidden',
                             fill: ["rgba(255,255,255,1)"]
                         }
