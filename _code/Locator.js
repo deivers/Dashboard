@@ -46,9 +46,11 @@ function checkAnswers() {
 		if ($(this).css("overflow") != "visible")
 			answerIndex = index;
 	});
-	if (selectedButtonIndex == answerIndex)
+	if (selectedButtonIndex == answerIndex) {
 		$(".answer-button").eq(selectedButtonIndex).css({"background-color": correctColor});
-	else {
+		alert("CORRECT!");
+		setUpNextButton();
+	} else {
 		$(".answer-button").eq(selectedButtonIndex)
 			.css({"background-color": wrongColor})
 			.animate({"opacity":0}, 2000, function(){

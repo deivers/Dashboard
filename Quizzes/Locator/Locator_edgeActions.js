@@ -103,6 +103,69 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       });
       //Edge binding end
 
+      Symbol.bindElementAction(compId, symbolName, "${RoundRectCopy3}", "click", function(sym, e) {
+         answerButtonClicked(e.target);
+         
+
+      });
+      //Edge binding end
+
+      Symbol.bindElementAction(compId, symbolName, "${RoundRectCopy3}", "mouseover", function(sym, e) {
+         answerButtonOver(e.target);
+         
+         
+
+      });
+      //Edge binding end
+
+      Symbol.bindElementAction(compId, symbolName, "${RoundRectCopy3}", "mouseout", function(sym, e) {
+         answerButtonOut(e.target);
+
+      });
+      //Edge binding end
+
+      Symbol.bindElementAction(compId, symbolName, "${RoundRectCopy4}", "click", function(sym, e) {
+         answerButtonClicked(e.target);
+         
+
+      });
+      //Edge binding end
+
+      Symbol.bindElementAction(compId, symbolName, "${RoundRectCopy4}", "mouseover", function(sym, e) {
+         answerButtonOver(e.target);
+         
+         
+
+      });
+      //Edge binding end
+
+      Symbol.bindElementAction(compId, symbolName, "${RoundRectCopy4}", "mouseout", function(sym, e) {
+         answerButtonOut(e.target);
+
+      });
+      //Edge binding end
+
+      Symbol.bindElementAction(compId, symbolName, "${RoundRectCopy5}", "click", function(sym, e) {
+         answerButtonClicked(e.target);
+         
+
+      });
+      //Edge binding end
+
+      Symbol.bindElementAction(compId, symbolName, "${RoundRectCopy5}", "mouseover", function(sym, e) {
+         answerButtonOver(e.target);
+         
+         
+
+      });
+      //Edge binding end
+
+      Symbol.bindElementAction(compId, symbolName, "${RoundRectCopy5}", "mouseout", function(sym, e) {
+         answerButtonOut(e.target);
+
+      });
+      //Edge binding end
+
    })("stage");
    //Edge symbol end:'stage'
 

@@ -62,6 +62,33 @@
                             userClass: "answer-button"
                         },
                         {
+                            id: 'RoundRectCopy5',
+                            type: 'rect',
+                            rect: ['104px', '220px', '27px', '73px', 'auto', 'auto'],
+                            borderRadius: ["10px", "10px", "10px", "10px"],
+                            fill: ["rgba(22,0,255,0.2471)"],
+                            stroke: [0,"rgb(0, 0, 0)","none"],
+                            userClass: "answer-button"
+                        },
+                        {
+                            id: 'RoundRectCopy3',
+                            type: 'rect',
+                            rect: ['393px', '220px', '27px', '73px', 'auto', 'auto'],
+                            borderRadius: ["10px", "10px", "10px", "10px"],
+                            fill: ["rgba(22,0,255,0.2471)"],
+                            stroke: [0,"rgb(0, 0, 0)","none"],
+                            userClass: "answer-button"
+                        },
+                        {
+                            id: 'RoundRectCopy4',
+                            type: 'rect',
+                            rect: ['480px', '220px', '27px', '73px', 'auto', 'auto'],
+                            borderRadius: ["10px", "10px", "10px", "10px"],
+                            fill: ["rgba(22,0,255,0.2471)"],
+                            stroke: [0,"rgb(0, 0, 0)","none"],
+                            userClass: "answer-button"
+                        },
+                        {
                             id: 'RoundRectCopy2',
                             type: 'rect',
                             rect: ['102px', '275px', '407px', '16px', 'auto', 'auto'],
