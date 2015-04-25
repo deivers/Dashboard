@@ -46,6 +46,7 @@
                             id: 'RoundRect',
                             type: 'rect',
                             rect: ['201px', '220px', '27px', '73px', 'auto', 'auto'],
+                            overflow: 'hidden',
                             borderRadius: ["10px", "10px", "10px", "10px"],
                             fill: ["rgba(22,0,255,0.2471)"],
                             stroke: [0,"rgb(0, 0, 0)","none"],
