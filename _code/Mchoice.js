@@ -75,11 +75,6 @@ function arrayOfCheckmarkedChoices() {
 	return arrayOfChoices;
 }
 
-function goNextPage() {
-	//console.log(">>> "+nextPageUrl);
-	if (typeof nextPageUrl !== 'undefined' && nextPageUrl != "")
-		window.open(nextPageUrl, "_self");
-}
 
 jQuery.fn.extend({
   isChecked: function() {

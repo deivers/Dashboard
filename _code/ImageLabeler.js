@@ -189,9 +189,3 @@ checkAnswers = function() {
 	} else
 		alert("You must complete the quiz before answers will be checked.");
 }
-
-goNextPage = function() {
-	console.log(">>> "+nextPageUrl);
-	if (typeof nextPageUrl !== 'undefined' && nextPageUrl != "")
-		window.open(nextPageUrl, "_self");
-}

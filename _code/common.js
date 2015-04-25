@@ -189,6 +189,12 @@ function setUpNextButton() {
 	$(".submit").css("left", Math.max(0, (($("#Stage").width() - newWidth)/2)) + "px"); // center it
 }
 
+function goNextPage() {
+	//console.log(">>> "+nextPageUrl);
+	if (typeof nextPageUrl !== 'undefined' && nextPageUrl != "")
+		window.open(nextPageUrl, "_self");
+}
+
 String.prototype.contains = function(subString) {
 	return this.indexOf(subString) != -1;
 }

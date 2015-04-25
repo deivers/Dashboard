@@ -15,6 +15,8 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       
       Symbol.bindElementAction(compId, symbolName, "document", "compositionReady", function(sym, e) {
          console.log($(".answer-button").length)////
+         
+         nextPageUrl = "../MatchupLateral/MatchupLateral.html"; // either a relative url: "../folder/filename.html" or an absolute url: "https://www.dictionary.com"
 
       });
       //Edge binding end

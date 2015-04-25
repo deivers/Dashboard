@@ -5,7 +5,7 @@ function init() {
 }
 
 
-var overOpacity = 0.5;
+var hoverOpacity = 0.5;
 var thresholdOpacity = 0.7;
 var selectedOpacity = 0.9;
 var existingColor, existingAchannel;
@@ -28,22 +28,22 @@ answerButtonClicked = function(which) {
 
 answerButtonOver = function(which) {
 	// console.log("answerButtonOver")////
-	if ($(which).css("opacity") == 0)
-		$(which).css({"opacity": overOpacity});
+	if ($(which).isNotSelected())
+		$(which).css({"opacity": hoverOpacity});
 }
 
 answerButtonOut = function(which) {
 	// console.log("answerButtonOut")////
-	if ($(which).css("opacity") < thresholdOpacity)
+	if ($(which).isNotSelected())
 		$(which).css({"opacity": 0});
 }
 
 
 function checkAnswers() {
-	console.log("checking answers...");
+	// console.log("checking answers...")////
 	var selectedButtonIndex, answerIndex;
 	$(".answer-button").each(function(index){
-		if ($(this).css("opacity") > thresholdOpacity)
+		if ($(this).isSelected())
 			selectedButtonIndex = index;
 	});
 	// console.log("the student selected number: ", selectedButtonIndex)////
@@ -65,3 +65,11 @@ function checkAnswers() {
 
 }
 
+jQuery.fn.extend({
+  isSelected: function() {
+	return this.css("opacity") > thresholdOpacity;
+  },
+  isNotSelected: function() {
+	return this.css("opacity") < thresholdOpacity;
+  }
+});
