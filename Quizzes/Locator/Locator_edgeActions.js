@@ -49,7 +49,8 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          	nope: [
          				'../../_code/common.css',
          				'../../_code/common.js',
-         				'../../_code/Locator.js'
+         				'../../_code/Locator.js',
+         				'../../_code/jquery.color-2.1.2.min.js'
          	],
          	complete: function() {
          		init()
