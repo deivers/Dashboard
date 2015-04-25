@@ -149,6 +149,23 @@ function replaceAwithBinC(a,b,c) {
 	return c.replace(RegExp(a,"gm"),b);  // "g" for global replace, "m" for multi-line
 }
 
+function encode(string) {
+	var result = "", chr;
+	for (var i=0; i<string.length; i++) {
+		chr = string.charCodeAt(i);
+		result += String.fromCharCode( (chr < 34) ? chr : chr + 1 + i%2);
+	}
+	return result;
+}
+function unencode(string) {
+	var result = "", chr;
+	for (var i=0; i<string.length; i++) {
+		chr = string.charCodeAt(i);
+		result += String.fromCharCode((chr < 34) ? chr : chr - 1 - i%2);
+	}
+	return result;
+}
+
 // the following methods are for AEA projects //
 
 function setUpSubmitButton() {
@@ -170,23 +187,6 @@ function setUpNextButton() {
 	}
 	var newWidth = $(".submit").outerWidth();
 	$(".submit").css("left", Math.max(0, (($("#Stage").width() - newWidth)/2)) + "px"); // center it
-}
-
-function encode(string) {
-	var result = "", chr;
-	for (var i=0; i<string.length; i++) {
-		chr = string.charCodeAt(i);
-		result += String.fromCharCode( (chr < 34) ? chr : chr + 1 + i%2);
-	}
-	return result;	
-}
-function unencode(string) {
-	var result = "", chr;
-	for (var i=0; i<string.length; i++) {
-		chr = string.charCodeAt(i);
-		result += String.fromCharCode((chr < 34) ? chr : chr - 1 - i%2);
-	}
-	return result;
 }
 
 String.prototype.contains = function(subString) {
