@@ -29,6 +29,7 @@
 			"animationEnabled":"true",
 			"timelineColor":"0x2f73ad"}},
 	"pref__general__FilterNonAnimatedElements":"false",
+	"pixelsPerMs":"0.2",
 	"symbol_SubmitAnswersButton":{
 		"codeTreeElementPopupFilter":""},
 	"CopyrightAndCredits-Default Timeline_playhead_ms":"0",
@@ -211,4 +212,4 @@
 \
    }}\
 }",
-	"pixelsPerMs":"0.2"}
+	"expanded:images/cell_cutaway.png":"nil"}

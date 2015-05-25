@@ -32,7 +32,7 @@
                             id: 'cell_cutaway',
                             type: 'image',
                             rect: ['126', '121', '500', '350', 'auto', 'auto'],
-                            fill: ["rgba(0,0,0,0)",im+"cell_cutaway.jpg",'0px','0px']
+                            fill: ["rgba(0,0,0,0)",im+"cell_cutaway.png",'0px','0px']
                         },
                         {
                             id: 'Text2',
@@ -217,7 +217,7 @@
                             isStage: true,
                             rect: ['null', 'null', '754', '700', 'auto', 'auto'],
                             overflow: 'hidden',
-                            fill: ["rgba(255,255,255,0.00)"]
+                            fill: ["rgba(221,221,221,1.00)"]
                         }
                     }
                 },
