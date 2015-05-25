@@ -51,9 +51,9 @@ function completeFragment(fragment) {
 }
 
 function extract() {
-	console.log($("#autoCompleteTerms"))///
-
-	var termsString = ($("#autoCompleteTerms").exists()) ? $("#autoCompleteTerms").html().trim() : unencode($("#encodedList").html().trim());
+	var termsString = ($("#autoCompleteTerms").exists()) ? $("#autoCompleteTerms").html().trim() : $("#encodedList").html().trim();
+	if (isEncoded(termsString))
+		termsString = unencode(termsString);
 	autoCompleteTerms = termsString.split("|");
 	$("#autoCompleteTerms").remove();
 	$("#encodedList").remove();
