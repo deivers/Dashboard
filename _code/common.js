@@ -150,7 +150,8 @@ function replaceAwithBinC(a,b,c) {
 }
 
 function encode(string) {
-	var result = "", chr;
+	var result, chr, encChr;
+	result = "?" + String.fromCharCode(127);
 	for (var i=0; i<string.length; i++) {
 		chr = string.charCodeAt(i);
 		result += String.fromCharCode( (chr < 34) ? chr : chr + 1 + i%2);
@@ -158,12 +159,15 @@ function encode(string) {
 	return result;
 }
 function unencode(string) {
-	var result = "", chr;
-	for (var i=0; i<string.length; i++) {
+	var result = "", chr, unencChar;
+	for (var i=2; i<string.length; i++) {
 		chr = string.charCodeAt(i);
 		result += String.fromCharCode((chr < 34) ? chr : chr - 1 - i%2);
 	}
 	return result;
+}
+function isEncoded(string) {
+	return (string.charCodeAt(0) == 63 && string.charCodeAt(1) == 127);
 }
 
 // the following methods are for AEA projects //
