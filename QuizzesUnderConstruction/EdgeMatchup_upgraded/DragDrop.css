@@ -1,0 +1,9 @@
+
+.dragging {
+	box-shadow: 0 0 .5em rgba(0, 0, 0, .8) !important;
+	-moz-box-shadow: 0 0 .5em rgba(0, 0, 0, .8) !important;
+	-webkit-box-shadow: 0 0 .5em rgba(0, 0, 0, .8) !important;
+}
+.dropHover {
+	background-color: #555 !important;
+}
