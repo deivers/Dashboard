@@ -203,6 +203,10 @@ String.prototype.contains = function(subString) {
 	return this.indexOf(subString) != -1;
 }
 
+function exists(x) {
+	return (typeof x !== "undefined" && x != null);
+}
+
 jQuery.fn.exists = function(){
 	return jQuery(this).length>0;
 }

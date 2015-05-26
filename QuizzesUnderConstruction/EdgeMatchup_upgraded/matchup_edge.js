@@ -16,7 +16,8 @@
         resources = [
         ],
         scripts = [
-            js+"jquery-1.7.1.min.js"
+            js+"jquery-1.7.1.min.js",
+            js+"jquery-ui-touch-combo.js"
         ],
         symbols = {
             "stage": {
@@ -32,7 +33,7 @@
                             id: 'resetButton3',
                             symbolName: 'resetButton',
                             type: 'rect',
-                            rect: ['422', '637', '56', '24', 'auto', 'auto'],
+                            rect: ['439px', '637', '56', '24', 'auto', 'auto'],
                             cursor: 'pointer'
                         },
                         {
@@ -83,7 +84,8 @@
                             rect: ['196', '135', '186', '26', 'auto', 'auto'],
                             borderRadius: ["0px 0px", "0px 0px", "15px 15px", "15px 15px"],
                             fill: ["rgba(220,217,217,1.00)"],
-                            stroke: [2,"rgba(0,0,0,1)","dashed"]
+                            stroke: [2,"rgba(0,0,0,1)","dashed"],
+                            userClass: "dropZone"
                         },
                         {
                             id: 'qHint1Copy',
@@ -133,7 +135,8 @@
                             rect: ['195', '279', '186', '26', 'auto', 'auto'],
                             borderRadius: ["0px 0px", "0px 0px", "15px 15px", "15px 15px"],
                             fill: ["rgba(220,217,217,1.00)"],
-                            stroke: [2,"rgba(0,0,0,1)","dashed"]
+                            stroke: [2,"rgba(0,0,0,1)","dashed"],
+                            userClass: "dropZone"
                         },
                         {
                             id: 'drag2',
@@ -189,7 +192,7 @@
                         {
                             id: 'Text3',
                             type: 'text',
-                            rect: ['415px', '601px', '70', '19', 'auto', 'auto'],
+                            rect: ['432px', '601px', '70', '19', 'auto', 'auto'],
                             cursor: 'pointer',
                             text: "Submit",
                             align: "center",
