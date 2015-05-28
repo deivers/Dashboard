@@ -38,7 +38,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          // stop here if you are not using the Dashboard feature
          	logResponsesToDashboard = false;	// true if you want to use the Dashboard
          	quizpageNumber = 1;					// required if the above is true; must be unique across quiz-pages in this folder
-         	qTextSummary = "";					// short description of what is in this quiz for the purpose of the dashboard
+         	qTextSummary = "Cut-away animal cell";					// short description of what is in this quiz for the purpose of the dashboard
          // end of editable section //
          // Note: the above parameters are intentionally global
          
