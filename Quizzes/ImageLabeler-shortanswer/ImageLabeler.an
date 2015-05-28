@@ -4,7 +4,7 @@
 	"HTMLFileName":"ImageLabeler.html",
 	"PubUseChromeFrameInstaller":"false",
 	"UseCDN":"false",
-	"expanded:images/arrow.png":"nil",
+	"CopyrightAndCredits-Default Timeline_playhead_ms":"0",
 	"symbol_CopyrightAndCredits":{
 		"element_${Text}":{
 			"timelineColor2":"0x107faa",
@@ -15,14 +15,14 @@
 			"timelineColor3":"0x2a605c",
 			"animationEnabled":"true",
 			"timelineColor":"0x00a096"},
-		"element_${Group}":{
-			"timelineColor2":"0x1aa38f",
-			"timelineColor3":"0x2a6a61",
-			"timelineColor":"0x00bda4"},
 		"element_${TextCopy2}":{
 			"timelineColor2":"0x1095d2",
 			"timelineColor3":"0x29647e",
 			"timelineColor":"0x00a9fa"},
+		"element_${Group}":{
+			"timelineColor2":"0x1aa38f",
+			"timelineColor3":"0x2a6a61",
+			"timelineColor":"0x00bda4"},
 		"element_${codeByButton}":{
 			"timelineColor2":"0x326a96",
 			"timelineColor3":"0x385063",
@@ -32,7 +32,36 @@
 	"pixelsPerMs":"0.2",
 	"symbol_SubmitAnswersButton":{
 		"codeTreeElementPopupFilter":""},
-	"CopyrightAndCredits-Default Timeline_playhead_ms":"0",
+	"ModelData":"{\
+\"stage\": {\
+   \"timelines\": {\
+      \"Default Timeline\": {\
+      }\
+   }},\
+\"Preloader\": {\
+   \"timelines\": {\
+\
+   }},\
+\"CopyrightAndCredits\": {\
+   \"timelines\": {\
+      \"Default Timeline\": {\
+      }\
+   }},\
+\"codeByButton\": {\
+   \"timelines\": {\
+      \"Default Timeline\": {\
+      }\
+   }},\
+\"copyrightButton\": {\
+   \"timelines\": {\
+      \"Default Timeline\": {\
+      }\
+   }},\
+\"Down-level\": {\
+   \"timelines\": {\
+\
+   }}\
+}",
 	"pref__general__AutoKeyframePropertiesArmed":"false",
 	"expanded:images/cellmodel.png":"nil",
 	"symbol_stage":{
@@ -42,15 +71,18 @@
 			"timelineColor":"0x008dc8",
 			"timelineTreeOpened":"false",
 			"animationEnabled":"true"},
-		"dummyStageParentHeight":"700px",
+		"element_${TextCopy3}":{
+			"timelineColor2":"0x326a96",
+			"timelineColor3":"0x385063",
+			"timelineColor":"0x2f73ad"},
 		"element_${TextCopy4}":{
 			"timelineColor2":"0x1095d2",
 			"timelineColor3":"0x29647e",
 			"timelineColor":"0x00a9fa"},
-		"element_${arrow2Copy4}":{
-			"timelineColor2":"0x4fa275",
-			"timelineColor3":"0x456a55",
-			"timelineColor":"0x50bd82"},
+		"element_${TextCopy12}":{
+			"timelineColor2":"0x81aa62",
+			"timelineColor3":"0x5b6c4d",
+			"timelineColor":"0x91c767"},
 		"element_${TextCopy9}":{
 			"timelineColor2":"0xba5b89",
 			"timelineColor3":"0x734a5f",
@@ -105,40 +137,37 @@
 			"timelineColor2":"0xcbbd71",
 			"timelineColor3":"0x7b7652",
 			"timelineColor":"0xeedf79"},
-		"element_${TextCopy2}":{
-			"timelineColor2":"0x168c84",
-			"timelineColor3":"0x2a605c",
-			"timelineColor":"0x00a096"},
-		"element_${arrow2Copy3}":{
-			"timelineColor2":"0x81aa62",
-			"timelineColor3":"0x5b6c4d",
-			"timelineColor":"0x91c767"},
-		"element_${TextCopy12}":{
-			"timelineColor2":"0x81aa62",
-			"timelineColor3":"0x5b6c4d",
-			"timelineColor":"0x91c767"},
 		"element_${SubmitAnswersButton}":{
 			"timelineColor2":"0x1aa38f",
 			"timelineColor3":"0x2a6a61",
 			"timelineColor":"0x00bda4",
 			"timelineTreeOpened":"false",
 			"animationEnabled":"false"},
-		"element_${TextCopy8}":{
-			"timelineColor2":"0xd35d6e",
-			"timelineColor3":"0x7e4b52",
-			"timelineColor":"0xfb657a"},
-		"element_${TextCopy11}":{
-			"timelineColor2":"0xcbbd71",
-			"timelineColor3":"0x7b7652",
-			"timelineColor":"0xeedf79"},
+		"element_${arrow2Copy3}":{
+			"timelineColor2":"0x81aa62",
+			"timelineColor3":"0x5b6c4d",
+			"timelineColor":"0x91c767"},
+		"element_${TextCopy10}":{
+			"timelineColor2":"0xd8b467",
+			"timelineColor3":"0x81714f",
+			"timelineColor":"0xffd46d"},
 		"element_${TextCopy5}":{
 			"timelineColor2":"0x107faa",
 			"timelineColor3":"0x295a6d",
 			"timelineColor":"0x008dc8"},
-		"element_${TextCopy3}":{
-			"timelineColor2":"0x326a96",
-			"timelineColor3":"0x385063",
-			"timelineColor":"0x2f73ad"},
+		"element_${TextCopy8}":{
+			"timelineColor2":"0xd35d6e",
+			"timelineColor3":"0x7e4b52",
+			"timelineColor":"0xfb657a"},
+		"element_${TextCopy2}":{
+			"timelineColor2":"0x168c84",
+			"timelineColor3":"0x2a605c",
+			"timelineColor":"0x00a096"},
+		"element_${arrow2Copy4}":{
+			"timelineColor2":"0x4fa275",
+			"timelineColor3":"0x456a55",
+			"timelineColor":"0x50bd82"},
+		"dummyStageParentHeight":"700px",
 		"element_${Text2}":{
 			"timelineColor2":"0x326a96",
 			"timelineColor3":"0x385063",
@@ -168,48 +197,19 @@
 			"timelineColor3":"0x5b6c4d",
 			"animationEnabled":"false",
 			"timelineColor":"0x91c767"},
-		"element_${TextCopy10}":{
-			"timelineColor2":"0xd8b467",
-			"timelineColor3":"0x81714f",
-			"timelineColor":"0xffd46d"}},
+		"element_${TextCopy11}":{
+			"timelineColor2":"0xcbbd71",
+			"timelineColor3":"0x7b7652",
+			"timelineColor":"0xeedf79"}},
 	"TransitionIdCounter":"11",
 	"CompZoomFactor":"100",
 	"StageZoomFactor":"100",
 	"expanded:images/cell_cutaway.jpg":"nil",
-	"PubWebDir":"/Users/deivers/_Dev-OTSbiz/OTSW site 2010/BioTestArea/Dashboard2/Quizzes/ImageMenus/",
+	"viewStartY":"0",
 	"PubChromeFrameInstallerPrompt":"none",
 	"usedBOM":"false",
 	"nextElementColorIndex":"9",
 	"stage-Default Timeline_playhead_ms":"0",
-	"viewStartY":"0",
-	"ModelData":"{\
-\"stage\": {\
-   \"timelines\": {\
-      \"Default Timeline\": {\
-      }\
-   }},\
-\"Preloader\": {\
-   \"timelines\": {\
-\
-   }},\
-\"CopyrightAndCredits\": {\
-   \"timelines\": {\
-      \"Default Timeline\": {\
-      }\
-   }},\
-\"codeByButton\": {\
-   \"timelines\": {\
-      \"Default Timeline\": {\
-      }\
-   }},\
-\"copyrightButton\": {\
-   \"timelines\": {\
-      \"Default Timeline\": {\
-      }\
-   }},\
-\"Down-level\": {\
-   \"timelines\": {\
-\
-   }}\
-}",
+	"PubWebDir":"/Users/deivers/_Dev-OTSbiz/OTSW site 2010/BioTestArea/Dashboard2/Quizzes/ImageMenus/",
+	"expanded:images/arrow.png":"nil",
 	"expanded:images/cell_cutaway.png":"nil"}

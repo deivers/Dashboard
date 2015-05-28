@@ -16,7 +16,7 @@
         resources = [
         ],
         scripts = [
-            js+"jquery-2.0.3.min.js"
+            "https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"
         ],
         symbols = {
             "stage": {
@@ -127,7 +127,7 @@
                             rect: ['0', '2', '602', '16', 'auto', 'auto'],
                             text: "plant cell",
                             userClass: "textSource decoy",
-                            font: ['{', [, ":undefined"], "}", "1", "2", "p", "x", "{"]
+                            font: ['{', [, "{undefined"], ":", "}", ":", "u", "n", "d"]
                         },
                         {
                             id: 'TextCopy7',
@@ -226,16 +226,6 @@
                     autoPlay: true,
                     data: [
                         [
-                            "eid9",
-                            "left",
-                            0,
-                            0,
-                            "linear",
-                            "${CopyrightAndCredits}",
-                            '77px',
-                            '77px'
-                        ],
-                        [
                             "eid10",
                             "top",
                             0,
@@ -244,6 +234,16 @@
                             "${CopyrightAndCredits}",
                             '630px',
                             '630px'
+                        ],
+                        [
+                            "eid9",
+                            "left",
+                            0,
+                            0,
+                            "linear",
+                            "${CopyrightAndCredits}",
+                            '77px',
+                            '77px'
                         ]
                     ]
                 }
@@ -258,25 +258,25 @@
                 content: {
                     dom: [
                         {
-                            type: 'group',
-                            id: 'Group',
                             rect: [0, 0, 700, 36, 'auto', 'auto'],
+                            id: 'Group',
+                            type: 'group',
                             c: [
                             {
-                                font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(119,119,119,1.00)', 'normal', 'none', '', '', ''],
                                 type: 'text',
+                                rect: [0, 2, 602, 16, 'auto', 'auto'],
                                 id: 'Text',
                                 text: 'Copyright 2014 North Carolina State University. Code by One Time Software. Version 1.4 July 2014.',
                                 align: 'center',
-                                rect: [0, 2, 602, 16, 'auto', 'auto']
+                                font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(119,119,119,1.00)', 'normal', 'none', '', '', '']
                             },
                             {
-                                font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(119,119,119,1.00)', 'normal', 'none', '', '', ''],
                                 type: 'text',
+                                rect: [0, 20, 602, 16, 'auto', 'auto'],
                                 id: 'TextCopy2',
                                 text: 'Free for academic use when displaying this notice.',
                                 align: 'center',
-                                rect: [0, 20, 602, 16, 'auto', 'auto']
+                                font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(119,119,119,1.00)', 'normal', 'none', '', '', '']
                             },
                             {
                                 rect: [327, 0, 106, 16, 'auto', 'auto'],
@@ -296,7 +296,7 @@
                     ],
                     style: {
                         '${TextCopy}': {
-                            font: '{{:}:undefined{:}}{:}1{:}2{:}p{:}x{:}{',
+                            font: '{{:}{undefined{:}:{:}}{:}:{:}u{:}n{:}d',
                             rect: [0, 2, 602, 16]
                         },
                         '${symbolSelector}': {
@@ -324,9 +324,9 @@
                         {
                             rect: [0, 0, '106px', '16px', 'auto', 'auto'],
                             borderRadius: ['10px', '10px', '10px', '10px'],
-                            stroke: [0, 'rgba(0,0,0,1)', 'none'],
-                            id: 'RoundRect',
                             opacity: '0',
+                            id: 'RoundRect',
+                            stroke: [0, 'rgba(0,0,0,1)', 'none'],
                             type: 'rect',
                             fill: ['rgba(192,192,192,1)']
                         }
@@ -357,9 +357,9 @@
                         {
                             rect: [0, 0, 168, '16px', 'auto', 'auto'],
                             borderRadius: ['10px', '10px', '10px', '10px'],
-                            opacity: '0',
-                            id: 'RoundRect2',
                             stroke: [0, 'rgb(0, 0, 0)', 'none'],
+                            id: 'RoundRect2',
+                            opacity: '0',
                             type: 'rect',
                             fill: ['rgba(192,192,192,1)']
                         }
