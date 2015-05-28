@@ -16,7 +16,8 @@
         resources = [
         ],
         scripts = [
-            js+"jquery-1.7.1.min.js"
+            "https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js",
+            js+"jquery-ui-touch-combo.js"
         ],
         symbols = {
             "stage": {
@@ -32,7 +33,7 @@
                             id: 'resetButton3',
                             symbolName: 'resetButton',
                             type: 'rect',
-                            rect: ['422', '637', '56', '24', 'auto', 'auto'],
+                            rect: ['439px', '637', '56', '24', 'auto', 'auto'],
                             cursor: 'pointer'
                         },
                         {
@@ -83,7 +84,8 @@
                             rect: ['196', '135', '186', '26', 'auto', 'auto'],
                             borderRadius: ["0px 0px", "0px 0px", "15px 15px", "15px 15px"],
                             fill: ["rgba(220,217,217,1.00)"],
-                            stroke: [2,"rgba(0,0,0,1)","dashed"]
+                            stroke: [2,"rgba(0,0,0,1)","dashed"],
+                            userClass: "dropZone"
                         },
                         {
                             id: 'qHint1Copy',
@@ -133,7 +135,8 @@
                             rect: ['195', '279', '186', '26', 'auto', 'auto'],
                             borderRadius: ["0px 0px", "0px 0px", "15px 15px", "15px 15px"],
                             fill: ["rgba(220,217,217,1.00)"],
-                            stroke: [2,"rgba(0,0,0,1)","dashed"]
+                            stroke: [2,"rgba(0,0,0,1)","dashed"],
+                            userClass: "dropZone"
                         },
                         {
                             id: 'drag2',
@@ -189,7 +192,7 @@
                         {
                             id: 'Text3',
                             type: 'text',
-                            rect: ['415px', '601px', '70', '19', 'auto', 'auto'],
+                            rect: ['432px', '601px', '70', '19', 'auto', 'auto'],
                             cursor: 'pointer',
                             text: "Submit",
                             align: "center",
@@ -211,22 +214,22 @@
                     autoPlay: true,
                     data: [
                         [
-                            "eid36",
+                            "eid42",
                             "opacity",
                             0,
                             0,
                             "linear",
-                            "${drag2}",
+                            "${qHint1Copy}",
                             '0',
                             '0'
                         ],
                         [
-                            "eid37",
+                            "eid43",
                             "opacity",
-                            1000,
+                            2000,
                             0,
                             "linear",
-                            "${drag2}",
+                            "${qHint1Copy}",
                             '0',
                             '1'
                         ],
@@ -271,42 +274,42 @@
                             '1'
                         ],
                         [
-                            "eid1",
+                            "eid2",
                             "opacity",
                             0,
                             0,
                             "linear",
-                            "${drag1}",
+                            "${dragText1}",
                             '0',
                             '0'
                         ],
                         [
-                            "eid3",
+                            "eid4",
                             "opacity",
                             1000,
                             0,
                             "linear",
-                            "${drag1}",
+                            "${dragText1}",
                             '0',
                             '1'
                         ],
                         [
-                            "eid38",
+                            "eid36",
                             "opacity",
                             0,
                             0,
                             "linear",
-                            "${dragText1Copy}",
+                            "${drag2}",
                             '0',
                             '0'
                         ],
                         [
-                            "eid39",
+                            "eid37",
                             "opacity",
                             1000,
                             0,
                             "linear",
-                            "${dragText1Copy}",
+                            "${drag2}",
                             '0',
                             '1'
                         ],
@@ -331,42 +334,42 @@
                             '1'
                         ],
                         [
-                            "eid2",
+                            "eid38",
                             "opacity",
                             0,
                             0,
                             "linear",
-                            "${dragText1}",
+                            "${dragText1Copy}",
                             '0',
                             '0'
                         ],
                         [
-                            "eid4",
+                            "eid39",
                             "opacity",
                             1000,
                             0,
                             "linear",
-                            "${dragText1}",
+                            "${dragText1Copy}",
                             '0',
                             '1'
                         ],
                         [
-                            "eid42",
+                            "eid1",
                             "opacity",
                             0,
                             0,
                             "linear",
-                            "${qHint1Copy}",
+                            "${drag1}",
                             '0',
                             '0'
                         ],
                         [
-                            "eid43",
+                            "eid3",
                             "opacity",
-                            2000,
+                            1000,
                             0,
                             "linear",
-                            "${qHint1Copy}",
+                            "${drag1}",
                             '0',
                             '1'
                         ]
@@ -383,22 +386,22 @@
                 content: {
                     dom: [
                         {
+                            rect: [0, 0, 129, 27, 'auto', 'auto'],
                             type: 'rect',
                             borderRadius: ['14px 14px', '14px 14px', '14px 14px', '14px 14px'],
+                            title: 'Check answers',
                             id: 'RoundRect',
                             stroke: [2, 'rgb(0, 0, 0)', 'solid'],
                             cursor: 'pointer',
-                            rect: [0, 0, 129, 27, 'auto', 'auto'],
-                            title: 'Check answers',
                             fill: ['rgba(112,100,252,1.00)']
                         },
                         {
-                            rect: [12, 7, 'auto', 'auto', 'auto', 'auto'],
                             font: ['Arial, Helvetica, sans-serif', [16, 'px'], 'rgba(255,255,255,1.00)', '500', 'none', '', '', 'nowrap'],
+                            type: 'text',
                             id: 'Text',
                             text: 'Check answers',
                             align: 'center',
-                            type: 'text'
+                            rect: [12, 7, 'auto', 'auto', 'auto', 'auto']
                         }
                     ],
                     style: {
@@ -425,18 +428,18 @@
                 content: {
                     dom: [
                         {
-                            rect: [5, 6, 'auto', 'auto', 'auto', 'auto'],
                             font: ['Arial, Helvetica, sans-serif', [13, 'px'], 'rgba(115,115,115,1.00)', '400', 'none', 'normal', '', 'nowrap'],
+                            type: 'text',
                             id: 'resetButton',
                             text: 'RESET',
                             align: 'center',
-                            type: 'text'
+                            rect: [5, 6, 'auto', 'auto', 'auto', 'auto']
                         },
                         {
-                            type: 'rect',
+                            rect: [0, 0, 56, 24, 'auto', 'auto'],
                             id: 'Rectangle2',
                             stroke: [1, 'rgb(0, 0, 0)', 'none'],
-                            rect: [0, 0, 56, 24, 'auto', 'auto'],
+                            type: 'rect',
                             fill: ['rgba(97,112,159,0.00)']
                         }
                     ],
@@ -464,37 +467,38 @@
                 content: {
                     dom: [
                         {
-                            rect: [0, 0, '575', '18', 'auto', 'auto'],
                             id: 'Group',
                             type: 'group',
+                            rect: ['0', '0', '575', '18', 'auto', 'auto'],
                             c: [
                             {
-                                font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(0,0,0,1)', 'normal', 'none', '', '', ''],
-                                type: 'text',
+                                rect: ['0', '2', '575', '16', 'auto', 'auto'],
+                                font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(0,0,0,1)', 'normal', 'none', '', 'break-word', ''],
                                 id: 'Text',
-                                text: 'Copyright 2013 North Carolina State University. Code by One Time Software. Version 1.0 July 2013.',
+                                text: 'Copyright 2013 North Carolina State University. Code by One Time Software. Version 1.0 June 2015.',
                                 align: 'center',
-                                rect: [0, 2, 575, 16, 'auto', 'auto']
+                                type: 'text'
                             },
                             {
-                                rect: [327, 0, 106, 16, 'auto', 'auto'],
+                                type: 'rect',
                                 id: 'codeByButton',
                                 symbolName: 'codeByButton',
                                 cursor: 'pointer',
-                                type: 'rect'
+                                rect: ['327', '0', '106', '16', 'auto', 'auto']
                             },
                             {
-                                rect: [102, 2, 168, 16, 'auto', 'auto'],
+                                type: 'rect',
                                 id: 'copyrightButton',
                                 symbolName: 'copyrightButton',
                                 cursor: 'pointer',
-                                type: 'rect'
+                                rect: ['102', '2', '168', '16', 'auto', 'auto']
                             }]
                         }
                     ],
                     style: {
                         '${symbolSelector}': {
-                            rect: [null, null, 575, 18]
+                            isStage: 'true',
+                            rect: [undefined, undefined, '575', '18']
                         }
                     }
                 },
@@ -518,9 +522,9 @@
                         {
                             rect: [0, 0, '106px', '16px', 'auto', 'auto'],
                             borderRadius: ['10px', '10px', '10px', '10px'],
-                            opacity: '0',
-                            id: 'RoundRect',
                             stroke: [0, 'rgba(0,0,0,1)', 'none'],
+                            id: 'RoundRect',
+                            opacity: '0',
                             type: 'rect',
                             fill: ['rgba(192,192,192,1)']
                         }
@@ -551,9 +555,9 @@
                         {
                             rect: [0, 0, 168, '16px', 'auto', 'auto'],
                             borderRadius: ['10px', '10px', '10px', '10px'],
-                            stroke: [0, 'rgb(0, 0, 0)', 'none'],
-                            id: 'RoundRect2',
                             opacity: '0',
+                            id: 'RoundRect2',
+                            stroke: [0, 'rgb(0, 0, 0)', 'none'],
                             type: 'rect',
                             fill: ['rgba(192,192,192,1)']
                         }

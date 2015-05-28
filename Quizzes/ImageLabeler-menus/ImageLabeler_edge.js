@@ -16,7 +16,7 @@
         resources = [
         ],
         scripts = [
-            js+"jquery-2.0.3.min.js"
+            "https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"
         ],
         symbols = {
             "stage": {
@@ -99,7 +99,7 @@
                             rect: ['0', '2', '602', '16', 'auto', 'auto'],
                             text: "protein",
                             userClass: "textSource decoy",
-                            font: ['{', [, ":undefined"], "}", "1", "2", "p", "x", "{"]
+                            font: ['{', [, "{undefined"], ":", "}", "{", "u", "n", "d"]
                         },
                         {
                             id: 'TextCopy7',
@@ -225,20 +225,20 @@
                             rect: [0, 0, 700, 36, 'auto', 'auto'],
                             c: [
                             {
+                                type: 'text',
                                 rect: [0, 2, 602, 16, 'auto', 'auto'],
-                                font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(119,119,119,1.00)', 'normal', 'none', '', '', ''],
                                 id: 'Text',
                                 text: 'Copyright 2014 North Carolina State University. Code by One Time Software. Version 1.4 July 2014.',
                                 align: 'center',
-                                type: 'text'
+                                font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(119,119,119,1.00)', 'normal', 'none', '', '', '']
                             },
                             {
+                                type: 'text',
                                 rect: [0, 20, 602, 16, 'auto', 'auto'],
-                                font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(119,119,119,1.00)', 'normal', 'none', '', '', ''],
                                 id: 'TextCopy2',
                                 text: 'Free for academic use when displaying this notice.',
                                 align: 'center',
-                                type: 'text'
+                                font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(119,119,119,1.00)', 'normal', 'none', '', '', '']
                             },
                             {
                                 rect: [327, 0, 106, 16, 'auto', 'auto'],
@@ -258,7 +258,7 @@
                     ],
                     style: {
                         '${TextCopy}': {
-                            font: '{{:}:undefined{:}}{:}1{:}2{:}p{:}x{:}{',
+                            font: '{{:}{undefined{:}:{:}}{:}{{:}u{:}n{:}d',
                             rect: [0, 2, 602, 16]
                         },
                         '${symbolSelector}': {
