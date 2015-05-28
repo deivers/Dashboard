@@ -16,7 +16,7 @@
         resources = [
         ],
         scripts = [
-            js+"jquery-1.7.1.min.js"
+            "https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"
         ],
         symbols = {
             "stage": {
@@ -81,16 +81,6 @@
                     autoPlay: true,
                     data: [
                         [
-                            "eid14",
-                            "left",
-                            0,
-                            0,
-                            "linear",
-                            "${HotspotEllipse2}",
-                            '361px',
-                            '361px'
-                        ],
-                        [
                             "eid11",
                             "top",
                             0,
@@ -99,6 +89,16 @@
                             "${HotspotEllipse}",
                             '41px',
                             '41px'
+                        ],
+                        [
+                            "eid14",
+                            "left",
+                            0,
+                            0,
+                            "linear",
+                            "${HotspotEllipse2}",
+                            '361px',
+                            '361px'
                         ],
                         [
                             "eid10",
@@ -144,17 +144,17 @@
                             fill: ['rgba(243,0,255,0.35)']
                         },
                         {
-                            type: 'image',
-                            fill: ['rgba(0,0,0,0)', 'images/checkmark_outlined.png', '50%', '50%', '30px', '30px'],
-                            id: 'checkmark_outlined2',
                             rect: [40, 23, '30px', '30px', 'auto', 'auto'],
+                            sizeRange: ['30px', '', '', ''],
+                            id: 'checkmark_outlined2',
+                            type: 'image',
                             cursor: 'pointer',
-                            sizeRange: ['30px', '', '', '']
+                            fill: ['rgba(0,0,0,0)', 'images/checkmark_outlined.png', '50%', '50%', '30px', '30px']
                         }
                     ],
                     style: {
                         '${symbolSelector}': {
-                            sizeRange: '30px{:}undefined{:}undefined{:}undefined',
+                            sizeRange: '3{:}0{:}p{:}x',
                             rect: [null, null, 102, 76]
                         }
                     }
