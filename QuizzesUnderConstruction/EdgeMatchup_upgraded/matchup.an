@@ -3,28 +3,6 @@
 
 	"HTMLFileName":"matchup.html",
 	"pref__general__AutoKeyframeProperties":"false",
-	"CopyrightAndCredits-Default Timeline_playhead_ms":"0",
-	"symbol_CopyrightAndCredits":{
-		"element_${copyrightButton}":{
-			"timelineColor2":"0x326a96",
-			"timelineColor3":"0x385063",
-			"animationEnabled":"true",
-			"timelineColor":"0x2f73ad"},
-		"element_${Text}":{
-			"timelineColor2":"0x107faa",
-			"timelineColor3":"0x295a6d",
-			"timelineColor":"0x008dc8"},
-		"element_${Group}":{
-			"timelineColor2":"0x168c84",
-			"timelineColor3":"0x2a605c",
-			"timelineColor":"0x00a096"},
-		"element_${codeByButton}":{
-			"timelineColor2":"0x1095d2",
-			"timelineColor3":"0x29647e",
-			"animationEnabled":"true",
-			"timelineColor":"0x00a9fa"}},
-	"pref__general__FilterNonAnimatedElements":"false",
-	"pref__general__AutoKeyframePropertiesArmed":"false",
 	"ModelData":"{\
 \"stage\": {\
    \"timelines\": {\
@@ -65,6 +43,28 @@
 \
    }}\
 }",
+	"symbol_CopyrightAndCredits":{
+		"element_${Text}":{
+			"timelineColor2":"0x107faa",
+			"timelineColor3":"0x295a6d",
+			"timelineColor":"0x008dc8"},
+		"element_${copyrightButton}":{
+			"timelineColor2":"0x326a96",
+			"timelineColor3":"0x385063",
+			"animationEnabled":"true",
+			"timelineColor":"0x2f73ad"},
+		"element_${Group}":{
+			"timelineColor2":"0x168c84",
+			"timelineColor3":"0x2a605c",
+			"timelineColor":"0x00a096"},
+		"element_${codeByButton}":{
+			"timelineColor2":"0x1095d2",
+			"timelineColor3":"0x29647e",
+			"animationEnabled":"true",
+			"timelineColor":"0x00a9fa"}},
+	"pref__general__FilterNonAnimatedElements":"false",
+	"pref__general__AutoKeyframePropertiesArmed":"true",
+	"viewStartY":"0",
 	"symbol_stage":{
 		"element_${drag2Copy2}":{
 			"timelineColor2":"0xd35d6e",
@@ -209,17 +209,18 @@
 			"timelineColor3":"0x29647e",
 			"animationEnabled":"false",
 			"timelineColor":"0x00a9fa"},
-		"element_${q1Copy2}":{
-			"timelineColor2":"0x4fa275",
-			"timelineColor3":"0x456a55",
-			"animationEnabled":"false",
-			"timelineColor":"0x50bd82"},
-		"element_${hint2}":{
-			"timelineColor2":"0x5a558a",
-			"timelineColor3":"0x4a485e",
-			"timelineColor":"0x63599f",
+		"element_${dragText1Copy}":{
+			"timelineColor2":"0x1095d2",
+			"timelineColor3":"0x29647e",
+			"timelineColor":"0x00a9fa",
 			"timelineTreeOpened":"true",
-			"animationEnabled":"false"},
+			"animationEnabled":"true"},
+		"element_${resetButton3}":{
+			"timelineColor2":"0x1aa38f",
+			"timelineColor3":"0x2a6a61",
+			"timelineColor":"0x00bda4",
+			"timelineTreeOpened":"false",
+			"animationEnabled":"true"},
 		"element_${text1Copy2}":{
 			"timelineColor2":"0x81aa62",
 			"timelineColor3":"0x5b6c4d",
@@ -264,28 +265,27 @@
 			"timelineColor3":"0x456a55",
 			"animationEnabled":"true",
 			"timelineColor":"0x50bd82"},
-		"element_${resetButton3}":{
-			"timelineColor2":"0x1aa38f",
-			"timelineColor3":"0x2a6a61",
-			"timelineColor":"0x00bda4",
-			"timelineTreeOpened":"false",
-			"animationEnabled":"true"},
-		"element_${dragText1Copy}":{
-			"timelineColor2":"0x1095d2",
-			"timelineColor3":"0x29647e",
-			"timelineColor":"0x00a9fa",
+		"element_${hint2}":{
+			"timelineColor2":"0x5a558a",
+			"timelineColor3":"0x4a485e",
+			"timelineColor":"0x63599f",
 			"timelineTreeOpened":"true",
-			"animationEnabled":"true"}},
+			"animationEnabled":"false"},
+		"element_${q1Copy2}":{
+			"timelineColor2":"0x4fa275",
+			"timelineColor3":"0x456a55",
+			"animationEnabled":"false",
+			"timelineColor":"0x50bd82"}},
 	"TransitionIdCounter":"44",
 	"CompZoomFactor":"100",
 	"StageZoomFactor":"100",
 	"pixelsPerMs":"0.055529748451255",
 	"symbol_checkAnswers":{
 		"codeTreeElementPopupFilter":""},
-	"ShowRulers":"true",
+	"pref__general__GenerateSmoothTransitions":"false",
 	"usedBOM":"false",
-	"nextElementColorIndex":"4",
+	"ShowRulers":"true",
 	"stage-Default Timeline_playhead_ms":"2000",
 	"stage-Default Timeline_mark_ms":"-1",
-	"pref__general__GenerateSmoothTransitions":"false",
-	"viewStartY":"81"}
+	"nextElementColorIndex":"4",
+	"CopyrightAndCredits-Default Timeline_playhead_ms":"0"}
