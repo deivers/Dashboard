@@ -96,7 +96,7 @@
                         {
                             id: 'TextCopy',
                             type: 'text',
-                            rect: ['-190px', '100px', '133px', '16', 'auto', 'auto'],
+                            rect: ['0', '2', '602', '16', 'auto', 'auto'],
                             text: "protein",
                             userClass: "textSource decoy",
                             font: ['{', [, "{undefined"], ":", "}", "{", "u", "n", "d"]
@@ -179,7 +179,7 @@
                             rect: ['38px', '-71px', '277px', '16', 'auto', 'auto'],
                             text: "../dna/matchup.html",
                             userClass: "config",
-                            font: ['{', [, "undefinedundefinedundefined{undefined"], "rgba(255,255,255,1.00)", "}", "{", "u", "n", "d"]
+                            font: ['{', [, "undefinedundefinedundefinedundefined{undefined"], "rgba(255,255,255,1.00)", "}", "{", "u", "n", "d"]
                         },
                         {
                             id: 'config-logResponsesToDashboard',
@@ -187,7 +187,7 @@
                             rect: ['38px', '-105px', '82px', '16', 'auto', 'auto'],
                             text: "false",
                             userClass: "config",
-                            font: ['{', [, "undefinedundefined{undefined"], "rgba(255,255,255,1.00)", "}", "{", "u", "n", "d"]
+                            font: ['{', [, "undefinedundefinedundefined{undefined"], "rgba(255,255,255,1.00)", "}", "{", "u", "n", "d"]
                         },
                         {
                             id: 'config-showWrongAnswers',
@@ -195,7 +195,14 @@
                             rect: ['38px', '-136px', '82px', '16', 'auto', 'auto'],
                             text: "false",
                             userClass: "config",
-                            font: ['{', [, "undefined{undefined"], "rgba(255,255,255,1.00)", "}", "{", "u", "n", "d"]
+                            font: ['{', [, "undefinedundefined{undefined"], "rgba(255,255,255,1.00)", "}", "{", "u", "n", "d"]
+                        },
+                        {
+                            id: 'config-answerTypeIsMenus',
+                            type: 'text',
+                            rect: ['38px', '-164px', '212px', '18px', 'auto', 'auto'],
+                            text: "true",
+                            font: ['Arial, Helvetica, sans-serif', [14, "px"], "rgba(255,255,255,1.00)", "400", "none", "", "break-word", ""]
                         }
                     ],
                     style: {
@@ -212,16 +219,6 @@
                     autoPlay: true,
                     data: [
                         [
-                            "eid14",
-                            "top",
-                            0,
-                            0,
-                            "linear",
-                            "${CopyrightAndCredits}",
-                            '654px',
-                            '654px'
-                        ],
-                        [
                             "eid9",
                             "left",
                             0,
@@ -230,6 +227,16 @@
                             "${CopyrightAndCredits}",
                             '77px',
                             '77px'
+                        ],
+                        [
+                            "eid14",
+                            "top",
+                            0,
+                            0,
+                            "linear",
+                            "${CopyrightAndCredits}",
+                            '654px',
+                            '654px'
                         ]
                     ]
                 }
@@ -244,25 +251,25 @@
                 content: {
                     dom: [
                         {
-                            rect: [0, 0, 700, 36, 'auto', 'auto'],
-                            id: 'Group',
                             type: 'group',
+                            id: 'Group',
+                            rect: [0, 0, 700, 36, 'auto', 'auto'],
                             c: [
                             {
-                                rect: [0, 2, 602, 16, 'auto', 'auto'],
                                 font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(119,119,119,1.00)', 'normal', 'none', '', '', ''],
+                                type: 'text',
                                 id: 'Text',
                                 text: 'Copyright 2014 North Carolina State University. Code by One Time Software. Version 1.4 July 2014.',
                                 align: 'center',
-                                type: 'text'
+                                rect: [0, 2, 602, 16, 'auto', 'auto']
                             },
                             {
-                                rect: [0, 20, 602, 16, 'auto', 'auto'],
                                 font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(119,119,119,1.00)', 'normal', 'none', '', '', ''],
+                                type: 'text',
                                 id: 'TextCopy2',
                                 text: 'Free for academic use when displaying this notice.',
                                 align: 'center',
-                                type: 'text'
+                                rect: [0, 20, 602, 16, 'auto', 'auto']
                             },
                             {
                                 rect: [327, 0, 106, 16, 'auto', 'auto'],
@@ -310,9 +317,9 @@
                         {
                             rect: [0, 0, '106px', '16px', 'auto', 'auto'],
                             borderRadius: ['10px', '10px', '10px', '10px'],
-                            opacity: '0',
-                            id: 'RoundRect',
                             stroke: [0, 'rgba(0,0,0,1)', 'none'],
+                            id: 'RoundRect',
+                            opacity: '0',
                             type: 'rect',
                             fill: ['rgba(192,192,192,1)']
                         }
@@ -343,9 +350,9 @@
                         {
                             rect: [0, 0, 168, '16px', 'auto', 'auto'],
                             borderRadius: ['10px', '10px', '10px', '10px'],
-                            stroke: [0, 'rgb(0, 0, 0)', 'none'],
-                            id: 'RoundRect2',
                             opacity: '0',
+                            id: 'RoundRect2',
+                            stroke: [0, 'rgb(0, 0, 0)', 'none'],
                             type: 'rect',
                             fill: ['rgba(192,192,192,1)']
                         }

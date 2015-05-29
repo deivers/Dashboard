@@ -32,11 +32,6 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       
       Symbol.bindElementAction(compId, symbolName, "document", "compositionReady", function(sym, e) {
          // instructor editable section //
-         	imageLabelerType = "menus";      // "menus" or "shortAnswer"
-         	showWrongAnswers = true;			// false increases difficulty
-         	nextPageUrl = "../ImageLabeler-shortanswer/ImageLabeler.html"; // either a relative url: "../folder/filename.html" or an absolute url: "https://www.dictionary.com"
-         // stop here if you are not using the Dashboard feature
-         	logResponsesToDashboard = false;	// true if you want to use the Dashboard
          	quizpageNumber = 1;					// required if the above is true; must be unique across quiz-pages in this folder
          	qTextSummary = "Cut-away animal cell";					// short description of what is in this quiz for the purpose of the dashboard
          // end of editable section //
