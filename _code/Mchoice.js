@@ -1,13 +1,17 @@
 // globals
 var checkboxes = $(".checkbox");
 var feedbackBoxes = $(".feedback");
+//
+var logResponsesToDashboard;
+var nextPageUrl;
 // globals defined elsewhere but needed herein
-//	logResponsesToDashboard
 //	quizpageNumber
 //	qTextSummary
-//	nextPageUrl
 
 function init() {
+	// read the config params
+	logResponsesToDashboard = ($("#Stage_config-logResponsesToDashboard").html().substring(0,1) == "t");
+	nextPageUrl = $("#Stage_config-nextPageUrl").html().specialTrim();
 	// note: no guarantee on the order of the retrieved checkboxes, so sort by position; same for feedbackBoxes
 	checkboxes.sort(sortElementByPosition);
 	feedbackBoxes.sort(sortElementByPosition);

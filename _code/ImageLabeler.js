@@ -16,7 +16,6 @@ var nextPageUrl;
 function init() {
 	// read the configuration parameters
 	answerTypeIsMenus = ($("#Stage_config-answerTypeIsMenus").html().substring(0,1) == "t");
-	console.log(answerTypeIsMenus +"*");
 	showWrongAnswers = ($("#Stage_config-showWrongAnswers").html().substring(0,1) == "t");
 	logResponsesToDashboard = ($("#Stage_config-logResponsesToDashboard").html().substring(0,1) == "t");
 	nextPageUrl = $("#Stage_config-nextPageUrl").html().specialTrim();
@@ -191,10 +190,3 @@ checkAnswers = function() {
 		alert("You must complete the quiz before answers will be checked.");
 }
 
-String.prototype.specialTrim = function() {
-	var cutHere = this.indexOf("<");
-	if (cutHere > 0)
-		return this.substring(0,cutHere);
-	else
-		return this.substring(0);
-}
