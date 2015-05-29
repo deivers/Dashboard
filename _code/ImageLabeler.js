@@ -69,15 +69,9 @@ buildTextBoxes = function() {
 
 insertIntoHtml = function(prefix,suffix) {
 	var j = 0;
-	var stageLeftEdge = $("#Stage").position().left;
 	for (var i=0; i<textFields.length; i++) {
-		if ($(textFields[i]).position().left < stageLeftEdge) {
-			;//console.log("#"+i+" is off stage left");
-		} else {
-			$(textFields[i]).html("");
-			$(prefix+j+suffix).appendTo($(textFields[i]));
-			j++;
-		}
+		$(textFields[i]).html("");
+		$(prefix+i+suffix).appendTo($(textFields[i]));
 	}
 }
 
