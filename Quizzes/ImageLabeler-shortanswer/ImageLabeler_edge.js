@@ -60,7 +60,7 @@
                         {
                             id: 'TextCopy5',
                             type: 'text',
-                            rect: ['51', '233', '170', '22', 'auto', 'auto'],
+                            rect: ['59px', '234px', '170', '22', 'auto', 'auto'],
                             text: "Mitochondrion",
                             userClass: "textSource",
                             font: ['Arial, Helvetica, sans-serif', [16, "px"], "rgba(0,0,0,1)", "normal", "none", "", "break-word", ""]
@@ -92,7 +92,7 @@
                         {
                             id: 'TextCopy2',
                             type: 'text',
-                            rect: ['172', '132', '170', '22', 'auto', 'auto'],
+                            rect: ['187px', '130px', '170', '22', 'auto', 'auto'],
                             text: "Nucleolus",
                             userClass: "textSource",
                             font: ['Arial, Helvetica, sans-serif', [16, "px"], "rgba(0,0,0,1)", "normal", "none", "", "break-word", ""]
@@ -103,7 +103,7 @@
                             rect: ['-190', '310', '170', '22', 'auto', 'auto'],
                             text: "Ribosome",
                             userClass: "textSource decoy",
-                            font: ['Arial, Helvetica, sans-serif', [16, "px"], "rgba(0,0,0,1)", "normal", "none", "", "break-word", ""]
+                            font: ['Arial, Helvetica, sans-serif', [16, "px"], "rgba(166,166,166,1.00)", "normal", "none", "", "break-word", ""]
                         },
                         {
                             id: 'TextCopy10',
@@ -111,7 +111,7 @@
                             rect: ['-190', '239', '170', '22', 'auto', 'auto'],
                             text: "Vesicle",
                             userClass: "textSource decoy",
-                            font: ['Arial, Helvetica, sans-serif', [16, "px"], "rgba(0,0,0,1)", "normal", "none", "", "break-word", ""]
+                            font: ['Arial, Helvetica, sans-serif', [16, "px"], "rgba(166,166,166,1.00)", "normal", "none", "", "break-word", ""]
                         },
                         {
                             id: 'TextCopy13',
@@ -127,15 +127,15 @@
                             rect: ['0', '2', '602', '16', 'auto', 'auto'],
                             text: "plant cell",
                             userClass: "textSource decoy",
-                            font: ['{', [, "{undefined"], ":", "}", ":", "u", "n", "d"]
+                            font: ['{', [, "{undefined"], "rgba(166,166,166,1.00)", "}", "{", "u", "n", "d"]
                         },
                         {
                             id: 'TextCopy7',
                             type: 'text',
-                            rect: ['-190', '420', '170', '22', 'auto', 'auto'],
+                            rect: ['-190', '364px', '170', '22', 'auto', 'auto'],
                             text: "single cell",
                             userClass: "textSource decoy",
-                            font: ['Arial, Helvetica, sans-serif', [16, "px"], "rgba(0,0,0,1)", "normal", "none", "", "break-word", ""]
+                            font: ['Arial, Helvetica, sans-serif', [16, "px"], "rgba(166,166,166,1.00)", "normal", "none", "", "break-word", ""]
                         },
                         {
                             id: 'TextCopy9',
@@ -143,7 +143,7 @@
                             rect: ['-190', '152', '170', '22', 'auto', 'auto'],
                             text: "Lysosome",
                             userClass: "textSource decoy",
-                            font: ['Arial, Helvetica, sans-serif', [16, "px"], "rgba(0,0,0,1)", "normal", "none", "", "break-word", ""]
+                            font: ['Arial, Helvetica, sans-serif', [16, "px"], "rgba(166,166,166,1.00)", "normal", "none", "", "break-word", ""]
                         },
                         {
                             id: 'TextCopy12',
@@ -151,7 +151,7 @@
                             rect: ['-190', '271', '170', '22', 'auto', 'auto'],
                             text: "Centriole",
                             userClass: "textSource decoy",
-                            font: ['Arial, Helvetica, sans-serif', [16, "px"], "rgba(0,0,0,1)", "normal", "none", "", "break-word", ""]
+                            font: ['Arial, Helvetica, sans-serif', [16, "px"], "rgba(166,166,166,1.00)", "normal", "none", "", "break-word", ""]
                         },
                         {
                             id: 'TextCopy11',
@@ -159,12 +159,12 @@
                             rect: ['-190', '209', '170', '22', 'auto', 'auto'],
                             text: "Vacuole",
                             userClass: "textSource decoy",
-                            font: ['Arial, Helvetica, sans-serif', [16, "px"], "rgba(0,0,0,1)", "normal", "none", "", "break-word", ""]
+                            font: ['Arial, Helvetica, sans-serif', [16, "px"], "rgba(166,166,166,1.00)", "normal", "none", "", "break-word", ""]
                         },
                         {
                             id: 'Text',
                             type: 'text',
-                            rect: ['372', '493', '170', '22', 'auto', 'auto'],
+                            rect: ['372px', '493px', '170', '22', 'auto', 'auto'],
                             text: "animal cell",
                             userClass: "textSource",
                             font: ['Arial, Helvetica, sans-serif', [16, "px"], "rgba(0,0,0,1)", "normal", "none", "", "break-word", ""]
@@ -207,9 +207,37 @@
                         {
                             id: 'Text3Copy',
                             type: 'text',
-                            rect: ['777', '547', '174', '60', 'auto', 'auto'],
+                            rect: ['-181px', '568px', '174', '60', 'auto', 'auto'],
                             text: "Note: don't style the Submit button here.  The code will center it and apply css styling at run time.",
                             font: ['Arial, Helvetica, sans-serif', [12, "px"], "rgba(255,255,255,1)", "normal", "none", "", "break-word", ""]
+                        },
+                        {
+                            id: 'config-nextPageUrl',
+                            type: 'text',
+                            rect: ['60', '-64px', '212px', '18px', 'auto', 'auto'],
+                            text: "",
+                            font: ['Arial, Helvetica, sans-serif', [14, "px"], "rgba(255,255,255,1.00)", "400", "none", "", "break-word", ""]
+                        },
+                        {
+                            id: 'config-logResponsesToDashboard',
+                            type: 'text',
+                            rect: ['60', '-93px', '212px', '18px', 'auto', 'auto'],
+                            text: "false",
+                            font: ['Arial, Helvetica, sans-serif', [14, "px"], "rgba(255,255,255,1.00)", "400", "none", "", "break-word", ""]
+                        },
+                        {
+                            id: 'config-showWrongAnswers',
+                            type: 'text',
+                            rect: ['60', '-122px', '212px', '18px', 'auto', 'auto'],
+                            text: "true<br>",
+                            font: ['Arial, Helvetica, sans-serif', [14, "px"], "rgba(255,255,255,1.00)", "400", "none", "", "break-word", ""]
+                        },
+                        {
+                            id: 'config-answerTypeIsMenus',
+                            type: 'text',
+                            rect: ['60', '-151px', '212px', '18px', 'auto', 'auto'],
+                            text: "true",
+                            font: ['Arial, Helvetica, sans-serif', [14, "px"], "rgba(255,255,255,1.00)", "400", "none", "", "break-word", ""]
                         }
                     ],
                     style: {
@@ -223,7 +251,7 @@
                 },
                 timeline: {
                     duration: 0,
-                    autoPlay: true,
+                    autoPlay: false,
                     data: [
                         [
                             "eid10",
@@ -263,20 +291,20 @@
                             type: 'group',
                             c: [
                             {
+                                font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(119,119,119,1.00)', 'normal', 'none', '', '', ''],
                                 type: 'text',
-                                rect: [0, 2, 602, 16, 'auto', 'auto'],
                                 id: 'Text',
                                 text: 'Copyright 2014 North Carolina State University. Code by One Time Software. Version 1.4 July 2014.',
                                 align: 'center',
-                                font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(119,119,119,1.00)', 'normal', 'none', '', '', '']
+                                rect: [0, 2, 602, 16, 'auto', 'auto']
                             },
                             {
+                                font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(119,119,119,1.00)', 'normal', 'none', '', '', ''],
                                 type: 'text',
-                                rect: [0, 20, 602, 16, 'auto', 'auto'],
                                 id: 'TextCopy2',
                                 text: 'Free for academic use when displaying this notice.',
                                 align: 'center',
-                                font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(119,119,119,1.00)', 'normal', 'none', '', '', '']
+                                rect: [0, 20, 602, 16, 'auto', 'auto']
                             },
                             {
                                 rect: [327, 0, 106, 16, 'auto', 'auto'],
@@ -296,7 +324,7 @@
                     ],
                     style: {
                         '${TextCopy}': {
-                            font: '{{:}{undefined{:}:{:}}{:}:{:}u{:}n{:}d',
+                            font: '{{:}{undefined{:}:{:}}{:}{{:}u{:}n{:}d',
                             rect: [0, 2, 602, 16]
                         },
                         '${symbolSelector}': {

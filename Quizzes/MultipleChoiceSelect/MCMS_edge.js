@@ -29,46 +29,61 @@
                 content: {
                     dom: [
                         {
+                            id: 'Text3',
+                            type: 'text',
+                            rect: ['299px', '673px', '70', '19', 'auto', 'auto'],
+                            cursor: 'pointer',
+                            text: "Submit",
+                            align: "center",
+                            userClass: "submit button blue",
+                            font: ['Arial, Helvetica, sans-serif', [18, "px"], "rgba(0,0,0,1)", "normal", "none", "", "break-word", ""]
+                        },
+                        {
+                            id: 'CopyrightAndCredits',
+                            symbolName: 'CopyrightAndCredits',
+                            type: 'rect',
+                            rect: ['54px', '719px', '600', '19', 'auto', 'auto']
+                        },
+                        {
+                            id: 'Text3Copy',
+                            type: 'text',
+                            rect: ['-188px', '643px', '174', '60', 'auto', 'auto'],
+                            text: "Note: don't style the Submit button here.  The code will center it and apply css styling at run time.",
+                            font: ['Arial, Helvetica, sans-serif', [12, "px"], "rgba(255,255,255,1)", "normal", "none", "", "break-word", ""]
+                        },
+                        {
                             id: 'Text',
                             type: 'text',
-                            rect: ['91', '17', '518', '36', 'auto', 'auto'],
+                            rect: ['84px', '17', '518', '36', 'auto', 'auto'],
                             text: "Which of the following is an example of limestone?",
                             align: "center",
                             font: ['Arial, Helvetica, sans-serif', [22, "px"], "rgba(0,0,0,1)", "normal", "none", "", "break-word", ""]
                         },
                         {
-                            id: 'Text2',
-                            type: 'text',
-                            rect: ['230', '700', '247', '18', 'auto', 'auto'],
-                            text: "photo credit: http://www.earthscienceworld.org",
-                            align: "center",
-                            font: ['Arial, Helvetica, sans-serif', [11, "px"], "rgba(118,118,118,1.00)", "normal", "none", "normal", "break-word", ""]
-                        },
-                        {
                             id: 'geo3',
                             type: 'image',
-                            rect: ['233', '71', '205', '145', 'auto', 'auto'],
+                            rect: ['226px', '71', '205', '145', 'auto', 'auto'],
                             clip: 'rect(0px 205px 145px 30px)',
                             fill: ["rgba(0,0,0,0)",im+"geo3.jpg",'0px','0px']
                         },
                         {
                             id: 'geo2',
                             type: 'image',
-                            rect: ['263', '487', '205', '137', 'auto', 'auto'],
+                            rect: ['256px', '487', '205', '137', 'auto', 'auto'],
                             clip: 'rect(0px 175px 137px 0px)',
                             fill: ["rgba(0,0,0,0)",im+"geo2.jpg",'0px','0px']
                         },
                         {
                             id: 'geo4',
                             type: 'image',
-                            rect: ['233', '216', '205', '137', 'auto', 'auto'],
+                            rect: ['226px', '216', '205', '137', 'auto', 'auto'],
                             clip: 'rect(0px 205px 137px 30px)',
                             fill: ["rgba(0,0,0,0)",im+"geo4.jpg",'0px','0px']
                         },
                         {
                             id: 'geo1',
                             type: 'image',
-                            rect: ['233', '353', '205', '134', 'auto', 'auto'],
+                            rect: ['226px', '353', '205', '134', 'auto', 'auto'],
                             clip: 'rect(0px 205px 134px 30px)',
                             fill: ["rgba(0,0,0,0)",im+"geo1.jpg",'0px','0px']
                         },
@@ -76,21 +91,21 @@
                             id: 'Checkbox1',
                             symbolName: 'Checkbox',
                             type: 'rect',
-                            rect: ['224', '135', '18', '18', 'auto', 'auto'],
+                            rect: ['217px', '135', '18', '18', 'auto', 'auto'],
                             userClass: "checkbox"
                         },
                         {
                             id: 'Checkbox2',
                             symbolName: 'Checkbox',
                             type: 'rect',
-                            rect: ['224', '276', '18', '18', 'auto', 'auto'],
+                            rect: ['217px', '276', '18', '18', 'auto', 'auto'],
                             userClass: "checkbox"
                         },
                         {
                             id: 'Checkbox3',
                             symbolName: 'Checkbox',
                             type: 'rect',
-                            rect: ['224', '411', '18', '18', 'auto', 'auto'],
+                            rect: ['217px', '411', '18', '18', 'auto', 'auto'],
                             opacity: '0.99',
                             userClass: "checkbox"
                         },
@@ -98,28 +113,13 @@
                             id: 'Checkbox4',
                             symbolName: 'Checkbox',
                             type: 'rect',
-                            rect: ['223', '546', '18', '18', 'auto', 'auto'],
+                            rect: ['216px', '546', '18', '18', 'auto', 'auto'],
                             userClass: "checkbox"
                         },
                         {
-                            id: 'CopyrightAndCredits',
-                            symbolName: 'CopyrightAndCredits',
-                            type: 'rect',
-                            rect: ['54', '726', '600', '19', 'auto', 'auto']
-                        },
-                        {
-                            id: 'Feedback1',
+                            id: 'Feedback1Copy3',
                             type: 'text',
-                            rect: ['465', '118', '227', '95', 'auto', 'auto'],
-                            cursor: 'default',
-                            text: "Feedback if student selects this answer",
-                            userClass: "feedback",
-                            font: ['Arial, Helvetica, sans-serif', [15, "px"], "rgba(90,90,90,1)", "normal", "none", "", "break-word", ""]
-                        },
-                        {
-                            id: 'Feedback1Copy',
-                            type: 'text',
-                            rect: ['465', '251', '227', '95', 'auto', 'auto'],
+                            rect: ['458px', '118', '227', '95', 'auto', 'auto'],
                             cursor: 'default',
                             text: "Feedback if student selects this answer",
                             userClass: "feedback",
@@ -128,61 +128,51 @@
                         {
                             id: 'Feedback1Copy2',
                             type: 'text',
-                            rect: ['465', '386', '227', '95', 'auto', 'auto'],
+                            rect: ['458px', '251', '227', '95', 'auto', 'auto'],
                             cursor: 'default',
                             text: "Feedback if student selects this answer",
                             userClass: "feedback",
                             font: ['Arial, Helvetica, sans-serif', [15, "px"], "rgba(90,90,90,1)", "normal", "none", "", "break-word", ""]
                         },
                         {
-                            id: 'Feedback1Copy3',
+                            id: 'Feedback1Copy',
                             type: 'text',
-                            rect: ['465', '521', '227', '95', 'auto', 'auto'],
+                            rect: ['458px', '386', '227', '95', 'auto', 'auto'],
+                            cursor: 'default',
+                            text: "Feedback if student selects this answer",
+                            userClass: "feedback",
+                            font: ['Arial, Helvetica, sans-serif', [15, "px"], "rgba(90,90,90,1)", "normal", "none", "", "break-word", ""]
+                        },
+                        {
+                            id: 'Feedback1',
+                            type: 'text',
+                            rect: ['458px', '521', '227', '95', 'auto', 'auto'],
                             cursor: 'default',
                             text: "This is granite.  Click here to read more about it.",
                             userClass: "feedback",
                             font: ['Arial, Helvetica, sans-serif', [15, "px"], "rgba(90,90,90,1)", "normal", "none", "", "break-word", ""]
                         },
                         {
-                            id: 'SubmitButton',
-                            type: 'text',
-                            rect: ['298', '648', '70', '19', 'auto', 'auto'],
-                            cursor: 'pointer',
-                            text: "Submit",
-                            align: "center",
-                            userClass: "submit button blue",
-                            font: ['Arial, Helvetica, sans-serif', [18, "px"], "rgba(0,0,0,1)", "normal", "none", "", "break-word", ""]
-                        },
-                        {
-                            id: 'Text3',
-                            type: 'text',
-                            rect: ['721', '649', '174', '60', 'auto', 'auto'],
-                            text: "Note: don't style the Submit button here.  The code will center it and apply css styling at run time.",
-                            font: ['Arial, Helvetica, sans-serif', [12, "px"], "rgba(255,255,255,1.00)", "normal", "none", "", "break-word", ""]
-                        },
-                        {
                             id: 'config-nextPageUrl',
                             type: 'text',
-                            rect: ['38px', '-71px', '277px', '16', 'auto', 'auto'],
-                            text: "../dna/matchup.html",
-                            userClass: "config",
-                            font: ['{', [, "undefinedundefinedundefinedundefinedundefined{undefined"], "rgba(255,255,255,1.00)", "}", "{", "u", "n", "d"]
+                            rect: ['60', '-64px', '212px', '18px', 'auto', 'auto'],
+                            text: "",
+                            font: ['Arial, Helvetica, sans-serif', [14, "px"], "rgba(255,255,255,1.00)", "400", "none", "", "break-word", ""]
                         },
                         {
                             id: 'config-logResponsesToDashboard',
                             type: 'text',
-                            rect: ['38px', '-105px', '82px', '16', 'auto', 'auto'],
+                            rect: ['60', '-93px', '212px', '18px', 'auto', 'auto'],
                             text: "false",
-                            userClass: "config",
-                            font: ['{', [, "undefinedundefinedundefinedundefined{undefined"], "rgba(255,255,255,1.00)", "}", "{", "u", "n", "d"]
+                            font: ['Arial, Helvetica, sans-serif', [14, "px"], "rgba(255,255,255,1.00)", "400", "none", "", "break-word", ""]
                         }
                     ],
                     style: {
                         '${Stage}': {
                             isStage: true,
-                            rect: ['null', 'null', '700', '770', 'auto', 'auto'],
+                            rect: ['null', 'null', '700px', '770px', 'auto', 'auto'],
                             overflow: 'hidden',
-                            fill: ["rgba(255,255,255,0.00)"]
+                            fill: ["rgba(221,221,221,1.00)"]
                         }
                     }
                 },
@@ -190,45 +180,66 @@
                     duration: 0,
                     autoPlay: false,
                     data: [
-
-                    ]
-                }
-            },
-            "Checkbox": {
-                version: "5.0.1",
-                minimumCompatibleVersion: "5.0.0",
-                build: "5.0.1.386",
-                scaleToFit: "none",
-                centerStage: "none",
-                resizeInstances: false,
-                content: {
-                    dom: [
-                        {
-                            rect: [0, 0, 16, 16, 'auto', 'auto'],
-                            borderRadius: ['5px 5px', '5px 5px', '5px 5px', '5px 5px'],
-                            id: 'box_rounded',
-                            stroke: ['1px', 'rgba(0,0,0,0.70)', 'solid'],
-                            type: 'rect',
-                            fill: ['rgba(255,255,255,1.00)', [270, [['rgba(167,167,167,1.00)', 0], ['rgba(222,222,222,1.00)', 100]]]]
-                        },
-                        {
-                            rect: [0, 0, 18, 18, 'auto', 'auto'],
-                            id: 'checkmark',
-                            type: 'image',
-                            fill: ['rgba(0,0,0,0)', 'images/checkmark_outlined_centered.png', '0px', '0px']
-                        }
-                    ],
-                    style: {
-                        '${symbolSelector}': {
-                            rect: [null, null, 18, 18]
-                        }
-                    }
-                },
-                timeline: {
-                    duration: 0,
-                    autoPlay: false,
-                    data: [
-
+                        [
+                            "eid28",
+                            "left",
+                            0,
+                            0,
+                            "linear",
+                            "${Checkbox3}",
+                            '217px',
+                            '217px'
+                        ],
+                        [
+                            "eid14",
+                            "top",
+                            0,
+                            0,
+                            "linear",
+                            "${CopyrightAndCredits}",
+                            '719px',
+                            '719px'
+                        ],
+                        [
+                            "eid30",
+                            "left",
+                            0,
+                            0,
+                            "linear",
+                            "${Checkbox1}",
+                            '217px',
+                            '217px'
+                        ],
+                        [
+                            "eid29",
+                            "left",
+                            0,
+                            0,
+                            "linear",
+                            "${Checkbox2}",
+                            '217px',
+                            '217px'
+                        ],
+                        [
+                            "eid27",
+                            "left",
+                            0,
+                            0,
+                            "linear",
+                            "${Checkbox4}",
+                            '216px',
+                            '216px'
+                        ],
+                        [
+                            "eid13",
+                            "left",
+                            0,
+                            0,
+                            "linear",
+                            "${CopyrightAndCredits}",
+                            '54px',
+                            '54px'
+                        ]
                     ]
                 }
             },
@@ -242,49 +253,45 @@
                 content: {
                     dom: [
                         {
-                            rect: [0, 0, 700, 36, 'auto', 'auto'],
+                            rect: ['0', '0', '700', '36', 'auto', 'auto'],
                             id: 'Group',
                             type: 'group',
                             c: [
                             {
+                                font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(119,119,119,1.00)', 'normal', 'none', '', 'break-word', ''],
                                 type: 'text',
-                                rect: [0, 2, 602, 16, 'auto', 'auto'],
                                 id: 'Text',
-                                text: 'Copyright 2014 North Carolina State University. Code by One Time Software. Version 1.4 July 2014.',
+                                text: 'Copyright 2015 North Carolina State University. Code by One Time Software. Version 1.5 May 2015.',
                                 align: 'center',
-                                font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(119,119,119,1.00)', 'normal', 'none', '', '', '']
+                                rect: ['0', '2', '602', '16', 'auto', 'auto']
                             },
                             {
+                                font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(119,119,119,1.00)', 'normal', 'none', '', 'break-word', ''],
                                 type: 'text',
-                                rect: [0, 20, 602, 16, 'auto', 'auto'],
                                 id: 'TextCopy2',
                                 text: 'Free for academic use when displaying this notice.',
                                 align: 'center',
-                                font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(119,119,119,1.00)', 'normal', 'none', '', '', '']
+                                rect: ['0', '20', '602', '16', 'auto', 'auto']
                             },
                             {
-                                rect: [327, 0, 106, 16, 'auto', 'auto'],
+                                type: 'rect',
                                 id: 'codeByButton',
                                 symbolName: 'codeByButton',
                                 cursor: 'pointer',
-                                type: 'rect'
+                                rect: ['327', '0', '106', '16', 'auto', 'auto']
                             },
                             {
-                                rect: [101, 2, 168, 16, 'auto', 'auto'],
+                                type: 'rect',
                                 id: 'copyrightButton',
                                 symbolName: 'copyrightButton',
                                 cursor: 'pointer',
-                                type: 'rect'
+                                rect: ['101', '2', '168', '16', 'auto', 'auto']
                             }]
                         }
                     ],
                     style: {
-                        '${TextCopy}': {
-                            font: '{{:}{undefined{:}:{:}}{:}{{:}u{:}n{:}d',
-                            rect: [0, 2, 602, 16]
-                        },
                         '${symbolSelector}': {
-                            rect: [null, null, 600, 19]
+                            rect: [null, null, '600', '19']
                         }
                     }
                 },
@@ -341,9 +348,9 @@
                         {
                             rect: [0, 0, 168, '16px', 'auto', 'auto'],
                             borderRadius: ['10px', '10px', '10px', '10px'],
-                            opacity: '0',
-                            id: 'RoundRect2',
                             stroke: [0, 'rgb(0, 0, 0)', 'none'],
+                            id: 'RoundRect2',
+                            opacity: '0',
                             type: 'rect',
                             fill: ['rgba(192,192,192,1)']
                         }
@@ -361,10 +368,48 @@
 
                     ]
                 }
+            },
+            "Checkbox": {
+                version: "5.0.1",
+                minimumCompatibleVersion: "5.0.0",
+                build: "5.0.1.386",
+                scaleToFit: "none",
+                centerStage: "none",
+                resizeInstances: false,
+                content: {
+                    dom: [
+                        {
+                            rect: [0, 0, 16, 16, 'auto', 'auto'],
+                            borderRadius: ['5px 5px', '5px 5px', '5px 5px', '5px 5px'],
+                            id: 'box_rounded',
+                            stroke: ['1px', 'rgba(0,0,0,0.70)', 'solid'],
+                            type: 'rect',
+                            fill: ['rgba(255,255,255,1.00)', [270, [['rgba(167,167,167,1.00)', 0], ['rgba(222,222,222,1.00)', 100]]]]
+                        },
+                        {
+                            id: 'checkmark',
+                            type: 'image',
+                            rect: [0, 0, 18, 18, 'auto', 'auto'],
+                            fill: ['rgba(0,0,0,0)', 'images/checkmark_outlined_centered.png', '0px', '0px']
+                        }
+                    ],
+                    style: {
+                        '${symbolSelector}': {
+                            rect: [null, null, 18, 18]
+                        }
+                    }
+                },
+                timeline: {
+                    duration: 0,
+                    autoPlay: false,
+                    data: [
+
+                    ]
+                }
             }
         };
 
     AdobeEdge.registerCompositionDefn(compId, symbols, fonts, scripts, resources, opts);
 
-    if (!window.edge_authoring_mode) AdobeEdge.getComposition(compId).load("Mchoice_geology_edgeActions.js");
-})("EDGE-276373753");
+    if (!window.edge_authoring_mode) AdobeEdge.getComposition(compId).load("MCMS_edgeActions.js");
+})("EDGE-749678393");

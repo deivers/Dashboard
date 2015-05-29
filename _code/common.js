@@ -210,3 +210,11 @@ function exists(x) {
 jQuery.fn.exists = function(){
 	return jQuery(this).length>0;
 }
+
+String.prototype.specialTrim = function() {
+	var cutHere = this.indexOf("<");
+	if (cutHere > 0)
+		return this.substring(0,cutHere);
+	else
+		return this.substring(0);
+}
