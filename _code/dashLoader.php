@@ -1,32 +1,38 @@
 <?php
+// load all log files of this folder's subfolders into an array
 error_log("dashLoader.php");
-// load all log files of this folder into an array
-error_log("loadAllSubmissionsInFolder");
+error_log("loading all submissions in sub-folders");
+$dashboardVersionString = "3";
 // figure out the working directory (based on assumed folder depth!)
-$sourceUrl = $_SERVER['HTTP_REFERER'];
+$sourceUrl = $_SERVER['HTTP_REFERER']; // the dashboard.html file?
 $workingDir = dirname($sourceUrl);
+error_log("working directory: ".$workingDir);
 $array = explode("/",$workingDir);
-$relativePath = "../".$array[count($array)-2]."/".$array[count($array)-1];		// assume the quiz is 2 levels deep
+$relativePath = "../".$array[count($array)-2]."/".$array[count($array)-1];		// assume the quiz folder is 2 levels deep
 error_log("path = ". $relativePath);
 // build file path/name
-$fileNamePrefix = $relativePath . "/submission_log_"; // the first possible log file
+$fileNamePrefix = $relativePath . "/submission_log_";
 $fileNameSuffix = ".txt";
 $logContents = array();
-// the following assumes that logs are sequentially numbered starting with 1
-for ($i=1; $i<100; $i++) {
-	error_log("reading log number ".$i);
-	$fName = $fileNamePrefix . $i . $fileNameSuffix;
-	error_log("searching for: ".$fName);
-	if (file_exists($fName))
-		$logContents[$i] = file_get_contents($fName);
-	else
-		break; // stop when the file submission_log_# can't be found
+
+// // //
+error_log("--testing--testing--testing--   the following should list all the folders and, if present, the log files");
+// // //
+$index = 0;
+foreach(glob($relativePath . "/*", GLOB_ONLYDIR) as $dir) {
+	$index++;
+	error_log("reading log from path ".$dir);
+	$fPath = $dir . "/submission_log_" .$dashboardVersionString. $fileNameSuffix;
+	error_log("searching for: ".$fPath);
+	if (file_exists($fPath)) {
+		error_log("---\n".file_get_contents($fPath));
+		$logContents[$index] = file_get_contents($fPath);
+	}
 }
 
 //TODO strip out quotes?  or does json_encode take care of the issue?
 
 error_log("number of log files found: " . count($logContents) . "\ncontents of first file:\n" . $logContents[1]);
 print json_encode(array_values($logContents));
-
 
 ?>
