@@ -34,7 +34,7 @@ function getData() {
 		url: "../../_code/dashLoader.php",
 		dataType: 'json',
 		success: function(data) {
-			if (data.length == 0)
+			if (data == null || data.length == 0)
 				console.log("  Dashboard loader found no logged data!\n");
 			else
 				console.log("  Dashboard loader is done\n\n");
@@ -64,7 +64,7 @@ function computeAndDisplayStats(logArray) {
 		// console.log("Details: "+student.answerDetails);
 		$("body")
 			.append($("<div class='stats'></div>")
-				.append($("<h2>Quiz-page #"+(quizpageIndex+1)+"</h2>"))
+				.append($("<h2>Question #"+(quizpageIndex+1)+"</h2>"))
 				.append($("<p>Question type: "+student.questionType+"</p>"))
 				.append($("<p>Question summary: "+student.questionText+"</p>"))
 				.append($("<p>Answer details: </p>"+answerDetailsHtml))
@@ -88,11 +88,11 @@ function computeAndDisplayStats(logArray) {
 	});
 }
 
-function parseLogString(qNumber,logString) {
+function parseLogString(dataVersion,logString) {
 	var logArray = [];
 	var logArrayOneLinePerStudent = [];
 	// parse the log
-	console.log("Parsing log file number "+qNumber);
+	console.log("Parsing log file");
 	logArray = logString.split("\n");
 	if (logArray[logArray.length-1] == "") {		// if last line of log is empty, remove from the array
 		logArray.pop();

@@ -15,7 +15,7 @@ function showMetaInfo(versionString) {
 	return centerNode;
 }
 
-function logSubmission(qNum,qType,qSummary,aSummary,saArray,akArray) {
+function logSubmission(vNum,qType,qSummary,aSummary,saArray,akArray) {
 	console.log("Logging...");
 	if (typeof studentId === 'undefined' || studentId.length == 0) {
 		if (typeof Storage !== 'undefined') {
@@ -34,9 +34,9 @@ function logSubmission(qNum,qType,qSummary,aSummary,saArray,akArray) {
 		}
 	}
 	// validate incoming parameters
-	if (typeof qNum === 'undefined') {
-		qNum = 0;
-		console.log("Warning: quizpageNumber not found; defaulting to 0");
+	if (typeof vNum === 'undefined') {
+		vNum = 0;
+		console.log("Warning: data version number not found; defaulting to 0");
 	}
 	if (typeof qSummary === 'undefined')
 		qSummary = "question summary not defined in .html";
@@ -45,7 +45,7 @@ function logSubmission(qNum,qType,qSummary,aSummary,saArray,akArray) {
 		type: 'POST',
 		url: 'LogResponse.php',  // in the original directory
 		data: {	si : studentId,
-				qn : qNum,
+				qn : vNum,
 				qt : qType,
 				qs : qSummary,
 				ad : aSummary,

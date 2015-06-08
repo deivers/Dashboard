@@ -1,3 +1,4 @@
+var dataVersionNumber = 3;
 var questionType = "Sequencer";
 var version = "1.0 December 2013";
 var rejectOption = (typeof rejectWrongAnswers === 'undefined' || rejectWrongAnswers);
@@ -54,7 +55,7 @@ function checkAnswers() {
 		});
 		var saList = convertToIndexes($(".draggable"),allList);
 		var akList = arrayFactory(allList.length,1,0);
-		var logSuccess = logSubmission(quizpageNumber,questionType,qTextSummary,aDetailedList,saList,akList);
+		var logSuccess = logSubmission(dataVersionNumber,questionType,qTextSummary,aDetailedList,saList,akList);
 		if (logSuccess == false) {
 			alert("You must provide a valid student ID for answers to be checked.");
 			return;

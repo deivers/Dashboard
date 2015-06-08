@@ -1,4 +1,5 @@
 function init() {
+	var dataVersionNumber = 3;
 	var myLeft, myTop;
 	dragElements = $('.dragTab');
 	targetList.forEach(function(targetString, i) {
@@ -115,7 +116,7 @@ function init() {
 			if (typeof logResponsesToDashboard === 'undefined')
 				logResponsesToDashboard = false;
 			if (logResponsesToDashboard) {
-				var logSuccess = logSubmission(quizpageNumber,"Edge Matchup",qTextSummary," ",studentChoices,cc);
+				var logSuccess = logSubmission(dataVersionNumber,"Edge Matchup",qTextSummary," ",studentChoices,cc);
 				if (logSuccess == false) {
 					alert("You must provide a valid student ID for answers to be checked.");
 					return;
@@ -165,8 +166,6 @@ function init() {
 			if (typeof studentId === 'undefined' || studentId == "")
 				var studentId = prompt("Please enter your student ID","")
 			// todo: verify that we got a valid id above
-			if (typeof quizpageNumber === 'undefined')
-				var quizpageNumber = 0;
 			var questionType;
 			//if (shuffleWhich == "draggables")
 			//	questionType = "Edge Matchup with the answers shuffled";
@@ -179,7 +178,7 @@ function init() {
 				type: 'POST',
 				url: 'LogResponse.php',
 				data: {	si : studentId,		//todo: get student id from env var
-						qn : quizpageNumber,
+						qn : dataVersionNumber,
 						qt : questionType,
 						qs : qTextSummary,
 						sa : list

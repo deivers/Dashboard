@@ -4,8 +4,8 @@ var feedbackBoxes = $(".feedback");
 //
 var logResponsesToDashboard;
 var nextPageUrl;
+var dataVersionNumber = 3;
 // globals defined elsewhere but needed herein
-//	quizpageNumber
 //	qTextSummary
 
 function init() {
@@ -44,7 +44,7 @@ checkAnswers = function() {
 		if (typeof logResponsesToDashboard === 'undefined')
 			logResponsesToDashboard = false;
 		if (logResponsesToDashboard) {
-			var logSuccess = logSubmission(quizpageNumber,questionType,qTextSummary," ",studentChoices,cc);
+			var logSuccess = logSubmission(dataVersionNumber,questionType,qTextSummary," ",studentChoices,cc);
 			if (logSuccess == false) {
 				alert("You must provide a valid student ID for answers to be checked.");
 				return;

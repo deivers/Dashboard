@@ -5,13 +5,13 @@ header('Content-type: application/json');
 // example return value:  "2014-01-31T23:59:00+0000|smith15|6,4,5,3,1"
 // date-time is ISO8601 format (GMT)
 
-function logStudentSubmission($saveDir, $studentId, $qNumber, $qType, $qText, $answerDetails, $answers, $answerKey) {
+function logStudentSubmission($saveDir, $studentId, $dataVersion, $qType, $qText, $answerDetails, $answers, $answerKey) {
 	//* Log student answers *//
-	$logFile = $saveDir . '/' . "submission_log_" . $qNumber . ".txt";
+	$logFile = $saveDir . '/' . "submission_log_" . $dataVersion . ".txt";
 	error_log("log file name:  ". $logFile);
 	if (!file_exists($logFile)) {
 		// the first row is unique
-		error_log('Creating log file '.$qNumber.' in '.$saveDir);
+		error_log('Creating log file '.$dataVersion.' in '.$saveDir);
 		$logEntry = buildMetaRow($qType, $qText, $answerDetails, $answerKey);
 		file_put_contents($logFile, $logEntry);
 	}
