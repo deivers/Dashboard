@@ -26,6 +26,12 @@ function logStudentSubmission($saveDir, $studentId, $dataVersion, $qType, $qText
 	return $result;
 }
 
+//TODO switch the following to Shibboleth
+function getStudentIdFromServer() {
+	$userid = (isset($_SERVER['WRAP_USERID'])) ? $_SERVER['WRAP_USERID'] : $_SERVER['REMOTE_USER'];
+	return $userid;
+}
+
 function buildLogEntry($studentId, $submission) {
 	date_default_timezone_set('UTC');
 	$logEntry = date("c") . "|" . removeDelimiters($studentId) . "|" . removeDelimiters(arrayOrValueToString($submission)) . "\n";

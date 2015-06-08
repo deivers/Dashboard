@@ -27,9 +27,9 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          
          yepnope ({
          	nope: [
-         				'../../_code/common.css',
-         				'../../_code/common.js',
-         				'../../_code/Mchoice.js'
+         				'../../../_code/common.css',
+         				'../../../_code/common.js',
+         				'../../../_code/Mchoice.js'
          	], complete: function() {init()}
           });
 
@@ -37,7 +37,6 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       //Edge binding end
       
       Symbol.bindElementAction(compId, symbolName, "document", "compositionReady", function(sym, e) {
-         	quizpageNumber = 1;					// required if the above is true; must be unique across quiz-pages in this folder
          	qTextSummary = "";					// short description of what is in this quiz for the purpose of the dashboard
 
       });
@@ -107,7 +106,6 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
    
       Symbol.bindElementAction(compId, symbolName, "${box_rounded}", "click", function(sym, e) {
          sym.$("checkmark").css({opacity: 1, "z-index": 1});
-         
 
       });
       //Edge binding end

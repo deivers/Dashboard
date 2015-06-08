@@ -158,6 +158,7 @@ function init() {
 		return (aCenterH-buffer < bCenterH && bCenterH < aCenterH+buffer && aCenterV-buffer < bCenterV && bCenterV < aCenterV+buffer);
 	}
 
+//??? why don't I use the one in common.js ???//
 	function logStudentResponses(list) {
 		if (typeof logResponsesToDashboard === 'undefined')
 			logResponsesToDashboard = false;

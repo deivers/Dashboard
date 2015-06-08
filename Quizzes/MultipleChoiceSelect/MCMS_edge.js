@@ -163,7 +163,7 @@
                             id: 'config-logResponsesToDashboard',
                             type: 'text',
                             rect: ['60', '-93px', '212px', '18px', 'auto', 'auto'],
-                            text: "false",
+                            text: "true",
                             font: ['Arial, Helvetica, sans-serif', [14, "px"], "rgba(255,255,255,1.00)", "400", "none", "", "break-word", ""]
                         }
                     ],
@@ -181,14 +181,14 @@
                     autoPlay: false,
                     data: [
                         [
-                            "eid28",
+                            "eid27",
                             "left",
                             0,
                             0,
                             "linear",
-                            "${Checkbox3}",
-                            '217px',
-                            '217px'
+                            "${Checkbox4}",
+                            '216px',
+                            '216px'
                         ],
                         [
                             "eid14",
@@ -211,6 +211,16 @@
                             '217px'
                         ],
                         [
+                            "eid28",
+                            "left",
+                            0,
+                            0,
+                            "linear",
+                            "${Checkbox3}",
+                            '217px',
+                            '217px'
+                        ],
+                        [
                             "eid29",
                             "left",
                             0,
@@ -219,16 +229,6 @@
                             "${Checkbox2}",
                             '217px',
                             '217px'
-                        ],
-                        [
-                            "eid27",
-                            "left",
-                            0,
-                            0,
-                            "linear",
-                            "${Checkbox4}",
-                            '216px',
-                            '216px'
                         ],
                         [
                             "eid13",
@@ -258,20 +258,20 @@
                             type: 'group',
                             c: [
                             {
+                                rect: ['0', '2', '602', '16', 'auto', 'auto'],
                                 font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(119,119,119,1.00)', 'normal', 'none', '', 'break-word', ''],
-                                type: 'text',
                                 id: 'Text',
                                 text: 'Copyright 2015 North Carolina State University. Code by One Time Software. Version 1.5 May 2015.',
                                 align: 'center',
-                                rect: ['0', '2', '602', '16', 'auto', 'auto']
+                                type: 'text'
                             },
                             {
+                                rect: ['0', '20', '602', '16', 'auto', 'auto'],
                                 font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(119,119,119,1.00)', 'normal', 'none', '', 'break-word', ''],
-                                type: 'text',
                                 id: 'TextCopy2',
                                 text: 'Free for academic use when displaying this notice.',
                                 align: 'center',
-                                rect: ['0', '20', '602', '16', 'auto', 'auto']
+                                type: 'text'
                             },
                             {
                                 type: 'rect',
@@ -387,8 +387,8 @@
                             fill: ['rgba(255,255,255,1.00)', [270, [['rgba(167,167,167,1.00)', 0], ['rgba(222,222,222,1.00)', 100]]]]
                         },
                         {
-                            id: 'checkmark',
                             type: 'image',
+                            id: 'checkmark',
                             rect: [0, 0, 18, 18, 'auto', 'auto'],
                             fill: ['rgba(0,0,0,0)', 'images/checkmark_outlined_centered.png', '0px', '0px']
                         }

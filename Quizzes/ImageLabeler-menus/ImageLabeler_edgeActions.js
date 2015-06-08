@@ -20,10 +20,10 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          // load external files
          yepnope({
          	load: [
-         		'../../_code/common.css',
-         		"../../_code/ImageLabeler.css",
-         		"../../_code/common.js",
-         		"../../_code/ImageLabeler.js"
+         		'../../../_code/common.css',
+         		"../../../_code/ImageLabeler.css",
+         		"../../../_code/common.js",
+         		"../../../_code/ImageLabeler.js"
          	], complete: function() {init()}
          });
 
@@ -32,8 +32,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       
       Symbol.bindElementAction(compId, symbolName, "document", "compositionReady", function(sym, e) {
          // instructor editable section //
-         	quizpageNumber = 1;					// required if the above is true; must be unique across quiz-pages in this folder
-         	qTextSummary = "Cut-away animal cell";					// short description of what is in this quiz for the purpose of the dashboard
+         	qTextSummary = "";					// short description of what is in this quiz for the purpose of the dashboard
          // end of editable section //
          // Note: the above parameters are intentionally global
          

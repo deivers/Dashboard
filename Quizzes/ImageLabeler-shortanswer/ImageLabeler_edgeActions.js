@@ -20,10 +20,10 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          // load external files
          yepnope({
          	load: [
-         		'../../_code/common.css',
-         		"../../_code/ImageLabeler.css",
-         		"../../_code/common.js",
-         		"../../_code/ImageLabeler.js"
+         		'../../../_code/common.css',
+         		"../../../_code/ImageLabeler.css",
+         		"../../../_code/common.js",
+         		"../../../_code/ImageLabeler.js"
          	], complete: function() {init()}
          });
 
@@ -37,7 +37,6 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          	nextPageUrl = "../MatchupLateral/MatchupLateral.html"; // either a relative url: "../folder/filename.html" or an absolute url: "https://www.dictionary.com"
          // stop here if you are not using the Dashboard feature
          	logResponsesToDashboard = false;	// true if you want to use the Dashboard
-         	quizpageNumber = 1;					// required if the above is true; must be unique across quiz-pages in this folder
          	qTextSummary = "";					// short description of what is in this quiz for the purpose of the dashboard
          // end of editable section //
          // Note: the above parameters are intentionally global
