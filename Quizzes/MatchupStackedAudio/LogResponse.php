@@ -1,7 +1,7 @@
 <?php
 session_cache_limiter('nocache');
 header('Content-type: application/json');
-include( '../../_code/logger.php' );
+include( '../../../_code/logger.php' );
 
 $workingDir = getcwd(); // get current working directory
 error_log("LogResponse.php  in  " . $workingDir);
