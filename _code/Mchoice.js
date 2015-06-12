@@ -9,13 +9,16 @@ var dataVersionNumber = 3;
 //	qTextSummary
 
 function init() {
-	// read the config params
-	logResponsesToDashboard = ($("#Stage_config-logResponsesToDashboard").html().substring(0,1) == "t");
-	nextPageUrl = $("#Stage_config-nextPageUrl").html().specialTrim();
+	loadTeacherParams();
 	// note: no guarantee on the order of the retrieved checkboxes, so sort by position; same for feedbackBoxes
 	checkboxes.sort(sortElementByPosition);
 	feedbackBoxes.sort(sortElementByPosition);
 	setUpSubmitButton();
+}
+
+loadTeacherParams = function() {
+	logResponsesToDashboard = loadStageParam("config-logResponsesToDashboard","boolean");
+	nextPageUrl = loadStageParam("config-nextPageUrl");
 }
 
 checkAnswers = function() {

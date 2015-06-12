@@ -7,8 +7,8 @@ function init() {
 
 
 var hoverOpacity = 0.5;
-var thresholdOpacity = 0.7;
-var selectedOpacity = 0.9;
+var thresholdOpacity = 0.7; //TODO eliminate
+var selectedOpacity = 0.9; //TODO eliminate
 var existingColor, existingAchannel;
 var wrongColor;
 var correctColor;
@@ -16,11 +16,10 @@ var correctColor;
 var nextPageUrl;
 
 loadTeacherParams = function() {
-	var hoverParam = loadStageParam("config-revealButtonsOnHover");
-	nextPageUrl = loadStageParam("config-nextPageUrl");
-
+	var hoverParam = loadStageParam("config-revealButtonsOnHover","boolean");
 	if (!hoverParam)
 		hoverOpacity = 0;
+	nextPageUrl = loadStageParam("config-nextPageUrl");
 }
 
 answerButtonClicked = function(which) {

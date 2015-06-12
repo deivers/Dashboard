@@ -15,10 +15,7 @@ var dataVersionNumber = 3;
 
 function init() {
 	// read the configuration parameters
-	answerTypeIsMenus = ($("#Stage_config-answerTypeIsMenus").html().substring(0,1) == "t");
-	showWrongAnswers = ($("#Stage_config-showWrongAnswers").html().substring(0,1) == "t");
-	logResponsesToDashboard = ($("#Stage_config-logResponsesToDashboard").html().substring(0,1) == "t");
-	nextPageUrl = $("#Stage_config-nextPageUrl").html().specialTrim();
+	loadTeacherParams();
 	// collect all possible answers
 	textFields = $(".textSource");
 	// console.log("number of fields: "+textFields.length);
@@ -34,6 +31,13 @@ function init() {
 	if (typeof minNumChars === 'undefined' || minNumChars < 1)
 		var minNumChars = 3;
 	setUpSubmitButton();
+}
+
+loadTeacherParams = function() {
+	answerTypeIsMenus = loadStageParam("config-answerTypeIsMenus","boolean");
+	showWrongAnswers = loadStageParam("config-showWrongAnswers","boolean");
+	logResponsesToDashboard = loadStageParam("config-logResponsesToDashboard","boolean");
+	nextPageUrl = loadStageParam("config-nextPageUrl");
 }
 
 buildTextsArray = function() {

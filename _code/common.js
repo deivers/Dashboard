@@ -18,7 +18,9 @@ function showMetaInfo(versionString) {
 function loadStageParam(paramName,type) {
 	var rawString = $("#Stage_"+paramName).html();
 	if (type == "boolean")
-		return (rawString.substring(0,1) == "t");
+		return (exists(rawString) && rawString.substring(0,1) == "t");
+	if (!exists(rawString))
+		return "";
 	if (type == "int")
 		return parseInt(rawString.specialTrim());
 	if (type == "float")
