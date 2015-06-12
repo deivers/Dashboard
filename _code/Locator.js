@@ -1,6 +1,7 @@
 function init() {
 	// console.log("init fn")////
 	// style the Submit button and bind it to checkAnswers()
+	loadTeacherParams();
 	setUpSubmitButton();
 }
 
@@ -11,6 +12,16 @@ var selectedOpacity = 0.9;
 var existingColor, existingAchannel;
 var wrongColor;
 var correctColor;
+
+var nextPageUrl;
+
+loadTeacherParams = function() {
+	var hoverParam = loadStageParam("config-revealButtonsOnHover");
+	nextPageUrl = loadStageParam("config-nextPageUrl");
+
+	if (!hoverParam)
+		hoverOpacity = 0;
+}
 
 answerButtonClicked = function(which) {
 	// toggle-off all the answer buttons
