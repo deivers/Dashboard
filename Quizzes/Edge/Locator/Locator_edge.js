@@ -106,6 +106,35 @@
                             align: "center",
                             userClass: "submit button blue",
                             font: ['Arial, Helvetica, sans-serif', [18, "px"], "rgba(0,0,0,1)", "normal", "none", "", "break-word", ""]
+                        },
+                        {
+                            id: 'config-revealButtonsOnHover',
+                            type: 'text',
+                            rect: ['1', '-95px', '70px', '16px', 'auto', 'auto'],
+                            text: "false<br>",
+                            font: ['Arial, Helvetica, sans-serif', [12, "px"], "rgba(164,160,160,1.00)", "100", "none", "", "break-word", ""]
+                        },
+                        {
+                            id: 'config-correctButtonNames',
+                            type: 'text',
+                            rect: ['1', '-122px', '158px', '16px', 'auto', 'auto'],
+                            text: "RoundRect<br>",
+                            font: ['Arial, Helvetica, sans-serif', [12, "px"], "rgba(164,160,160,1.00)", "100", "none", "", "break-word", ""]
+                        },
+                        {
+                            id: 'config-nextPageUrl',
+                            type: 'text',
+                            rect: ['1', '-67px', '325px', '16px', 'auto', 'auto'],
+                            text: "",
+                            font: ['Arial, Helvetica, sans-serif', [12, "px"], "rgba(164,160,160,1.00)", "100", "none", "", "break-word", ""]
+                        },
+                        {
+                            id: 'Text3',
+                            type: 'text',
+                            rect: ['1', '-30', 'auto', 'auto', 'auto', 'auto'],
+                            text: "Note: don't use answer revealing names for anything below<br>",
+                            align: "center",
+                            font: ['Arial, Helvetica, sans-serif', [10, "px"], "rgba(186,184,184,1.00)", "400", "none solid rgb(0, 0, 0)", "normal", "break-word", "nowrap"]
                         }
                     ],
                     style: {
@@ -119,7 +148,7 @@
                 },
                 timeline: {
                     duration: 0,
-                    autoPlay: true,
+                    autoPlay: false,
                     data: [
 
                     ]
