@@ -15,6 +15,17 @@ function showMetaInfo(versionString) {
 	return centerNode;
 }
 
+function loadStageParam(paramName,type) {
+	var rawString = $("#Stage_"+paramName).html();
+	if (type == "boolean")
+		return (rawString.substring(0,1) == "t");
+	if (type == "int")
+		return parseInt(rawString.specialTrim());
+	if (type == "float")
+		return parseFloat(rawString.specialTrim());
+	return rawString.specialTrim();
+}
+
 function logSubmission(vNum,qType,qSummary,aSummary,saArray,akArray) {
 	console.log("Logging...");
 	if (typeof studentId === 'undefined' || studentId.length == 0) {
@@ -213,9 +224,18 @@ jQuery.fn.exists = function(){
 }
 
 String.prototype.specialTrim = function() {
+	// for retrieving user params, normally located on stage but off canvas
+	// ignore html and return characters
 	var cutHere = this.indexOf("<");
 	if (cutHere > 0)
 		return this.substring(0,cutHere);
 	else
 		return this.substring(0);
+}
+
+function debug(x) {
+	if (typeof x === "object") {
+		console.log(JSON.stringify(x));
+	} else
+		console.log(x);
 }
