@@ -44,11 +44,11 @@ buildTextsArray = function() {
 	var decoys = [];
 	var decoyFields = $(".decoy");
 	for (var i=0; i<decoyFields.length; i++)
-		decoys.push($(decoyFields[i]).html());
+		decoys.push($(decoyFields[i]).html().specialTrim());
 	$(decoyFields).remove();
 	textFields = $(".textSource");
 	for (var i=0; i<textFields.length; i++)
-		texts.push($(textFields[i]).html());
+		texts.push($(textFields[i]).html().specialTrim());
 	for (var i=0; i<decoys.length; i++)
 		texts.push(decoys[i]);
 	console.log("number of fields: "+textFields.length);
