@@ -5,7 +5,7 @@ include( '../../../_code/logger.php' );
 
 $workingDir = getcwd(); // get current working directory
 error_log("LogResponse.php  in  " . $workingDir);
-$studentId = $_POST['si'];  //todo: get it from the environment variable REMOTE_USER
+$studentId = $_POST['si'];
 $qNumber = $_POST['qn'];
 $qType = $_POST['qt'];
 $qTextSummary = $_POST['qs'];

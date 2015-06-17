@@ -30,22 +30,23 @@ function loadStageParam(paramName,type) {
 
 function logSubmission(vNum,qType,qSummary,aSummary,saArray,akArray) {
 	console.log("Logging...");
-	if (typeof studentId === 'undefined' || studentId.length == 0) {
-		if (typeof Storage !== 'undefined') {
-			studentId = sessionStorage.dashboardStudentId;
-		}
-		if (typeof studentId === 'undefined' || studentId.length == 0) {
-			// todo: get id from the environment variable
-			studentId = prompt("Please enter your student ID","");			// intentionally global
-			// todo: verify that we got a unique valid id above, or create one from the ip address?
-			if (typeof Storage !== 'undefined' && typeof studentId !== 'undefined' && studentId.length > 0)
-				sessionStorage.dashboardStudentId = studentId;
-			else {
-				alert("You must provide a valid student ID in order to get credit for completing the quiz.");
-				return false;
-			}
-		}
-	}
+	// if (typeof studentId === 'undefined' || studentId.length == 0) {
+	// 	if (typeof Storage !== 'undefined') {
+	// 		studentId = sessionStorage.dashboardStudentId;
+	// 	}
+	// 	if (typeof studentId === 'undefined' || studentId.length == 0) {
+	// 		// todo: get id from the environment variable
+	// 		studentId = prompt("Please enter your student ID","");			// intentionally global
+	// 		// todo: verify that we got a unique valid id above, or create one from the ip address?
+	// 		if (typeof Storage !== 'undefined' && typeof studentId !== 'undefined' && studentId.length > 0)
+	// 			sessionStorage.dashboardStudentId = studentId;
+	// 		else {
+	// 			alert("You must provide a valid student ID in order to get credit for completing the quiz.");
+	// 			return false;
+	// 		}
+	// 	}
+	// }
+
 	// validate incoming parameters
 	if (typeof vNum === 'undefined') {
 		vNum = 0;
@@ -57,7 +58,7 @@ function logSubmission(vNum,qType,qSummary,aSummary,saArray,akArray) {
 	var request = $.ajax({
 		type: 'POST',
 		url: 'LogResponse.php',  // in the original directory
-		data: {	si : studentId,
+		data: {	si : "", ///studentId,
 				qn : vNum,
 				qt : qType,
 				qs : qSummary,

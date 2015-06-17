@@ -6,6 +6,8 @@ header('Content-type: application/json');
 // date-time is ISO8601 format (GMT)
 
 function logStudentSubmission($saveDir, $studentId, $dataVersion, $qType, $qText, $answerDetails, $answers, $answerKey) {
+	//TODO remove the second argument
+	$studentId = getStudentIdFromServer();
 	//* Log student answers *//
 	$logFile = $saveDir . '/' . "submission_log_" . $dataVersion . ".txt";
 	error_log("log file name:  ". $logFile);
@@ -28,7 +30,8 @@ function logStudentSubmission($saveDir, $studentId, $dataVersion, $qType, $qText
 
 //TODO switch the following to Shibboleth
 function getStudentIdFromServer() {
-	$userid = (isset($_SERVER['WRAP_USERID'])) ? $_SERVER['WRAP_USERID'] : $_SERVER['REMOTE_USER'];
+	$userid = (isset($_SERVER['WRAP_USERID'])) ? $_SERVER['WRAP_USERID'] : (isset($_SERVER['SHIB_UID']) ? $_SERVER['SHIB_UID'] : $_SERVER['REMOTE_USER']);
+	error_log("student ID: "+$userid);
 	return $userid;
 }
 
