@@ -29,7 +29,14 @@
                 content: {
                     dom: [
                         {
-                            id: 'Text3',
+                            id: 'Reminder',
+                            type: 'text',
+                            rect: ['-188px', '729px', '174', '60', 'auto', 'auto'],
+                            text: "Remember:  don't use answer revealing names for items on the timeline below.",
+                            font: ['Arial, Helvetica, sans-serif', [12, "px"], "rgba(191,191,191,0.99)", "normal", "none", "", "break-word", ""]
+                        },
+                        {
+                            id: 'SubmitBtn',
                             type: 'text',
                             rect: ['299px', '673px', '70', '19', 'auto', 'auto'],
                             cursor: 'pointer',
@@ -45,11 +52,11 @@
                             rect: ['54px', '719px', '600', '19', 'auto', 'auto']
                         },
                         {
-                            id: 'Text3Copy',
+                            id: 'Note',
                             type: 'text',
                             rect: ['-188px', '643px', '174', '60', 'auto', 'auto'],
                             text: "Note: don't style the Submit button here.  The code will center it and apply css styling at run time.",
-                            font: ['Arial, Helvetica, sans-serif', [12, "px"], "rgba(255,255,255,1)", "normal", "none", "", "break-word", ""]
+                            font: ['Arial, Helvetica, sans-serif', [12, "px"], "rgba(191,191,191,0.99)", "normal", "none", "", "break-word", ""]
                         },
                         {
                             id: 'Text',
@@ -57,6 +64,7 @@
                             rect: ['84px', '17', '518', '36', 'auto', 'auto'],
                             text: "Which of the following is an example of limestone?",
                             align: "center",
+                            userClass: "qText",
                             font: ['Arial, Helvetica, sans-serif', [22, "px"], "rgba(0,0,0,1)", "normal", "none", "", "break-word", ""]
                         },
                         {
@@ -181,14 +189,14 @@
                     autoPlay: false,
                     data: [
                         [
-                            "eid27",
+                            "eid28",
                             "left",
                             0,
                             0,
                             "linear",
-                            "${Checkbox4}",
-                            '216px',
-                            '216px'
+                            "${Checkbox3}",
+                            '217px',
+                            '217px'
                         ],
                         [
                             "eid14",
@@ -201,24 +209,14 @@
                             '719px'
                         ],
                         [
-                            "eid30",
+                            "eid13",
                             "left",
                             0,
                             0,
                             "linear",
-                            "${Checkbox1}",
-                            '217px',
-                            '217px'
-                        ],
-                        [
-                            "eid28",
-                            "left",
-                            0,
-                            0,
-                            "linear",
-                            "${Checkbox3}",
-                            '217px',
-                            '217px'
+                            "${CopyrightAndCredits}",
+                            '54px',
+                            '54px'
                         ],
                         [
                             "eid29",
@@ -231,14 +229,24 @@
                             '217px'
                         ],
                         [
-                            "eid13",
+                            "eid27",
                             "left",
                             0,
                             0,
                             "linear",
-                            "${CopyrightAndCredits}",
-                            '54px',
-                            '54px'
+                            "${Checkbox4}",
+                            '216px',
+                            '216px'
+                        ],
+                        [
+                            "eid30",
+                            "left",
+                            0,
+                            0,
+                            "linear",
+                            "${Checkbox1}",
+                            '217px',
+                            '217px'
                         ]
                     ]
                 }
@@ -253,25 +261,25 @@
                 content: {
                     dom: [
                         {
-                            rect: ['0', '0', '700', '36', 'auto', 'auto'],
-                            id: 'Group',
                             type: 'group',
+                            id: 'Group',
+                            rect: ['0', '0', '700', '36', 'auto', 'auto'],
                             c: [
                             {
-                                rect: ['0', '2', '602', '16', 'auto', 'auto'],
                                 font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(119,119,119,1.00)', 'normal', 'none', '', 'break-word', ''],
+                                type: 'text',
                                 id: 'Text',
                                 text: 'Copyright 2015 North Carolina State University. Code by One Time Software. Version 1.5 May 2015.',
                                 align: 'center',
-                                type: 'text'
+                                rect: ['0', '2', '602', '16', 'auto', 'auto']
                             },
                             {
-                                rect: ['0', '20', '602', '16', 'auto', 'auto'],
                                 font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(119,119,119,1.00)', 'normal', 'none', '', 'break-word', ''],
+                                type: 'text',
                                 id: 'TextCopy2',
                                 text: 'Free for academic use when displaying this notice.',
                                 align: 'center',
-                                type: 'text'
+                                rect: ['0', '20', '602', '16', 'auto', 'auto']
                             },
                             {
                                 type: 'rect',
@@ -315,9 +323,9 @@
                         {
                             rect: [0, 0, '106px', '16px', 'auto', 'auto'],
                             borderRadius: ['10px', '10px', '10px', '10px'],
-                            opacity: '0',
-                            id: 'RoundRect',
                             stroke: [0, 'rgba(0,0,0,1)', 'none'],
+                            id: 'RoundRect',
+                            opacity: '0',
                             type: 'rect',
                             fill: ['rgba(192,192,192,1)']
                         }
@@ -348,9 +356,9 @@
                         {
                             rect: [0, 0, 168, '16px', 'auto', 'auto'],
                             borderRadius: ['10px', '10px', '10px', '10px'],
-                            stroke: [0, 'rgb(0, 0, 0)', 'none'],
-                            id: 'RoundRect2',
                             opacity: '0',
+                            id: 'RoundRect2',
+                            stroke: [0, 'rgb(0, 0, 0)', 'none'],
                             type: 'rect',
                             fill: ['rgba(192,192,192,1)']
                         }
@@ -387,9 +395,9 @@
                             fill: ['rgba(255,255,255,1.00)', [270, [['rgba(167,167,167,1.00)', 0], ['rgba(222,222,222,1.00)', 100]]]]
                         },
                         {
-                            type: 'image',
-                            id: 'checkmark',
                             rect: [0, 0, 18, 18, 'auto', 'auto'],
+                            id: 'checkmark',
+                            type: 'image',
                             fill: ['rgba(0,0,0,0)', 'images/checkmark_outlined_centered.png', '0px', '0px']
                         }
                     ],

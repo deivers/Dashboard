@@ -4,6 +4,7 @@ var feedbackBoxes = $(".feedback");
 //
 var logResponsesToDashboard;
 var nextPageUrl;
+var qTextSummary = $(".qText").html();
 var dataVersionNumber = 3;
 // globals defined elsewhere but needed herein
 //	qTextSummary
