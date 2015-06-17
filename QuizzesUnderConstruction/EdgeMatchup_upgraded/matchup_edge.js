@@ -61,21 +61,27 @@
                             textStyle: ["", "", "normal", ""]
                         },
                         {
-                            id: 'q1',
-                            type: 'rect',
-                            rect: ['196', '46', '188', '88px', 'auto', 'auto'],
-                            borderRadius: ["15px 15px", "15px 15px", "0px 0px", "0px 0px"],
-                            fill: ["rgba(97,131,159,1.00)"],
-                            stroke: [1,"rgb(0, 0, 0)","solid"],
+                            id: 'Group3',
+                            type: 'group',
+                            rect: ['196', '46', '190', '90', 'auto', 'auto'],
                             c: [
                             {
-                                id: 'qText1',
-                                type: 'text',
-                                rect: ['7', '0', '173', '88px', 'auto', 'auto'],
-                                text: "<br>xyz",
-                                align: "center",
-                                font: ['Arial, Helvetica, sans-serif', [20, "px"], "rgba(255,255,255,1.00)", "normal", "none", "", "break-word", ""],
-                                textStyle: ["", "", "30px", ""]
+                                id: 'q1',
+                                type: 'rect',
+                                rect: ['0px', '0px', '188', '88px', 'auto', 'auto'],
+                                borderRadius: ["15px 15px", "15px 15px", "0px 0px", "0px 0px"],
+                                fill: ["rgba(97,131,159,1.00)"],
+                                stroke: [1,"rgb(0, 0, 0)","solid"],
+                                c: [
+                                {
+                                    id: 'qText1',
+                                    type: 'text',
+                                    rect: ['7', '0', '173', '88px', 'auto', 'auto'],
+                                    text: "<br>xyz",
+                                    align: "center",
+                                    font: ['Arial, Helvetica, sans-serif', [20, "px"], "rgba(255,255,255,1.00)", "normal", "none", "", "break-word", ""],
+                                    textStyle: ["", "", "30px", ""]
+                                }]
                             }]
                         },
                         {
@@ -105,28 +111,34 @@
                             rect: ['747', '188', '133', '108', 'auto', 'auto'],
                             overflow: 'auto',
                             cursor: 'default',
-                            opacity: '0',
+                            opacity: '0.97',
                             text: "<br><br>type a hint for the question here<br>",
                             align: "center",
                             font: ['Arial, Helvetica, sans-serif', [15, "px"], "rgba(0,0,0,1.00)", "normal", "none", "normal", "break-word", ""],
                             textStyle: ["", "", "normal", ""]
                         },
                         {
-                            id: 'q2',
-                            type: 'rect',
-                            rect: ['195', '190', '188', '88px', 'auto', 'auto'],
-                            borderRadius: ["15px 15px", "15px 15px", "0px 0px", "0px 0px"],
-                            fill: ["rgba(97,131,159,1.00)"],
-                            stroke: [1,"rgb(0, 0, 0)","solid"],
+                            id: 'Group4',
+                            type: 'group',
+                            rect: ['195', '190', '190', '90', 'auto', 'auto'],
                             c: [
                             {
-                                id: 'qText1Copy',
-                                type: 'text',
-                                rect: ['7', '0', '173', '88px', 'auto', 'auto'],
-                                text: "<br>abc",
-                                align: "center",
-                                font: ['Arial, Helvetica, sans-serif', [20, "px"], "rgba(255,255,255,1.00)", "normal", "none", "", "break-word", ""],
-                                textStyle: ["", "", "30px", ""]
+                                id: 'q2',
+                                type: 'rect',
+                                rect: ['0px', '0px', '188', '88px', 'auto', 'auto'],
+                                borderRadius: ["15px 15px", "15px 15px", "0px 0px", "0px 0px"],
+                                fill: ["rgba(97,131,159,1.00)"],
+                                stroke: [1,"rgb(0, 0, 0)","solid"],
+                                c: [
+                                {
+                                    id: 'qText1Copy',
+                                    type: 'text',
+                                    rect: ['7', '0', '173', '88px', 'auto', 'auto'],
+                                    text: "<br>abc",
+                                    align: "center",
+                                    font: ['Arial, Helvetica, sans-serif', [20, "px"], "rgba(255,255,255,1.00)", "normal", "none", "", "break-word", ""],
+                                    textStyle: ["", "", "30px", ""]
+                                }]
                             }]
                         },
                         {
@@ -139,47 +151,59 @@
                             userClass: "dropZone"
                         },
                         {
-                            id: 'drag2',
-                            type: 'rect',
-                            rect: ['529', '227', '188', '28', 'auto', 'auto'],
-                            cursor: 'move',
-                            borderRadius: ["0px 0px", "0px 0px", "15px 15px", "15px 15px"],
-                            opacity: '0',
-                            fill: ["rgba(97,112,159,1.00)"],
-                            stroke: [1,"rgba(0,0,0,1)","solid"],
-                            userClass: "dragTab",
+                            id: 'Group',
+                            type: 'group',
+                            rect: ['529', '227', '190', '30', 'auto', 'auto'],
                             c: [
                             {
-                                id: 'dragText1Copy',
-                                type: 'text',
-                                rect: ['9', '-2', '173', '30', 'auto', 'auto'],
+                                id: 'drag2',
+                                type: 'rect',
+                                rect: ['0px', '0px', '188', '28', 'auto', 'auto'],
+                                cursor: 'move',
+                                borderRadius: ["0px 0px", "0px 0px", "15px 15px", "15px 15px"],
                                 opacity: '0',
-                                text: "xyz",
-                                align: "center",
-                                font: ['Arial, Helvetica, sans-serif', [18, "px"], "rgba(255,255,255,1.00)", "normal", "none", "", "break-word", ""],
-                                textStyle: ["", "", "30px", ""]
+                                fill: ["rgba(97,112,159,1.00)"],
+                                stroke: [1,"rgba(0,0,0,1)","solid"],
+                                userClass: "dragTab",
+                                c: [
+                                {
+                                    id: 'dragText1Copy',
+                                    type: 'text',
+                                    rect: ['9', '-2', '173', '30', 'auto', 'auto'],
+                                    opacity: '0',
+                                    text: "xyz",
+                                    align: "center",
+                                    font: ['Arial, Helvetica, sans-serif', [18, "px"], "rgba(255,255,255,1.00)", "normal", "none", "", "break-word", ""],
+                                    textStyle: ["", "", "30px", ""]
+                                }]
                             }]
                         },
                         {
-                            id: 'drag1',
-                            type: 'rect',
-                            rect: ['530', '83', '188', '28', 'auto', 'auto'],
-                            cursor: 'move',
-                            borderRadius: ["0px 0px", "0px 0px", "15px 15px", "15px 15px"],
-                            opacity: '0',
-                            fill: ["rgba(97,112,159,1.00)"],
-                            stroke: [1,"rgba(0,0,0,1)","solid"],
-                            userClass: "dragTab",
+                            id: 'Group2',
+                            type: 'group',
+                            rect: ['530', '83', '190', '30', 'auto', 'auto'],
                             c: [
                             {
-                                id: 'dragText1',
-                                type: 'text',
-                                rect: ['9', '-2', '173', '30', 'auto', 'auto'],
+                                id: 'drag1',
+                                type: 'rect',
+                                rect: ['0px', '0px', '188', '28', 'auto', 'auto'],
+                                cursor: 'move',
+                                borderRadius: ["0px 0px", "0px 0px", "15px 15px", "15px 15px"],
                                 opacity: '0',
-                                text: "abc",
-                                align: "center",
-                                font: ['Arial, Helvetica, sans-serif', [18, "px"], "rgba(255,255,255,1.00)", "normal", "none", "", "break-word", ""],
-                                textStyle: ["", "", "30px", ""]
+                                fill: ["rgba(97,112,159,1.00)"],
+                                stroke: [1,"rgba(0,0,0,1)","solid"],
+                                userClass: "dragTab",
+                                c: [
+                                {
+                                    id: 'dragText1',
+                                    type: 'text',
+                                    rect: ['9', '-2', '173', '30', 'auto', 'auto'],
+                                    opacity: '0',
+                                    text: "abc",
+                                    align: "center",
+                                    font: ['Arial, Helvetica, sans-serif', [18, "px"], "rgba(255,255,255,1.00)", "normal", "none", "", "break-word", ""],
+                                    textStyle: ["", "", "30px", ""]
+                                }]
                             }]
                         },
                         {
@@ -198,6 +222,55 @@
                             align: "center",
                             userClass: "submit button blue",
                             font: ['Arial, Helvetica, sans-serif', [18, "px"], "rgba(0,0,0,1)", "normal", "none", "", "break-word", ""]
+                        },
+                        {
+                            id: 'Reminder',
+                            type: 'text',
+                            rect: ['-201px', '681px', '174', '60', 'auto', 'auto'],
+                            text: "Remember:  don't use answer revealing names for items on the timeline below.",
+                            font: ['Arial, Helvetica, sans-serif', [12, "px"], "rgba(191,191,191,0.99)", "normal", "none", "", "break-word", ""]
+                        },
+                        {
+                            id: 'Note',
+                            type: 'text',
+                            rect: ['-201px', '595px', '174', '60', 'auto', 'auto'],
+                            text: "Note: don't style the Submit button here.  The code will center it and apply css styling at run time.",
+                            font: ['Arial, Helvetica, sans-serif', [12, "px"], "rgba(191,191,191,0.99)", "normal", "none", "", "break-word", ""]
+                        },
+                        {
+                            id: 'config-nextPageUrl',
+                            type: 'text',
+                            rect: ['60', '-64px', '212px', '18px', 'auto', 'auto'],
+                            text: "",
+                            font: ['Arial, Helvetica, sans-serif', [14, "px"], "rgba(255,255,255,1.00)", "400", "none", "", "break-word", ""]
+                        },
+                        {
+                            id: 'config-logResponsesToDashboard',
+                            type: 'text',
+                            rect: ['60', '-93px', '212px', '18px', 'auto', 'auto'],
+                            text: "true",
+                            font: ['Arial, Helvetica, sans-serif', [14, "px"], "rgba(255,255,255,1.00)", "400", "none", "", "break-word", ""]
+                        },
+                        {
+                            id: 'config-introAnimation',
+                            type: 'text',
+                            rect: ['60', '-124px', '212px', '18px', 'auto', 'auto'],
+                            text: "true",
+                            font: ['Arial, Helvetica, sans-serif', [14, "px"], "rgba(255,255,255,1.00)", "400", "none", "", "break-word", ""]
+                        },
+                        {
+                            id: 'config-requireCompletion',
+                            type: 'text',
+                            rect: ['60', '-155px', '212px', '18px', 'auto', 'auto'],
+                            text: "true",
+                            font: ['Arial, Helvetica, sans-serif', [14, "px"], "rgba(255,255,255,1.00)", "400", "none", "", "break-word", ""]
+                        },
+                        {
+                            id: 'config-rejectWrongAnswers',
+                            type: 'text',
+                            rect: ['60', '-188px', '212px', '18px', 'auto', 'auto'],
+                            text: "true",
+                            font: ['Arial, Helvetica, sans-serif', [14, "px"], "rgba(255,255,255,1.00)", "400", "none", "", "break-word", ""]
                         }
                     ],
                     style: {
@@ -214,22 +287,22 @@
                     autoPlay: true,
                     data: [
                         [
-                            "eid42",
+                            "eid1",
                             "opacity",
                             0,
                             0,
                             "linear",
-                            "${qHint1Copy}",
+                            "${drag1}",
                             '0',
                             '0'
                         ],
                         [
-                            "eid43",
+                            "eid3",
                             "opacity",
-                            2000,
+                            1000,
                             0,
                             "linear",
-                            "${qHint1Copy}",
+                            "${drag1}",
                             '0',
                             '1'
                         ],
@@ -271,27 +344,27 @@
                             "linear",
                             "${dragHint1Copy}",
                             '0',
-                            '1'
+                            '0.97'
                         ],
                         [
-                            "eid2",
+                            "eid38",
                             "opacity",
                             0,
                             0,
                             "linear",
-                            "${dragText1}",
+                            "${dragText1Copy}",
                             '0',
                             '0'
                         ],
                         [
-                            "eid4",
+                            "eid39",
                             "opacity",
                             1000,
                             0,
                             "linear",
-                            "${dragText1}",
+                            "${dragText1Copy}",
                             '0',
-                            '1'
+                            '0.98'
                         ],
                         [
                             "eid36",
@@ -334,42 +407,42 @@
                             '1'
                         ],
                         [
-                            "eid38",
+                            "eid2",
                             "opacity",
                             0,
                             0,
                             "linear",
-                            "${dragText1Copy}",
+                            "${dragText1}",
                             '0',
                             '0'
                         ],
                         [
-                            "eid39",
+                            "eid4",
                             "opacity",
                             1000,
                             0,
                             "linear",
-                            "${dragText1Copy}",
+                            "${dragText1}",
                             '0',
                             '1'
                         ],
                         [
-                            "eid1",
+                            "eid42",
                             "opacity",
                             0,
                             0,
                             "linear",
-                            "${drag1}",
+                            "${qHint1Copy}",
                             '0',
                             '0'
                         ],
                         [
-                            "eid3",
+                            "eid43",
                             "opacity",
-                            1000,
+                            2000,
                             0,
                             "linear",
-                            "${drag1}",
+                            "${qHint1Copy}",
                             '0',
                             '1'
                         ]
@@ -396,12 +469,12 @@
                             fill: ['rgba(112,100,252,1.00)']
                         },
                         {
-                            font: ['Arial, Helvetica, sans-serif', [16, 'px'], 'rgba(255,255,255,1.00)', '500', 'none', '', '', 'nowrap'],
                             type: 'text',
+                            rect: [12, 7, 'auto', 'auto', 'auto', 'auto'],
                             id: 'Text',
                             text: 'Check answers',
                             align: 'center',
-                            rect: [12, 7, 'auto', 'auto', 'auto', 'auto']
+                            font: ['Arial, Helvetica, sans-serif', [16, 'px'], 'rgba(255,255,255,1.00)', '500', 'none', '', '', 'nowrap']
                         }
                     ],
                     style: {
@@ -428,18 +501,18 @@
                 content: {
                     dom: [
                         {
-                            font: ['Arial, Helvetica, sans-serif', [13, 'px'], 'rgba(115,115,115,1.00)', '400', 'none', 'normal', '', 'nowrap'],
                             type: 'text',
+                            rect: [5, 6, 'auto', 'auto', 'auto', 'auto'],
                             id: 'resetButton',
                             text: 'RESET',
                             align: 'center',
-                            rect: [5, 6, 'auto', 'auto', 'auto', 'auto']
+                            font: ['Arial, Helvetica, sans-serif', [13, 'px'], 'rgba(115,115,115,1.00)', '400', 'none', 'normal', '', 'nowrap']
                         },
                         {
-                            rect: [0, 0, 56, 24, 'auto', 'auto'],
+                            type: 'rect',
                             id: 'Rectangle2',
                             stroke: [1, 'rgb(0, 0, 0)', 'none'],
-                            type: 'rect',
+                            rect: [0, 0, 56, 24, 'auto', 'auto'],
                             fill: ['rgba(97,112,159,0.00)']
                         }
                     ],
@@ -467,17 +540,17 @@
                 content: {
                     dom: [
                         {
+                            rect: ['0', '0', '575', '18', 'auto', 'auto'],
                             id: 'Group',
                             type: 'group',
-                            rect: ['0', '0', '575', '18', 'auto', 'auto'],
                             c: [
                             {
-                                rect: ['0', '2', '575', '16', 'auto', 'auto'],
                                 font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(0,0,0,1)', 'normal', 'none', '', 'break-word', ''],
+                                type: 'text',
                                 id: 'Text',
                                 text: 'Copyright 2013 North Carolina State University. Code by One Time Software. Version 1.0 June 2015.',
                                 align: 'center',
-                                type: 'text'
+                                rect: ['0', '2', '575', '16', 'auto', 'auto']
                             },
                             {
                                 type: 'rect',
@@ -497,8 +570,7 @@
                     ],
                     style: {
                         '${symbolSelector}': {
-                            isStage: 'true',
-                            rect: [undefined, undefined, '575', '18']
+                            rect: [null, null, '575', '18']
                         }
                     }
                 },
@@ -522,9 +594,9 @@
                         {
                             rect: [0, 0, '106px', '16px', 'auto', 'auto'],
                             borderRadius: ['10px', '10px', '10px', '10px'],
-                            stroke: [0, 'rgba(0,0,0,1)', 'none'],
-                            id: 'RoundRect',
                             opacity: '0',
+                            id: 'RoundRect',
+                            stroke: [0, 'rgba(0,0,0,1)', 'none'],
                             type: 'rect',
                             fill: ['rgba(192,192,192,1)']
                         }
@@ -555,9 +627,9 @@
                         {
                             rect: [0, 0, 168, '16px', 'auto', 'auto'],
                             borderRadius: ['10px', '10px', '10px', '10px'],
-                            opacity: '0',
-                            id: 'RoundRect2',
                             stroke: [0, 'rgb(0, 0, 0)', 'none'],
+                            id: 'RoundRect2',
+                            opacity: '0',
                             type: 'rect',
                             fill: ['rgba(192,192,192,1)']
                         }

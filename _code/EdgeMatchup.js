@@ -1,4 +1,21 @@
+var rejectWrongAnswers;		// false increases difficulty
+var requireCompletion;			// true increases difficulty
+var introAnimation;				// helps convey to user that drag elements are in fact draggable
+var nextPageUrl;				 // either a relative url: "../folder/filename.html" or an absolute url: "https://www.dictionary.com"
+var logResponsesToDashboard;
+var qTextSummary;
+
+function getTeacherParams() {
+	rejectWrongAnswers = loadStageParam("config-rejectWrongAnswers");
+	requireCompletion = loadStageParam("config-requireCompletion");
+	introAnimation = loadStageParam("config-introAnimation");
+	nextPageUrl = loadStageParam("config-nextPageUrl");
+	logResponsesToDashboard = loadStageParam("config-logResponsesToDashboard","boolean");
+	qTextSummary = "Matchup quiz"
+}
+
 function init() {
+	getTeacherParams();
 	var dataVersionNumber = 3;
 	var myLeft, myTop;
 	dragElements = $('.dragTab');

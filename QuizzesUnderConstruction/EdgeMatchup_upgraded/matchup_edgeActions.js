@@ -17,10 +17,10 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          // load external files
          yepnope({
          	load: [
-         		'../../_code/common.css',
-         		"DragDrop.css",
-         		"../../_code/common.js",
-         		"../../_code/EdgeMatchup.js"
+         		'../../../_code/common.css',
+         		"../../../_code/dragDrop.css",
+         		"../../../_code/common.js",
+         		"../../../_code/EdgeMatchup.js"
          	], complete: function() {init()}
          });
 
@@ -52,13 +52,6 @@ window.location.reload();
          	targetList = ["zone1","zone2"];			// must be in sequential order
          	answerList = ["drag2","drag1"];			// answer key - order these to match the correct zone
          												// list all the drags even if you have more drags than zones
-         	rejectWrongAnswers = true;		// false increases difficulty
-         	requireCompletion = true;			// true increases difficulty
-         	introAnimation = true;				// helps convey to user that drag elements are in fact draggable
-         	nextPageUrl = "../ImageLabeler-shortanswer/ImageLabeler.html"; // either a relative url: "../folder/filename.html" or an absolute url: "https://www.dictionary.com"
-         	logResponsesToDashboard = true;
-         	quizpageNumber = 1;
-         	qTextSummary = "short description of what is in this quiz"
          // end if editable section //
          
          // note: the above variables are intentionally global
