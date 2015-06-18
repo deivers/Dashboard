@@ -32,9 +32,11 @@ function init() {
 	dragElements.draggable({
 		start: function( event, ui ) {
 			$(this).addClass('dragging');
+			$(this).parent().zIndex(100);
 		},
 		stop: function( event, ui ) {
 			$(this).removeClass('dragging');
+			$(this).parent().zIndex(1);
 		}
 	});
 
