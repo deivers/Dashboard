@@ -85,6 +85,10 @@ function init() {
 		}
 	});
 
+	// gather the questions (if textual)
+	var questionTextArray = $(".qText").htmlList() || [];
+	var answerTextArray = $(".aText").htmlList() || [];  //////////// this order will be wrong in general
+
 	checkAnswers = function() {
 		///console.log("checkAnswers function");
 		// variables
@@ -135,7 +139,7 @@ function init() {
 			if (typeof logResponsesToDashboard === 'undefined')
 				logResponsesToDashboard = false;
 			if (logResponsesToDashboard) {
-				var logSuccess = logSubmission(dataVersionNumber,"Edge Matchup",qTextSummary," ",studentChoices,cc);
+				var logSuccess = logSubmission(dataVersionNumber,"Edge Matchup",questionTextArray.join(','),answerTextArray.join(','),saIndexes,akIndexes);
 				if (logSuccess == false) {
 					alert("You must provide a valid student ID for answers to be checked.");
 					return;
@@ -177,41 +181,5 @@ function init() {
 		return (aCenterH-buffer < bCenterH && bCenterH < aCenterH+buffer && aCenterV-buffer < bCenterV && bCenterV < aCenterV+buffer);
 	}
 
-//??? why don't I use the one in common.js ???//
-	function logStudentResponses(list) {
-		if (typeof logResponsesToDashboard === 'undefined')
-			logResponsesToDashboard = false;
-		if (logResponsesToDashboard) {
-			// submit to server
-			if (typeof studentId === 'undefined' || studentId == "")
-				var studentId = prompt("Please enter your student ID","")
-			// todo: verify that we got a valid id above
-			var questionType;
-			//if (shuffleWhich == "draggables")
-			//	questionType = "Edge Matchup with the answers shuffled";
-			//else
-			//	questionType = "Edge Matchup with the questions shuffled";
-			questionType = "Edge Matchup";
-			if (typeof qTextSummary === 'undefined')
-				var qTextSummary = "Question text summary isn't defined";
-			var request = $.ajax({
-				type: 'POST',
-				url: 'LogResponse.php',
-				data: {	si : studentId,		//todo: get student id from env var
-						qn : dataVersionNumber,
-						qt : questionType,
-						qs : qTextSummary,
-						sa : list
-				},
-				dataType: 'json'
-			});
-			request.done(function(msg) {
-				console.log("Submission successful");
-			});
-			request.fail(function(jqXHR, textStatus) {
-				console.log("The submission failed: "+textStatus);
-			});
-		}
-	}
 }
 

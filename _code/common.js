@@ -226,9 +226,17 @@ jQuery.fn.exists = function(){
 	return jQuery(this).length>0;
 }
 
+jQuery.fn.htmlList = function() {
+	var htmls = [];
+	jQuery(this).each(function(){
+		htmls.push(this.textContent);
+	});
+	return htmls;
+}
+
 String.prototype.specialTrim = function() {
 	// for retrieving user params, normally located on stage but off canvas
-	// ignore html and return characters
+	// ignore characters starting with the first <
 	var cutHere = this.indexOf("<");
 	if (cutHere > 0)
 		return this.substring(0,cutHere);
