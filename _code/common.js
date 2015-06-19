@@ -225,12 +225,12 @@ function convertToIndexes(arrayWithUnknownOrder,referenceArray) {
 	return resultArray;
 }
 
-function replaceAwithBinC(a,b,c) {
-	// replace all occurences of a with b in c
-	return c.replace(RegExp(a,"gm"),b);  // "g" for global replace, "m" for multi-line
-}
+// function replaceAwithBinC(a,b,c) {
+// 	// replace all occurences of a with b in c
+// 	return c.replace(RegExp(a,"gm"),b);  // "g" for global replace, "m" for multi-line
+// }
 //TODO phase out the above in favor of the following?
-String.prototype.replaceAwithB(a,b) {
+String.prototype.replaceAwithB = function(a,b) {
 	return this.replace(RegExp(a,"gm"),b);  // "g" for global replace, "m" for multi-line
 }
 

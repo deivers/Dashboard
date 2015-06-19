@@ -52,7 +52,7 @@ function computeAndDisplayStats(logArray) {
 	$(".stats").remove(); // if hitting the button again, clear the previously displayed stats
 	logArray.forEach(function(logString,quizpageIndex) {
 		student = parseLogString(quizpageIndex+1,logString);
-		answerDetailsHtml = "<ul style='list-style:none'><li>"+replaceAwithBinC(";","</li><li>",student.answerDetails)+"</li></ul>";
+		answerDetailsHtml = "<ul style='list-style:none'><li>"+student.answerDetails.replaceAwithB(";","</li><li>")+"</li></ul>";
 		answerKeyArray = student.answerKeyString.split(";");
 		///answerKeyHtml = addToEach(answerKeyArray,1).join(", ");
 		nFirst = numberCorrectSubmissions(firstSubmissionIndex);
