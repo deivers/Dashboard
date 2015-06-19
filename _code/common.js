@@ -129,16 +129,19 @@ function goNextPage() {
 		window.open(nextPageUrl, "_self");
 }
 
-// utility functions //
+// specific utility functions //
 
-function shuffleDivs(selectorForContainingElement,selectorOfElementsToBeShuffled) {
-	var list = $(selectorOfElementsToBeShuffled);
-	$(selectorForContainingElement).append(list[0]);	// make sure the first is no longer first
-	for (var i=0; i<list.length/2+1; i++)
-		$(selectorForContainingElement).append(list[Math.floor(Math.random()*(list.length-1))]);  // -1 because there's no sense in appending the last element to the elements
-	if (jQuerySame(list,$(selectorOfElementsToBeShuffled)))		// then the order is unchanged
-		$(selectorForContainingElement).append($(selectorOfElementsToBeShuffled).get().reverse());	// reverse the order
+String.prototype.specialTrim = function() {
+	// for retrieving user params, normally located on stage but off canvas
+	// ignore characters starting with the first <
+	var cutHere = this.indexOf("<");
+	if (cutHere > 0)
+		return this.substring(0,cutHere);
+	else
+		return this.substring(0);
 }
+
+// general utility functions //
 
 function shuffleArray(array) {
 	if (array.length < 3)
@@ -157,8 +160,20 @@ function shuffleArray(array) {
 	return array;
 }
 
-// sort by position (works whether the elements are in columns or rows)
+//jQuery.fn.
+function shuffleDivs(selectorForContainingElement,selectorOfElementsToBeShuffled) {
+	var list = $(selectorOfElementsToBeShuffled);
+	$(selectorForContainingElement).append(list[0]);
+	for (var i=0; i<list.length/2+1; i++)
+		$(selectorForContainingElement).append(list[Math.floor(Math.random()*(list.length-1))]);  // -1 because there's no sense in appending the last element to the elements
+	if (jQuerySame(list,$(selectorOfElementsToBeShuffled)))		// then the order is unchanged
+		$(selectorForContainingElement).append($(selectorOfElementsToBeShuffled).get().reverse());	// reverse the order
+}
+
+// comparator fn to sort by position (works whether the elements are in columns or rows)
+// example usage: $(".checkbox").sort(sortElementByPosition)
 function sortElementByPosition(a, b) {
+	// assume a and b are jQuery objects or selectors
 	var aOffset = $(a).offset();
 	var bOffset = $(b).offset();
    return aOffset.top + aOffset.left - bOffset.top - bOffset.left;
@@ -177,7 +192,9 @@ function areArraysTheSame(a,b) {
 	return result;
 }
 
+//jQuery.fn.sameAs(b) {
 function jQuerySame(a, b) {
+	// returns false if same elements but different order
 	if (a.length != b.length)
 		return false;
 	for (var i = 0; i < a.length; i++) {
@@ -212,7 +229,10 @@ function replaceAwithBinC(a,b,c) {
 	// replace all occurences of a with b in c
 	return c.replace(RegExp(a,"gm"),b);  // "g" for global replace, "m" for multi-line
 }
-
+//TODO phase out the above in favor of the following?
+String.prototype.replaceAwithB(a,b) {
+	return this.replace(RegExp(a,"gm"),b);  // "g" for global replace, "m" for multi-line
+}
 
 String.prototype.contains = function(subString) {
 	return this.indexOf(subString) != -1;
@@ -234,19 +254,12 @@ jQuery.fn.htmlList = function() {
 	return htmls;
 }
 
-String.prototype.specialTrim = function() {
-	// for retrieving user params, normally located on stage but off canvas
-	// ignore characters starting with the first <
-	var cutHere = this.indexOf("<");
-	if (cutHere > 0)
-		return this.substring(0,cutHere);
-	else
-		return this.substring(0);
-}
 
 function debug(x) {
-	if (typeof x === "object") {
+	if (typeof x === "object") { // an object but not an array
 		console.log(JSON.stringify(x));
 	} else
 		console.log(x);
 }
+
+// see also: utility.js
