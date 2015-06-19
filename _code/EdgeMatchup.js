@@ -1,4 +1,20 @@
+var rejectWrongAnswers;		// false increases difficulty
+var requireCompletion;			// true increases difficulty
+var introAnimation;				// helps convey to user that drag elements are in fact draggable
+var nextPageUrl;				 // either a relative url: "../folder/filename.html" or an absolute url: "https://www.dictionary.com"
+var logResponsesToDashboard;
+
+function getTeacherParams() {
+	rejectWrongAnswers = loadStageParam("config-rejectWrongAnswers");
+	requireCompletion = loadStageParam("config-requireCompletion");
+	introAnimation = loadStageParam("config-introAnimation");
+	nextPageUrl = loadStageParam("config-nextPageUrl");
+	logResponsesToDashboard = loadStageParam("config-logResponsesToDashboard","boolean");
+}
+
 function init() {
+	getTeacherParams();
+	var dataVersionNumber = 3;
 	var myLeft, myTop;
 	dragElements = $('.dragTab');
 	targetList.forEach(function(targetString, i) {
@@ -14,9 +30,11 @@ function init() {
 	dragElements.draggable({
 		start: function( event, ui ) {
 			$(this).addClass('dragging');
+			$(this).parent().zIndex(100);
 		},
 		stop: function( event, ui ) {
 			$(this).removeClass('dragging');
+			$(this).parent().zIndex(1);
 		}
 	});
 
@@ -64,6 +82,10 @@ function init() {
 			dragElement.children().css({"opacity":1});
 		}
 	});
+
+	// gather the questions (if textual)
+	var questionTextArray = $(".qText").htmlList() || [];
+	var answerTextArray = $(".aText").htmlList() || [];  //////////// this order will be wrong in general
 
 	checkAnswers = function() {
 		///console.log("checkAnswers function");
@@ -115,7 +137,7 @@ function init() {
 			if (typeof logResponsesToDashboard === 'undefined')
 				logResponsesToDashboard = false;
 			if (logResponsesToDashboard) {
-				var logSuccess = logSubmission(quizpageNumber,"Edge Matchup",qTextSummary," ",studentChoices,cc);
+				var logSuccess = logSubmission(dataVersionNumber,"Edge Matchup",questionTextArray.join(','),answerTextArray.join(','),saIndexes,akIndexes);
 				if (logSuccess == false) {
 					alert("You must provide a valid student ID for answers to be checked.");
 					return;
@@ -157,42 +179,5 @@ function init() {
 		return (aCenterH-buffer < bCenterH && bCenterH < aCenterH+buffer && aCenterV-buffer < bCenterV && bCenterV < aCenterV+buffer);
 	}
 
-	function logStudentResponses(list) {
-		if (typeof logResponsesToDashboard === 'undefined')
-			logResponsesToDashboard = false;
-		if (logResponsesToDashboard) {
-			// submit to server
-			if (typeof studentId === 'undefined' || studentId == "")
-				var studentId = prompt("Please enter your student ID","")
-			// todo: verify that we got a valid id above
-			if (typeof quizpageNumber === 'undefined')
-				var quizpageNumber = 0;
-			var questionType;
-			//if (shuffleWhich == "draggables")
-			//	questionType = "Edge Matchup with the answers shuffled";
-			//else
-			//	questionType = "Edge Matchup with the questions shuffled";
-			questionType = "Edge Matchup";
-			if (typeof qTextSummary === 'undefined')
-				var qTextSummary = "Question text summary isn't defined";
-			var request = $.ajax({
-				type: 'POST',
-				url: 'LogResponse.php',
-				data: {	si : studentId,		//todo: get student id from env var
-						qn : quizpageNumber,
-						qt : questionType,
-						qs : qTextSummary,
-						sa : list
-				},
-				dataType: 'json'
-			});
-			request.done(function(msg) {
-				console.log("Submission successful");
-			});
-			request.fail(function(jqXHR, textStatus) {
-				console.log("The submission failed: "+textStatus);
-			});
-		}
-	}
 }
 

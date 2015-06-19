@@ -1,7 +1,6 @@
 // Define the following in the html file:
 //	integer minNumChars
 //	boolean logResponsesToDashboard (defaults to false)
-//	integer quizpageNumber (required if the above is true)
 //  string qTextSummary
 //	nextPageUrl
 
@@ -12,6 +11,7 @@ var version = "1.0 November 2013";
 var questionType = "Short Answer";
 var autoCompleteTerms;
 var answerTerms = [];
+var dataVersionNumber = 3;
 $(function() {
 	$("input").attr("autocomplete", "off");
 	$("input").keyup(function(event){handleKeyup(event);});
@@ -135,7 +135,7 @@ function checkAnswers() {
 	if (logResponsesToDashboard) {
 		var saList = convertToIndexes(studentAnswers,autoCompleteTerms)
 		var akList = arrayFactory(studentAnswers.length,1,0);
-		var logSuccess = logSubmission(quizpageNumber,questionType,qTextSummary,autoCompleteTerms,saList,akList);
+		var logSuccess = logSubmission(dataVersionNumber,questionType,qTextSummary,autoCompleteTerms,saList,akList);
 		if (logSuccess == false) {
 			alert("You must provide a valid student ID for answers to be checked.");
 			return;
