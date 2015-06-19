@@ -2,22 +2,28 @@
 var texts = [];
 var textFields;
 var questionType;
+//
+var answerTypeIsMenus;
+var showWrongAnswers;
+var logResponsesToDashboard;
+var nextPageUrl;
 // globals defined elsewhere but needed herein
-//	imageLabelerType
-//	logResponsesToDashboard
 //	quizpageNumber
 //	qTextSummary
-//	showWrongAnswers
-//	nextPageUrl
 // additional globals needed if ShortAnswer type
 //	minNumChars
 
 function init() {
+	// read the configuration parameters
+	answerTypeIsMenus = ($("#Stage_config-answerTypeIsMenus").html().substring(0,1) == "t");
+	showWrongAnswers = ($("#Stage_config-showWrongAnswers").html().substring(0,1) == "t");
+	logResponsesToDashboard = ($("#Stage_config-logResponsesToDashboard").html().substring(0,1) == "t");
+	nextPageUrl = $("#Stage_config-nextPageUrl").html().specialTrim();
 	// collect all possible answers
 	textFields = $(".textSource");
 	// console.log("number of fields: "+textFields.length);
 	buildTextsArray();
-	if (typeof imageLabelerType !== 'undefined' && imageLabelerType == "menus") {
+	if (answerTypeIsMenus) {
 		questionType = "Image Labeler with Popup Menus";
 		buildMenus();
 	} else {
@@ -69,15 +75,9 @@ buildTextBoxes = function() {
 
 insertIntoHtml = function(prefix,suffix) {
 	var j = 0;
-	var stageLeftEdge = $("#Stage").position().left;
 	for (var i=0; i<textFields.length; i++) {
-		if ($(textFields[i]).position().left < stageLeftEdge) {
-			;//console.log("#"+i+" is off stage left");
-		} else {
-			$(textFields[i]).html("");
-			$(prefix+j+suffix).appendTo($(textFields[i]));
-			j++;
-		}
+		$(textFields[i]).html("");
+		$(prefix+i+suffix).appendTo($(textFields[i]));
 	}
 }
 
@@ -139,7 +139,7 @@ checkAnswers = function() {
 	var wrong = [];
 	var isComplete = true;
 	var answerTexts = [];
-	var answerWidgets = (typeof imageLabelerType !== 'undefined' && imageLabelerType == "menus") ? $(".menu") : $(".textBox");
+	var answerWidgets = (answerTypeIsMenus) ? $(".menu") : $(".textBox");
 	// collect student answers
 	var k = 0;
 	for (var j=0; j<answerWidgets.length; j++) {
@@ -190,8 +190,3 @@ checkAnswers = function() {
 		alert("You must complete the quiz before answers will be checked.");
 }
 
-goNextPage = function() {
-	console.log(">>> "+nextPageUrl);
-	if (typeof nextPageUrl !== 'undefined' && nextPageUrl != "")
-		window.open(nextPageUrl, "_self");
-}

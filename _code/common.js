@@ -149,6 +149,27 @@ function replaceAwithBinC(a,b,c) {
 	return c.replace(RegExp(a,"gm"),b);  // "g" for global replace, "m" for multi-line
 }
 
+function encode(string) {
+	var result, chr, encChr;
+	result = "?" + String.fromCharCode(127);
+	for (var i=0; i<string.length; i++) {
+		chr = string.charCodeAt(i);
+		result += String.fromCharCode( (chr < 34) ? chr : chr + 1 + i%2);
+	}
+	return result;
+}
+function unencode(string) {
+	var result = "", chr, unencChar;
+	for (var i=2; i<string.length; i++) {
+		chr = string.charCodeAt(i);
+		result += String.fromCharCode((chr < 34) ? chr : chr - 1 - i%2);
+	}
+	return result;
+}
+function isEncoded(string) {
+	return (string.charCodeAt(0) == 63 && string.charCodeAt(1) == 127);
+}
+
 // the following methods are for AEA projects //
 
 function setUpSubmitButton() {
@@ -170,4 +191,30 @@ function setUpNextButton() {
 	}
 	var newWidth = $(".submit").outerWidth();
 	$(".submit").css("left", Math.max(0, (($("#Stage").width() - newWidth)/2)) + "px"); // center it
+}
+
+function goNextPage() {
+	//console.log(">>> "+nextPageUrl);
+	if (typeof nextPageUrl !== 'undefined' && nextPageUrl != "")
+		window.open(nextPageUrl, "_self");
+}
+
+String.prototype.contains = function(subString) {
+	return this.indexOf(subString) != -1;
+}
+
+function exists(x) {
+	return (typeof x !== "undefined" && x != null);
+}
+
+jQuery.fn.exists = function(){
+	return jQuery(this).length>0;
+}
+
+String.prototype.specialTrim = function() {
+	var cutHere = this.indexOf("<");
+	if (cutHere > 0)
+		return this.substring(0,cutHere);
+	else
+		return this.substring(0);
 }
