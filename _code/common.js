@@ -149,20 +149,18 @@ String.prototype.specialTrim = function() {
 // general utility functions //
 
 function shuffleArray(array) {
+	// Randomize order in-place using Fisher-Yates shuffle algorithm
+	// if the loop results in the same array, then reverse the order
 	if (array.length < 3)
 		return array.reverse();
-	// Randomize order in-place using Fisher-Yates shuffle algorithm
-	// inside a loop to prevent returning the same array
-	var arrayCopy = array.slice(0);
-	do {
-		for (var i = array.length - 1; i > 0; i--) {
-			var j = Math.floor(Math.random() * (i + 1));
-			var temp = array[i];
-			array[i] = array[j];
-			array[j] = temp;
-		}
-	} while(array.toString() == arrayCopy.toString());
-	return array;
+	var originalArrayToString = array.toString();
+	for (var i = array.length - 1; i > 0; i--) {
+		var j = Math.floor(Math.random() * (i + 1));
+		var temp = array[i];
+		array[i] = array[j];
+		array[j] = temp;
+	}
+	return (array.toString() == originalArrayToString) ? array.reverse() : array;
 }
 
 //jQuery.fn.
@@ -209,6 +207,7 @@ function jQuerySame(a, b) {
 	return true;
 }
 
+// generates arrays populated with numbers
 function arrayFactory(numberOfElements,multiplier,offset) {
 	var array = new Array(numberOfElements);
 	for (var i=0; i<numberOfElements; i++)
