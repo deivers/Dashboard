@@ -38,7 +38,7 @@
                         {
                             id: 'SubmitBtn',
                             type: 'text',
-                            rect: ['299px', '673px', '70', '19', 'auto', 'auto'],
+                            rect: ['310px', '670px', '70', '19', 'auto', 'auto'],
                             cursor: 'pointer',
                             text: "Submit",
                             align: "center",
@@ -173,6 +173,14 @@
                             rect: ['60', '-93px', '212px', '18px', 'auto', 'auto'],
                             text: "true",
                             font: ['Arial, Helvetica, sans-serif', [14, "px"], "rgba(255,255,255,1.00)", "400", "none", "", "break-word", ""]
+                        },
+                        {
+                            id: 'resetBtn',
+                            symbolName: 'resetButton',
+                            type: 'rect',
+                            rect: ['317px', '692px', '56', '24', 'auto', 'auto'],
+                            cursor: 'pointer',
+                            userClass: "reset"
                         }
                     ],
                     style: {
@@ -189,12 +197,12 @@
                     autoPlay: false,
                     data: [
                         [
-                            "eid28",
+                            "eid29",
                             "left",
                             0,
                             0,
                             "linear",
-                            "${Checkbox3}",
+                            "${Checkbox2}",
                             '217px',
                             '217px'
                         ],
@@ -209,26 +217,6 @@
                             '719px'
                         ],
                         [
-                            "eid13",
-                            "left",
-                            0,
-                            0,
-                            "linear",
-                            "${CopyrightAndCredits}",
-                            '54px',
-                            '54px'
-                        ],
-                        [
-                            "eid29",
-                            "left",
-                            0,
-                            0,
-                            "linear",
-                            "${Checkbox2}",
-                            '217px',
-                            '217px'
-                        ],
-                        [
                             "eid27",
                             "left",
                             0,
@@ -239,6 +227,16 @@
                             '216px'
                         ],
                         [
+                            "eid35",
+                            "left",
+                            0,
+                            0,
+                            "linear",
+                            "${resetBtn}",
+                            '317px',
+                            '317px'
+                        ],
+                        [
                             "eid30",
                             "left",
                             0,
@@ -247,6 +245,36 @@
                             "${Checkbox1}",
                             '217px',
                             '217px'
+                        ],
+                        [
+                            "eid32",
+                            "top",
+                            0,
+                            0,
+                            "linear",
+                            "${resetBtn}",
+                            '692px',
+                            '692px'
+                        ],
+                        [
+                            "eid28",
+                            "left",
+                            0,
+                            0,
+                            "linear",
+                            "${Checkbox3}",
+                            '217px',
+                            '217px'
+                        ],
+                        [
+                            "eid13",
+                            "left",
+                            0,
+                            0,
+                            "linear",
+                            "${CopyrightAndCredits}",
+                            '54px',
+                            '54px'
                         ]
                     ]
                 }
@@ -261,25 +289,25 @@
                 content: {
                     dom: [
                         {
-                            type: 'group',
-                            id: 'Group',
                             rect: ['0', '0', '700', '36', 'auto', 'auto'],
+                            id: 'Group',
+                            type: 'group',
                             c: [
                             {
-                                font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(119,119,119,1.00)', 'normal', 'none', '', 'break-word', ''],
                                 type: 'text',
+                                rect: ['0', '2', '602', '16', 'auto', 'auto'],
                                 id: 'Text',
                                 text: 'Copyright 2015 North Carolina State University. Code by One Time Software. Version 1.5 May 2015.',
                                 align: 'center',
-                                rect: ['0', '2', '602', '16', 'auto', 'auto']
+                                font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(119,119,119,1.00)', 'normal', 'none', '', 'break-word', '']
                             },
                             {
-                                font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(119,119,119,1.00)', 'normal', 'none', '', 'break-word', ''],
                                 type: 'text',
+                                rect: ['0', '20', '602', '16', 'auto', 'auto'],
                                 id: 'TextCopy2',
                                 text: 'Free for academic use when displaying this notice.',
                                 align: 'center',
-                                rect: ['0', '20', '602', '16', 'auto', 'auto']
+                                font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(119,119,119,1.00)', 'normal', 'none', '', 'break-word', '']
                             },
                             {
                                 type: 'rect',
@@ -323,9 +351,9 @@
                         {
                             rect: [0, 0, '106px', '16px', 'auto', 'auto'],
                             borderRadius: ['10px', '10px', '10px', '10px'],
-                            stroke: [0, 'rgba(0,0,0,1)', 'none'],
-                            id: 'RoundRect',
                             opacity: '0',
+                            id: 'RoundRect',
+                            stroke: [0, 'rgba(0,0,0,1)', 'none'],
                             type: 'rect',
                             fill: ['rgba(192,192,192,1)']
                         }
@@ -356,9 +384,9 @@
                         {
                             rect: [0, 0, 168, '16px', 'auto', 'auto'],
                             borderRadius: ['10px', '10px', '10px', '10px'],
-                            opacity: '0',
-                            id: 'RoundRect2',
                             stroke: [0, 'rgb(0, 0, 0)', 'none'],
+                            id: 'RoundRect2',
+                            opacity: '0',
                             type: 'rect',
                             fill: ['rgba(192,192,192,1)']
                         }
@@ -395,15 +423,54 @@
                             fill: ['rgba(255,255,255,1.00)', [270, [['rgba(167,167,167,1.00)', 0], ['rgba(222,222,222,1.00)', 100]]]]
                         },
                         {
-                            rect: [0, 0, 18, 18, 'auto', 'auto'],
-                            id: 'checkmark',
                             type: 'image',
+                            id: 'checkmark',
+                            rect: [0, 0, 18, 18, 'auto', 'auto'],
                             fill: ['rgba(0,0,0,0)', 'images/checkmark_outlined_centered.png', '0px', '0px']
                         }
                     ],
                     style: {
                         '${symbolSelector}': {
                             rect: [null, null, 18, 18]
+                        }
+                    }
+                },
+                timeline: {
+                    duration: 0,
+                    autoPlay: false,
+                    data: [
+
+                    ]
+                }
+            },
+            "resetButton": {
+                version: "5.0.1",
+                minimumCompatibleVersion: "5.0.0",
+                build: "5.0.1.386",
+                scaleToFit: "none",
+                centerStage: "none",
+                resizeInstances: false,
+                content: {
+                    dom: [
+                        {
+                            type: 'text',
+                            rect: [5, 6, 'auto', 'auto', 'auto', 'auto'],
+                            id: 'resetButton',
+                            text: 'RESET',
+                            align: 'center',
+                            font: ['Arial, Helvetica, sans-serif', [13, 'px'], 'rgba(115,115,115,1.00)', '400', 'none', 'normal', '', 'nowrap']
+                        },
+                        {
+                            rect: [0, 0, 56, 24, 'auto', 'auto'],
+                            id: 'Rectangle2',
+                            stroke: [1, 'rgb(0, 0, 0)', 'none'],
+                            type: 'rect',
+                            fill: ['rgba(97,112,159,0.00)']
+                        }
+                    ],
+                    style: {
+                        '${symbolSelector}': {
+                            rect: [null, null, 56, 24]
                         }
                     }
                 },

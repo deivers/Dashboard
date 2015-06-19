@@ -135,6 +135,14 @@
                             text: "Note: don't use answer revealing names for anything below<br>",
                             align: "center",
                             font: ['Arial, Helvetica, sans-serif', [10, "px"], "rgba(186,184,184,1.00)", "400", "none solid rgb(0, 0, 0)", "normal", "break-word", "nowrap"]
+                        },
+                        {
+                            id: 'resetBtn',
+                            symbolName: 'resetButton',
+                            type: 'rect',
+                            rect: ['234px', '431px', '56', '24', 'auto', 'auto'],
+                            cursor: 'pointer',
+                            userClass: "reset"
                         }
                     ],
                     style: {
@@ -143,6 +151,64 @@
                             rect: ['null', 'null', '550px', '550px', 'auto', 'auto'],
                             overflow: 'hidden',
                             fill: ["rgba(255,255,255,1)"]
+                        }
+                    }
+                },
+                timeline: {
+                    duration: 0,
+                    autoPlay: false,
+                    data: [
+                        [
+                            "eid8",
+                            "left",
+                            0,
+                            0,
+                            "linear",
+                            "${resetBtn}",
+                            '234px',
+                            '234px'
+                        ],
+                        [
+                            "eid9",
+                            "top",
+                            0,
+                            0,
+                            "linear",
+                            "${resetBtn}",
+                            '431px',
+                            '431px'
+                        ]
+                    ]
+                }
+            },
+            "resetButton": {
+                version: "5.0.1",
+                minimumCompatibleVersion: "5.0.0",
+                build: "5.0.1.386",
+                scaleToFit: "none",
+                centerStage: "none",
+                resizeInstances: false,
+                content: {
+                    dom: [
+                        {
+                            type: 'text',
+                            rect: [5, 6, 'auto', 'auto', 'auto', 'auto'],
+                            id: 'resetButton',
+                            text: 'RESET',
+                            align: 'center',
+                            font: ['Arial, Helvetica, sans-serif', [13, 'px'], 'rgba(115,115,115,1.00)', '400', 'none', 'normal', '', 'nowrap']
+                        },
+                        {
+                            rect: [0, 0, 56, 24, 'auto', 'auto'],
+                            id: 'Rectangle2',
+                            stroke: [1, 'rgb(0, 0, 0)', 'none'],
+                            type: 'rect',
+                            fill: ['rgba(97,112,159,0.00)']
+                        }
+                    ],
+                    style: {
+                        '${symbolSelector}': {
+                            rect: [null, null, 56, 24]
                         }
                     }
                 },

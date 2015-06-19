@@ -31,18 +31,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       //Edge binding end
       
       Symbol.bindElementAction(compId, symbolName, "document", "compositionReady", function(sym, e) {
-         // instructor editable section //
-         	imageLabelerType = "shortAnswer";// "menus" or "shortAnswer"
-         	showWrongAnswers = true;			// false increases difficulty
-         	nextPageUrl = "../MatchupLateral/MatchupLateral.html"; // either a relative url: "../folder/filename.html" or an absolute url: "https://www.dictionary.com"
-         // stop here if you are not using the Dashboard feature
-         	logResponsesToDashboard = false;	// true if you want to use the Dashboard
-         	qTextSummary = "";					// short description of what is in this quiz for the purpose of the dashboard
-         // end of editable section //
-         // Note: the above parameters are intentionally global
          
-         // If you add any answer boxes or decoy boxes to the stage, set the Class of each to "textSource"
-         // and make the width of all boxes wide enough to show the longest answer
 
       });
       //Edge binding end
@@ -50,6 +39,14 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       
       
       
+
+      Symbol.bindElementAction(compId, symbolName, "${resetBtn}", "click", function(sym, e) {
+         ///console.log("reset button");
+         window.location.reload();
+         
+
+      });
+      //Edge binding end
 
    })("stage");
    //Edge symbol end:'stage'
@@ -95,5 +92,13 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
 
    })("codeByButton");
    //Edge symbol end:'codeByButton'
+
+   //=========================================================
+   
+   //Edge symbol: 'resetButton'
+   (function(symbolName) {   
+   
+   })("resetButton");
+   //Edge symbol end:'resetButton'
 
 })(window.jQuery || AdobeEdge.$, AdobeEdge, "EDGE-749678393");

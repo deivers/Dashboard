@@ -168,7 +168,23 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       });
       //Edge binding end
 
+      Symbol.bindElementAction(compId, symbolName, "${resetBtn}", "click", function(sym, e) {
+         ///console.log("reset button");
+         window.location.reload();
+         
+
+      });
+      //Edge binding end
+
    })("stage");
    //Edge symbol end:'stage'
+
+   //=========================================================
+   
+   //Edge symbol: 'resetButton'
+   (function(symbolName) {   
+   
+   })("resetButton");
+   //Edge symbol end:'resetButton'
 
 })(window.jQuery || AdobeEdge.$, AdobeEdge, "EDGE-152311472");

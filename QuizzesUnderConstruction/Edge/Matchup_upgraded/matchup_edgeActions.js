@@ -29,7 +29,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
 
       
 
-      Symbol.bindElementAction(compId, symbolName, "${resetButton3}", "click", function(sym, e) {
+      Symbol.bindElementAction(compId, symbolName, "${resetBtn}", "click", function(sym, e) {
 ///console.log("reset button");
 window.location.reload();
 
