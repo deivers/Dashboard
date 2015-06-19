@@ -3,7 +3,6 @@ var requireCompletion;			// true increases difficulty
 var introAnimation;				// helps convey to user that drag elements are in fact draggable
 var nextPageUrl;				 // either a relative url: "../folder/filename.html" or an absolute url: "https://www.dictionary.com"
 var logResponsesToDashboard;
-var qTextSummary;
 
 function getTeacherParams() {
 	rejectWrongAnswers = loadStageParam("config-rejectWrongAnswers");
@@ -11,7 +10,6 @@ function getTeacherParams() {
 	introAnimation = loadStageParam("config-introAnimation");
 	nextPageUrl = loadStageParam("config-nextPageUrl");
 	logResponsesToDashboard = loadStageParam("config-logResponsesToDashboard","boolean");
-	qTextSummary = "Matchup quiz"
 }
 
 function init() {

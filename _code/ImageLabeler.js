@@ -7,10 +7,7 @@ var answerTypeIsMenus;
 var showWrongAnswers;
 var logResponsesToDashboard;
 var nextPageUrl;
-var qTextSummary = $(".qText").html();
 var dataVersionNumber = 3;
-// globals defined elsewhere but needed herein
-//	qTextSummary
 // additional globals needed if ShortAnswer type
 //	minNumChars
 
@@ -172,7 +169,7 @@ checkAnswers = function() {
 			var saArray = convertToIndexes(answerTexts,texts);
 			var akArray = arrayFactory(answerTexts.length,1,0);
 			//console.log(texts); console.log(saArray); console.log(akArray);
-			var logSuccess = logSubmission(dataVersionNumber,questionType,qTextSummary,texts,saArray,akArray);
+			var logSuccess = logSubmission(dataVersionNumber,questionType,"Image Labeler",texts,saArray,akArray);
 			if (logSuccess == false) {
 				alert("You must provide a valid student ID for answers to be checked.");
 				return;
