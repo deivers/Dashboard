@@ -31,13 +31,6 @@ function init() {
 		$(dragElements[shuffleMapping[i]]).parent().css("top", originalPositions[i].top);
 	});
 	
-	// targetList.forEach(function(targetString, i) {
-	// 	targetList[i] = "#Stage_" + targetString;
-	// });
-	// answerList.forEach(function(answerString, i) {
-	// 	answerList[i] = "#Stage_" + answerString;
-	// });
-
 	setUpSubmitButton();
 	
 	// set up dragging
@@ -103,9 +96,10 @@ function init() {
 		// variables
 		var allCorrect = true;
 		var saIndexes = [];
+		var akIndexes = arrayFactory(dragElements.length,1,0);
 		// flags
-		var rejectOption = (typeof rejectWrongAnswers === 'undefined' || rejectWrongAnswers);
-		var requireOption = (typeof requireCompletion === 'undefined' || requireCompletion);
+		var rejectOption = rejectWrongAnswers;
+		var requireOption = requireCompletion;
 		var isQuizComplete = isComplete();
 		// check answers
 		for (var i=0; i<Math.min(targetElements.length, dragElements.length); i++) {
@@ -149,7 +143,7 @@ function init() {
 			if (typeof logResponsesToDashboard === 'undefined')
 				logResponsesToDashboard = false;
 			if (logResponsesToDashboard) {
-				var logSuccess = logSubmission(dataVersionNumber,"Edge Matchup",questionTextArray.join(','),answerTextArray.join(','),saIndexes,arrayFactory(dragElements.length,1,0));
+				var logSuccess = logSubmission(dataVersionNumber,"Edge Matchup",questionTextArray.join(','),answerTextArray.join(','),saIndexes,akIndexes);
 				if (logSuccess == false) {
 					alert("You must provide a valid student ID for answers to be checked.");
 					return;
