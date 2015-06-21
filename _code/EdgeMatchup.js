@@ -5,9 +5,9 @@ var nextPageUrl;				 // either a relative url: "../folder/filename.html" or an a
 var logResponsesToDashboard;
 
 function getTeacherParams() {
-	rejectWrongAnswers = loadStageParam("config-rejectWrongAnswers");
-	requireCompletion = loadStageParam("config-requireCompletion");
-	introAnimation = loadStageParam("config-introAnimation");
+	rejectWrongAnswers = loadStageParam("config-rejectWrongAnswers", "boolean");
+	requireCompletion = loadStageParam("config-requireCompletion", "boolean");
+	introAnimation = loadStageParam("config-introAnimation", "boolean");
 	nextPageUrl = loadStageParam("config-nextPageUrl");
 	logResponsesToDashboard = loadStageParam("config-logResponsesToDashboard","boolean");
 }
@@ -16,13 +16,27 @@ function init() {
 	getTeacherParams();
 	var dataVersionNumber = 3;
 	var myLeft, myTop;
-	dragElements = $('.dragTab');
-	targetList.forEach(function(targetString, i) {
-		targetList[i] = "#Stage_" + targetString;
+	var dragElements = $('.dragTab').sort(sortElementByPosition); // assume these are positioned in the correct order
+	var targetElements = $('.dropZone').sort(sortElementByPosition);
+	// var tempsave_dragElements = dragElements.clone();
+	var shuffleMapping = shuffleArray(arrayFactory(dragElements.length,1,0));
+	// collect the original positions in an array
+	var originalPositions = [];
+	dragElements.each(function(i, el) {
+		originalPositions[i] = $(el).parent().position();
 	});
-	answerList.forEach(function(answerString, i) {
-		answerList[i] = "#Stage_" + answerString;
+	// set the shuffled x-y positions
+	dragElements.each(function(i, el) {
+		$(dragElements[shuffleMapping[i]]).parent().css("left", originalPositions[i].left);
+		$(dragElements[shuffleMapping[i]]).parent().css("top", originalPositions[i].top);
 	});
+	
+	// targetList.forEach(function(targetString, i) {
+	// 	targetList[i] = "#Stage_" + targetString;
+	// });
+	// answerList.forEach(function(answerString, i) {
+	// 	answerList[i] = "#Stage_" + answerString;
+	// });
 
 	setUpSubmitButton();
 	
@@ -51,23 +65,20 @@ function init() {
 		}
 	});
 
-	dragElements.each(function(i, el) {
-		myLeft = $(this).position().left;
-		myTop = $(this).position().top;
-		dragElement = $(this);
-		myLeft = dragElement.position().left;
-		myTop = dragElement.position().top;
+	dragElements.each(function(i, dragEl) {
+		myLeft = $(dragEl).position().left;
+		myTop = $(dragEl).position().top;
 		///console.log("myLeft:"+myLeft+"  myTop:"+myTop);///
-		dragElement.data('originalLeft',myLeft);
-		dragElement.data('originalTop',myTop);
+		$(dragEl).data('originalLeft',myLeft);
+		$(dragEl).data('originalTop',myTop);
 		if (exists(introAnimation)) {
 			// prep for intro
-			dragElement.addClass('dragging');
-			dragElement.css({"left": dragElement.data('originalLeft')+700, "opacity":1});
-			dragElement.children().css({"opacity":1});
+			$(dragEl).addClass('dragging');
+			$(dragEl).css({"left": $(dragEl).data('originalLeft')+700, "opacity":1});
+			$(dragEl).children().css({"opacity":1});
 			// intro
-			dragElement.animate(
-				{	left: dragElement.data('originalLeft'),
+			$(dragEl).animate(
+				{	left: $(this).data('originalLeft'),
 					opacity: 1.0
 				},
 				{	duration: 300*(dragElements.length-i) + 500,
@@ -78,31 +89,32 @@ function init() {
 				}
 			);
 		} else {
-			dragElement.css({"opacity":1});
-			dragElement.children().css({"opacity":1});
+			$(dragEl).css({"opacity":1});
+			$(dragEl).children().css({"opacity":1});
 		}
 	});
 
 	// gather the questions (if textual)
 	var questionTextArray = $(".qText").htmlList() || [];
-	var answerTextArray = $(".aText").htmlList() || [];  //////////// this order will be wrong in general
+	var answerTextArray = $(".aText").htmlList() || []; //TODO verify order//
 
 	checkAnswers = function() {
 		///console.log("checkAnswers function");
 		// variables
 		var allCorrect = true;
+		var saIndexes = [];
 		// flags
 		var rejectOption = (typeof rejectWrongAnswers === 'undefined' || rejectWrongAnswers);
 		var requireOption = (typeof requireCompletion === 'undefined' || requireCompletion);
 		var isQuizComplete = isComplete();
 		// check answers
-		for (var i=0; i<Math.min(targetList.length, answerList.length); i++) {
-			if (!isWithin(answerList[i],targetList[i])) {
+		for (var i=0; i<Math.min(targetElements.length, dragElements.length); i++) {
+			if (!isWithin(dragElements[i],targetElements[i])) { // note: no shuffleMapping here
 				allCorrect = false;
 				if (rejectOption && (requireOption && isQuizComplete)) {
-					$(answerList[i]).animate({
-						"left": $(answerList[i]).data('originalLeft'),
-						"top": $(answerList[i]).data('originalTop')
+					$(dragElements[i]).animate({
+						"left": $(dragElements[i]).data('originalLeft'),
+						"top": $(dragElements[i]).data('originalTop')
 					},{
 						duration: 400,
 						easing: 'easeInOutCubic'
@@ -120,11 +132,11 @@ function init() {
 			}
 		}
 		// if more answers than targets...
-		for (var j=targetList.length; j<answerList.length; j++)
+		for (var j=targetElements.length; j<dragElements.length; j++)
 			if (rejectOption && (requireOption && isQuizComplete))
-				$(answerList[i]).animate({
-					"left": $(answerList[i]).data('originalLeft'),
-					"top": $(answerList[i]).data('originalTop')
+				$(dragElements[i]).animate({
+					"left": $(dragElements[i]).data('originalLeft'),
+					"top": $(dragElements[i]).data('originalTop')
 				},{
 					duration: 400,
 					easing: 'easeInOutCubic'
@@ -137,7 +149,7 @@ function init() {
 			if (typeof logResponsesToDashboard === 'undefined')
 				logResponsesToDashboard = false;
 			if (logResponsesToDashboard) {
-				var logSuccess = logSubmission(dataVersionNumber,"Edge Matchup",questionTextArray.join(','),answerTextArray.join(','),saIndexes,akIndexes);
+				var logSuccess = logSubmission(dataVersionNumber,"Edge Matchup",questionTextArray.join(','),answerTextArray.join(','),saIndexes,arrayFactory(dragElements.length,1,0));
 				if (logSuccess == false) {
 					alert("You must provide a valid student ID for answers to be checked.");
 					return;
@@ -155,16 +167,16 @@ function init() {
 
 	function isComplete() {
 		var nAnswered = 0;
-		for (var i=0; i<answerList.length; i++)
-			if (isAnswered(answerList[i]))
+		for (var i=0; i<dragElements.length; i++)
+			if (isAnswered(dragElements[shuffleMapping[i]]))
 				nAnswered++;
-		return (nAnswered == targetList.length);
+		return (nAnswered == targetElements.length);
 	}
 
 	function isAnswered(a) {
 		// assume targets are aligned in a column
 		var buffer = 4;
-		var targetCenterX = $(targetList[0]).offset().left + $(targetList[0]).width()/2;	// it would be more efficient to pull this out of the loop
+		var targetCenterX = $(targetElements[0]).offset().left + $(targetElements[0]).width()/2;	// it would be more efficient to pull this out of the loop
 		var answerCenterX = $(a).offset().left + $(a).width()/2;
 		return (targetCenterX-buffer < answerCenterX && answerCenterX < targetCenterX+buffer);
 	}

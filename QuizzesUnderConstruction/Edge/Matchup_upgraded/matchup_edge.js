@@ -78,7 +78,7 @@
                                     id: 'qText1',
                                     type: 'text',
                                     rect: ['7', '0', '173', '88px', 'auto', 'auto'],
-                                    text: "<br>xyz",
+                                    text: "<br>abc",
                                     align: "center",
                                     userClass: "qText",
                                     font: ['Arial, Helvetica, sans-serif', [20, "px"], "rgba(255,255,255,1.00)", "normal", "none", "", "break-word", ""],
@@ -136,7 +136,7 @@
                                     id: 'qText1Copy',
                                     type: 'text',
                                     rect: ['7', '0', '173', '88px', 'auto', 'auto'],
-                                    text: "<br>abc",
+                                    text: "<br>xyz",
                                     align: "center",
                                     userClass: "qText",
                                     font: ['Arial, Helvetica, sans-serif', [20, "px"], "rgba(255,255,255,1.00)", "normal", "none", "", "break-word", ""],
@@ -292,22 +292,22 @@
                     autoPlay: true,
                     data: [
                         [
-                            "eid1",
+                            "eid42",
                             "opacity",
                             0,
                             0,
                             "linear",
-                            "${drag1}",
+                            "${qHint1Copy}",
                             '0',
                             '0'
                         ],
                         [
-                            "eid3",
+                            "eid43",
                             "opacity",
-                            1000,
+                            2000,
                             0,
                             "linear",
-                            "${drag1}",
+                            "${qHint1Copy}",
                             '0',
                             '1'
                         ],
@@ -352,6 +352,26 @@
                             '0.97'
                         ],
                         [
+                            "eid2",
+                            "opacity",
+                            0,
+                            0,
+                            "linear",
+                            "${dragText1}",
+                            '0',
+                            '0'
+                        ],
+                        [
+                            "eid4",
+                            "opacity",
+                            1000,
+                            0,
+                            "linear",
+                            "${dragText1}",
+                            '0',
+                            '1'
+                        ],
+                        [
                             "eid36",
                             "opacity",
                             0,
@@ -368,6 +388,26 @@
                             0,
                             "linear",
                             "${drag2}",
+                            '0',
+                            '1'
+                        ],
+                        [
+                            "eid9",
+                            "opacity",
+                            0,
+                            0,
+                            "linear",
+                            "${qHint1}",
+                            '0',
+                            '0'
+                        ],
+                        [
+                            "eid11",
+                            "opacity",
+                            2000,
+                            0,
+                            "linear",
+                            "${qHint1}",
                             '0',
                             '1'
                         ],
@@ -392,62 +432,22 @@
                             '0.98'
                         ],
                         [
-                            "eid9",
+                            "eid1",
                             "opacity",
                             0,
                             0,
                             "linear",
-                            "${qHint1}",
+                            "${drag1}",
                             '0',
                             '0'
                         ],
                         [
-                            "eid11",
-                            "opacity",
-                            2000,
-                            0,
-                            "linear",
-                            "${qHint1}",
-                            '0',
-                            '1'
-                        ],
-                        [
-                            "eid2",
-                            "opacity",
-                            0,
-                            0,
-                            "linear",
-                            "${dragText1}",
-                            '0',
-                            '0'
-                        ],
-                        [
-                            "eid4",
+                            "eid3",
                             "opacity",
                             1000,
                             0,
                             "linear",
-                            "${dragText1}",
-                            '0',
-                            '1'
-                        ],
-                        [
-                            "eid42",
-                            "opacity",
-                            0,
-                            0,
-                            "linear",
-                            "${qHint1Copy}",
-                            '0',
-                            '0'
-                        ],
-                        [
-                            "eid43",
-                            "opacity",
-                            2000,
-                            0,
-                            "linear",
-                            "${qHint1Copy}",
+                            "${drag1}",
                             '0',
                             '1'
                         ]
@@ -474,12 +474,12 @@
                             fill: ['rgba(112,100,252,1.00)']
                         },
                         {
-                            font: ['Arial, Helvetica, sans-serif', [16, 'px'], 'rgba(255,255,255,1.00)', '500', 'none', '', '', 'nowrap'],
                             type: 'text',
+                            rect: [12, 7, 'auto', 'auto', 'auto', 'auto'],
                             id: 'Text',
                             text: 'Check answers',
                             align: 'center',
-                            rect: [12, 7, 'auto', 'auto', 'auto', 'auto']
+                            font: ['Arial, Helvetica, sans-serif', [16, 'px'], 'rgba(255,255,255,1.00)', '500', 'none', '', '', 'nowrap']
                         }
                     ],
                     style: {
@@ -506,18 +506,18 @@
                 content: {
                     dom: [
                         {
-                            font: ['Arial, Helvetica, sans-serif', [13, 'px'], 'rgba(115,115,115,1.00)', '400', 'none', 'normal', '', 'nowrap'],
                             type: 'text',
+                            rect: [5, 6, 'auto', 'auto', 'auto', 'auto'],
                             id: 'resetButton',
                             text: 'RESET',
                             align: 'center',
-                            rect: [5, 6, 'auto', 'auto', 'auto', 'auto']
+                            font: ['Arial, Helvetica, sans-serif', [13, 'px'], 'rgba(115,115,115,1.00)', '400', 'none', 'normal', '', 'nowrap']
                         },
                         {
-                            type: 'rect',
+                            rect: [0, 0, 56, 24, 'auto', 'auto'],
                             id: 'Rectangle2',
                             stroke: [1, 'rgb(0, 0, 0)', 'none'],
-                            rect: [0, 0, 56, 24, 'auto', 'auto'],
+                            type: 'rect',
                             fill: ['rgba(97,112,159,0.00)']
                         }
                     ],
@@ -545,17 +545,17 @@
                 content: {
                     dom: [
                         {
-                            rect: ['0', '0', '575', '18', 'auto', 'auto'],
-                            id: 'Group',
                             type: 'group',
+                            id: 'Group',
+                            rect: ['0', '0', '575', '18', 'auto', 'auto'],
                             c: [
                             {
-                                rect: ['0', '2', '575', '16', 'auto', 'auto'],
                                 font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(0,0,0,1)', 'normal', 'none', '', 'break-word', ''],
+                                type: 'text',
                                 id: 'Text',
                                 text: 'Copyright 2013 North Carolina State University. Code by One Time Software. Version 1.0 June 2015.',
                                 align: 'center',
-                                type: 'text'
+                                rect: ['0', '2', '575', '16', 'auto', 'auto']
                             },
                             {
                                 type: 'rect',
@@ -599,9 +599,9 @@
                         {
                             rect: [0, 0, '106px', '16px', 'auto', 'auto'],
                             borderRadius: ['10px', '10px', '10px', '10px'],
-                            opacity: '0',
-                            id: 'RoundRect',
                             stroke: [0, 'rgba(0,0,0,1)', 'none'],
+                            id: 'RoundRect',
+                            opacity: '0',
                             type: 'rect',
                             fill: ['rgba(192,192,192,1)']
                         }
@@ -632,9 +632,9 @@
                         {
                             rect: [0, 0, 168, '16px', 'auto', 'auto'],
                             borderRadius: ['10px', '10px', '10px', '10px'],
-                            stroke: [0, 'rgb(0, 0, 0)', 'none'],
-                            id: 'RoundRect2',
                             opacity: '0',
+                            id: 'RoundRect2',
+                            stroke: [0, 'rgb(0, 0, 0)', 'none'],
                             type: 'rect',
                             fill: ['rgba(192,192,192,1)']
                         }
