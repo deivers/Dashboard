@@ -16,9 +16,10 @@ function init() {
 	getTeacherParams();
 	var dataVersionNumber = 3;
 	var myLeft, myTop;
-	var dragElements = $('.dragTab').sort(sortElementByPosition); // assume these are positioned in the correct order
+	var dragElements = $('.dragTab').sort(sortElementByPosition); // assume these are initially positioned in the correct order (before the shuffle below)
 	var targetElements = $('.dropZone').sort(sortElementByPosition);
-	// var tempsave_dragElements = dragElements.clone();
+	var qHintElements = $('.qHint').sort(sortElementByPosition); //TODO use this
+	var aHintElements = $('.aHint').sort(sortElementByPosition); //TODO use this
 	var shuffleMapping = shuffleArray(arrayFactory(dragElements.length,1,0));
 	// collect the original positions in an array
 	var originalPositions = [];
@@ -29,6 +30,15 @@ function init() {
 	dragElements.each(function(i, el) {
 		$(dragElements[shuffleMapping[i]]).parent().css("left", originalPositions[i].left);
 		$(dragElements[shuffleMapping[i]]).parent().css("top", originalPositions[i].top);
+	});
+	// same for the answer hints
+	var originalHintPositions = [];
+	aHintElements.each(function(i, el) {
+		originalHintPositions[i] = $(el).position();
+	});
+	aHintElements.each(function(i, el) {
+		$(aHintElements[shuffleMapping[i]]).css("left", originalHintPositions[i].left);
+		$(aHintElements[shuffleMapping[i]]).css("top", originalHintPositions[i].top);
 	});
 	
 	setUpSubmitButton();
@@ -89,7 +99,7 @@ function init() {
 
 	// gather the questions (if textual)
 	var questionTextArray = $(".qText").htmlList() || [];
-	var answerTextArray = $(".aText").htmlList() || []; //TODO verify order//
+	var answerTextArray = $(dragElements).htmlList();
 
 	checkAnswers = function() {
 		///console.log("checkAnswers function");
@@ -97,13 +107,26 @@ function init() {
 		var allCorrect = true;
 		var saIndexes = [];
 		var akIndexes = arrayFactory(dragElements.length,1,0);
-		// flags
+		// config
 		var rejectOption = rejectWrongAnswers;
 		var requireOption = requireCompletion;
-		var isQuizComplete = isComplete();
+
+		// gather up the answer indexes and check if complete or not
+		var nWithin = 0;
+		for (var i=0; i<dragElements.length; i++) {
+			for (var j=0; j<targetElements.length; j++) {
+				if (isWithin(dragElements[i],targetElements[j])) {
+					saIndexes[j] = i;
+					nWithin++;
+					break;
+				}
+			}
+		}
+		var isQuizComplete = (nWithin == targetElements.length);
+
 		// check answers
-		for (var i=0; i<Math.min(targetElements.length, dragElements.length); i++) {
-			if (!isWithin(dragElements[i],targetElements[i])) { // note: no shuffleMapping here
+		for (var i=0; i<targetElements.length; i++) {
+			if (saIndexes[i] != i) {
 				allCorrect = false;
 				if (rejectOption && (requireOption && isQuizComplete)) {
 					$(dragElements[i]).animate({
@@ -113,19 +136,15 @@ function init() {
 						duration: 400,
 						easing: 'easeInOutCubic'
 					});
-					if (!(typeof $("qHint"+(i+1)) === 'undefined'))
-						$("qHint"+(i+1)).css({"opacity":"1"});		// reveal hint if it exists and if zone was wrong
-					if (!(typeof $("dragHint"+(i+1)) === 'undefined'))
-						$("dragHint"+(i+1)).css({"opacity":"1"});		// reveal hint if it exists and if draggable was wrong
+					$(qHintElements[i]).css({"opacity":1});		// reveal question hint bec. the zone was wrong
+					$(aHintElements[i]).css({"opacity":1});		// reveal answer hint bec. draggable was wrong
 				}
 			} else { // hide the hint when the answer is correct
-				if (!(typeof $("qHint"+(i+1)) === 'undefined'))
-					$("qHint"+(i+1)).css({"opacity":"0"});		// hide hint if it exists
-				if (!(typeof $("dragHint"+(i+1)) === 'undefined'))
-					$("dragHint"+(i+1)).css({"opacity":"0"});		// hide hint if it exists
+				$(qHintElements[i]).css({"opacity":0});
+				$(aHintElements[i]).css({"opacity":0});
 			}
 		}
-		// if more answers than targets...
+		// if more answers than targets, then we may need to reject the extra draggables
 		for (var j=targetElements.length; j<dragElements.length; j++)
 			if (rejectOption && (requireOption && isQuizComplete))
 				$(dragElements[i]).animate({
@@ -157,22 +176,6 @@ function init() {
 			else
 				alert("One or more of your answers are incorrect.  Please try again...");
 		}
-	}
-
-	function isComplete() {
-		var nAnswered = 0;
-		for (var i=0; i<dragElements.length; i++)
-			if (isAnswered(dragElements[shuffleMapping[i]]))
-				nAnswered++;
-		return (nAnswered == targetElements.length);
-	}
-
-	function isAnswered(a) {
-		// assume targets are aligned in a column
-		var buffer = 4;
-		var targetCenterX = $(targetElements[0]).offset().left + $(targetElements[0]).width()/2;	// it would be more efficient to pull this out of the loop
-		var answerCenterX = $(a).offset().left + $(a).width()/2;
-		return (targetCenterX-buffer < answerCenterX && answerCenterX < targetCenterX+buffer);
 	}
 
 	function isWithin(a, b) {
