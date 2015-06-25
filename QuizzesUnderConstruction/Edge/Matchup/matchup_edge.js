@@ -40,7 +40,7 @@
                         {
                             id: 'qHint1',
                             type: 'text',
-                            rect: ['21', '48', '133', '117', 'auto', 'auto'],
+                            rect: ['21', '69px', '133', '117', 'auto', 'auto'],
                             overflow: 'auto',
                             cursor: 'default',
                             opacity: '0',
@@ -66,7 +66,7 @@
                         {
                             id: 'Group3',
                             type: 'group',
-                            rect: ['196', '46', '190', '90', 'auto', 'auto'],
+                            rect: ['196', '67px', '190', '90', 'auto', 'auto'],
                             c: [
                             {
                                 id: 'q1',
@@ -91,7 +91,7 @@
                         {
                             id: 'zone1',
                             type: 'rect',
-                            rect: ['196', '135', '186', '26', 'auto', 'auto'],
+                            rect: ['196', '156px', '186', '26', 'auto', 'auto'],
                             borderRadius: ["0px 0px", "0px 0px", "15px 15px", "15px 15px"],
                             fill: ["rgba(220,217,217,1.00)"],
                             stroke: [2,"rgba(0,0,0,1)","dashed"],
@@ -100,7 +100,7 @@
                         {
                             id: 'qHint1Copy',
                             type: 'text',
-                            rect: ['20', '192', '133', '117', 'auto', 'auto'],
+                            rect: ['20', '213px', '133', '117', 'auto', 'auto'],
                             overflow: 'auto',
                             cursor: 'default',
                             opacity: '0',
@@ -126,7 +126,7 @@
                         {
                             id: 'Group4',
                             type: 'group',
-                            rect: ['195', '190', '190', '90', 'auto', 'auto'],
+                            rect: ['195', '211px', '190', '90', 'auto', 'auto'],
                             c: [
                             {
                                 id: 'q2',
@@ -151,7 +151,7 @@
                         {
                             id: 'zone2',
                             type: 'rect',
-                            rect: ['195', '279', '186', '26', 'auto', 'auto'],
+                            rect: ['195', '300px', '186', '26', 'auto', 'auto'],
                             borderRadius: ["0px 0px", "0px 0px", "15px 15px", "15px 15px"],
                             fill: ["rgba(220,217,217,1.00)"],
                             stroke: [2,"rgba(0,0,0,1)","dashed"],
@@ -179,6 +179,137 @@
                                     rect: ['9', '-2', '173', '30', 'auto', 'auto'],
                                     opacity: '0',
                                     text: "xyz",
+                                    align: "center",
+                                    userClass: "aText",
+                                    font: ['Arial, Helvetica, sans-serif', [18, "px"], "rgba(255,255,255,1.00)", "normal", "none", "", "break-word", ""],
+                                    textStyle: ["", "", "30px", ""]
+                                }]
+                            }]
+                        },
+                        {
+                            id: 'qHint1Copy2',
+                            type: 'text',
+                            rect: ['21px', '357px', '133', '117', 'auto', 'auto'],
+                            overflow: 'auto',
+                            cursor: 'default',
+                            opacity: '0',
+                            text: "<br><br>type a hint for this question here<br>",
+                            align: "center",
+                            userClass: "qHint",
+                            font: ['Arial, Helvetica, sans-serif', [15, "px"], "rgba(0,0,0,1.00)", "normal", "none", "normal", "break-word", ""],
+                            textStyle: ["", "", "normal", ""]
+                        },
+                        {
+                            id: 'dragHint1Copy2',
+                            type: 'text',
+                            rect: ['748px', '332px', '133', '108', 'auto', 'auto'],
+                            overflow: 'auto',
+                            cursor: 'default',
+                            opacity: '0.97',
+                            text: "<br><br>type a hint for this answer here<br>",
+                            align: "center",
+                            userClass: "aHint",
+                            font: ['Arial, Helvetica, sans-serif', [15, "px"], "rgba(0,0,0,1.00)", "normal", "none", "normal", "break-word", ""],
+                            textStyle: ["", "", "normal", ""]
+                        },
+                        {
+                            id: 'Group4Copy',
+                            type: 'group',
+                            rect: ['196px', '355px', '190', '90', 'auto', 'auto'],
+                            c: [
+                            {
+                                id: 'q2Copy',
+                                type: 'rect',
+                                rect: ['0px', '0px', '188', '88px', 'auto', 'auto'],
+                                borderRadius: ["15px 15px", "15px 15px", "0px 0px", "0px 0px"],
+                                fill: ["rgba(97,131,159,1.00)"],
+                                stroke: [1,"rgb(0, 0, 0)","solid"],
+                                c: [
+                                {
+                                    id: 'qText1Copy2',
+                                    type: 'text',
+                                    rect: ['7', '0', '173', '88px', 'auto', 'auto'],
+                                    text: "<br>123",
+                                    align: "center",
+                                    userClass: "qText",
+                                    font: ['Arial, Helvetica, sans-serif', [20, "px"], "rgba(255,255,255,1.00)", "normal", "none", "", "break-word", ""],
+                                    textStyle: ["", "", "30px", ""]
+                                }]
+                            }]
+                        },
+                        {
+                            id: 'zone2Copy',
+                            type: 'rect',
+                            rect: ['196px', '444px', '186', '26', 'auto', 'auto'],
+                            borderRadius: ["0px 0px", "0px 0px", "15px 15px", "15px 15px"],
+                            fill: ["rgba(220,217,217,1.00)"],
+                            stroke: [2,"rgba(0,0,0,1)","dashed"],
+                            userClass: "dropZone"
+                        },
+                        {
+                            id: 'GroupCopy',
+                            type: 'group',
+                            rect: ['530px', '371px', '190', '30', 'auto', 'auto'],
+                            c: [
+                            {
+                                id: 'drag2Copy',
+                                type: 'rect',
+                                rect: ['0px', '0px', '188', '28', 'auto', 'auto'],
+                                cursor: 'move',
+                                borderRadius: ["0px 0px", "0px 0px", "15px 15px", "15px 15px"],
+                                opacity: '0',
+                                fill: ["rgba(97,112,159,1.00)"],
+                                stroke: [1,"rgba(0,0,0,1)","solid"],
+                                userClass: "dragTab",
+                                c: [
+                                {
+                                    id: 'dragText1Copy2',
+                                    type: 'text',
+                                    rect: ['9', '-2', '173', '30', 'auto', 'auto'],
+                                    opacity: '0',
+                                    text: "123",
+                                    align: "center",
+                                    userClass: "aText",
+                                    font: ['Arial, Helvetica, sans-serif', [18, "px"], "rgba(255,255,255,1.00)", "normal", "none", "", "break-word", ""],
+                                    textStyle: ["", "", "30px", ""]
+                                }]
+                            }]
+                        },
+                        {
+                            id: 'dragHint1Copy3',
+                            type: 'text',
+                            rect: ['747px', '473px', '133', '108', 'auto', 'auto'],
+                            overflow: 'auto',
+                            cursor: 'default',
+                            opacity: '0.97',
+                            text: "<br><br>type a hint for this answer here<br>",
+                            align: "center",
+                            userClass: "aHint",
+                            font: ['Arial, Helvetica, sans-serif', [15, "px"], "rgba(0,0,0,1.00)", "normal", "none", "normal", "break-word", ""],
+                            textStyle: ["", "", "normal", ""]
+                        },
+                        {
+                            id: 'GroupCopy2',
+                            type: 'group',
+                            rect: ['529px', '512px', '190', '30', 'auto', 'auto'],
+                            c: [
+                            {
+                                id: 'drag2Copy2',
+                                type: 'rect',
+                                rect: ['0px', '0px', '188', '28', 'auto', 'auto'],
+                                cursor: 'move',
+                                borderRadius: ["0px 0px", "0px 0px", "15px 15px", "15px 15px"],
+                                opacity: '0',
+                                fill: ["rgba(97,112,159,1.00)"],
+                                stroke: [1,"rgba(0,0,0,1)","solid"],
+                                userClass: "dragTab",
+                                c: [
+                                {
+                                    id: 'dragText1Copy3',
+                                    type: 'text',
+                                    rect: ['9', '-2', '173', '30', 'auto', 'auto'],
+                                    opacity: '0',
+                                    text: "456",
                                     align: "center",
                                     userClass: "aText",
                                     font: ['Arial, Helvetica, sans-serif', [18, "px"], "rgba(255,255,255,1.00)", "normal", "none", "", "break-word", ""],
@@ -303,24 +434,24 @@
                     autoPlay: true,
                     data: [
                         [
-                            "eid1",
+                            "eid48",
                             "opacity",
                             0,
                             0,
                             "linear",
-                            "${drag1}",
+                            "${dragHint1Copy2}",
                             '0',
                             '0'
                         ],
                         [
-                            "eid3",
+                            "eid49",
                             "opacity",
-                            1000,
+                            2000,
                             0,
                             "linear",
-                            "${drag1}",
+                            "${dragHint1Copy2}",
                             '0',
-                            '1'
+                            '0.97'
                         ],
                         [
                             "eid34",
@@ -383,6 +514,146 @@
                             '0.98'
                         ],
                         [
+                            "eid44",
+                            "opacity",
+                            0,
+                            0,
+                            "linear",
+                            "${drag2Copy}",
+                            '0',
+                            '0'
+                        ],
+                        [
+                            "eid45",
+                            "opacity",
+                            1000,
+                            0,
+                            "linear",
+                            "${drag2Copy}",
+                            '0',
+                            '1'
+                        ],
+                        [
+                            "eid52",
+                            "opacity",
+                            0,
+                            0,
+                            "linear",
+                            "${drag2Copy2}",
+                            '0',
+                            '0'
+                        ],
+                        [
+                            "eid53",
+                            "opacity",
+                            1000,
+                            0,
+                            "linear",
+                            "${drag2Copy2}",
+                            '0',
+                            '1'
+                        ],
+                        [
+                            "eid42",
+                            "opacity",
+                            0,
+                            0,
+                            "linear",
+                            "${qHint1Copy}",
+                            '0',
+                            '0'
+                        ],
+                        [
+                            "eid43",
+                            "opacity",
+                            2000,
+                            0,
+                            "linear",
+                            "${qHint1Copy}",
+                            '0',
+                            '1'
+                        ],
+                        [
+                            "eid56",
+                            "opacity",
+                            0,
+                            0,
+                            "linear",
+                            "${dragHint1Copy3}",
+                            '0',
+                            '0'
+                        ],
+                        [
+                            "eid57",
+                            "opacity",
+                            2000,
+                            0,
+                            "linear",
+                            "${dragHint1Copy3}",
+                            '0',
+                            '0.97'
+                        ],
+                        [
+                            "eid54",
+                            "opacity",
+                            0,
+                            0,
+                            "linear",
+                            "${dragText1Copy3}",
+                            '0',
+                            '0'
+                        ],
+                        [
+                            "eid55",
+                            "opacity",
+                            1000,
+                            0,
+                            "linear",
+                            "${dragText1Copy3}",
+                            '0',
+                            '0.98'
+                        ],
+                        [
+                            "eid2",
+                            "opacity",
+                            0,
+                            0,
+                            "linear",
+                            "${dragText1}",
+                            '0',
+                            '0'
+                        ],
+                        [
+                            "eid4",
+                            "opacity",
+                            1000,
+                            0,
+                            "linear",
+                            "${dragText1}",
+                            '0',
+                            '1'
+                        ],
+                        [
+                            "eid50",
+                            "opacity",
+                            0,
+                            0,
+                            "linear",
+                            "${qHint1Copy2}",
+                            '0',
+                            '0'
+                        ],
+                        [
+                            "eid51",
+                            "opacity",
+                            2000,
+                            0,
+                            "linear",
+                            "${qHint1Copy2}",
+                            '0',
+                            '1'
+                        ],
+                        [
                             "eid36",
                             "opacity",
                             0,
@@ -423,42 +694,42 @@
                             '1'
                         ],
                         [
-                            "eid2",
+                            "eid46",
                             "opacity",
                             0,
                             0,
                             "linear",
-                            "${dragText1}",
+                            "${dragText1Copy2}",
                             '0',
                             '0'
                         ],
                         [
-                            "eid4",
+                            "eid47",
                             "opacity",
                             1000,
                             0,
                             "linear",
-                            "${dragText1}",
+                            "${dragText1Copy2}",
                             '0',
-                            '1'
+                            '0.98'
                         ],
                         [
-                            "eid42",
+                            "eid1",
                             "opacity",
                             0,
                             0,
                             "linear",
-                            "${qHint1Copy}",
+                            "${drag1}",
                             '0',
                             '0'
                         ],
                         [
-                            "eid43",
+                            "eid3",
                             "opacity",
-                            2000,
+                            1000,
                             0,
                             "linear",
-                            "${qHint1Copy}",
+                            "${drag1}",
                             '0',
                             '1'
                         ]

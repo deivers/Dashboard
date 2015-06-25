@@ -141,16 +141,16 @@ function init() {
 						easing: 'easeInOutCubic'
 					});
 					$(qHintElements[i]).css({"opacity":1});		// reveal question hint bec. the zone was wrong
-					$(aHintElements[i]).css({"opacity":1});		// reveal answer hint bec. draggable was wrong
+					$(aHintElements[saIndexes[i]]).css({"opacity":1});		// reveal answer hint bec. draggable was wrong
 				}
 			} else { // hide the hint when the answer is correct
 				$(qHintElements[i]).css({"opacity":0});
-				$(aHintElements[i]).css({"opacity":0});
+				$(aHintElements[saIndexes[i]]).css({"opacity":0});
 			}
 		}
 		// if more answers than targets, then we may need to reject the extra draggables
-		for (var j=targetElements.length; j<dragElements.length; j++)
-			if (rejectOption && (requireOption && isQuizComplete))
+		for (var j=targetElements.length; j<dragElements.length; j++) {
+			if (rejectOption && (requireOption && isQuizComplete)) {
 				$(dragElements[i]).animate({
 					"left": $(dragElements[i]).data('originalLeft'),
 					"top": $(dragElements[i]).data('originalTop')
@@ -158,6 +158,15 @@ function init() {
 					duration: 400,
 					easing: 'easeInOutCubic'
 				});
+			}
+			if (allCorrect) {
+				$(aHintElements[i]).css({"opacity":0});
+			}
+		}
+		// show or hide answer hints as needed
+		// for (var j=0; j<dragElements; j++) {
+		// 	if (saIndexes[i] != i)
+		// }
 		// respond to student
 		if (requireOption && !isQuizComplete)
 			alert("You must complete the quiz before answers will be checked.");
