@@ -21,6 +21,10 @@ function init() {
 	var qHintElements = $('.qHint').sort(sortElementByPosition); //TODO use this
 	var aHintElements = $('.aHint').sort(sortElementByPosition); //TODO use this
 	var shuffleMapping = shuffleArray(arrayFactory(dragElements.length,1,0));
+	var shuffleInverse = [];
+	shuffleMapping.forEach(function(el,i){
+		shuffleInverse[shuffleMapping[i]] = i;
+	});
 	// collect the original positions in an array
 	var originalPositions = [];
 	dragElements.each(function(i, el) {
@@ -84,7 +88,7 @@ function init() {
 				{	left: $(this).data('originalLeft'),
 					opacity: 1.0
 				},
-				{	duration: 300*(dragElements.length-i) + 500,
+				{	duration: 300*shuffleInverse[i] + 500,
 					easing: 'easeOutCubic',
 					complete: function() { // the callback to get back to normal
 						$(this).removeClass('dragging');
