@@ -75,7 +75,7 @@ function init() {
 	dragElements.each(function(i, dragEl) {
 		myLeft = $(dragEl).position().left;
 		myTop = $(dragEl).position().top;
-		///console.log("myLeft:"+myLeft+"  myTop:"+myTop);///
+		
 		$(dragEl).data('originalLeft',myLeft);
 		$(dragEl).data('originalTop',myTop);
 		if (exists(introAnimation)) {
@@ -163,10 +163,6 @@ function init() {
 				$(aHintElements[i]).css({"opacity":0});
 			}
 		}
-		// show or hide answer hints as needed
-		// for (var j=0; j<dragElements; j++) {
-		// 	if (saIndexes[i] != i)
-		// }
 		// respond to student
 		if (requireOption && !isQuizComplete)
 			alert("You must complete the quiz before answers will be checked.");
