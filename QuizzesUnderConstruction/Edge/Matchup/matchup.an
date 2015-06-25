@@ -63,7 +63,7 @@
 			"animationEnabled":"true",
 			"timelineColor":"0x00a9fa"}},
 	"pref__general__FilterNonAnimatedElements":"false",
-	"pref__general__AutoKeyframePropertiesArmed":"true",
+	"pref__general__AutoKeyframePropertiesArmed":"false",
 	"CopyrightAndCredits-Default Timeline_playhead_ms":"0",
 	"symbol_stage":{
 		"element_${CopyrightAndCredits}":{
@@ -387,4 +387,4 @@
 	"pref__general__GenerateSmoothTransitions":"false",
 	"stage-Default Timeline_mark_ms":"-1",
 	"stage-Default Timeline_playhead_ms":"2000",
-	"viewStartY":"163"}
+	"viewStartY":"0"}

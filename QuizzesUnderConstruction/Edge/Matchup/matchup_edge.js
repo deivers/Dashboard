@@ -53,7 +53,7 @@
                         {
                             id: 'dragHint1',
                             type: 'text',
-                            rect: ['748', '44', '133', '108', 'auto', 'auto'],
+                            rect: ['749px', '96px', '133', '108', 'auto', 'auto'],
                             overflow: 'auto',
                             cursor: 'default',
                             opacity: '0',
@@ -113,7 +113,7 @@
                         {
                             id: 'dragHint1Copy',
                             type: 'text',
-                            rect: ['747', '188', '133', '108', 'auto', 'auto'],
+                            rect: ['749px', '185px', '133', '108', 'auto', 'auto'],
                             overflow: 'auto',
                             cursor: 'default',
                             opacity: '0.97',
@@ -160,7 +160,7 @@
                         {
                             id: 'Group',
                             type: 'group',
-                            rect: ['529', '227', '190', '30', 'auto', 'auto'],
+                            rect: ['531px', '225px', '190', '30', 'auto', 'auto'],
                             c: [
                             {
                                 id: 'drag2',
@@ -176,7 +176,7 @@
                                 {
                                     id: 'dragText1Copy',
                                     type: 'text',
-                                    rect: ['9', '-2', '173', '30', 'auto', 'auto'],
+                                    rect: ['9', '-2px', '173', '30', 'auto', 'auto'],
                                     opacity: '0',
                                     text: "xyz",
                                     align: "center",
@@ -202,7 +202,7 @@
                         {
                             id: 'dragHint1Copy2',
                             type: 'text',
-                            rect: ['748px', '332px', '133', '108', 'auto', 'auto'],
+                            rect: ['749px', '278px', '133', '108', 'auto', 'auto'],
                             overflow: 'auto',
                             cursor: 'default',
                             opacity: '0.97',
@@ -249,7 +249,7 @@
                         {
                             id: 'GroupCopy',
                             type: 'group',
-                            rect: ['530px', '371px', '190', '30', 'auto', 'auto'],
+                            rect: ['531px', '316px', '190', '30', 'auto', 'auto'],
                             c: [
                             {
                                 id: 'drag2Copy',
@@ -265,7 +265,7 @@
                                 {
                                     id: 'dragText1Copy2',
                                     type: 'text',
-                                    rect: ['9', '-2', '173', '30', 'auto', 'auto'],
+                                    rect: ['9', '-2px', '173', '30', 'auto', 'auto'],
                                     opacity: '0',
                                     text: "123",
                                     align: "center",
@@ -278,7 +278,7 @@
                         {
                             id: 'dragHint1Copy3',
                             type: 'text',
-                            rect: ['747px', '473px', '133', '108', 'auto', 'auto'],
+                            rect: ['749px', '367px', '133', '108', 'auto', 'auto'],
                             overflow: 'auto',
                             cursor: 'default',
                             opacity: '0.97',
@@ -291,12 +291,12 @@
                         {
                             id: 'GroupCopy2',
                             type: 'group',
-                            rect: ['529px', '512px', '190', '30', 'auto', 'auto'],
+                            rect: ['531px', '406px', '190', '30', 'auto', 'auto'],
                             c: [
                             {
                                 id: 'drag2Copy2',
                                 type: 'rect',
-                                rect: ['0px', '0px', '188', '28', 'auto', 'auto'],
+                                rect: ['1px', '0px', '188', '28', 'auto', 'auto'],
                                 cursor: 'move',
                                 borderRadius: ["0px 0px", "0px 0px", "15px 15px", "15px 15px"],
                                 opacity: '0',
@@ -320,7 +320,7 @@
                         {
                             id: 'Group2',
                             type: 'group',
-                            rect: ['530', '83', '190', '30', 'auto', 'auto'],
+                            rect: ['531px', '135px', '190', '30', 'auto', 'auto'],
                             c: [
                             {
                                 id: 'drag1',
@@ -336,7 +336,7 @@
                                 {
                                     id: 'dragText1',
                                     type: 'text',
-                                    rect: ['9', '-2', '173', '30', 'auto', 'auto'],
+                                    rect: ['9', '-2px', '173', '30', 'auto', 'auto'],
                                     opacity: '0',
                                     text: "abc",
                                     align: "center",
