@@ -13,6 +13,14 @@ function getTeacherParams() {
 }
 
 function init() {
+	if (typeof jQuery === "undefined") { // apparently the user is not connected to the internet
+		var a = document.getElementsByClassName("dragTab");
+		for (var i=a.length-1; i>=0; i--) {
+			a[i].remove();
+		}
+		alert("You must be connected to the internet in order to access this quiz.");
+		return;
+	}
 	getTeacherParams();
 	var dataVersionNumber = 3;
 	var myLeft, myTop;
