@@ -109,16 +109,23 @@
                             font: ['Arial, Helvetica, sans-serif', [18, "px"], "rgba(0,0,0,1)", "normal", "none", "", "break-word", ""]
                         },
                         {
-                            id: 'config-revealButtonsOnHover',
+                            id: 'config-logResponsesToDashboard',
                             type: 'text',
                             rect: ['1', '-95px', '70px', '16px', 'auto', 'auto'],
-                            text: "false<br>",
+                            text: "true",
+                            font: ['Arial, Helvetica, sans-serif', [12, "px"], "rgba(164,160,160,1.00)", "100", "none", "", "break-word", ""]
+                        },
+                        {
+                            id: 'config-revealButtonsOnHover',
+                            type: 'text',
+                            rect: ['1', '-125px', '70px', '16px', 'auto', 'auto'],
+                            text: "false",
                             font: ['Arial, Helvetica, sans-serif', [12, "px"], "rgba(164,160,160,1.00)", "100", "none", "", "break-word", ""]
                         },
                         {
                             id: 'config-correctButtonNames',
                             type: 'text',
-                            rect: ['1', '-122px', '158px', '16px', 'auto', 'auto'],
+                            rect: ['1', '-155px', '158px', '16px', 'auto', 'auto'],
                             text: "RoundRect<br>",
                             font: ['Arial, Helvetica, sans-serif', [12, "px"], "rgba(164,160,160,1.00)", "100", "none", "", "break-word", ""]
                         },

@@ -73,6 +73,10 @@
 			"timelineColor3":"0x295a6d",
 			"animationEnabled":"false",
 			"timelineColor":"0x008dc8"},
+		"element_${config-logResponsesToDashboard}":{
+			"timelineColor2":"0x1aa38f",
+			"timelineColor3":"0x2a6a61",
+			"timelineColor":"0x00bda4"},
 		"element_${RoundRectCopy3}":{
 			"timelineColor2":"0xcbbd71",
 			"timelineColor3":"0x7b7652",
@@ -86,9 +90,9 @@
 			"timelineColor3":"0x456a55",
 			"timelineColor":"0x50bd82"},
 		"element_${config-revealButtonsOnHover}":{
-			"timelineColor2":"0x1aa38f",
-			"timelineColor3":"0x2a6a61",
-			"timelineColor":"0x00bda4"},
+			"timelineColor2":"0x5a558a",
+			"timelineColor3":"0x4a485e",
+			"timelineColor":"0x63599f"},
 		"element_${Stage}":{
 			"timelineColor2":"0xcbbd71",
 			"timelineColor3":"0x7b7652",
@@ -137,7 +141,7 @@
 	"pixelsPerMs":"0.2",
 	"HotspotEllipse-Default Timeline_playhead_ms":"0",
 	"usedBOM":"false",
-	"nextElementColorIndex":"9",
+	"nextElementColorIndex":"10",
 	"stage-Default Timeline_playhead_ms":"0",
 	"expanded:images/checkmark_outlined.png":"nil",
 	"viewStartY":"0"}

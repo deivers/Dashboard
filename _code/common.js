@@ -271,6 +271,9 @@ jQuery.fn.htmlList = function() {
 	return htmls;
 }
 
+jQuery.fn.edgeElementName = function() {
+	return jQuery(this).attr('id').substr(6); // strip off the Stage_ prefix that Edge adds
+}
 
 function debug(x) {
 	if (typeof x === "object") { // an object but not an array
