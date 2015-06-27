@@ -21,10 +21,15 @@ function loadStageParam(paramName,type) {
 		return (exists(rawString) && rawString.substring(0,1) == "t");
 	if (!exists(rawString))
 		return "";
+	rawString = rawString.specialTrim();
 	if (type == "int")
-		return parseInt(rawString.specialTrim());
+		return parseInt(rawString);
 	if (type == "float")
-		return parseFloat(rawString.specialTrim());
+		return parseFloat(rawString);
+	if (type == "array") {
+		var arr = rawString.split(",");
+		return (arr.length > 1) ? arr : rawString.split(" ");
+	}
 	return rawString.specialTrim();
 }
 
@@ -102,7 +107,8 @@ function isEncoded(string) {
 
 // the following methods are for AEA projects //
 
-function setUpSubmitButton() {
+function setUpSubmitButton(option) {
+	$(".submit").css("opacity", (option == 'hide' ? 0 : 1));
 	var myWidth = $(".submit").outerWidth();
 	$(".submit").click(function() {checkAnswers()})
 		.css("left", Math.max(0, (($("#Stage").width() - myWidth)/2)) + "px"); // center it
@@ -114,6 +120,7 @@ function setUpSubmitButton() {
 }
 function setUpNextButton() {
 	// convert Submit button into NextPage/EndOfQuiz button
+	$(".submit").css("opacity",1); 
 	$(".submit").unbind().click(function() {
 		goNextPage();
 	});
@@ -240,6 +247,12 @@ String.prototype.replaceAwithB = function(a,b) {
 
 String.prototype.contains = function(subString) {
 	return this.indexOf(subString) != -1;
+}
+
+Array.prototype.contains = function(that) {
+	return this.some(function(el){
+		return el == that;
+	});
 }
 
 function exists(x) {

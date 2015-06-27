@@ -34,6 +34,7 @@
                             rect: ['71px', '37px', '407px', '28px', 'auto', 'auto'],
                             text: "Click on the  dot or dots that  represent the most frequent (most common) measurement.",
                             align: "center",
+                            userClass: "qText",
                             font: ['Arial, Helvetica, sans-serif', [18, "px"], "rgba(0,0,0,1)", "normal", "none", "", "break-word", ""]
                         },
                         {
@@ -46,7 +47,7 @@
                             id: 'RoundRect',
                             type: 'rect',
                             rect: ['201px', '220px', '27px', '73px', 'auto', 'auto'],
-                            overflow: 'hidden',
+                            overflow: 'visible',
                             borderRadius: ["10px", "10px", "10px", "10px"],
                             fill: ["rgba(22,0,255,0.2471)"],
                             stroke: [0,"rgb(0, 0, 0)","none"],
@@ -135,14 +136,6 @@
                             text: "Note: don't use answer revealing names for anything below<br>",
                             align: "center",
                             font: ['Arial, Helvetica, sans-serif', [10, "px"], "rgba(186,184,184,1.00)", "400", "none solid rgb(0, 0, 0)", "normal", "break-word", "nowrap"]
-                        },
-                        {
-                            id: 'resetBtn',
-                            symbolName: 'resetButton',
-                            type: 'rect',
-                            rect: ['234px', '431px', '56', '24', 'auto', 'auto'],
-                            cursor: 'pointer',
-                            userClass: "reset"
                         }
                     ],
                     style: {
@@ -158,26 +151,7 @@
                     duration: 0,
                     autoPlay: false,
                     data: [
-                        [
-                            "eid8",
-                            "left",
-                            0,
-                            0,
-                            "linear",
-                            "${resetBtn}",
-                            '234px',
-                            '234px'
-                        ],
-                        [
-                            "eid9",
-                            "top",
-                            0,
-                            0,
-                            "linear",
-                            "${resetBtn}",
-                            '431px',
-                            '431px'
-                        ]
+
                     ]
                 }
             },
@@ -191,12 +165,12 @@
                 content: {
                     dom: [
                         {
+                            font: ['Arial, Helvetica, sans-serif', [13, 'px'], 'rgba(115,115,115,1.00)', '400', 'none', 'normal', '', 'nowrap'],
                             type: 'text',
-                            rect: [5, 6, 'auto', 'auto', 'auto', 'auto'],
                             id: 'resetButton',
                             text: 'RESET',
                             align: 'center',
-                            font: ['Arial, Helvetica, sans-serif', [13, 'px'], 'rgba(115,115,115,1.00)', '400', 'none', 'normal', '', 'nowrap']
+                            rect: [5, 6, 'auto', 'auto', 'auto', 'auto']
                         },
                         {
                             rect: [0, 0, 56, 24, 'auto', 'auto'],

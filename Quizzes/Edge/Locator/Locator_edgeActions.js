@@ -44,7 +44,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       Symbol.bindSymbolAction(compId, symbolName, "creationComplete", function(sym, e) {
          // set all answer buttons to 0 opacity before displaying anything
          $(".answer-button").css({"opacity": 0});
-         
+         $(".submit").css({"opacity": 0});
          
          yepnope ({
          	nope: [
@@ -168,13 +168,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       });
       //Edge binding end
 
-      Symbol.bindElementAction(compId, symbolName, "${resetBtn}", "click", function(sym, e) {
-         ///console.log("reset button");
-         window.location.reload();
-         
-
-      });
-      //Edge binding end
+      
 
    })("stage");
    //Edge symbol end:'stage'
