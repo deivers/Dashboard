@@ -11,14 +11,15 @@ var selectedOpacity = 0.9; //TODO eliminate
 var existingColor, existingAchannel;
 var wrongColor;
 var correctColor;
-var choiceHistory = [];
 var correctNames;
+var allNames;
 var logResponsesToDashboard;
 var nextPageUrl;
-var submitted = false;
+var completed = false;
 
 function loadTeacherParams() {
 	correctNames = loadStageParam("config-correctButtonNames","array");
+	allNames = $(".answer-button").edgeElementNames();
 	var hoverParam = loadStageParam("config-revealButtonsOnHover","boolean");
 	if (!hoverParam)
 		hoverOpacity = 0;
@@ -27,9 +28,8 @@ function loadTeacherParams() {
 }
 
 function answerButtonClicked(which) {
-	if (submitted)
+	if (completed)
 		return;
-	var correct = false;
 	// toggle-off all the answer buttons
 	$(".answer-button").css({"opacity": 0});
 	// toggle-on the clicked answer button
@@ -43,13 +43,13 @@ function answerButtonClicked(which) {
 	}
 	// console.log("checking answers...")////
 	var nameOfClickedButton = $(which).edgeElementName();
-	choiceHistory.push(nameOfClickedButton);
 	// console.log("the student selected number: ", selectedButtonIndex)////
+	logResponse(nameOfClickedButton);
+
 	if (correctNames.contains(nameOfClickedButton)) {
 		$(which).animate({"opacity": 1, "background-color": correctColor}, 300);
 		alert("Correct!");
-		submitChoiceHistory();
-		submitted = true;
+		completed = true;
 		setUpNextButton();
 	} else { // incorrect
 		$(which)
@@ -73,14 +73,13 @@ function answerButtonOut(which) {
 		$(which).css({"opacity": 0});
 }
 
-function submitChoiceHistory() {
+function logResponse(thisChoice) {
 	// log answers //
 	if (typeof logResponsesToDashboard === 'undefined')
 		logResponsesToDashboard = false;
 	if (logResponsesToDashboard) {
 		var questionText = $(".qText")[0].textContent;
-		console.log(questionText);
-		var logSuccess = logSubmission(dataVersionNumber,"Locator",questionText,correctNames,choiceHistory,correctNames);
+		var logSuccess = logSubmission(dataVersionNumber,"Locator",questionText,allNames,[thisChoice],correctNames);
 		// if (logSuccess == false) {
 		// 	alert("You must provide a valid student ID for answers to be checked.");
 		// 	return;

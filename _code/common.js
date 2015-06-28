@@ -58,7 +58,7 @@ function logSubmission(vNum,qType,qSummary,aSummary,saArray,akArray) {
 		console.log("Warning: data version number not found; defaulting to 0");
 	}
 	if (typeof qSummary === 'undefined')
-		qSummary = "question summary not defined in .html";
+		qSummary = "question summary not defined";
 	// submit to server
 	var request = $.ajax({
 		type: 'POST',
@@ -271,6 +271,14 @@ jQuery.fn.htmlList = function() {
 	return htmls;
 }
 
+jQuery.fn.edgeElementNames = function() {
+	// this.map(...) didn't work, so going old school here
+	var arr = [];
+	for (var i=0; i<this.length; i++) {
+		arr.push(jQuery(this[i]).edgeElementName());
+	}
+	return arr;
+}
 jQuery.fn.edgeElementName = function() {
 	return jQuery(this).attr('id').substr(6); // strip off the Stage_ prefix that Edge adds
 }
