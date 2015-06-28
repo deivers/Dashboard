@@ -135,14 +135,6 @@
                             rect: ['1', '-67px', '325px', '16px', 'auto', 'auto'],
                             text: "",
                             font: ['Arial, Helvetica, sans-serif', [12, "px"], "rgba(164,160,160,1.00)", "100", "none", "", "break-word", ""]
-                        },
-                        {
-                            id: 'Text3',
-                            type: 'text',
-                            rect: ['1', '-30', 'auto', 'auto', 'auto', 'auto'],
-                            text: "Note: don't use answer revealing names for anything below<br>",
-                            align: "center",
-                            font: ['Arial, Helvetica, sans-serif', [10, "px"], "rgba(186,184,184,1.00)", "400", "none solid rgb(0, 0, 0)", "normal", "break-word", "nowrap"]
                         }
                     ],
                     style: {

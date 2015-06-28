@@ -79,7 +79,7 @@ function computeAndDisplayStats(logArray) {
 					).append($("<tr></tr>")
 							.append($("<td class='right'>Percent correct for each choice on first submission</td>"+wrapElementsInTableCellTags(toPercentArrayWithUnits(numberCorrectAnswers(firstSubmissionIndex),student.length))))
 					).append($("<tr></tr>")
-							.append($("<td class='right'>The most common <i>incorrect</i> choices on first submission</td>"+wrapElementsInTableCellTags(mostCommonIncorrectAnswers(firstSubmissionIndex)[0])))
+							.append($("<td class='right'>The most common <i>incorrect</i> choice(s) on first submission</td>"+wrapElementsInTableCellTags(mostCommonIncorrectAnswers(firstSubmissionIndex)[0])))
 					).append($("<tr></tr>")
 							.append($("<td class='right'>Percent of students submitting each of the above</td>"+wrapElementsInTableCellTags(toPercentArrayWithUnits(mostCommonIncorrectAnswers(firstSubmissionIndex)[1],student.length))))
 					)
@@ -182,7 +182,7 @@ function mostCommonIncorrectAnswers(whichColumn) {
 	// for first submissions, whichColumn = firstSubmissionIndex
 	// for last submissions, whichColumn = lastSubmissionIndex
 	// implicit arg: student array
-	var answerKey = student.answerKeyString.split(";");
+	var answerKey = (student.questionType == "Locator") ? student.answerDetails.split(";") : student.answerKeyString.split(";");
 	var accumulationArray = new Array(answerKey.length);
 	var studentAnswers, key;
 	for (var whichStudent=0; whichStudent<student.length; whichStudent++) {
@@ -224,7 +224,7 @@ function mostCommonIncorrectAnswers(whichColumn) {
 			results[0][whichQuestion] = "*";
 			results[1][whichQuestion] = 0;
 		} else {
-			results[0][whichQuestion] = parseInt(keyOfMaxValue)+1;					// convert to 1-based counting
+			results[0][whichQuestion] = (student.questionType == "Locator") ? keyOfMaxValue : parseInt(keyOfMaxValue)+1;					// convert to 1-based counting
 			results[1][whichQuestion] = sumsForThisQuestion[keyOfMaxValue];
 		}
 	}
@@ -259,9 +259,13 @@ function appendToEach(array,stringToAppend) {
 
 function addToEach(array,constant) {
 	// changes array itself
-	array.forEach(function(val,index,a){
-		a[index] = parseInt(a[index]) + constant;
-	});
+	if (isArray(array))
+		var newVal;
+		array.forEach(function(val,index,a){
+			newVal = parseInt(a[index]) + constant;
+			if (!isNaN(newVal))
+				a[index] = newVal;
+		});
 	return array;
 }
 

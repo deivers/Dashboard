@@ -100,6 +100,7 @@
 		"element_${Text3}":{
 			"timelineColor2":"0x1095d2",
 			"timelineColor3":"0x29647e",
+			"animationEnabled":"false",
 			"timelineColor":"0x00a9fa"},
 		"element_${RoundRect}":{
 			"timelineColor2":"0x5a558a",
@@ -144,4 +145,4 @@
 	"nextElementColorIndex":"10",
 	"stage-Default Timeline_playhead_ms":"0",
 	"expanded:images/checkmark_outlined.png":"nil",
-	"viewStartY":"0"}
+	"viewStartY":"20"}

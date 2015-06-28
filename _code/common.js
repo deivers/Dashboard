@@ -263,6 +263,10 @@ jQuery.fn.exists = function(){
 	return jQuery(this).length>0;
 }
 
+function isArray(a) {
+	return (exists(a) && typeof a === "object" && exists(a.length));
+}
+
 jQuery.fn.htmlList = function() {
 	var htmls = [];
 	jQuery(this).each(function(){
