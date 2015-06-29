@@ -151,4 +151,32 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
    })("resetButton");
    //Edge symbol end:'resetButton'
 
+   //=========================================================
+   
+   //Edge symbol: 'copyrightButton'
+   (function(symbolName) {   
+   
+      Symbol.bindElementAction(compId, symbolName, "${RoundRect2}", "click", function(sym, e) {
+         window.open("http://harvest.cals.ncsu.edu/biology", "_blank");
+
+      });
+      //Edge binding end
+
+   })("copyrightButton");
+   //Edge symbol end:'copyrightButton'
+
+   //=========================================================
+   
+   //Edge symbol: 'codeByButton'
+   (function(symbolName) {   
+   
+      Symbol.bindElementAction(compId, symbolName, "${RoundRect}", "click", function(sym, e) {
+         window.open("http://www.onetimesoftware.com", "_blank");
+
+      });
+      //Edge binding end
+
+   })("codeByButton");
+   //Edge symbol end:'codeByButton'
+
 })(window.jQuery || AdobeEdge.$, AdobeEdge, "EDGE-152311472");
