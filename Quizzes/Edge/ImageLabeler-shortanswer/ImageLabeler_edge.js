@@ -131,14 +131,6 @@
                             font: ['Arial, Helvetica, sans-serif', [16, "px"], "rgba(166,166,166,1.00)", "normal", "none", "", "break-word", ""]
                         },
                         {
-                            id: 'TextCopy',
-                            type: 'text',
-                            rect: ['-190', '402px', '170', '22', 'auto', 'auto'],
-                            text: "plant cell",
-                            userClass: "textSource decoy",
-                            font: ['Arial, Helvetica, sans-serif', [16, "px"], "rgba(166,166,166,1.00)", "normal", "none", "", "break-word", ""]
-                        },
-                        {
                             id: 'TextCopy9',
                             type: 'text',
                             rect: ['-190', '171px', '170', '22', 'auto', 'auto'],
@@ -322,49 +314,45 @@
                 content: {
                     dom: [
                         {
-                            type: 'group',
+                            rect: ['0', '0', '700', '36', 'auto', 'auto'],
                             id: 'Group',
-                            rect: [0, 0, 700, 36, 'auto', 'auto'],
+                            type: 'group',
                             c: [
                             {
-                                rect: [0, 2, 602, 16, 'auto', 'auto'],
-                                font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(119,119,119,1.00)', 'normal', 'none', '', '', ''],
+                                font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(119,119,119,1.00)', 'normal', 'none', '', 'break-word', ''],
+                                type: 'text',
                                 id: 'Text',
-                                text: 'Copyright 2014 North Carolina State University. Code by One Time Software. Version 1.4 July 2014.',
+                                text: 'Copyright 2015 North Carolina State University. Code by One Time Software. Version 2.0 June 2015.',
                                 align: 'center',
-                                type: 'text'
+                                rect: ['0', '2', '602', '16', 'auto', 'auto']
                             },
                             {
-                                rect: [0, 20, 602, 16, 'auto', 'auto'],
-                                font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(119,119,119,1.00)', 'normal', 'none', '', '', ''],
+                                font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(119,119,119,1.00)', 'normal', 'none', '', 'break-word', ''],
+                                type: 'text',
                                 id: 'TextCopy2',
                                 text: 'Free for academic use when displaying this notice.',
                                 align: 'center',
-                                type: 'text'
+                                rect: ['0', '20', '602', '16', 'auto', 'auto']
                             },
                             {
-                                rect: [327, 0, 106, 16, 'auto', 'auto'],
+                                type: 'rect',
                                 id: 'codeByButton',
                                 symbolName: 'codeByButton',
                                 cursor: 'pointer',
-                                type: 'rect'
+                                rect: ['327', '0', '106', '16', 'auto', 'auto']
                             },
                             {
-                                rect: [101, 2, 168, 16, 'auto', 'auto'],
+                                type: 'rect',
                                 id: 'copyrightButton',
                                 symbolName: 'copyrightButton',
                                 cursor: 'pointer',
-                                type: 'rect'
+                                rect: ['101', '2', '168', '16', 'auto', 'auto']
                             }]
                         }
                     ],
                     style: {
-                        '${TextCopy}': {
-                            font: '{{:}{undefined{:}:{:}}{:}{{:}u{:}n{:}d',
-                            rect: [0, 2, 602, 16]
-                        },
                         '${symbolSelector}': {
-                            rect: [null, null, 600, 19]
+                            rect: [null, null, '600', '19']
                         }
                     }
                 },
@@ -452,12 +440,12 @@
                 content: {
                     dom: [
                         {
+                            font: ['Arial, Helvetica, sans-serif', [13, 'px'], 'rgba(115,115,115,1.00)', '400', 'none', 'normal', '', 'nowrap'],
                             type: 'text',
-                            rect: [5, 6, 'auto', 'auto', 'auto', 'auto'],
                             id: 'resetButton',
                             text: 'RESET',
                             align: 'center',
-                            font: ['Arial, Helvetica, sans-serif', [13, 'px'], 'rgba(115,115,115,1.00)', '400', 'none', 'normal', '', 'nowrap']
+                            rect: [5, 6, 'auto', 'auto', 'auto', 'auto']
                         },
                         {
                             rect: [0, 0, 56, 24, 'auto', 'auto'],

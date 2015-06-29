@@ -197,14 +197,14 @@
                     autoPlay: false,
                     data: [
                         [
-                            "eid29",
+                            "eid27",
                             "left",
                             0,
                             0,
                             "linear",
-                            "${Checkbox2}",
-                            '217px',
-                            '217px'
+                            "${Checkbox4}",
+                            '216px',
+                            '216px'
                         ],
                         [
                             "eid14",
@@ -217,44 +217,14 @@
                             '719px'
                         ],
                         [
-                            "eid27",
+                            "eid13",
                             "left",
                             0,
                             0,
                             "linear",
-                            "${Checkbox4}",
-                            '216px',
-                            '216px'
-                        ],
-                        [
-                            "eid35",
-                            "left",
-                            0,
-                            0,
-                            "linear",
-                            "${resetBtn}",
-                            '317px',
-                            '317px'
-                        ],
-                        [
-                            "eid30",
-                            "left",
-                            0,
-                            0,
-                            "linear",
-                            "${Checkbox1}",
-                            '217px',
-                            '217px'
-                        ],
-                        [
-                            "eid32",
-                            "top",
-                            0,
-                            0,
-                            "linear",
-                            "${resetBtn}",
-                            '692px',
-                            '692px'
+                            "${CopyrightAndCredits}",
+                            '54px',
+                            '54px'
                         ],
                         [
                             "eid28",
@@ -267,14 +237,44 @@
                             '217px'
                         ],
                         [
-                            "eid13",
+                            "eid35",
                             "left",
                             0,
                             0,
                             "linear",
-                            "${CopyrightAndCredits}",
-                            '54px',
-                            '54px'
+                            "${resetBtn}",
+                            '317px',
+                            '317px'
+                        ],
+                        [
+                            "eid32",
+                            "top",
+                            0,
+                            0,
+                            "linear",
+                            "${resetBtn}",
+                            '692px',
+                            '692px'
+                        ],
+                        [
+                            "eid29",
+                            "left",
+                            0,
+                            0,
+                            "linear",
+                            "${Checkbox2}",
+                            '217px',
+                            '217px'
+                        ],
+                        [
+                            "eid30",
+                            "left",
+                            0,
+                            0,
+                            "linear",
+                            "${Checkbox1}",
+                            '217px',
+                            '217px'
                         ]
                     ]
                 }
@@ -289,25 +289,25 @@
                 content: {
                     dom: [
                         {
-                            rect: ['0', '0', '700', '36', 'auto', 'auto'],
                             id: 'Group',
                             type: 'group',
+                            rect: ['0', '0', '700', '36', 'auto', 'auto'],
                             c: [
                             {
-                                type: 'text',
                                 rect: ['0', '2', '602', '16', 'auto', 'auto'],
+                                font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(119,119,119,1.00)', 'normal', 'none', '', 'break-word', ''],
                                 id: 'Text',
-                                text: 'Copyright 2015 North Carolina State University. Code by One Time Software. Version 1.5 May 2015.',
+                                text: 'Copyright 2015 North Carolina State University. Code by One Time Software. Version 2.0 June 2015.',
                                 align: 'center',
-                                font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(119,119,119,1.00)', 'normal', 'none', '', 'break-word', '']
+                                type: 'text'
                             },
                             {
-                                type: 'text',
                                 rect: ['0', '20', '602', '16', 'auto', 'auto'],
+                                font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(119,119,119,1.00)', 'normal', 'none', '', 'break-word', ''],
                                 id: 'TextCopy2',
                                 text: 'Free for academic use when displaying this notice.',
                                 align: 'center',
-                                font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(119,119,119,1.00)', 'normal', 'none', '', 'break-word', '']
+                                type: 'text'
                             },
                             {
                                 type: 'rect',
@@ -327,7 +327,8 @@
                     ],
                     style: {
                         '${symbolSelector}': {
-                            rect: [null, null, '600', '19']
+                            isStage: 'true',
+                            rect: [undefined, undefined, '600', '19']
                         }
                     }
                 },
@@ -351,9 +352,9 @@
                         {
                             rect: [0, 0, '106px', '16px', 'auto', 'auto'],
                             borderRadius: ['10px', '10px', '10px', '10px'],
-                            opacity: '0',
-                            id: 'RoundRect',
                             stroke: [0, 'rgba(0,0,0,1)', 'none'],
+                            id: 'RoundRect',
+                            opacity: '0',
                             type: 'rect',
                             fill: ['rgba(192,192,192,1)']
                         }
@@ -384,9 +385,9 @@
                         {
                             rect: [0, 0, 168, '16px', 'auto', 'auto'],
                             borderRadius: ['10px', '10px', '10px', '10px'],
-                            stroke: [0, 'rgb(0, 0, 0)', 'none'],
-                            id: 'RoundRect2',
                             opacity: '0',
+                            id: 'RoundRect2',
+                            stroke: [0, 'rgb(0, 0, 0)', 'none'],
                             type: 'rect',
                             fill: ['rgba(192,192,192,1)']
                         }
@@ -423,9 +424,9 @@
                             fill: ['rgba(255,255,255,1.00)', [270, [['rgba(167,167,167,1.00)', 0], ['rgba(222,222,222,1.00)', 100]]]]
                         },
                         {
-                            type: 'image',
-                            id: 'checkmark',
                             rect: [0, 0, 18, 18, 'auto', 'auto'],
+                            id: 'checkmark',
+                            type: 'image',
                             fill: ['rgba(0,0,0,0)', 'images/checkmark_outlined_centered.png', '0px', '0px']
                         }
                     ],
@@ -453,18 +454,18 @@
                 content: {
                     dom: [
                         {
-                            type: 'text',
                             rect: [5, 6, 'auto', 'auto', 'auto', 'auto'],
+                            font: ['Arial, Helvetica, sans-serif', [13, 'px'], 'rgba(115,115,115,1.00)', '400', 'none', 'normal', '', 'nowrap'],
                             id: 'resetButton',
                             text: 'RESET',
                             align: 'center',
-                            font: ['Arial, Helvetica, sans-serif', [13, 'px'], 'rgba(115,115,115,1.00)', '400', 'none', 'normal', '', 'nowrap']
+                            type: 'text'
                         },
                         {
-                            rect: [0, 0, 56, 24, 'auto', 'auto'],
+                            type: 'rect',
                             id: 'Rectangle2',
                             stroke: [1, 'rgb(0, 0, 0)', 'none'],
-                            type: 'rect',
+                            rect: [0, 0, 56, 24, 'auto', 'auto'],
                             fill: ['rgba(97,112,159,0.00)']
                         }
                     ],
