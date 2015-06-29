@@ -27,7 +27,7 @@ function loadStageParam(paramName,type) {
 	if (type == "float")
 		return parseFloat(rawString);
 	if (type == "array") {
-		var arr = rawString.split(",");
+		var arr = rawString.stripSpaces().split(",");
 		return (arr.length > 1) ? arr : rawString.split(" ");
 	}
 	return rawString.specialTrim();
@@ -243,6 +243,10 @@ function convertToIndexes(arrayWithUnknownOrder,referenceArray) {
 //TODO phase out the above in favor of the following?
 String.prototype.replaceAwithB = function(a,b) {
 	return this.replace(RegExp(a,"gm"),b);  // "g" for global replace, "m" for multi-line
+}
+
+String.prototype.stripSpaces = function() {
+	return this.replace(" ","");
 }
 
 String.prototype.contains = function(subString) {
