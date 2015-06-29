@@ -173,14 +173,14 @@
                             '500px'
                         ],
                         [
-                            "eid14",
-                            "top",
+                            "eid15",
+                            "left",
                             0,
                             0,
                             "linear",
                             "${codeByButton}",
-                            '500px',
-                            '500px'
+                            '386px',
+                            '386px'
                         ],
                         [
                             "eid11",
@@ -193,14 +193,14 @@
                             '165px'
                         ],
                         [
-                            "eid15",
-                            "left",
+                            "eid14",
+                            "top",
                             0,
                             0,
                             "linear",
                             "${codeByButton}",
-                            '386px',
-                            '386px'
+                            '500px',
+                            '500px'
                         ]
                     ]
                 }
@@ -215,18 +215,18 @@
                 content: {
                     dom: [
                         {
-                            type: 'text',
                             rect: [5, 6, 'auto', 'auto', 'auto', 'auto'],
+                            font: ['Arial, Helvetica, sans-serif', [13, 'px'], 'rgba(115,115,115,1.00)', '400', 'none', 'normal', '', 'nowrap'],
                             id: 'resetButton',
                             text: 'RESET',
                             align: 'center',
-                            font: ['Arial, Helvetica, sans-serif', [13, 'px'], 'rgba(115,115,115,1.00)', '400', 'none', 'normal', '', 'nowrap']
+                            type: 'text'
                         },
                         {
-                            type: 'rect',
+                            rect: [0, 0, 56, 24, 'auto', 'auto'],
                             id: 'Rectangle2',
                             stroke: [1, 'rgb(0, 0, 0)', 'none'],
-                            rect: [0, 0, 56, 24, 'auto', 'auto'],
+                            type: 'rect',
                             fill: ['rgba(97,112,159,0.00)']
                         }
                     ],
@@ -256,9 +256,9 @@
                         {
                             rect: [0, 0, 168, '16px', 'auto', 'auto'],
                             borderRadius: ['10px', '10px', '10px', '10px'],
-                            opacity: '0',
-                            id: 'RoundRect2',
                             stroke: [0, 'rgb(0, 0, 0)', 'none'],
+                            id: 'RoundRect2',
+                            opacity: '0',
                             type: 'rect',
                             fill: ['rgba(192,192,192,1)']
                         }
@@ -289,9 +289,9 @@
                         {
                             rect: [0, 0, '106px', '16px', 'auto', 'auto'],
                             borderRadius: ['10px', '10px', '10px', '10px'],
-                            stroke: [0, 'rgba(0,0,0,1)', 'none'],
-                            id: 'RoundRect',
                             opacity: '0',
+                            id: 'RoundRect',
+                            stroke: [0, 'rgba(0,0,0,1)', 'none'],
                             type: 'rect',
                             fill: ['rgba(192,192,192,1)']
                         }

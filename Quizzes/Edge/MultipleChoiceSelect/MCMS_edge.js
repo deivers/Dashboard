@@ -38,7 +38,7 @@
                         {
                             id: 'SubmitBtn',
                             type: 'text',
-                            rect: ['310px', '670px', '70', '19', 'auto', 'auto'],
+                            rect: ['310px', '663px', '70', '19', 'auto', 'auto'],
                             cursor: 'pointer',
                             text: "Submit",
                             align: "center",
@@ -178,7 +178,7 @@
                             id: 'resetBtn',
                             symbolName: 'resetButton',
                             type: 'rect',
-                            rect: ['317px', '692px', '56', '24', 'auto', 'auto'],
+                            rect: ['317px', '685px', '56', '24', 'auto', 'auto'],
                             cursor: 'pointer',
                             userClass: "reset"
                         }
@@ -197,14 +197,14 @@
                     autoPlay: false,
                     data: [
                         [
-                            "eid27",
+                            "eid28",
                             "left",
                             0,
                             0,
                             "linear",
-                            "${Checkbox4}",
-                            '216px',
-                            '216px'
+                            "${Checkbox3}",
+                            '217px',
+                            '217px'
                         ],
                         [
                             "eid14",
@@ -217,22 +217,22 @@
                             '719px'
                         ],
                         [
-                            "eid13",
+                            "eid30",
                             "left",
                             0,
                             0,
                             "linear",
-                            "${CopyrightAndCredits}",
-                            '54px',
-                            '54px'
+                            "${Checkbox1}",
+                            '217px',
+                            '217px'
                         ],
                         [
-                            "eid28",
+                            "eid29",
                             "left",
                             0,
                             0,
                             "linear",
-                            "${Checkbox3}",
+                            "${Checkbox2}",
                             '217px',
                             '217px'
                         ],
@@ -247,34 +247,34 @@
                             '317px'
                         ],
                         [
-                            "eid32",
+                            "eid36",
                             "top",
                             0,
                             0,
                             "linear",
                             "${resetBtn}",
-                            '692px',
-                            '692px'
+                            '685px',
+                            '685px'
                         ],
                         [
-                            "eid29",
+                            "eid27",
                             "left",
                             0,
                             0,
                             "linear",
-                            "${Checkbox2}",
-                            '217px',
-                            '217px'
+                            "${Checkbox4}",
+                            '216px',
+                            '216px'
                         ],
                         [
-                            "eid30",
+                            "eid13",
                             "left",
                             0,
                             0,
                             "linear",
-                            "${Checkbox1}",
-                            '217px',
-                            '217px'
+                            "${CopyrightAndCredits}",
+                            '54px',
+                            '54px'
                         ]
                     ]
                 }
@@ -289,25 +289,25 @@
                 content: {
                     dom: [
                         {
+                            rect: ['0', '0', '700', '36', 'auto', 'auto'],
                             id: 'Group',
                             type: 'group',
-                            rect: ['0', '0', '700', '36', 'auto', 'auto'],
                             c: [
                             {
-                                rect: ['0', '2', '602', '16', 'auto', 'auto'],
                                 font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(119,119,119,1.00)', 'normal', 'none', '', 'break-word', ''],
+                                type: 'text',
                                 id: 'Text',
                                 text: 'Copyright 2015 North Carolina State University. Code by One Time Software. Version 2.0 June 2015.',
                                 align: 'center',
-                                type: 'text'
+                                rect: ['0', '2', '602', '16', 'auto', 'auto']
                             },
                             {
-                                rect: ['0', '20', '602', '16', 'auto', 'auto'],
                                 font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(119,119,119,1.00)', 'normal', 'none', '', 'break-word', ''],
+                                type: 'text',
                                 id: 'TextCopy2',
                                 text: 'Free for academic use when displaying this notice.',
                                 align: 'center',
-                                type: 'text'
+                                rect: ['0', '20', '602', '16', 'auto', 'auto']
                             },
                             {
                                 type: 'rect',
@@ -327,8 +327,7 @@
                     ],
                     style: {
                         '${symbolSelector}': {
-                            isStage: 'true',
-                            rect: [undefined, undefined, '600', '19']
+                            rect: [null, null, '600', '19']
                         }
                     }
                 },
@@ -352,9 +351,9 @@
                         {
                             rect: [0, 0, '106px', '16px', 'auto', 'auto'],
                             borderRadius: ['10px', '10px', '10px', '10px'],
-                            stroke: [0, 'rgba(0,0,0,1)', 'none'],
-                            id: 'RoundRect',
                             opacity: '0',
+                            id: 'RoundRect',
+                            stroke: [0, 'rgba(0,0,0,1)', 'none'],
                             type: 'rect',
                             fill: ['rgba(192,192,192,1)']
                         }
@@ -385,9 +384,9 @@
                         {
                             rect: [0, 0, 168, '16px', 'auto', 'auto'],
                             borderRadius: ['10px', '10px', '10px', '10px'],
-                            opacity: '0',
-                            id: 'RoundRect2',
                             stroke: [0, 'rgb(0, 0, 0)', 'none'],
+                            id: 'RoundRect2',
+                            opacity: '0',
                             type: 'rect',
                             fill: ['rgba(192,192,192,1)']
                         }
@@ -424,9 +423,9 @@
                             fill: ['rgba(255,255,255,1.00)', [270, [['rgba(167,167,167,1.00)', 0], ['rgba(222,222,222,1.00)', 100]]]]
                         },
                         {
-                            rect: [0, 0, 18, 18, 'auto', 'auto'],
-                            id: 'checkmark',
                             type: 'image',
+                            id: 'checkmark',
+                            rect: [0, 0, 18, 18, 'auto', 'auto'],
                             fill: ['rgba(0,0,0,0)', 'images/checkmark_outlined_centered.png', '0px', '0px']
                         }
                     ],
@@ -454,18 +453,18 @@
                 content: {
                     dom: [
                         {
-                            rect: [5, 6, 'auto', 'auto', 'auto', 'auto'],
                             font: ['Arial, Helvetica, sans-serif', [13, 'px'], 'rgba(115,115,115,1.00)', '400', 'none', 'normal', '', 'nowrap'],
+                            type: 'text',
                             id: 'resetButton',
                             text: 'RESET',
                             align: 'center',
-                            type: 'text'
+                            rect: [5, 6, 'auto', 'auto', 'auto', 'auto']
                         },
                         {
-                            type: 'rect',
+                            rect: [0, 0, 56, 24, 'auto', 'auto'],
                             id: 'Rectangle2',
                             stroke: [1, 'rgb(0, 0, 0)', 'none'],
-                            rect: [0, 0, 56, 24, 'auto', 'auto'],
+                            type: 'rect',
                             fill: ['rgba(97,112,159,0.00)']
                         }
                     ],

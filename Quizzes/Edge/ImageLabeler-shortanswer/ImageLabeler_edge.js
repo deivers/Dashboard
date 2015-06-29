@@ -314,25 +314,25 @@
                 content: {
                     dom: [
                         {
-                            rect: ['0', '0', '700', '36', 'auto', 'auto'],
-                            id: 'Group',
                             type: 'group',
+                            id: 'Group',
+                            rect: ['0', '0', '700', '36', 'auto', 'auto'],
                             c: [
                             {
-                                font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(119,119,119,1.00)', 'normal', 'none', '', 'break-word', ''],
                                 type: 'text',
+                                rect: ['0', '2', '602', '16', 'auto', 'auto'],
                                 id: 'Text',
                                 text: 'Copyright 2015 North Carolina State University. Code by One Time Software. Version 2.0 June 2015.',
                                 align: 'center',
-                                rect: ['0', '2', '602', '16', 'auto', 'auto']
+                                font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(119,119,119,1.00)', 'normal', 'none', '', 'break-word', '']
                             },
                             {
-                                font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(119,119,119,1.00)', 'normal', 'none', '', 'break-word', ''],
                                 type: 'text',
+                                rect: ['0', '20', '602', '16', 'auto', 'auto'],
                                 id: 'TextCopy2',
                                 text: 'Free for academic use when displaying this notice.',
                                 align: 'center',
-                                rect: ['0', '20', '602', '16', 'auto', 'auto']
+                                font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(119,119,119,1.00)', 'normal', 'none', '', 'break-word', '']
                             },
                             {
                                 type: 'rect',
@@ -376,9 +376,9 @@
                         {
                             rect: [0, 0, '106px', '16px', 'auto', 'auto'],
                             borderRadius: ['10px', '10px', '10px', '10px'],
-                            stroke: [0, 'rgba(0,0,0,1)', 'none'],
-                            id: 'RoundRect',
                             opacity: '0',
+                            id: 'RoundRect',
+                            stroke: [0, 'rgba(0,0,0,1)', 'none'],
                             type: 'rect',
                             fill: ['rgba(192,192,192,1)']
                         }
@@ -409,9 +409,9 @@
                         {
                             rect: [0, 0, 168, '16px', 'auto', 'auto'],
                             borderRadius: ['10px', '10px', '10px', '10px'],
-                            opacity: '0',
-                            id: 'RoundRect2',
                             stroke: [0, 'rgb(0, 0, 0)', 'none'],
+                            id: 'RoundRect2',
+                            opacity: '0',
                             type: 'rect',
                             fill: ['rgba(192,192,192,1)']
                         }
@@ -440,18 +440,18 @@
                 content: {
                     dom: [
                         {
-                            font: ['Arial, Helvetica, sans-serif', [13, 'px'], 'rgba(115,115,115,1.00)', '400', 'none', 'normal', '', 'nowrap'],
                             type: 'text',
+                            rect: [5, 6, 'auto', 'auto', 'auto', 'auto'],
                             id: 'resetButton',
                             text: 'RESET',
                             align: 'center',
-                            rect: [5, 6, 'auto', 'auto', 'auto', 'auto']
+                            font: ['Arial, Helvetica, sans-serif', [13, 'px'], 'rgba(115,115,115,1.00)', '400', 'none', 'normal', '', 'nowrap']
                         },
                         {
-                            rect: [0, 0, 56, 24, 'auto', 'auto'],
+                            type: 'rect',
                             id: 'Rectangle2',
                             stroke: [1, 'rgb(0, 0, 0)', 'none'],
-                            type: 'rect',
+                            rect: [0, 0, 56, 24, 'auto', 'auto'],
                             fill: ['rgba(97,112,159,0.00)']
                         }
                     ],

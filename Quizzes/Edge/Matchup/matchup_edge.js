@@ -574,42 +574,42 @@
                             '1'
                         ],
                         [
-                            "eid56",
+                            "eid1",
                             "opacity",
                             0,
                             0,
                             "linear",
-                            "${dragHint1Copy3}",
+                            "${drag1}",
                             '0',
                             '0'
                         ],
                         [
-                            "eid57",
-                            "opacity",
-                            2000,
-                            0,
-                            "linear",
-                            "${dragHint1Copy3}",
-                            '0',
-                            '0.97'
-                        ],
-                        [
-                            "eid54",
-                            "opacity",
-                            0,
-                            0,
-                            "linear",
-                            "${dragText1Copy3}",
-                            '0',
-                            '0'
-                        ],
-                        [
-                            "eid55",
+                            "eid3",
                             "opacity",
                             1000,
                             0,
                             "linear",
-                            "${dragText1Copy3}",
+                            "${drag1}",
+                            '0',
+                            '1'
+                        ],
+                        [
+                            "eid46",
+                            "opacity",
+                            0,
+                            0,
+                            "linear",
+                            "${dragText1Copy2}",
+                            '0',
+                            '0'
+                        ],
+                        [
+                            "eid47",
+                            "opacity",
+                            1000,
+                            0,
+                            "linear",
+                            "${dragText1Copy2}",
                             '0',
                             '0.98'
                         ],
@@ -694,44 +694,44 @@
                             '1'
                         ],
                         [
-                            "eid46",
+                            "eid54",
                             "opacity",
                             0,
                             0,
                             "linear",
-                            "${dragText1Copy2}",
+                            "${dragText1Copy3}",
                             '0',
                             '0'
                         ],
                         [
-                            "eid47",
+                            "eid55",
                             "opacity",
                             1000,
                             0,
                             "linear",
-                            "${dragText1Copy2}",
+                            "${dragText1Copy3}",
                             '0',
                             '0.98'
                         ],
                         [
-                            "eid1",
+                            "eid56",
                             "opacity",
                             0,
                             0,
                             "linear",
-                            "${drag1}",
+                            "${dragHint1Copy3}",
                             '0',
                             '0'
                         ],
                         [
-                            "eid3",
+                            "eid57",
                             "opacity",
-                            1000,
+                            2000,
                             0,
                             "linear",
-                            "${drag1}",
+                            "${dragHint1Copy3}",
                             '0',
-                            '1'
+                            '0.97'
                         ]
                     ]
                 }
@@ -756,12 +756,12 @@
                             fill: ['rgba(112,100,252,1.00)']
                         },
                         {
-                            rect: [12, 7, 'auto', 'auto', 'auto', 'auto'],
                             font: ['Arial, Helvetica, sans-serif', [16, 'px'], 'rgba(255,255,255,1.00)', '500', 'none', '', '', 'nowrap'],
+                            type: 'text',
                             id: 'Text',
                             text: 'Check answers',
                             align: 'center',
-                            type: 'text'
+                            rect: [12, 7, 'auto', 'auto', 'auto', 'auto']
                         }
                     ],
                     style: {
@@ -788,18 +788,18 @@
                 content: {
                     dom: [
                         {
-                            rect: [5, 6, 'auto', 'auto', 'auto', 'auto'],
                             font: ['Arial, Helvetica, sans-serif', [13, 'px'], 'rgba(115,115,115,1.00)', '400', 'none', 'normal', '', 'nowrap'],
+                            type: 'text',
                             id: 'resetButton',
                             text: 'RESET',
                             align: 'center',
-                            type: 'text'
+                            rect: [5, 6, 'auto', 'auto', 'auto', 'auto']
                         },
                         {
-                            type: 'rect',
+                            rect: [0, 0, 56, 24, 'auto', 'auto'],
                             id: 'Rectangle2',
                             stroke: [1, 'rgb(0, 0, 0)', 'none'],
-                            rect: [0, 0, 56, 24, 'auto', 'auto'],
+                            type: 'rect',
                             fill: ['rgba(97,112,159,0.00)']
                         }
                     ],
@@ -827,17 +827,17 @@
                 content: {
                     dom: [
                         {
-                            rect: ['0', '0', '575', '18', 'auto', 'auto'],
-                            id: 'Group',
                             type: 'group',
+                            id: 'Group',
+                            rect: ['0', '0', '575', '18', 'auto', 'auto'],
                             c: [
                             {
-                                type: 'text',
                                 rect: ['0', '2', '575', '16', 'auto', 'auto'],
+                                font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(0,0,0,1)', 'normal', 'none', '', 'break-word', ''],
                                 id: 'Text',
                                 text: 'Copyright 2013 North Carolina State University. Code by One Time Software. Version 1.0 June 2015.',
                                 align: 'center',
-                                font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(0,0,0,1)', 'normal', 'none', '', 'break-word', '']
+                                type: 'text'
                             },
                             {
                                 type: 'rect',
@@ -881,9 +881,9 @@
                         {
                             rect: [0, 0, '106px', '16px', 'auto', 'auto'],
                             borderRadius: ['10px', '10px', '10px', '10px'],
-                            opacity: '0',
-                            id: 'RoundRect',
                             stroke: [0, 'rgba(0,0,0,1)', 'none'],
+                            id: 'RoundRect',
+                            opacity: '0',
                             type: 'rect',
                             fill: ['rgba(192,192,192,1)']
                         }
@@ -914,9 +914,9 @@
                         {
                             rect: [0, 0, 168, '16px', 'auto', 'auto'],
                             borderRadius: ['10px', '10px', '10px', '10px'],
-                            stroke: [0, 'rgb(0, 0, 0)', 'none'],
-                            id: 'RoundRect2',
                             opacity: '0',
+                            id: 'RoundRect2',
+                            stroke: [0, 'rgb(0, 0, 0)', 'none'],
                             type: 'rect',
                             fill: ['rgba(192,192,192,1)']
                         }
