@@ -18,7 +18,7 @@ function showMetaInfo(versionString, ncsuFlag) {
 		"position": "fixed",
 		"bottom": "20px",
 		"left": "50%",
-		"margin-left": ncsuFlag ? "-275px" : "-150px"
+		"margin-left": ncsuFlag ? "-275px" : "-160px"
 	});
 	return centerNode;
 }
@@ -123,7 +123,7 @@ function setUpSubmitButton(option) {
 	var resetBtn = $(".reset");
 	if (exists(resetBtn)) {
 		myWidth = $(resetBtn).outerWidth();
-		resetBtn.css("left", Math.max(0, (($("#Stage").width() - myWidth)/2)) + "px"); // center it
+		$(resetBtn).css({"left": "0px", "top": "10px"}); // center it
 	}
 }
 function setUpNextButton() {
@@ -132,7 +132,7 @@ function setUpNextButton() {
 	$(".submit").unbind().click(function() {
 		goNextPage();
 	});
-	if (typeof nextPageUrl !== 'undefined' && nextPageUrl != "") {
+	if (typeof nextPageUrl !== 'undefined' && nextPageUrl.length > 2) {
 		$(".submit").html("Next page").removeClass("blue").addClass("green");
 		$(".submit").css("width","6em");
 	} else {
@@ -145,7 +145,7 @@ function setUpNextButton() {
 
 function goNextPage() {
 	//console.log(">>> "+nextPageUrl);
-	if (typeof nextPageUrl !== 'undefined' && nextPageUrl != "")
+	if (typeof nextPageUrl !== 'undefined' && nextPageUrl.length > 2)
 		window.open(nextPageUrl, "_self");
 }
 
