@@ -20,14 +20,14 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       });
       //Edge binding end
 
-      Symbol.bindElementAction(compId, symbolName, "${RoundRect}", "click", function(sym, e) {
+      Symbol.bindElementAction(compId, symbolName, "${B1}", "click", function(sym, e) {
          answerButtonClicked(e.target);
          
 
       });
       //Edge binding end
 
-      Symbol.bindElementAction(compId, symbolName, "${RoundRect}", "mouseover", function(sym, e) {
+      Symbol.bindElementAction(compId, symbolName, "${B1}", "mouseover", function(sym, e) {
          answerButtonOver(e.target);
          
          
@@ -35,7 +35,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       });
       //Edge binding end
 
-      Symbol.bindElementAction(compId, symbolName, "${RoundRect}", "mouseout", function(sym, e) {
+      Symbol.bindElementAction(compId, symbolName, "${B1}", "mouseout", function(sym, e) {
          answerButtonOut(e.target);
 
       });
@@ -69,14 +69,14 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
 
       
 
-      Symbol.bindElementAction(compId, symbolName, "${RoundRectCopy2}", "click", function(sym, e) {
+      Symbol.bindElementAction(compId, symbolName, "${left}", "click", function(sym, e) {
          answerButtonClicked(e.target);
          
 
       });
       //Edge binding end
 
-      Symbol.bindElementAction(compId, symbolName, "${RoundRectCopy2}", "mouseover", function(sym, e) {
+      Symbol.bindElementAction(compId, symbolName, "${left}", "mouseover", function(sym, e) {
          answerButtonOver(e.target);
          
          
@@ -84,7 +84,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       });
       //Edge binding end
 
-      Symbol.bindElementAction(compId, symbolName, "${RoundRectCopy2}", "mouseout", function(sym, e) {
+      Symbol.bindElementAction(compId, symbolName, "${left}", "mouseout", function(sym, e) {
          answerButtonOut(e.target);
 
       });
@@ -96,14 +96,14 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
 
       
 
-      Symbol.bindElementAction(compId, symbolName, "${RoundRectCopy4}", "click", function(sym, e) {
+      Symbol.bindElementAction(compId, symbolName, "${B2}", "click", function(sym, e) {
          answerButtonClicked(e.target);
          
 
       });
       //Edge binding end
 
-      Symbol.bindElementAction(compId, symbolName, "${RoundRectCopy4}", "mouseover", function(sym, e) {
+      Symbol.bindElementAction(compId, symbolName, "${B2}", "mouseover", function(sym, e) {
          answerButtonOver(e.target);
          
          
@@ -111,20 +111,20 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       });
       //Edge binding end
 
-      Symbol.bindElementAction(compId, symbolName, "${RoundRectCopy4}", "mouseout", function(sym, e) {
+      Symbol.bindElementAction(compId, symbolName, "${B2}", "mouseout", function(sym, e) {
          answerButtonOut(e.target);
 
       });
       //Edge binding end
 
-      Symbol.bindElementAction(compId, symbolName, "${RoundRectCopy5}", "click", function(sym, e) {
+      Symbol.bindElementAction(compId, symbolName, "${right}", "click", function(sym, e) {
          answerButtonClicked(e.target);
          
 
       });
       //Edge binding end
 
-      Symbol.bindElementAction(compId, symbolName, "${RoundRectCopy5}", "mouseover", function(sym, e) {
+      Symbol.bindElementAction(compId, symbolName, "${right}", "mouseover", function(sym, e) {
          answerButtonOver(e.target);
          
          
@@ -132,7 +132,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       });
       //Edge binding end
 
-      Symbol.bindElementAction(compId, symbolName, "${RoundRectCopy5}", "mouseout", function(sym, e) {
+      Symbol.bindElementAction(compId, symbolName, "${right}", "mouseout", function(sym, e) {
          answerButtonOut(e.target);
 
       });
