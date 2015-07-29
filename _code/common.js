@@ -24,7 +24,11 @@ function showMetaInfo(versionString, ncsuFlag) {
 }
 
 function loadStageParam(paramName,type) {
-	var rawString = $("#Stage_"+paramName).html();
+	var rawString = $("#Stage_"+paramName).text().trim();
+	// workaround for Adobe bug
+	if (rawString.charCodeAt(0) == 8203)
+		rawString = rawString.substr(1);
+	//
 	if (type == "boolean")
 		return (exists(rawString) && rawString.substring(0,1) == "t");
 	if (!exists(rawString))
@@ -254,7 +258,7 @@ String.prototype.replaceAwithB = function(a,b) {
 }
 
 String.prototype.stripSpaces = function() {
-	return this.replace(" ","");
+	return this.replace(/\s+/g,'');
 }
 
 String.prototype.contains = function(subString) {
