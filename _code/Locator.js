@@ -13,6 +13,7 @@ var wrongColor;
 var correctColor;
 var correctNames;
 var allNames;
+var clickParam;
 var logResponsesToDashboard;
 var nextPageUrl;
 var completed = false;
@@ -23,6 +24,9 @@ function loadTeacherParams() {
 	var hoverParam = loadStageParam("config-revealButtonsOnHover","boolean");
 	if (!hoverParam)
 		hoverOpacity = 0;
+	clickParam = loadStageParam("config-colorAnimationOnClick","boolean");
+	if (!clickParam)
+		selectedOpacity = 0;
 	logResponsesToDashboard = loadStageParam("config-logResponsesToDashboard","boolean");
 	nextPageUrl = loadStageParam("config-nextPageUrl");
 }
@@ -43,11 +47,15 @@ function answerButtonClicked(which) {
 	}
 	// console.log("checking answers...")////
 	var nameOfClickedButton = $(which).edgeElementName();
-	// console.log("the student selected number: ", selectedButtonIndex)////
 	logResponse(nameOfClickedButton);
 
 	if (correctNames.contains(nameOfClickedButton)) {
-		$(which).animate({"opacity": 1, "background-color": correctColor}, 300);
+		if (clickParam) {
+			// highlight all the correct buttons
+			correctNames.forEach(function(name) {
+				$("#Stage_"+name).animate({"opacity": 1, "background-color": correctColor}, 300);
+			});
+		}
 		alert("Correct!");
 		completed = true;
 		setUpNextButton();
