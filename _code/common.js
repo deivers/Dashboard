@@ -1,16 +1,24 @@
-function showMetaInfo(versionString) {
-	var copyrightText = "Copyright 2014";
+function showMetaInfo(versionString, ncsuFlag) {
+	var copyrightText = "Copyright 2015";
 	var createdByText = "";
 	var versionText = "Version "+versionString+".";
 	var centerNode = $("<div style='text-align: center; margin-top: 20px'></div>");
-	centerNode.append($("<span></span>").text(copyrightText+" "+createdByText+" "));
+	centerNode.append($("<span></span>").text(copyrightText+" "));
+	if (ncsuFlag) {
+		centerNode.append($("<a href='http://harvest.cals.ncsu.edu' target='_blank'></a>").text("North Carolina State University"));
+		centerNode.append(" &nbsp; Code by ");
+	}
 	centerNode.append($("<a href='http://www.onetimesoftware.com' target='_blank'></a>").text("One Time Software"));
-	centerNode.append($("<span></span>").text(". "+versionText));
+	centerNode.append(". &nbsp; "+versionText);
 	centerNode.append("<br>");
 	centerNode.append($("<span></span>").text("Free for academic use when displaying this notice."));
 	centerNode.css({
 		color: "gray",
-		"font-size": "x-small"
+		"font-size": "x-small",
+		"position": "fixed",
+		"bottom": "20px",
+		"left": "50%",
+		"margin-left": ncsuFlag ? "-275px" : "-160px"
 	});
 	return centerNode;
 }
@@ -21,10 +29,15 @@ function loadStageParam(paramName,type) {
 		return (exists(rawString) && rawString.substring(0,1) == "t");
 	if (!exists(rawString))
 		return "";
+	rawString = rawString.specialTrim();
 	if (type == "int")
-		return parseInt(rawString.specialTrim());
+		return parseInt(rawString);
 	if (type == "float")
-		return parseFloat(rawString.specialTrim());
+		return parseFloat(rawString);
+	if (type == "array") {
+		var arr = rawString.stripSpaces().split(",");
+		return (arr.length > 1) ? arr : rawString.split(" ");
+	}
 	return rawString.specialTrim();
 }
 
@@ -53,7 +66,7 @@ function logSubmission(vNum,qType,qSummary,aSummary,saArray,akArray) {
 		console.log("Warning: data version number not found; defaulting to 0");
 	}
 	if (typeof qSummary === 'undefined')
-		qSummary = "question summary not defined in .html";
+		qSummary = "question summary not defined";
 	// submit to server
 	var request = $.ajax({
 		type: 'POST',
@@ -102,22 +115,24 @@ function isEncoded(string) {
 
 // the following methods are for AEA projects //
 
-function setUpSubmitButton() {
+function setUpSubmitButton(option) {
+	$(".submit").css("opacity", (option == 'hide' ? 0 : 1));
 	var myWidth = $(".submit").outerWidth();
 	$(".submit").click(function() {checkAnswers()})
 		.css("left", Math.max(0, (($("#Stage").width() - myWidth)/2)) + "px"); // center it
 	var resetBtn = $(".reset");
 	if (exists(resetBtn)) {
 		myWidth = $(resetBtn).outerWidth();
-		resetBtn.css("left", Math.max(0, (($("#Stage").width() - myWidth)/2)) + "px"); // center it
+		$(resetBtn).css({"left": "0px", "top": "10px"}); // center it
 	}
 }
 function setUpNextButton() {
 	// convert Submit button into NextPage/EndOfQuiz button
+	$(".submit").css("opacity",1); 
 	$(".submit").unbind().click(function() {
 		goNextPage();
 	});
-	if (typeof nextPageUrl !== 'undefined' && nextPageUrl != "") {
+	if (typeof nextPageUrl !== 'undefined' && nextPageUrl.length > 2) {
 		$(".submit").html("Next page").removeClass("blue").addClass("green");
 		$(".submit").css("width","6em");
 	} else {
@@ -130,7 +145,7 @@ function setUpNextButton() {
 
 function goNextPage() {
 	//console.log(">>> "+nextPageUrl);
-	if (typeof nextPageUrl !== 'undefined' && nextPageUrl != "")
+	if (typeof nextPageUrl !== 'undefined' && nextPageUrl.length > 2)
 		window.open(nextPageUrl, "_self");
 }
 
@@ -238,8 +253,18 @@ String.prototype.replaceAwithB = function(a,b) {
 	return this.replace(RegExp(a,"gm"),b);  // "g" for global replace, "m" for multi-line
 }
 
+String.prototype.stripSpaces = function() {
+	return this.replace(" ","");
+}
+
 String.prototype.contains = function(subString) {
 	return this.indexOf(subString) != -1;
+}
+
+Array.prototype.contains = function(that) {
+	return this.some(function(el){
+		return el == that;
+	});
 }
 
 function exists(x) {
@@ -250,6 +275,10 @@ jQuery.fn.exists = function(){
 	return jQuery(this).length>0;
 }
 
+function isArray(a) {
+	return (exists(a) && typeof a === "object" && exists(a.length));
+}
+
 jQuery.fn.htmlList = function() {
 	var htmls = [];
 	jQuery(this).each(function(){
@@ -258,6 +287,17 @@ jQuery.fn.htmlList = function() {
 	return htmls;
 }
 
+jQuery.fn.edgeElementNames = function() {
+	// this.map(...) didn't work, so going old school here
+	var arr = [];
+	for (var i=0; i<this.length; i++) {
+		arr.push(jQuery(this[i]).edgeElementName());
+	}
+	return arr;
+}
+jQuery.fn.edgeElementName = function() {
+	return jQuery(this).attr('id').substr(6); // strip off the Stage_ prefix that Edge adds
+}
 
 function debug(x) {
 	if (typeof x === "object") { // an object but not an array

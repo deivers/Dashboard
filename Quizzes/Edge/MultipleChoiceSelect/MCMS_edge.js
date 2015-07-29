@@ -38,7 +38,7 @@
                         {
                             id: 'SubmitBtn',
                             type: 'text',
-                            rect: ['310px', '670px', '70', '19', 'auto', 'auto'],
+                            rect: ['310px', '663px', '70', '19', 'auto', 'auto'],
                             cursor: 'pointer',
                             text: "Submit",
                             align: "center",
@@ -178,7 +178,7 @@
                             id: 'resetBtn',
                             symbolName: 'resetButton',
                             type: 'rect',
-                            rect: ['317px', '692px', '56', '24', 'auto', 'auto'],
+                            rect: ['317px', '685px', '56', '24', 'auto', 'auto'],
                             cursor: 'pointer',
                             userClass: "reset"
                         }
@@ -197,12 +197,12 @@
                     autoPlay: false,
                     data: [
                         [
-                            "eid29",
+                            "eid28",
                             "left",
                             0,
                             0,
                             "linear",
-                            "${Checkbox2}",
+                            "${Checkbox3}",
                             '217px',
                             '217px'
                         ],
@@ -217,14 +217,24 @@
                             '719px'
                         ],
                         [
-                            "eid27",
+                            "eid30",
                             "left",
                             0,
                             0,
                             "linear",
-                            "${Checkbox4}",
-                            '216px',
-                            '216px'
+                            "${Checkbox1}",
+                            '217px',
+                            '217px'
+                        ],
+                        [
+                            "eid29",
+                            "left",
+                            0,
+                            0,
+                            "linear",
+                            "${Checkbox2}",
+                            '217px',
+                            '217px'
                         ],
                         [
                             "eid35",
@@ -237,34 +247,24 @@
                             '317px'
                         ],
                         [
-                            "eid30",
-                            "left",
-                            0,
-                            0,
-                            "linear",
-                            "${Checkbox1}",
-                            '217px',
-                            '217px'
-                        ],
-                        [
-                            "eid32",
+                            "eid36",
                             "top",
                             0,
                             0,
                             "linear",
                             "${resetBtn}",
-                            '692px',
-                            '692px'
+                            '685px',
+                            '685px'
                         ],
                         [
-                            "eid28",
+                            "eid27",
                             "left",
                             0,
                             0,
                             "linear",
-                            "${Checkbox3}",
-                            '217px',
-                            '217px'
+                            "${Checkbox4}",
+                            '216px',
+                            '216px'
                         ],
                         [
                             "eid13",
@@ -294,20 +294,20 @@
                             type: 'group',
                             c: [
                             {
+                                font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(119,119,119,1.00)', 'normal', 'none', '', 'break-word', ''],
                                 type: 'text',
-                                rect: ['0', '2', '602', '16', 'auto', 'auto'],
                                 id: 'Text',
-                                text: 'Copyright 2015 North Carolina State University. Code by One Time Software. Version 1.5 May 2015.',
+                                text: 'Copyright 2015 North Carolina State University. Code by One Time Software. Version 2.0 June 2015.',
                                 align: 'center',
-                                font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(119,119,119,1.00)', 'normal', 'none', '', 'break-word', '']
+                                rect: ['0', '2', '602', '16', 'auto', 'auto']
                             },
                             {
+                                font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(119,119,119,1.00)', 'normal', 'none', '', 'break-word', ''],
                                 type: 'text',
-                                rect: ['0', '20', '602', '16', 'auto', 'auto'],
                                 id: 'TextCopy2',
                                 text: 'Free for academic use when displaying this notice.',
                                 align: 'center',
-                                font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(119,119,119,1.00)', 'normal', 'none', '', 'break-word', '']
+                                rect: ['0', '20', '602', '16', 'auto', 'auto']
                             },
                             {
                                 type: 'rect',
@@ -453,12 +453,12 @@
                 content: {
                     dom: [
                         {
+                            font: ['Arial, Helvetica, sans-serif', [13, 'px'], 'rgba(115,115,115,1.00)', '400', 'none', 'normal', '', 'nowrap'],
                             type: 'text',
-                            rect: [5, 6, 'auto', 'auto', 'auto', 'auto'],
                             id: 'resetButton',
                             text: 'RESET',
                             align: 'center',
-                            font: ['Arial, Helvetica, sans-serif', [13, 'px'], 'rgba(115,115,115,1.00)', '400', 'none', 'normal', '', 'nowrap']
+                            rect: [5, 6, 'auto', 'auto', 'auto', 'auto']
                         },
                         {
                             rect: [0, 0, 56, 24, 'auto', 'auto'],

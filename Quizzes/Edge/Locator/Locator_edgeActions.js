@@ -44,7 +44,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       Symbol.bindSymbolAction(compId, symbolName, "creationComplete", function(sym, e) {
          // set all answer buttons to 0 opacity before displaying anything
          $(".answer-button").css({"opacity": 0});
-         
+         $(".submit").css({"opacity": 0});
          
          yepnope ({
          	nope: [
@@ -63,26 +63,11 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       });
       //Edge binding end
 
-      Symbol.bindElementAction(compId, symbolName, "${RoundRectCopy}", "click", function(sym, e) {
-         answerButtonClicked(e.target);
-         
+      
 
-      });
-      //Edge binding end
+      
 
-      Symbol.bindElementAction(compId, symbolName, "${RoundRectCopy}", "mouseover", function(sym, e) {
-         answerButtonOver(e.target);
-         
-         
-
-      });
-      //Edge binding end
-
-      Symbol.bindElementAction(compId, symbolName, "${RoundRectCopy}", "mouseout", function(sym, e) {
-         answerButtonOut(e.target);
-
-      });
-      //Edge binding end
+      
 
       Symbol.bindElementAction(compId, symbolName, "${RoundRectCopy2}", "click", function(sym, e) {
          answerButtonClicked(e.target);
@@ -105,26 +90,11 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       });
       //Edge binding end
 
-      Symbol.bindElementAction(compId, symbolName, "${RoundRectCopy3}", "click", function(sym, e) {
-         answerButtonClicked(e.target);
-         
+      
 
-      });
-      //Edge binding end
+      
 
-      Symbol.bindElementAction(compId, symbolName, "${RoundRectCopy3}", "mouseover", function(sym, e) {
-         answerButtonOver(e.target);
-         
-         
-
-      });
-      //Edge binding end
-
-      Symbol.bindElementAction(compId, symbolName, "${RoundRectCopy3}", "mouseout", function(sym, e) {
-         answerButtonOut(e.target);
-
-      });
-      //Edge binding end
+      
 
       Symbol.bindElementAction(compId, symbolName, "${RoundRectCopy4}", "click", function(sym, e) {
          answerButtonClicked(e.target);
@@ -168,13 +138,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       });
       //Edge binding end
 
-      Symbol.bindElementAction(compId, symbolName, "${resetBtn}", "click", function(sym, e) {
-         ///console.log("reset button");
-         window.location.reload();
-         
-
-      });
-      //Edge binding end
+      
 
    })("stage");
    //Edge symbol end:'stage'
@@ -186,5 +150,33 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
    
    })("resetButton");
    //Edge symbol end:'resetButton'
+
+   //=========================================================
+   
+   //Edge symbol: 'copyrightButton'
+   (function(symbolName) {   
+   
+      Symbol.bindElementAction(compId, symbolName, "${RoundRect2}", "click", function(sym, e) {
+         window.open("http://harvest.cals.ncsu.edu/biology", "_blank");
+
+      });
+      //Edge binding end
+
+   })("copyrightButton");
+   //Edge symbol end:'copyrightButton'
+
+   //=========================================================
+   
+   //Edge symbol: 'codeByButton'
+   (function(symbolName) {   
+   
+      Symbol.bindElementAction(compId, symbolName, "${RoundRect}", "click", function(sym, e) {
+         window.open("http://www.onetimesoftware.com", "_blank");
+
+      });
+      //Edge binding end
+
+   })("codeByButton");
+   //Edge symbol end:'codeByButton'
 
 })(window.jQuery || AdobeEdge.$, AdobeEdge, "EDGE-152311472");

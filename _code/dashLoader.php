@@ -15,9 +15,6 @@ $fileNamePrefix = $relativePath . "/submission_log_";
 $fileNameSuffix = ".txt";
 $logContents = array();
 
-// // //
-error_log("--testing--testing--testing--   the following should list all the folders and, if present, the log files");
-// // //
 $index = 0;
 foreach(glob($relativePath . "/*", GLOB_ONLYDIR) as $dir) {
 	$index++;

@@ -131,14 +131,6 @@
                             font: ['Arial, Helvetica, sans-serif', [16, "px"], "rgba(166,166,166,1.00)", "normal", "none", "", "break-word", ""]
                         },
                         {
-                            id: 'TextCopy',
-                            type: 'text',
-                            rect: ['-190', '402px', '170', '22', 'auto', 'auto'],
-                            text: "plant cell",
-                            userClass: "textSource decoy",
-                            font: ['Arial, Helvetica, sans-serif', [16, "px"], "rgba(166,166,166,1.00)", "normal", "none", "", "break-word", ""]
-                        },
-                        {
                             id: 'TextCopy9',
                             type: 'text',
                             rect: ['-190', '171px', '170', '22', 'auto', 'auto'],
@@ -324,47 +316,43 @@
                         {
                             type: 'group',
                             id: 'Group',
-                            rect: [0, 0, 700, 36, 'auto', 'auto'],
+                            rect: ['0', '0', '700', '36', 'auto', 'auto'],
                             c: [
                             {
-                                rect: [0, 2, 602, 16, 'auto', 'auto'],
-                                font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(119,119,119,1.00)', 'normal', 'none', '', '', ''],
+                                type: 'text',
+                                rect: ['0', '2', '602', '16', 'auto', 'auto'],
                                 id: 'Text',
-                                text: 'Copyright 2014 North Carolina State University. Code by One Time Software. Version 1.4 July 2014.',
+                                text: 'Copyright 2015 North Carolina State University. Code by One Time Software. Version 2.0 June 2015.',
                                 align: 'center',
-                                type: 'text'
+                                font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(119,119,119,1.00)', 'normal', 'none', '', 'break-word', '']
                             },
                             {
-                                rect: [0, 20, 602, 16, 'auto', 'auto'],
-                                font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(119,119,119,1.00)', 'normal', 'none', '', '', ''],
+                                type: 'text',
+                                rect: ['0', '20', '602', '16', 'auto', 'auto'],
                                 id: 'TextCopy2',
                                 text: 'Free for academic use when displaying this notice.',
                                 align: 'center',
-                                type: 'text'
+                                font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(119,119,119,1.00)', 'normal', 'none', '', 'break-word', '']
                             },
                             {
-                                rect: [327, 0, 106, 16, 'auto', 'auto'],
+                                type: 'rect',
                                 id: 'codeByButton',
                                 symbolName: 'codeByButton',
                                 cursor: 'pointer',
-                                type: 'rect'
+                                rect: ['327', '0', '106', '16', 'auto', 'auto']
                             },
                             {
-                                rect: [101, 2, 168, 16, 'auto', 'auto'],
+                                type: 'rect',
                                 id: 'copyrightButton',
                                 symbolName: 'copyrightButton',
                                 cursor: 'pointer',
-                                type: 'rect'
+                                rect: ['101', '2', '168', '16', 'auto', 'auto']
                             }]
                         }
                     ],
                     style: {
-                        '${TextCopy}': {
-                            font: '{{:}{undefined{:}:{:}}{:}{{:}u{:}n{:}d',
-                            rect: [0, 2, 602, 16]
-                        },
                         '${symbolSelector}': {
-                            rect: [null, null, 600, 19]
+                            rect: [null, null, '600', '19']
                         }
                     }
                 },
@@ -388,9 +376,9 @@
                         {
                             rect: [0, 0, '106px', '16px', 'auto', 'auto'],
                             borderRadius: ['10px', '10px', '10px', '10px'],
-                            stroke: [0, 'rgba(0,0,0,1)', 'none'],
-                            id: 'RoundRect',
                             opacity: '0',
+                            id: 'RoundRect',
+                            stroke: [0, 'rgba(0,0,0,1)', 'none'],
                             type: 'rect',
                             fill: ['rgba(192,192,192,1)']
                         }
@@ -421,9 +409,9 @@
                         {
                             rect: [0, 0, 168, '16px', 'auto', 'auto'],
                             borderRadius: ['10px', '10px', '10px', '10px'],
-                            opacity: '0',
-                            id: 'RoundRect2',
                             stroke: [0, 'rgb(0, 0, 0)', 'none'],
+                            id: 'RoundRect2',
+                            opacity: '0',
                             type: 'rect',
                             fill: ['rgba(192,192,192,1)']
                         }
@@ -460,10 +448,10 @@
                             font: ['Arial, Helvetica, sans-serif', [13, 'px'], 'rgba(115,115,115,1.00)', '400', 'none', 'normal', '', 'nowrap']
                         },
                         {
-                            rect: [0, 0, 56, 24, 'auto', 'auto'],
+                            type: 'rect',
                             id: 'Rectangle2',
                             stroke: [1, 'rgb(0, 0, 0)', 'none'],
-                            type: 'rect',
+                            rect: [0, 0, 56, 24, 'auto', 'auto'],
                             fill: ['rgba(97,112,159,0.00)']
                         }
                     ],
