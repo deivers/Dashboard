@@ -42,7 +42,7 @@ function loadStageParam(paramName,type) {
 		var arr = rawString.stripSpaces().split(",");
 		return (arr.length > 1) ? arr : rawString.split(" ");
 	}
-	return rawString.specialTrim();
+	return rawString;
 }
 
 function logSubmission(vNum,qType,qSummary,aSummary,saArray,akArray) {
