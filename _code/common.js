@@ -26,14 +26,12 @@ function showMetaInfo(versionString, ncsuFlag) {
 function loadStageParam(paramName,type) {
 	var rawString = $("#Stage_"+paramName).text().trim();
 	// workaround for Adobe bug
-	if (rawString.charCodeAt(0) == 8203)
-		rawString = rawString.substr(1);
-	//
+	var cleanString = rawString.replace(/\u200B/g,"") // strip mystery char
+								.stripHtmlMarkup(); // remove any embedded html
 	if (type == "boolean")
-		return (exists(rawString) && rawString.substring(0,1) == "t");
-	if (!exists(rawString))
+		return (exists(cleanString) && cleanString.substring(0,1) == "t");
+	if (!exists(cleanString))
 		return "";
-	rawString = rawString.specialTrim();
 	if (type == "int")
 		return parseInt(rawString);
 	if (type == "float")
@@ -155,16 +153,6 @@ function goNextPage() {
 
 // specific utility functions //
 
-String.prototype.specialTrim = function() {
-	// for retrieving user params, normally located on stage but off canvas
-	// ignore characters starting with the first <
-	var cutHere = this.indexOf("<");
-	if (cutHere > 0)
-		return this.substring(0,cutHere);
-	else
-		return this.substring(0);
-}
-
 // general utility functions //
 
 function shuffleArray(array) {
@@ -259,6 +247,11 @@ String.prototype.replaceAwithB = function(a,b) {
 
 String.prototype.stripSpaces = function() {
 	return this.replace(/\s+/g,'');
+}
+
+String.prototype.stripHtmlMarkup = function() {
+	// note: doesn't change the original string
+	return this.replace(/<(?:.|\n)*?>/gm, '')
 }
 
 String.prototype.contains = function(subString) {
