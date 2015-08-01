@@ -1,5 +1,4 @@
 // Define the following in the html file:
-//   integer quizpageNumber
 //   string qTextSummary
 //   string shuffleWhich
 //   boolean rejectWrongAnswers (defaults to true)
@@ -7,6 +6,7 @@
 //   boolean logResponsesToDashboard (defaults to false)
 //   string nextPageUrl
 
+var dataVersionNumber = 3;
 var questionType = "MatchUp";
 var version = "1.2 November 2013";
 var rejectOption = (typeof rejectWrongAnswers === 'undefined' || rejectWrongAnswers);
@@ -118,7 +118,7 @@ function checkAnswers() {
 		$(dragList).each(function(index) {
 			aDetailedList.push($(this).html());
 		});
-		var logSuccess = logSubmission(quizpageNumber,questionType,qTextSummary,aDetailedList,studentList,ak);
+		var logSuccess = logSubmission(dataVersionNumber,questionType,qTextSummary,aDetailedList,studentList,ak);
 		if (logSuccess == false) {
 			alert("You must provide a valid student ID for answers to be checked.");
 			return;

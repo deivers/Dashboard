@@ -7,18 +7,13 @@ var answerTypeIsMenus;
 var showWrongAnswers;
 var logResponsesToDashboard;
 var nextPageUrl;
-// globals defined elsewhere but needed herein
-//	quizpageNumber
-//	qTextSummary
+var dataVersionNumber = 3;
 // additional globals needed if ShortAnswer type
 //	minNumChars
 
 function init() {
 	// read the configuration parameters
-	answerTypeIsMenus = ($("#Stage_config-answerTypeIsMenus").html().substring(0,1) == "t");
-	showWrongAnswers = ($("#Stage_config-showWrongAnswers").html().substring(0,1) == "t");
-	logResponsesToDashboard = ($("#Stage_config-logResponsesToDashboard").html().substring(0,1) == "t");
-	nextPageUrl = $("#Stage_config-nextPageUrl").html().specialTrim();
+	loadTeacherParams();
 	// collect all possible answers
 	textFields = $(".textSource");
 	// console.log("number of fields: "+textFields.length);
@@ -34,17 +29,26 @@ function init() {
 	if (typeof minNumChars === 'undefined' || minNumChars < 1)
 		var minNumChars = 3;
 	setUpSubmitButton();
+	setUpResetButton();
+	$('#Stage').append(showMetaInfo("2.0 July 2015"));
+}
+
+loadTeacherParams = function() {
+	answerTypeIsMenus = loadStageParam("config-answerTypeIsMenus","boolean");
+	showWrongAnswers = loadStageParam("config-showWrongAnswers","boolean");
+	logResponsesToDashboard = loadStageParam("config-logResponsesToDashboard","boolean");
+	nextPageUrl = loadStageParam("config-nextPageUrl");
 }
 
 buildTextsArray = function() {
 	var decoys = [];
 	var decoyFields = $(".decoy");
 	for (var i=0; i<decoyFields.length; i++)
-		decoys.push($(decoyFields[i]).html());
+		decoys.push($(decoyFields[i]).readInputString());
 	$(decoyFields).remove();
 	textFields = $(".textSource");
 	for (var i=0; i<textFields.length; i++)
-		texts.push($(textFields[i]).html());
+		texts.push($(textFields[i]).readInputString());
 	for (var i=0; i<decoys.length; i++)
 		texts.push(decoys[i]);
 	console.log("number of fields: "+textFields.length);
@@ -167,7 +171,7 @@ checkAnswers = function() {
 			var saArray = convertToIndexes(answerTexts,texts);
 			var akArray = arrayFactory(answerTexts.length,1,0);
 			//console.log(texts); console.log(saArray); console.log(akArray);
-			var logSuccess = logSubmission(quizpageNumber,questionType,qTextSummary,texts,saArray,akArray);
+			var logSuccess = logSubmission(dataVersionNumber,questionType,"Image Labeler",texts,saArray,akArray);
 			if (logSuccess == false) {
 				alert("You must provide a valid student ID for answers to be checked.");
 				return;

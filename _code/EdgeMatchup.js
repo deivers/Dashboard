@@ -1,22 +1,71 @@
-function init() {
-	var myLeft, myTop;
-	dragElements = $('.dragTab');
-	targetList.forEach(function(targetString, i) {
-		targetList[i] = "#Stage_" + targetString;
-	});
-	answerList.forEach(function(answerString, i) {
-		answerList[i] = "#Stage_" + answerString;
-	});
+var rejectWrongAnswers;		// false increases difficulty
+var requireCompletion;			// true increases difficulty
+var introAnimation;				// helps convey to user that drag elements are in fact draggable
+var nextPageUrl;				 // either a relative url: "../folder/filename.html" or an absolute url: "https://www.dictionary.com"
+var logResponsesToDashboard;
 
+function getTeacherParams() {
+	rejectWrongAnswers = loadStageParam("config-rejectWrongAnswers", "boolean");
+	requireCompletion = loadStageParam("config-requireCompletion", "boolean");
+	introAnimation = loadStageParam("config-introAnimation", "boolean");
+	nextPageUrl = loadStageParam("config-nextPageUrl");
+	logResponsesToDashboard = loadStageParam("config-logResponsesToDashboard","boolean");
+}
+
+function init() {
+	if (typeof jQuery === "undefined") { // apparently the user is not connected to the internet
+		var a = document.getElementsByClassName("dragTab");
+		for (var i=a.length-1; i>=0; i--) {
+			a[i].remove();
+		}
+		alert("You must be connected to the internet in order to access this quiz.");
+		return;
+	}
+	getTeacherParams();
+	var dataVersionNumber = 3;
+	var myLeft, myTop;
+	var dragElements = $('.dragTab').sort(sortElementByPosition); // assume these are initially positioned in the correct order (before the shuffle below)
+	var targetElements = $('.dropZone').sort(sortElementByPosition);
+	var qHintElements = $('.qHint').sort(sortElementByPosition); //TODO use this
+	var aHintElements = $('.aHint').sort(sortElementByPosition); //TODO use this
+	var shuffleMapping = shuffleArray(arrayFactory(dragElements.length,1,0));
+	var shuffleInverse = [];
+	shuffleMapping.forEach(function(el,i){
+		shuffleInverse[shuffleMapping[i]] = i;
+	});
+	// collect the original positions in an array
+	var originalPositions = [];
+	dragElements.each(function(i, el) {
+		originalPositions[i] = $(el).parent().position();
+	});
+	// set the shuffled x-y positions
+	dragElements.each(function(i, el) {
+		$(dragElements[shuffleMapping[i]]).parent().css("left", originalPositions[i].left);
+		$(dragElements[shuffleMapping[i]]).parent().css("top", originalPositions[i].top);
+	});
+	// same for the answer hints
+	var originalHintPositions = [];
+	aHintElements.each(function(i, el) {
+		originalHintPositions[i] = $(el).position();
+	});
+	aHintElements.each(function(i, el) {
+		$(aHintElements[shuffleMapping[i]]).css("left", originalHintPositions[i].left);
+		$(aHintElements[shuffleMapping[i]]).css("top", originalHintPositions[i].top);
+	});
+	
 	setUpSubmitButton();
+	setUpResetButton();
+	$('#Stage').append(showMetaInfo("2.0 July 2015"));
 	
 	// set up dragging
 	dragElements.draggable({
 		start: function( event, ui ) {
 			$(this).addClass('dragging');
+			$(this).parent().zIndex(100);
 		},
 		stop: function( event, ui ) {
 			$(this).removeClass('dragging');
+			$(this).parent().zIndex(1);
 		}
 	});
 
@@ -33,26 +82,23 @@ function init() {
 		}
 	});
 
-	dragElements.each(function(i, el) {
-		myLeft = $(this).position().left;
-		myTop = $(this).position().top;
-		dragElement = $(this);
-		myLeft = dragElement.position().left;
-		myTop = dragElement.position().top;
-		///console.log("myLeft:"+myLeft+"  myTop:"+myTop);///
-		dragElement.data('originalLeft',myLeft);
-		dragElement.data('originalTop',myTop);
+	dragElements.each(function(i, dragEl) {
+		myLeft = $(dragEl).position().left;
+		myTop = $(dragEl).position().top;
+		
+		$(dragEl).data('originalLeft',myLeft);
+		$(dragEl).data('originalTop',myTop);
 		if (exists(introAnimation)) {
 			// prep for intro
-			dragElement.addClass('dragging');
-			dragElement.css({"left": dragElement.data('originalLeft')+700, "opacity":1});
-			dragElement.children().css({"opacity":1});
+			$(dragEl).addClass('dragging');
+			$(dragEl).css({"left": $(dragEl).data('originalLeft')+700, "opacity":1});
+			$(dragEl).children().css({"opacity":1});
 			// intro
-			dragElement.animate(
-				{	left: dragElement.data('originalLeft'),
+			$(dragEl).animate(
+				{	left: $(this).data('originalLeft'),
 					opacity: 1.0
 				},
-				{	duration: 300*(dragElements.length-i) + 500,
+				{	duration: 300*shuffleInverse[i] + 500,
 					easing: 'easeOutCubic',
 					complete: function() { // the callback to get back to normal
 						$(this).removeClass('dragging');
@@ -60,53 +106,73 @@ function init() {
 				}
 			);
 		} else {
-			dragElement.css({"opacity":1});
-			dragElement.children().css({"opacity":1});
+			$(dragEl).css({"opacity":1});
+			$(dragEl).children().css({"opacity":1});
 		}
 	});
+
+	// gather the questions (if textual)
+	var questionTextArray = $(".qText").htmlList() || [];
+	var answerTextArray = $(dragElements).htmlList();
 
 	checkAnswers = function() {
 		///console.log("checkAnswers function");
 		// variables
 		var allCorrect = true;
-		// flags
-		var rejectOption = (typeof rejectWrongAnswers === 'undefined' || rejectWrongAnswers);
-		var requireOption = (typeof requireCompletion === 'undefined' || requireCompletion);
-		var isQuizComplete = isComplete();
+		var saIndexes = [];
+		var akIndexes = arrayFactory(dragElements.length,1,0);
+		// config
+		var rejectOption = rejectWrongAnswers;
+		var requireOption = requireCompletion;
+
+		// gather up the answer indexes and check if complete or not
+		var nWithin = 0;
+		for (var i=0; i<dragElements.length; i++) {
+			for (var j=0; j<targetElements.length; j++) {
+				if (isWithin(dragElements[i],targetElements[j])) {
+					saIndexes[j] = i;
+					nWithin++;
+					break;
+				}
+			}
+		}
+		var isQuizComplete = (nWithin == targetElements.length);
+
 		// check answers
-		for (var i=0; i<Math.min(targetList.length, answerList.length); i++) {
-			if (!isWithin(answerList[i],targetList[i])) {
+		for (var i=0; i<targetElements.length; i++) {
+			if (saIndexes[i] != i) {
 				allCorrect = false;
 				if (rejectOption && (requireOption && isQuizComplete)) {
-					$(answerList[i]).animate({
-						"left": $(answerList[i]).data('originalLeft'),
-						"top": $(answerList[i]).data('originalTop')
+					$(dragElements[i]).animate({
+						"left": $(dragElements[i]).data('originalLeft'),
+						"top": $(dragElements[i]).data('originalTop')
 					},{
 						duration: 400,
 						easing: 'easeInOutCubic'
 					});
-					if (!(typeof $("qHint"+(i+1)) === 'undefined'))
-						$("qHint"+(i+1)).css({"opacity":"1"});		// reveal hint if it exists and if zone was wrong
-					if (!(typeof $("dragHint"+(i+1)) === 'undefined'))
-						$("dragHint"+(i+1)).css({"opacity":"1"});		// reveal hint if it exists and if draggable was wrong
+					$(qHintElements[i]).css({"opacity":1});		// reveal question hint bec. the zone was wrong
+					$(aHintElements[saIndexes[i]]).css({"opacity":1});		// reveal answer hint bec. draggable was wrong
 				}
 			} else { // hide the hint when the answer is correct
-				if (!(typeof $("qHint"+(i+1)) === 'undefined'))
-					$("qHint"+(i+1)).css({"opacity":"0"});		// hide hint if it exists
-				if (!(typeof $("dragHint"+(i+1)) === 'undefined'))
-					$("dragHint"+(i+1)).css({"opacity":"0"});		// hide hint if it exists
+				$(qHintElements[i]).css({"opacity":0});
+				$(aHintElements[saIndexes[i]]).css({"opacity":0});
 			}
 		}
-		// if more answers than targets...
-		for (var j=targetList.length; j<answerList.length; j++)
-			if (rejectOption && (requireOption && isQuizComplete))
-				$(answerList[i]).animate({
-					"left": $(answerList[i]).data('originalLeft'),
-					"top": $(answerList[i]).data('originalTop')
+		// if more answers than targets, then we may need to reject the extra draggables
+		for (var j=targetElements.length; j<dragElements.length; j++) {
+			if (rejectOption && (requireOption && isQuizComplete)) {
+				$(dragElements[i]).animate({
+					"left": $(dragElements[i]).data('originalLeft'),
+					"top": $(dragElements[i]).data('originalTop')
 				},{
 					duration: 400,
 					easing: 'easeInOutCubic'
 				});
+			}
+			if (allCorrect) {
+				$(aHintElements[i]).css({"opacity":0});
+			}
+		}
 		// respond to student
 		if (requireOption && !isQuizComplete)
 			alert("You must complete the quiz before answers will be checked.");
@@ -115,7 +181,7 @@ function init() {
 			if (typeof logResponsesToDashboard === 'undefined')
 				logResponsesToDashboard = false;
 			if (logResponsesToDashboard) {
-				var logSuccess = logSubmission(quizpageNumber,"Edge Matchup",qTextSummary," ",studentChoices,cc);
+				var logSuccess = logSubmission(dataVersionNumber,"Edge Matchup",questionTextArray.join(','),answerTextArray.join(','),saIndexes,akIndexes);
 				if (logSuccess == false) {
 					alert("You must provide a valid student ID for answers to be checked.");
 					return;
@@ -131,22 +197,6 @@ function init() {
 		}
 	}
 
-	function isComplete() {
-		var nAnswered = 0;
-		for (var i=0; i<answerList.length; i++)
-			if (isAnswered(answerList[i]))
-				nAnswered++;
-		return (nAnswered == targetList.length);
-	}
-
-	function isAnswered(a) {
-		// assume targets are aligned in a column
-		var buffer = 4;
-		var targetCenterX = $(targetList[0]).offset().left + $(targetList[0]).width()/2;	// it would be more efficient to pull this out of the loop
-		var answerCenterX = $(a).offset().left + $(a).width()/2;
-		return (targetCenterX-buffer < answerCenterX && answerCenterX < targetCenterX+buffer);
-	}
-
 	function isWithin(a, b) {
 		// compare centers
 		var buffer = 10;
@@ -157,42 +207,5 @@ function init() {
 		return (aCenterH-buffer < bCenterH && bCenterH < aCenterH+buffer && aCenterV-buffer < bCenterV && bCenterV < aCenterV+buffer);
 	}
 
-	function logStudentResponses(list) {
-		if (typeof logResponsesToDashboard === 'undefined')
-			logResponsesToDashboard = false;
-		if (logResponsesToDashboard) {
-			// submit to server
-			if (typeof studentId === 'undefined' || studentId == "")
-				var studentId = prompt("Please enter your student ID","")
-			// todo: verify that we got a valid id above
-			if (typeof quizpageNumber === 'undefined')
-				var quizpageNumber = 0;
-			var questionType;
-			//if (shuffleWhich == "draggables")
-			//	questionType = "Edge Matchup with the answers shuffled";
-			//else
-			//	questionType = "Edge Matchup with the questions shuffled";
-			questionType = "Edge Matchup";
-			if (typeof qTextSummary === 'undefined')
-				var qTextSummary = "Question text summary isn't defined";
-			var request = $.ajax({
-				type: 'POST',
-				url: 'LogResponse.php',
-				data: {	si : studentId,		//todo: get student id from env var
-						qn : quizpageNumber,
-						qt : questionType,
-						qs : qTextSummary,
-						sa : list
-				},
-				dataType: 'json'
-			});
-			request.done(function(msg) {
-				console.log("Submission successful");
-			});
-			request.fail(function(jqXHR, textStatus) {
-				console.log("The submission failed: "+textStatus);
-			});
-		}
-	}
 }
 

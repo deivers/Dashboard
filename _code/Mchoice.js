@@ -4,18 +4,23 @@ var feedbackBoxes = $(".feedback");
 //
 var logResponsesToDashboard;
 var nextPageUrl;
+var qTextSummary = $(".qText").html();
+var dataVersionNumber = 3;
 // globals defined elsewhere but needed herein
-//	quizpageNumber
-//	qTextSummary
 
 function init() {
-	// read the config params
-	logResponsesToDashboard = ($("#Stage_config-logResponsesToDashboard").html().substring(0,1) == "t");
-	nextPageUrl = $("#Stage_config-nextPageUrl").html().specialTrim();
+	loadTeacherParams();
 	// note: no guarantee on the order of the retrieved checkboxes, so sort by position; same for feedbackBoxes
 	checkboxes.sort(sortElementByPosition);
 	feedbackBoxes.sort(sortElementByPosition);
 	setUpSubmitButton();
+	setUpResetButton();
+	$('#Stage').append(showMetaInfo("2.0 July 2015"));	
+}
+
+loadTeacherParams = function() {
+	logResponsesToDashboard = loadStageParam("config-logResponsesToDashboard","boolean");
+	nextPageUrl = loadStageParam("config-nextPageUrl");
 }
 
 checkAnswers = function() {
@@ -44,7 +49,7 @@ checkAnswers = function() {
 		if (typeof logResponsesToDashboard === 'undefined')
 			logResponsesToDashboard = false;
 		if (logResponsesToDashboard) {
-			var logSuccess = logSubmission(quizpageNumber,questionType,qTextSummary," ",studentChoices,cc);
+			var logSuccess = logSubmission(dataVersionNumber,questionType,qTextSummary," ",studentChoices,cc);
 			if (logSuccess == false) {
 				alert("You must provide a valid student ID for answers to be checked.");
 				return;

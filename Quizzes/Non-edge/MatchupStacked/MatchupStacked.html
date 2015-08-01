@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+		<meta name="author" content="One Time Software">
+		<meta name="version" content="1.2">
+		<title>Matchup Quiz</title>
+		<script src="../../../_code/common.js"></script>
+		<link href="../../../_code/common.css" rel="stylesheet" media="screen" type="text/css">
+		<link href="../../../_code/MatchupStacked.css" rel="stylesheet" media="screen" type="text/css">
+		<style>
+			/* if desired, in this style section override the default styles defined in the external css */
+			/* the most useful classes for styling are .upperTab, .dropZone, .dragTab, and .correct */
+			/* the following makes sure all the widths are the same; adjust to suit your content */
+			.questionTab, .dragTab, .dropZone, img {
+				width: 300px;
+			}
+			.questionTab {
+				height: 80px;
+				background-color: #ccc;
+			}
+		</style>
+		<script>
+			/* the following parameters govern the behavior of the quiz */
+			var qTextSummary = "DNA structures";
+			var shuffleWhich = "draggables";	// "questions" or "draggables" or "both"
+			var rejectWrongAnswers = false;		// false increases difficulty
+			var requireCompletion = false;		// true increases difficulty
+			var logResponsesToDashboard = true;	// true if you want to use the Dashboard
+			var quizpageNumber = 1;				// if logging to Dashboard, must be unique across quiz-pages in this folder
+			var nextPageUrl = "../MatchupLateral/MatchupLateral.html"; // either a relative url: "../folder/filename.html" or an absolute url: "https://www.dictionary.com"
+		</script>
+		<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+		<script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+		<script src="../../../_code/jquery.ui.touch-punch.min.js"></script>
+		<script src="../../../_code/matchup3.js"></script>
+	</head>
+	<body>
+
+		<h2>Drag from the lower group and drop on the best match in the upper group</h2>
+		<div id="quiz">
+
+<!-- question tabs and drop zones -->
+			<div style="text-align: center">
+				<div id="questions" style="display: inline-block;">
+
+					<div class="zoneGroup">
+						<div class="questionTab">
+							<p class="tabText">
+								One
+							</p>
+						</div>
+						<div class="dropZone"></div>
+					</div>
+
+					<div class="zoneGroup">
+						<div class="questionTab">
+							<p class="tabText">
+								Two
+							</p>
+						</div>
+						<div class="dropZone"></div>
+					</div>
+
+					<div class="zoneGroup">
+						<div class="questionTab">
+							<p class="tabText">
+								Three
+							</p>
+						</div>
+						<div class="dropZone"></div>
+					</div>
+
+					<div class="zoneGroup">
+						<div class="questionTab">
+							<p class="tabText">
+								Four
+							</p>
+						</div>
+						<div class="dropZone"></div>
+					</div>
+
+				</div>
+			</div>
+
+<!-- draggable choices -->
+			<div style="text-align: center">
+				<div id="choices" style="display: inline-block;">
+
+					<div class="dragGroup">
+						<div class="dragTab">
+							<p class="dragText">
+								Uno
+							</p>
+						</div>
+					</div>
+
+					<div class="dragGroup">
+						<div class="dragTab">
+							<p class="dragText">
+								Dos
+							</p>
+						</div>
+					</div>
+
+					<div class="dragGroup">
+						<div class="dragTab">
+							<p class="dragText">
+								Tres
+							</p>
+						</div>
+					</div>
+
+					<div class="dragGroup">
+						<div class="dragTab">
+							<p class="dragText">
+								Quatro
+							</p>
+						</div>
+					</div>
+
+					<div class="dragGroup">
+						<div class="dragTab">
+							<p class="dragText">
+								Cinco
+							</p>
+						</div>
+					</div>
+
+					<div class="dragGroup">
+						<div class="dragTab">
+							<p class="dragText">
+								Seis
+							</p>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+<!-- buttons -->
+			<div style="text-align: center">
+				<div style="display: inline-block;">
+					<div id="submitButton" class="button blue">
+						Submit
+					</div>
+				</div>
+			</div>
+			<div style="text-align: center">
+				<div style="display: inline-block;">
+					<div id="nextButton" class="button green">
+						Next page
+					</div>
+				</div>
+			</div>
+			<div style="text-align: center">
+				<div style="display: inline-block;">
+					<div id="resetButton" class="button clearColor">
+						RESET
+					</div>
+				</div>
+			</div>
+		</div><!-- End of quiz div -->
+	</body>
+</html>
