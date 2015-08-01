@@ -24,23 +24,24 @@ function showMetaInfo(versionString, ncsuFlag) {
 }
 
 function loadStageParam(paramName,type) {
-	var rawString = $("#Stage_"+paramName).text().trim();
-	// workaround for Adobe bug
-	var cleanString = rawString.replace(/\u200B/g,"") // strip mystery char
-								.stripHtmlMarkup(); // remove any embedded html
+	var rawString = $("#Stage_"+paramName).text();
+	if (!exists(rawString))
+		return "";
+	// workaround for Adobe bug and other clean up
+	var cleanString = rawString.trim()
+		.replace(/\u200B/g,"") // strip Adobe mystery char
+		.stripHtmlMarkup(); // remove any embedded html, probably not needed since we got the string via text()
 	if (type == "boolean")
 		return (exists(cleanString) && cleanString.substring(0,1) == "t");
-	if (!exists(cleanString))
-		return "";
 	if (type == "int")
-		return parseInt(rawString);
+		return parseInt(cleanString);
 	if (type == "float")
-		return parseFloat(rawString);
+		return parseFloat(cleanString);
 	if (type == "array") {
-		var arr = rawString.stripSpaces().split(",");
-		return (arr.length > 1) ? arr : rawString.split(" ");
+		var arr = cleanString.stripSpaces().split(",");
+		return (arr.length > 1) ? arr : cleanString.split(" ");
 	}
-	return rawString;
+	return cleanString; // return a string unless otherwise specified
 }
 
 function logSubmission(vNum,qType,qSummary,aSummary,saArray,akArray) {
