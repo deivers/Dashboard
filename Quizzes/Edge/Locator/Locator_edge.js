@@ -56,7 +56,7 @@
                             id: 'Text-instructions2',
                             type: 'text',
                             rect: ['-236px', '473px', '220px', '42px', 'auto', 'auto'],
-                            text: "<p style=\"margin: 0px;\">​Do not style or remove the Submit</p><p style=\"margin: 0px;\">​button. &nbsp;At run time it will be hidden by the code, but it needs to exist here.</p><p style=\"margin: 0px;\">​</p>",
+                            text: "<p style=\"margin: 0px;\">​Do not style or remove the Submit</p><p style=\"margin: 0px;\">​button. &nbsp;At run time it will be hidden by the code, but it needs to exist here.</p><p style=\"margin: 0px;\">​</p><p style=\"margin: 0px;\">​Leave at least an inch of vertical space for the Submit button and for the footer.</p><p style=\"margin: 0px;\">​</p>",
                             align: "left",
                             font: ['Arial, Helvetica, sans-serif', [12, "px"], "rgba(164,160,160,1)", "100", "none", "normal", "break-word", ""],
                             textStyle: ["", "", "", "", "none"]
@@ -66,6 +66,15 @@
                             type: 'text',
                             rect: ['-241px', '198px', '220px', '88px', 'auto', 'auto'],
                             text: "<p style=\"margin: 0px;\">The hotspot buttons are colored for ease of authoring. &nbsp;At run time they will be hidden. &nbsp;If you want them to be visible on hover, set the second parameter above to true. &nbsp;If you want the wrong buttons to animate red on click and the right buttons to animate green on click, then set the third parameter above to true</p>",
+                            align: "left",
+                            font: ['Arial, Helvetica, sans-serif', [12, "px"], "rgba(164,160,160,1)", "100", "none", "normal", "break-word", ""],
+                            textStyle: ["", "", "", "", "none"]
+                        },
+                        {
+                            id: 'Text-instructions1Copy',
+                            type: 'text',
+                            rect: ['-241px', '-193px', '220px', '141px', 'auto', 'auto'],
+                            text: "<p style=\"margin: 0px;\">​List the names of the correct buttons here (separated by single spaces)</p>",
                             align: "left",
                             font: ['Arial, Helvetica, sans-serif', [12, "px"], "rgba(164,160,160,1)", "100", "none", "normal", "break-word", ""],
                             textStyle: ["", "", "", "", "none"]

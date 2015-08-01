@@ -284,6 +284,7 @@
 		"element_${Reminder}":{
 			"timelineColor2":"0x168c84",
 			"timelineColor3":"0x2a605c",
+			"animationEnabled":"false",
 			"timelineColor":"0x00a096"},
 		"element_${q1Copy2}":{
 			"timelineColor2":"0x4fa275",

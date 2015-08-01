@@ -202,17 +202,10 @@
                             transform: [[],['-149'],[],['0.66822']]
                         },
                         {
-                            id: 'Text3Copy',
+                            id: 'Note',
                             type: 'text',
-                            rect: ['-181px', '504px', '174', '60', 'auto', 'auto'],
-                            text: "<p style=\"margin:0px\">Note: don't style the Submit button here. The code will center and apply css styling at run time.​</p><p style=\"margin:0px\">​</p><p style=\"margin:0px\">​Leave room below the RESET button for the footer&nbsp;(created at run time). &nbsp;​​If you need more room, increase the height of the stage</p><p style=\"margin:0px\">​</p>",
-                            font: ['Arial, Helvetica, sans-serif', [12, "px"], "rgba(191,191,191,0.99)", "normal", "none", "", "break-word", ""]
-                        },
-                        {
-                            id: 'Text3Copy2',
-                            type: 'text',
-                            rect: ['-181px', '675px', '174', '60', 'auto', 'auto'],
-                            text: "Remember:  don't use answer revealing names for items on the timeline below.",
+                            rect: ['-197px', '522px', '190px', '212px', 'auto', 'auto'],
+                            text: "<p style=\"margin: 0px; font-family: Arial, Helvetica, sans-serif; font-weight: 400; font-style: normal; text-decoration: none; font-size: 12px; color: rgba(191, 191, 191, 0.992157); background-color: rgba(0, 0, 0, 0); letter-spacing: 0px; text-transform: none; word-spacing: 0px; text-align: start; text-indent: 0px; line-height: normal;\">Note: don't style the Submit button here. The code will position it and apply css styling at run time.​</p><p style=\"margin: 0px; font-family: Arial, Helvetica, sans-serif; font-weight: 400; font-style: normal; text-decoration: none; font-size: 12px; color: rgba(191, 191, 191, 0.992157); background-color: rgba(0, 0, 0, 0); letter-spacing: 0px; text-transform: none; word-spacing: 0px; text-align: start; text-indent: 0px; line-height: normal;\">​</p><p style=\"margin: 0px; font-family: Arial, Helvetica, sans-serif; font-weight: 400; font-style: normal; text-decoration: none; font-size: 12px; color: rgba(191, 191, 191, 0.992157); background-color: rgba(0, 0, 0, 0); letter-spacing: 0px; text-transform: none; word-spacing: 0px; text-align: start; text-indent: 0px; line-height: normal;\">​Same for the Reset button.</p><p style=\"margin: 0px; font-family: Arial, Helvetica, sans-serif; font-weight: 400; font-style: normal; text-decoration: none; font-size: 12px; color: rgba(191, 191, 191, 0.992157); background-color: rgba(0, 0, 0, 0); letter-spacing: 0px; text-transform: none; word-spacing: 0px; text-align: start; text-indent: 0px; line-height: normal;\">​</p><p style=\"margin: 0px; font-family: Arial, Helvetica, sans-serif; font-weight: 400; font-style: normal; text-decoration: none; font-size: 12px; color: rgba(191, 191, 191, 0.992157); background-color: rgba(0, 0, 0, 0); letter-spacing: 0px; text-transform: none; word-spacing: 0px; text-align: start; text-indent: 0px; line-height: normal;\">​Leave at least an inch of vertical space for these buttons and for the footer.</p><p style=\"margin: 0px; font-family: Arial, Helvetica, sans-serif; font-weight: 400; font-style: normal; text-decoration: none; font-size: 12px; color: rgba(191, 191, 191, 0.992157); background-color: rgba(0, 0, 0, 0); letter-spacing: 0px; text-transform: none; word-spacing: 0px; text-align: start; text-indent: 0px; line-height: normal;\">​</p><p style=\"margin: 0px; font-family: Arial, Helvetica, sans-serif; font-weight: 400; font-style: normal; text-decoration: none; font-size: 12px; color: rgba(191, 191, 191, 0.992157); background-color: rgba(0, 0, 0, 0); letter-spacing: 0px; text-transform: none; word-spacing: 0px; text-align: start; text-indent: 0px; line-height: normal;\">Remember: don't use answer revealing names for items on the timeline below.​</p>",
                             font: ['Arial, Helvetica, sans-serif', [12, "px"], "rgba(191,191,191,0.99)", "normal", "none", "", "break-word", ""]
                         },
                         {
@@ -239,7 +232,7 @@
                         {
                             id: 'config-answerTypeIsMenus',
                             type: 'text',
-                            rect: ['60', '-151px', '212px', '18px', 'auto', 'auto'],
+                            rect: ['60', '-150px', '212px', '18px', 'auto', 'auto'],
                             text: "false<br>",
                             font: ['Arial, Helvetica, sans-serif', [14, "px"], "rgba(255,255,255,1.00)", "400", "none", "", "break-word", ""]
                         }

@@ -227,8 +227,9 @@
 		"element_${Reminder}":{
 			"timelineColor2":"0xba5b89",
 			"timelineColor3":"0x734a5f",
+			"timelineColor":"0xdb619d",
 			"locked":"false",
-			"timelineColor":"0xdb619d"},
+			"animationEnabled":"false"},
 		"element_${Feedback1Copy2}":{
 			"timelineColor2":"0x81aa62",
 			"timelineColor3":"0x5b6c4d",
