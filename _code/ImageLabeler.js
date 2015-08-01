@@ -29,6 +29,7 @@ function init() {
 	if (typeof minNumChars === 'undefined' || minNumChars < 1)
 		var minNumChars = 3;
 	setUpSubmitButton();
+	$('#Stage').append(showMetaInfo("2.0 July 2015"));
 }
 
 loadTeacherParams = function() {
@@ -42,11 +43,11 @@ buildTextsArray = function() {
 	var decoys = [];
 	var decoyFields = $(".decoy");
 	for (var i=0; i<decoyFields.length; i++)
-		decoys.push($(decoyFields[i]).html().specialTrim());
+		decoys.push($(decoyFields[i]).readInputString());
 	$(decoyFields).remove();
 	textFields = $(".textSource");
 	for (var i=0; i<textFields.length; i++)
-		texts.push($(textFields[i]).html().specialTrim());
+		texts.push($(textFields[i]).readInputString());
 	for (var i=0; i<decoys.length; i++)
 		texts.push(decoys[i]);
 	console.log("number of fields: "+textFields.length);

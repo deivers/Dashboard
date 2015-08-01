@@ -1,47 +1,40 @@
-function showMetaInfo(versionString, ncsuFlag) {
+function showMetaInfo(versionString) {
 	var copyrightText = "Copyright 2015";
 	var createdByText = "";
 	var versionText = "Version "+versionString+".";
 	var centerNode = $("<div style='text-align: center; margin-top: 20px'></div>");
 	centerNode.append($("<span></span>").text(copyrightText+" "));
-	if (ncsuFlag) {
-		centerNode.append($("<a href='http://harvest.cals.ncsu.edu' target='_blank'></a>").text("North Carolina State University"));
-		centerNode.append(" &nbsp; Code by ");
-	}
+	centerNode.append($("<a href='http://harvest.cals.ncsu.edu' target='_blank'></a>").text("North Carolina State University"));
+	centerNode.append(" &nbsp; Code by ");
 	centerNode.append($("<a href='http://www.onetimesoftware.com' target='_blank'></a>").text("One Time Software"));
 	centerNode.append(". &nbsp; "+versionText);
 	centerNode.append("<br>");
 	centerNode.append($("<span></span>").text("Free for academic use when displaying this notice."));
 	centerNode.css({
-		color: "gray",
+		"color": "gray",
 		"font-size": "x-small",
-		"position": "fixed",
+		"position": "absolute",
 		"bottom": "20px",
 		"left": "50%",
-		"margin-left": ncsuFlag ? "-275px" : "-160px"
+		"margin-right": "-50%",
+		"transform": "translate(-50%, 0)"
 	});
 	return centerNode;
 }
 
 function loadStageParam(paramName,type) {
-	var rawString = $("#Stage_"+paramName).text();
-	if (!exists(rawString))
-		return "";
-	// workaround for Adobe bug and other clean up
-	var cleanString = rawString.trim()
-		.replace(/\u200B/g,"") // strip Adobe mystery char
-		.stripHtmlMarkup(); // remove any embedded html, probably not needed since we got the string via text()
+	var paramString = $("#Stage_"+paramName).readInputString();
 	if (type == "boolean")
-		return (exists(cleanString) && cleanString.substring(0,1) == "t");
+		return (exists(paramString) && paramString.substring(0,1) == "t");
 	if (type == "int")
-		return parseInt(cleanString);
+		return parseInt(paramString);
 	if (type == "float")
-		return parseFloat(cleanString);
+		return parseFloat(paramString);
 	if (type == "array") {
-		var arr = cleanString.stripSpaces().split(",");
-		return (arr.length > 1) ? arr : cleanString.split(" ");
+		var arr = paramString.stripSpaces().split(",");
+		return (arr.length > 1) ? arr : paramString.split(" ");
 	}
-	return cleanString; // return a string unless otherwise specified
+	return paramString; // return a string unless otherwise specified
 }
 
 function logSubmission(vNum,qType,qSummary,aSummary,saArray,akArray) {
@@ -155,6 +148,17 @@ function goNextPage() {
 // specific utility functions //
 
 // general utility functions //
+
+jQuery.fn.readInputString = function() {
+	var rawString = jQuery(this).html();
+	if (!exists(rawString))
+		return "";
+	// workaround for Adobe bug and other clean up
+	var cleanString = rawString.trim()
+		// .replace(/\u200B/g,"") // strip Adobe mystery char (if we used .text() above)
+		.stripHtmlMarkup(); // remove any embedded html (if we used .html() above)
+	return cleanString;
+}
 
 function shuffleArray(array) {
 	// Randomize order in-place using Fisher-Yates shuffle algorithm
