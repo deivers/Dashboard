@@ -20,9 +20,9 @@
         ],
         symbols = {
             "stage": {
-                version: "5.0.1",
+                version: "6.0.0",
                 minimumCompatibleVersion: "5.0.0",
-                build: "5.0.1.386",
+                build: "6.0.0.400",
                 scaleToFit: "none",
                 centerStage: "none",
                 resizeInstances: false,
@@ -38,7 +38,7 @@
                         {
                             id: 'SubmitBtn',
                             type: 'text',
-                            rect: ['310px', '663px', '70', '19', 'auto', 'auto'],
+                            rect: ['310px', '654px', '70', '19', 'auto', 'auto'],
                             cursor: 'pointer',
                             text: "Submit",
                             align: "center",
@@ -46,10 +46,14 @@
                             font: ['Arial, Helvetica, sans-serif', [18, "px"], "rgba(0,0,0,1)", "normal", "none", "", "break-word", ""]
                         },
                         {
-                            id: 'CopyrightAndCredits',
-                            symbolName: 'CopyrightAndCredits',
-                            type: 'rect',
-                            rect: ['54px', '719px', '600', '19', 'auto', 'auto']
+                            id: 'SubmitBtnCopy',
+                            type: 'text',
+                            rect: ['310px', '698px', '70', '19', 'auto', 'auto'],
+                            cursor: 'pointer',
+                            text: "<p style=\"margin:0px\">RESET</p>",
+                            align: "center",
+                            userClass: "reset",
+                            font: ['Arial, Helvetica, sans-serif', [13, "px"], "rgba(127,127,127,1.00)", "normal", "none", "", "break-word", ""]
                         },
                         {
                             id: 'Note',
@@ -173,14 +177,6 @@
                             rect: ['60', '-93px', '212px', '18px', 'auto', 'auto'],
                             text: "true",
                             font: ['Arial, Helvetica, sans-serif', [14, "px"], "rgba(255,255,255,1.00)", "400", "none", "", "break-word", ""]
-                        },
-                        {
-                            id: 'resetBtn',
-                            symbolName: 'resetButton',
-                            type: 'rect',
-                            rect: ['317px', '685px', '56', '24', 'auto', 'auto'],
-                            cursor: 'pointer',
-                            userClass: "reset"
                         }
                     ],
                     style: {
@@ -197,36 +193,6 @@
                     autoPlay: false,
                     data: [
                         [
-                            "eid28",
-                            "left",
-                            0,
-                            0,
-                            "linear",
-                            "${Checkbox3}",
-                            '217px',
-                            '217px'
-                        ],
-                        [
-                            "eid14",
-                            "top",
-                            0,
-                            0,
-                            "linear",
-                            "${CopyrightAndCredits}",
-                            '719px',
-                            '719px'
-                        ],
-                        [
-                            "eid30",
-                            "left",
-                            0,
-                            0,
-                            "linear",
-                            "${Checkbox1}",
-                            '217px',
-                            '217px'
-                        ],
-                        [
                             "eid29",
                             "left",
                             0,
@@ -235,26 +201,6 @@
                             "${Checkbox2}",
                             '217px',
                             '217px'
-                        ],
-                        [
-                            "eid35",
-                            "left",
-                            0,
-                            0,
-                            "linear",
-                            "${resetBtn}",
-                            '317px',
-                            '317px'
-                        ],
-                        [
-                            "eid36",
-                            "top",
-                            0,
-                            0,
-                            "linear",
-                            "${resetBtn}",
-                            '685px',
-                            '685px'
                         ],
                         [
                             "eid27",
@@ -267,148 +213,32 @@
                             '216px'
                         ],
                         [
-                            "eid13",
+                            "eid28",
                             "left",
                             0,
                             0,
                             "linear",
-                            "${CopyrightAndCredits}",
-                            '54px',
-                            '54px'
+                            "${Checkbox3}",
+                            '217px',
+                            '217px'
+                        ],
+                        [
+                            "eid30",
+                            "left",
+                            0,
+                            0,
+                            "linear",
+                            "${Checkbox1}",
+                            '217px',
+                            '217px'
                         ]
                     ]
                 }
             },
-            "CopyrightAndCredits": {
-                version: "5.0.1",
-                minimumCompatibleVersion: "5.0.0",
-                build: "5.0.1.386",
-                scaleToFit: "none",
-                centerStage: "none",
-                resizeInstances: false,
-                content: {
-                    dom: [
-                        {
-                            rect: ['0', '0', '700', '36', 'auto', 'auto'],
-                            id: 'Group',
-                            type: 'group',
-                            c: [
-                            {
-                                font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(119,119,119,1.00)', 'normal', 'none', '', 'break-word', ''],
-                                type: 'text',
-                                id: 'Text',
-                                text: 'Copyright 2015 North Carolina State University. Code by One Time Software. Version 2.0 June 2015.',
-                                align: 'center',
-                                rect: ['0', '2', '602', '16', 'auto', 'auto']
-                            },
-                            {
-                                font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(119,119,119,1.00)', 'normal', 'none', '', 'break-word', ''],
-                                type: 'text',
-                                id: 'TextCopy2',
-                                text: 'Free for academic use when displaying this notice.',
-                                align: 'center',
-                                rect: ['0', '20', '602', '16', 'auto', 'auto']
-                            },
-                            {
-                                type: 'rect',
-                                id: 'codeByButton',
-                                symbolName: 'codeByButton',
-                                cursor: 'pointer',
-                                rect: ['327', '0', '106', '16', 'auto', 'auto']
-                            },
-                            {
-                                type: 'rect',
-                                id: 'copyrightButton',
-                                symbolName: 'copyrightButton',
-                                cursor: 'pointer',
-                                rect: ['101', '2', '168', '16', 'auto', 'auto']
-                            }]
-                        }
-                    ],
-                    style: {
-                        '${symbolSelector}': {
-                            rect: [null, null, '600', '19']
-                        }
-                    }
-                },
-                timeline: {
-                    duration: 0,
-                    autoPlay: false,
-                    data: [
-
-                    ]
-                }
-            },
-            "codeByButton": {
-                version: "5.0.1",
-                minimumCompatibleVersion: "5.0.0",
-                build: "5.0.1.386",
-                scaleToFit: "none",
-                centerStage: "none",
-                resizeInstances: false,
-                content: {
-                    dom: [
-                        {
-                            rect: [0, 0, '106px', '16px', 'auto', 'auto'],
-                            borderRadius: ['10px', '10px', '10px', '10px'],
-                            opacity: '0',
-                            id: 'RoundRect',
-                            stroke: [0, 'rgba(0,0,0,1)', 'none'],
-                            type: 'rect',
-                            fill: ['rgba(192,192,192,1)']
-                        }
-                    ],
-                    style: {
-                        '${symbolSelector}': {
-                            rect: [null, null, 106, 16]
-                        }
-                    }
-                },
-                timeline: {
-                    duration: 0,
-                    autoPlay: false,
-                    data: [
-
-                    ]
-                }
-            },
-            "copyrightButton": {
-                version: "5.0.1",
-                minimumCompatibleVersion: "5.0.0",
-                build: "5.0.1.386",
-                scaleToFit: "none",
-                centerStage: "none",
-                resizeInstances: false,
-                content: {
-                    dom: [
-                        {
-                            rect: [0, 0, 168, '16px', 'auto', 'auto'],
-                            borderRadius: ['10px', '10px', '10px', '10px'],
-                            stroke: [0, 'rgb(0, 0, 0)', 'none'],
-                            id: 'RoundRect2',
-                            opacity: '0',
-                            type: 'rect',
-                            fill: ['rgba(192,192,192,1)']
-                        }
-                    ],
-                    style: {
-                        '${symbolSelector}': {
-                            rect: [null, null, 168, 16]
-                        }
-                    }
-                },
-                timeline: {
-                    duration: 0,
-                    autoPlay: false,
-                    data: [
-
-                    ]
-                }
-            },
             "Checkbox": {
-                version: "5.0.1",
+                version: "6.0.0",
                 minimumCompatibleVersion: "5.0.0",
-                build: "5.0.1.386",
+                build: "6.0.0.400",
                 scaleToFit: "none",
                 centerStage: "none",
                 resizeInstances: false,
@@ -423,54 +253,15 @@
                             fill: ['rgba(255,255,255,1.00)', [270, [['rgba(167,167,167,1.00)', 0], ['rgba(222,222,222,1.00)', 100]]]]
                         },
                         {
-                            type: 'image',
-                            id: 'checkmark',
                             rect: [0, 0, 18, 18, 'auto', 'auto'],
+                            id: 'checkmark',
+                            type: 'image',
                             fill: ['rgba(0,0,0,0)', 'images/checkmark_outlined_centered.png', '0px', '0px']
                         }
                     ],
                     style: {
                         '${symbolSelector}': {
                             rect: [null, null, 18, 18]
-                        }
-                    }
-                },
-                timeline: {
-                    duration: 0,
-                    autoPlay: false,
-                    data: [
-
-                    ]
-                }
-            },
-            "resetButton": {
-                version: "5.0.1",
-                minimumCompatibleVersion: "5.0.0",
-                build: "5.0.1.386",
-                scaleToFit: "none",
-                centerStage: "none",
-                resizeInstances: false,
-                content: {
-                    dom: [
-                        {
-                            font: ['Arial, Helvetica, sans-serif', [13, 'px'], 'rgba(115,115,115,1.00)', '400', 'none', 'normal', '', 'nowrap'],
-                            type: 'text',
-                            id: 'resetButton',
-                            text: 'RESET',
-                            align: 'center',
-                            rect: [5, 6, 'auto', 'auto', 'auto', 'auto']
-                        },
-                        {
-                            rect: [0, 0, 56, 24, 'auto', 'auto'],
-                            id: 'Rectangle2',
-                            stroke: [1, 'rgb(0, 0, 0)', 'none'],
-                            type: 'rect',
-                            fill: ['rgba(97,112,159,0.00)']
-                        }
-                    ],
-                    style: {
-                        '${symbolSelector}': {
-                            rect: [null, null, 56, 24]
                         }
                     }
                 },

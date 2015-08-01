@@ -14,7 +14,7 @@ function showMetaInfo(versionString) {
 		"color": "gray",
 		"font-size": "x-small",
 		"position": "absolute",
-		"bottom": "20px",
+		"bottom": "15px",
 		"left": "50%",
 		"margin-right": "-50%",
 		"transform": "translate(-50%, 0)"
@@ -112,39 +112,64 @@ function isEncoded(string) {
 // the following methods are for AEA projects //
 
 function setUpSubmitButton(option) {
-	$(".submit").css("opacity", (option == 'hide' ? 0 : 1));
-	var myWidth = $(".submit").outerWidth();
-	$(".submit").click(function() {checkAnswers()})
-		.css("left", Math.max(0, (($("#Stage").width() - myWidth)/2)) + "px"); // center it
+	var submitBtn = $(".submit");
+	if (!exists(submitBtn))
+		return;
+	if (option === 'hide')
+		$(submitBtn).css('visibility','hidden');
+	$(submitBtn)
+		.click(function() {checkAnswers()})
+		.css({
+			"position": "absolute",
+			"top": "auto", // clear whatever Edge set for top
+			"bottom": "90px",
+			"left": "50%",
+			"margin-right": "-50%",
+			"transform": "translate(-50%, 0)"
+		});
 }
 function setUpNextButton() {
 	// convert Submit button into NextPage/EndOfQuiz button
-	$(".submit").css("opacity",1); 
-	$(".submit").unbind().click(function() {
-		goNextPage();
-	});
-	if (typeof nextPageUrl !== 'undefined' && nextPageUrl.length > 2) {
-		$(".submit").html("Next page").removeClass("blue").addClass("green");
-		$(".submit").css("width","6em");
+	var btn = $(".submit");
+	if (!exists(btn))
+		return;
+	if (exists(nextPageUrl) && nextPageUrl.length > 2) {
+		$(btn).html("Next page")
+			.removeClass("blue")
+			.addClass("green")
+			.css("width","6em");
 	} else {
-		$(".submit").html("End of Quiz").removeClass("button blue green");
-		$(".submit").css("width","9em");
+		$(btn).html("End of Quiz")
+			.removeClass("button blue green")
+			.css("width","9em");
 	}
-	var newWidth = $(".submit").outerWidth();
-	$(".submit").css("left", Math.max(0, (($("#Stage").width() - newWidth)/2)) + "px"); // center it
+	$(btn).css({'visibility':'visible', 'opacity': 1})
+		.unbind().click(function() {
+			goNextPage();
+		});
 }
 
 function setUpResetButton(option) {
-	var resetBtn = $(".reset").css("opacity", (option == 'hide' ? 0 : 1));
-	if (exists(resetBtn)) {
-		var myWidth = $(resetBtn).outerWidth();
-		$(resetBtn).css("left", Math.max(0, (($("#Stage").width() - myWidth)/2)) + "px"); // center it
-	}
+	var resetBtn = $(".reset");
+	if (!exists(resetBtn))
+		return;
+	if (option === 'hide')
+		$(resetBtn).css('visibility','hidden');
+	$(resetBtn)
+		.click(function() {location.reload()})
+		.css({
+			"position": "absolute",
+			"top": "auto", // clear whatever Edge set for top
+			"bottom": "60px",
+			"left": "50%",
+			"margin-right": "-50%",
+			"transform": "translate(-50%, 0)"
+		});
 }
 
 function goNextPage() {
 	//console.log(">>> "+nextPageUrl);
-	if (typeof nextPageUrl !== 'undefined' && nextPageUrl.length > 2)
+	if (exists(nextPageUrl) && nextPageUrl.length > 2)
 		window.open(nextPageUrl, "_self");
 }
 

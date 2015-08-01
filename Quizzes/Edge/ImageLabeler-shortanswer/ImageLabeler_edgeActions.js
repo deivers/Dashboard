@@ -40,13 +40,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       
       
 
-      Symbol.bindElementAction(compId, symbolName, "${resetBtn}", "click", function(sym, e) {
-         ///console.log("reset button");
-         window.location.reload();
-         
-
-      });
-      //Edge binding end
+      
 
    })("stage");
    //Edge symbol end:'stage'
@@ -92,13 +86,5 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
 
    })("codeByButton");
    //Edge symbol end:'codeByButton'
-
-   //=========================================================
-   
-   //Edge symbol: 'resetButton'
-   (function(symbolName) {   
-   
-   })("resetButton");
-   //Edge symbol end:'resetButton'
 
 })(window.jQuery || AdobeEdge.$, AdobeEdge, "EDGE-749678393");

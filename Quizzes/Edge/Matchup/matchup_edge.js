@@ -21,22 +21,14 @@
         ],
         symbols = {
             "stage": {
-                version: "5.0.1",
+                version: "6.0.0",
                 minimumCompatibleVersion: "5.0.0",
-                build: "5.0.1.386",
+                build: "6.0.0.400",
                 scaleToFit: "none",
                 centerStage: "none",
                 resizeInstances: false,
                 content: {
                     dom: [
-                        {
-                            id: 'resetBtn',
-                            symbolName: 'resetButton',
-                            type: 'rect',
-                            rect: ['439px', '637', '56', '24', 'auto', 'auto'],
-                            cursor: 'pointer',
-                            userClass: "reset"
-                        },
                         {
                             id: 'qHint1',
                             type: 'text',
@@ -48,7 +40,7 @@
                             align: "center",
                             userClass: "qHint",
                             font: ['Arial, Helvetica, sans-serif', [15, "px"], "rgba(0,0,0,1.00)", "normal", "none", "normal", "break-word", ""],
-                            textStyle: ["", "", "normal", ""]
+                            textStyle: ["", "", "normal", "", ""]
                         },
                         {
                             id: 'dragHint1',
@@ -61,7 +53,7 @@
                             align: "center",
                             userClass: "aHint",
                             font: ['Arial, Helvetica, sans-serif', [15, "px"], "rgba(0,0,0,1.00)", "normal", "none", "normal", "break-word", ""],
-                            textStyle: ["", "", "normal", ""]
+                            textStyle: ["", "", "normal", "", ""]
                         },
                         {
                             id: 'Group3',
@@ -84,7 +76,7 @@
                                     align: "center",
                                     userClass: "qText",
                                     font: ['Arial, Helvetica, sans-serif', [20, "px"], "rgba(255,255,255,1.00)", "normal", "none", "", "break-word", ""],
-                                    textStyle: ["", "", "30px", ""]
+                                    textStyle: ["", "", "30px", "", ""]
                                 }]
                             }]
                         },
@@ -108,7 +100,7 @@
                             align: "center",
                             userClass: "qHint",
                             font: ['Arial, Helvetica, sans-serif', [15, "px"], "rgba(0,0,0,1.00)", "normal", "none", "normal", "break-word", ""],
-                            textStyle: ["", "", "normal", ""]
+                            textStyle: ["", "", "normal", "", ""]
                         },
                         {
                             id: 'dragHint1Copy',
@@ -121,7 +113,7 @@
                             align: "center",
                             userClass: "aHint",
                             font: ['Arial, Helvetica, sans-serif', [15, "px"], "rgba(0,0,0,1.00)", "normal", "none", "normal", "break-word", ""],
-                            textStyle: ["", "", "normal", ""]
+                            textStyle: ["", "", "normal", "", ""]
                         },
                         {
                             id: 'Group4',
@@ -144,7 +136,7 @@
                                     align: "center",
                                     userClass: "qText",
                                     font: ['Arial, Helvetica, sans-serif', [20, "px"], "rgba(255,255,255,1.00)", "normal", "none", "", "break-word", ""],
-                                    textStyle: ["", "", "30px", ""]
+                                    textStyle: ["", "", "30px", "", ""]
                                 }]
                             }]
                         },
@@ -182,7 +174,7 @@
                                     align: "center",
                                     userClass: "aText",
                                     font: ['Arial, Helvetica, sans-serif', [18, "px"], "rgba(255,255,255,1.00)", "normal", "none", "", "break-word", ""],
-                                    textStyle: ["", "", "30px", ""]
+                                    textStyle: ["", "", "30px", "", ""]
                                 }]
                             }]
                         },
@@ -197,7 +189,7 @@
                             align: "center",
                             userClass: "qHint",
                             font: ['Arial, Helvetica, sans-serif', [15, "px"], "rgba(0,0,0,1.00)", "normal", "none", "normal", "break-word", ""],
-                            textStyle: ["", "", "normal", ""]
+                            textStyle: ["", "", "normal", "", ""]
                         },
                         {
                             id: 'dragHint1Copy2',
@@ -210,7 +202,7 @@
                             align: "center",
                             userClass: "aHint",
                             font: ['Arial, Helvetica, sans-serif', [15, "px"], "rgba(0,0,0,1.00)", "normal", "none", "normal", "break-word", ""],
-                            textStyle: ["", "", "normal", ""]
+                            textStyle: ["", "", "normal", "", ""]
                         },
                         {
                             id: 'Group4Copy',
@@ -233,7 +225,7 @@
                                     align: "center",
                                     userClass: "qText",
                                     font: ['Arial, Helvetica, sans-serif', [20, "px"], "rgba(255,255,255,1.00)", "normal", "none", "", "break-word", ""],
-                                    textStyle: ["", "", "30px", ""]
+                                    textStyle: ["", "", "30px", "", ""]
                                 }]
                             }]
                         },
@@ -271,7 +263,7 @@
                                     align: "center",
                                     userClass: "aText",
                                     font: ['Arial, Helvetica, sans-serif', [18, "px"], "rgba(255,255,255,1.00)", "normal", "none", "", "break-word", ""],
-                                    textStyle: ["", "", "30px", ""]
+                                    textStyle: ["", "", "30px", "", ""]
                                 }]
                             }]
                         },
@@ -286,7 +278,7 @@
                             align: "center",
                             userClass: "aHint",
                             font: ['Arial, Helvetica, sans-serif', [15, "px"], "rgba(0,0,0,1.00)", "normal", "none", "normal", "break-word", ""],
-                            textStyle: ["", "", "normal", ""]
+                            textStyle: ["", "", "normal", "", ""]
                         },
                         {
                             id: 'GroupCopy2',
@@ -313,7 +305,7 @@
                                     align: "center",
                                     userClass: "aText",
                                     font: ['Arial, Helvetica, sans-serif', [18, "px"], "rgba(255,255,255,1.00)", "normal", "none", "", "break-word", ""],
-                                    textStyle: ["", "", "30px", ""]
+                                    textStyle: ["", "", "30px", "", ""]
                                 }]
                             }]
                         },
@@ -342,26 +334,29 @@
                                     align: "center",
                                     userClass: "aText",
                                     font: ['Arial, Helvetica, sans-serif', [18, "px"], "rgba(255,255,255,1.00)", "normal", "none", "", "break-word", ""],
-                                    textStyle: ["", "", "30px", ""]
+                                    textStyle: ["", "", "30px", "", ""]
                                 }]
                             }]
                         },
                         {
-                            id: 'CopyrightAndCredits',
-                            symbolName: 'CopyrightAndCredits',
-                            type: 'rect',
-                            rect: ['162', '684', '575', '18', 'auto', 'auto'],
-                            opacity: '0.44488525390625'
-                        },
-                        {
                             id: 'Text3',
                             type: 'text',
-                            rect: ['429px', '601px', '70', '19', 'auto', 'auto'],
+                            rect: ['429px', '582px', '70', '19', 'auto', 'auto'],
                             cursor: 'pointer',
                             text: "Submit",
                             align: "center",
                             userClass: "submit button blue",
                             font: ['Arial, Helvetica, sans-serif', [18, "px"], "rgba(0,0,0,1)", "normal", "none", "", "break-word", ""]
+                        },
+                        {
+                            id: 'Text3Copy',
+                            type: 'text',
+                            rect: ['429px', '627px', '70', '19', 'auto', 'auto'],
+                            cursor: 'pointer',
+                            text: "<p style=\"margin:0px\">RESET</p>",
+                            align: "center",
+                            userClass: "reset",
+                            font: ['Arial, Helvetica, sans-serif', [13, "px"], "rgba(121,121,121,1.00)", "normal", "none", "", "break-word", ""]
                         },
                         {
                             id: 'Reminder',
@@ -574,42 +569,42 @@
                             '1'
                         ],
                         [
-                            "eid1",
+                            "eid56",
                             "opacity",
                             0,
                             0,
                             "linear",
-                            "${drag1}",
+                            "${dragHint1Copy3}",
                             '0',
                             '0'
                         ],
                         [
-                            "eid3",
+                            "eid57",
                             "opacity",
-                            1000,
+                            2000,
                             0,
                             "linear",
-                            "${drag1}",
+                            "${dragHint1Copy3}",
                             '0',
-                            '1'
+                            '0.97'
                         ],
                         [
-                            "eid46",
+                            "eid54",
                             "opacity",
                             0,
                             0,
                             "linear",
-                            "${dragText1Copy2}",
+                            "${dragText1Copy3}",
                             '0',
                             '0'
                         ],
                         [
-                            "eid47",
+                            "eid55",
                             "opacity",
                             1000,
                             0,
                             "linear",
-                            "${dragText1Copy2}",
+                            "${dragText1Copy3}",
                             '0',
                             '0.98'
                         ],
@@ -694,244 +689,45 @@
                             '1'
                         ],
                         [
-                            "eid54",
+                            "eid46",
                             "opacity",
                             0,
                             0,
                             "linear",
-                            "${dragText1Copy3}",
+                            "${dragText1Copy2}",
                             '0',
                             '0'
                         ],
                         [
-                            "eid55",
+                            "eid47",
                             "opacity",
                             1000,
                             0,
                             "linear",
-                            "${dragText1Copy3}",
+                            "${dragText1Copy2}",
                             '0',
                             '0.98'
                         ],
                         [
-                            "eid56",
+                            "eid1",
                             "opacity",
                             0,
                             0,
                             "linear",
-                            "${dragHint1Copy3}",
+                            "${drag1}",
                             '0',
                             '0'
                         ],
                         [
-                            "eid57",
+                            "eid3",
                             "opacity",
-                            2000,
+                            1000,
                             0,
                             "linear",
-                            "${dragHint1Copy3}",
+                            "${drag1}",
                             '0',
-                            '0.97'
+                            '1'
                         ]
-                    ]
-                }
-            },
-            "checkAnswers": {
-                version: "5.0.1",
-                minimumCompatibleVersion: "5.0.0",
-                build: "5.0.1.386",
-                scaleToFit: "none",
-                centerStage: "none",
-                resizeInstances: false,
-                content: {
-                    dom: [
-                        {
-                            rect: [0, 0, 129, 27, 'auto', 'auto'],
-                            type: 'rect',
-                            borderRadius: ['14px 14px', '14px 14px', '14px 14px', '14px 14px'],
-                            title: 'Check answers',
-                            id: 'RoundRect',
-                            stroke: [2, 'rgb(0, 0, 0)', 'solid'],
-                            cursor: 'pointer',
-                            fill: ['rgba(112,100,252,1.00)']
-                        },
-                        {
-                            font: ['Arial, Helvetica, sans-serif', [16, 'px'], 'rgba(255,255,255,1.00)', '500', 'none', '', '', 'nowrap'],
-                            type: 'text',
-                            id: 'Text',
-                            text: 'Check answers',
-                            align: 'center',
-                            rect: [12, 7, 'auto', 'auto', 'auto', 'auto']
-                        }
-                    ],
-                    style: {
-                        '${symbolSelector}': {
-                            rect: [null, null, 133, 31]
-                        }
-                    }
-                },
-                timeline: {
-                    duration: 0,
-                    autoPlay: true,
-                    data: [
-
-                    ]
-                }
-            },
-            "resetButton": {
-                version: "5.0.1",
-                minimumCompatibleVersion: "5.0.0",
-                build: "5.0.1.386",
-                scaleToFit: "none",
-                centerStage: "none",
-                resizeInstances: false,
-                content: {
-                    dom: [
-                        {
-                            font: ['Arial, Helvetica, sans-serif', [13, 'px'], 'rgba(115,115,115,1.00)', '400', 'none', 'normal', '', 'nowrap'],
-                            type: 'text',
-                            id: 'resetButton',
-                            text: 'RESET',
-                            align: 'center',
-                            rect: [5, 6, 'auto', 'auto', 'auto', 'auto']
-                        },
-                        {
-                            rect: [0, 0, 56, 24, 'auto', 'auto'],
-                            id: 'Rectangle2',
-                            stroke: [1, 'rgb(0, 0, 0)', 'none'],
-                            type: 'rect',
-                            fill: ['rgba(97,112,159,0.00)']
-                        }
-                    ],
-                    style: {
-                        '${symbolSelector}': {
-                            rect: [null, null, 56, 24]
-                        }
-                    }
-                },
-                timeline: {
-                    duration: 0,
-                    autoPlay: false,
-                    data: [
-
-                    ]
-                }
-            },
-            "CopyrightAndCredits": {
-                version: "5.0.1",
-                minimumCompatibleVersion: "5.0.0",
-                build: "5.0.1.386",
-                scaleToFit: "none",
-                centerStage: "none",
-                resizeInstances: false,
-                content: {
-                    dom: [
-                        {
-                            type: 'group',
-                            id: 'Group',
-                            rect: ['0', '0', '575', '18', 'auto', 'auto'],
-                            c: [
-                            {
-                                rect: ['0', '2', '575', '16', 'auto', 'auto'],
-                                font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(0,0,0,1)', 'normal', 'none', '', 'break-word', ''],
-                                id: 'Text',
-                                text: 'Copyright 2013 North Carolina State University. Code by One Time Software. Version 1.0 June 2015.',
-                                align: 'center',
-                                type: 'text'
-                            },
-                            {
-                                type: 'rect',
-                                id: 'codeByButton',
-                                symbolName: 'codeByButton',
-                                cursor: 'pointer',
-                                rect: ['327', '0', '106', '16', 'auto', 'auto']
-                            },
-                            {
-                                type: 'rect',
-                                id: 'copyrightButton',
-                                symbolName: 'copyrightButton',
-                                cursor: 'pointer',
-                                rect: ['102', '2', '168', '16', 'auto', 'auto']
-                            }]
-                        }
-                    ],
-                    style: {
-                        '${symbolSelector}': {
-                            rect: [null, null, '575', '18']
-                        }
-                    }
-                },
-                timeline: {
-                    duration: 0,
-                    autoPlay: false,
-                    data: [
-
-                    ]
-                }
-            },
-            "codeByButton": {
-                version: "5.0.1",
-                minimumCompatibleVersion: "5.0.0",
-                build: "5.0.1.386",
-                scaleToFit: "none",
-                centerStage: "none",
-                resizeInstances: false,
-                content: {
-                    dom: [
-                        {
-                            rect: [0, 0, '106px', '16px', 'auto', 'auto'],
-                            borderRadius: ['10px', '10px', '10px', '10px'],
-                            stroke: [0, 'rgba(0,0,0,1)', 'none'],
-                            id: 'RoundRect',
-                            opacity: '0',
-                            type: 'rect',
-                            fill: ['rgba(192,192,192,1)']
-                        }
-                    ],
-                    style: {
-                        '${symbolSelector}': {
-                            rect: [null, null, 106, 16]
-                        }
-                    }
-                },
-                timeline: {
-                    duration: 0,
-                    autoPlay: false,
-                    data: [
-
-                    ]
-                }
-            },
-            "copyrightButton": {
-                version: "5.0.1",
-                minimumCompatibleVersion: "5.0.0",
-                build: "5.0.1.386",
-                scaleToFit: "none",
-                centerStage: "none",
-                resizeInstances: false,
-                content: {
-                    dom: [
-                        {
-                            rect: [0, 0, 168, '16px', 'auto', 'auto'],
-                            borderRadius: ['10px', '10px', '10px', '10px'],
-                            opacity: '0',
-                            id: 'RoundRect2',
-                            stroke: [0, 'rgb(0, 0, 0)', 'none'],
-                            type: 'rect',
-                            fill: ['rgba(192,192,192,1)']
-                        }
-                    ],
-                    style: {
-                        '${symbolSelector}': {
-                            rect: [null, null, 168, 16]
-                        }
-                    }
-                },
-                timeline: {
-                    duration: 0,
-                    autoPlay: false,
-                    data: [
-
                     ]
                 }
             }

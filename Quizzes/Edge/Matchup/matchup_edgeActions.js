@@ -29,12 +29,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
 
       
 
-      Symbol.bindElementAction(compId, symbolName, "${resetBtn}", "click", function(sym, e) {
-///console.log("reset button");
-window.location.reload();
-
-      });
-      //Edge binding end
+      
 
       Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 1000, function(sym, e) {
          sym.stop();
@@ -61,63 +56,5 @@ window.location.reload();
 
    })("stage");
    //Edge symbol end:'stage'
-
-   //=========================================================
-   
-   //Edge symbol: 'checkAnswers'
-   (function(symbolName) {   
-   
-      
-
-   })("checkAnswers");
-   //Edge symbol end:'checkAnswers'
-
-   //=========================================================
-   
-   //Edge symbol: 'resetButton'
-   (function(symbolName) {   
-   
-      
-
-   })("resetButton");
-   //Edge symbol end:'resetButton'
-
-   //=========================================================
-
-   //=========================================================
-   
-   //Edge symbol: 'copyrightButton'
-   (function(symbolName) {   
-   
-      Symbol.bindElementAction(compId, symbolName, "${RoundRect2}", "click", function(sym, e) {
-         window.open("http://harvest.cals.ncsu.edu/biology", "_blank");
-
-      });
-      //Edge binding end
-
-   })("copyrightButton");
-   //Edge symbol end:'copyrightButton'
-
-   //=========================================================
-   
-   //Edge symbol: 'CopyrightAndCredits'
-   (function(symbolName) {   
-   
-   })("CopyrightAndCredits");
-   //Edge symbol end:'CopyrightAndCredits'
-
-   //=========================================================
-   
-   //Edge symbol: 'codeByButton'
-   (function(symbolName) {   
-   
-      Symbol.bindElementAction(compId, symbolName, "${RoundRect}", "click", function(sym, e) {
-         window.open("http://www.onetimesoftware.com", "_blank");
-
-      });
-      //Edge binding end
-
-   })("codeByButton");
-   //Edge symbol end:'codeByButton'
 
 })(window.jQuery || AdobeEdge.$, AdobeEdge, "EDGE-86546566");

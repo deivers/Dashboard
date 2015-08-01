@@ -54,58 +54,10 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       });
       //Edge binding end
 
-      Symbol.bindElementAction(compId, symbolName, "${resetBtn}", "click", function(sym, e) {
-         ///console.log("reset button");
-         window.location.reload();
-         
-
-      });
-      //Edge binding end
+      
 
    })("stage");
    //Edge symbol end:'stage'
-
-   //=========================================================
-
-   //=========================================================
-
-   //=========================================================
-
-   //=========================================================
-   
-   //Edge symbol: 'copyrightButton'
-   (function(symbolName) {   
-   
-      Symbol.bindElementAction(compId, symbolName, "${RoundRect2}", "click", function(sym, e) {
-         window.open("http://harvest.cals.ncsu.edu/biology", "_blank");
-
-      });
-      //Edge binding end
-
-   })("copyrightButton");
-   //Edge symbol end:'copyrightButton'
-
-   //=========================================================
-   
-   //Edge symbol: 'CopyrightAndCredits'
-   (function(symbolName) {   
-   
-   })("CopyrightAndCredits");
-   //Edge symbol end:'CopyrightAndCredits'
-
-   //=========================================================
-   
-   //Edge symbol: 'codeByButton'
-   (function(symbolName) {   
-   
-      Symbol.bindElementAction(compId, symbolName, "${RoundRect}", "click", function(sym, e) {
-         window.open("http://www.onetimesoftware.com", "_blank");
-
-      });
-      //Edge binding end
-
-   })("codeByButton");
-   //Edge symbol end:'codeByButton'
 
    //=========================================================
    
@@ -128,13 +80,5 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
 
    })("Checkbox");
    //Edge symbol end:'Checkbox'
-
-   //=========================================================
-   
-   //Edge symbol: 'resetButton'
-   (function(symbolName) {   
-   
-   })("resetButton");
-   //Edge symbol end:'resetButton'
 
 })(window.jQuery || AdobeEdge.$, AdobeEdge, "EDGE-749678393");
