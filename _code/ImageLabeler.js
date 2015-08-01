@@ -29,6 +29,7 @@ function init() {
 	if (typeof minNumChars === 'undefined' || minNumChars < 1)
 		var minNumChars = 3;
 	setUpSubmitButton();
+	setUpResetButton();
 	$('#Stage').append(showMetaInfo("2.0 July 2015"));
 }
 

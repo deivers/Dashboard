@@ -1,6 +1,7 @@
 function init() {
 	// style the Submit button and bind it to checkAnswers()
 	setUpSubmitButton("hide");
+	$('#Stage').append(showMetaInfo("2.0 July 2015"));
 	loadTeacherParams();
 }
 

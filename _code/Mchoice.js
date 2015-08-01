@@ -14,6 +14,8 @@ function init() {
 	checkboxes.sort(sortElementByPosition);
 	feedbackBoxes.sort(sortElementByPosition);
 	setUpSubmitButton();
+	setUpResetButton();
+	$('#Stage').append(showMetaInfo("2.0 July 2015"));	
 }
 
 loadTeacherParams = function() {

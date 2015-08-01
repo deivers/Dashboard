@@ -116,11 +116,6 @@ function setUpSubmitButton(option) {
 	var myWidth = $(".submit").outerWidth();
 	$(".submit").click(function() {checkAnswers()})
 		.css("left", Math.max(0, (($("#Stage").width() - myWidth)/2)) + "px"); // center it
-	var resetBtn = $(".reset");
-	if (exists(resetBtn)) {
-		myWidth = $(resetBtn).outerWidth();
-		$(resetBtn).css({"left": "0px", "top": "10px"}); // center it
-	}
 }
 function setUpNextButton() {
 	// convert Submit button into NextPage/EndOfQuiz button
@@ -139,13 +134,20 @@ function setUpNextButton() {
 	$(".submit").css("left", Math.max(0, (($("#Stage").width() - newWidth)/2)) + "px"); // center it
 }
 
+function setUpResetButton(option) {
+	var resetBtn = $(".reset").css("opacity", (option == 'hide' ? 0 : 1));
+	if (exists(resetBtn)) {
+		var myWidth = $(resetBtn).outerWidth();
+		$(resetBtn).css("left", Math.max(0, (($("#Stage").width() - myWidth)/2)) + "px"); // center it
+	}
+}
+
 function goNextPage() {
 	//console.log(">>> "+nextPageUrl);
 	if (typeof nextPageUrl !== 'undefined' && nextPageUrl.length > 2)
 		window.open(nextPageUrl, "_self");
 }
 
-// specific utility functions //
 
 // general utility functions //
 

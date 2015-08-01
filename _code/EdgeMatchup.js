@@ -54,6 +54,8 @@ function init() {
 	});
 	
 	setUpSubmitButton();
+	setUpResetButton();
+	$('#Stage').append(showMetaInfo("2.0 July 2015"));
 	
 	// set up dragging
 	dragElements.draggable({
