@@ -4,9 +4,9 @@ function showMetaInfo(versionString) {
 	var versionText = "Version "+versionString+".";
 	var centerNode = $("<div style='text-align: center; margin-top: 20px'></div>");
 	centerNode.append($("<span></span>").text(copyrightText+" "));
-	centerNode.append($("<a href='http://harvest.cals.ncsu.edu' target='_blank'></a>").text("North Carolina State University"));
+	centerNode.append($("<a href='http://harvest.cals.ncsu.edu' target='_blank' class='footer'></a>").text("North Carolina State University"));
 	centerNode.append(" &nbsp; Code by ");
-	centerNode.append($("<a href='http://www.onetimesoftware.com' target='_blank'></a>").text("One Time Software"));
+	centerNode.append($("<a href='http://www.onetimesoftware.com' target='_blank' class='footer'></a>").text("One Time Software"));
 	centerNode.append(". &nbsp; "+versionText);
 	centerNode.append("<br>");
 	centerNode.append($("<span></span>").text("Free for academic use when displaying this notice."));

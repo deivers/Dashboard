@@ -7,8 +7,15 @@ body {
 	cursor: move;
 }
 
-a:link a:active {
-	color: "gray"
+a.footer {
+	color: inherit;
+}
+a.footer:hover {
+	color: #33f;
+}
+
+.reset:hover {
+	color: #333 !important;
 }
 
 
