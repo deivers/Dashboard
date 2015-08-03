@@ -12,7 +12,8 @@ $qTextSummary = $_POST['qs'];
 $answerDetailArray = $_POST['ad'];
 $studentAnswerArray = $_POST['sa'];
 $answerArray = $_POST['ak'];
-//error_log("/t".$workingDir." ".$studentId." ".$qNumber." ".$qType." ".$qTextSummary." ".$answerDetailArray." ".$studentAnswerArray." ".$answerArray);
+$pointsArray = $_POST['pt'];
+//error_log("/t".$workingDir." ".$studentId." ".$qNumber." ".$qType." ".$qTextSummary." ".$answerDetailArray." ".$studentAnswerArray." ".$answerArray." ".$pointsArray);
 $result = logStudentSubmission(
 		$workingDir,
 		$studentId,
@@ -21,12 +22,13 @@ $result = logStudentSubmission(
 		$qTextSummary,
 		$answerDetailArray,
 		$studentAnswerArray,
-		$answerArray
+		$answerArray,
+		$pointsArray
 );
 //todo: if ($result <= 0) notify the user to try again
 if ($result <= 0) {
 	date_default_timezone_set('UTC');
-	error_log("*** Error logging response: ".date("c")."|".$studentId."|".$qNumber."|".$qType."|".$qTextSummary."|".$studentAnswerArray);
+	error_log("*** Error logging response: ".date("c")."|".$studentId."|".$qNumber."|".$qType."|".$qTextSummary."|".$studentAnswerArray."|".$pointsArray);
 }
 
 ?>
