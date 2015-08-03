@@ -5,7 +5,7 @@ header('Content-type: application/json');
 // example return value:  "2014-01-31T23:59:00+0000|smith15|6,4,5,3,1"
 // date-time is ISO8601 format (GMT)
 
-function logStudentSubmission($saveDir, $studentId, $dataVersion, $qType, $qText, $answerDetails, $answers, $answerKey) {
+function logStudentSubmission($saveDir, $studentId, $dataVersion, $qType, $qText, $answerDetails, $answers, $answerKey, $points) {
 	//TODO remove the second argument
 	$studentId = getStudentIdFromServer();
 	//* Log student answers *//
@@ -14,7 +14,7 @@ function logStudentSubmission($saveDir, $studentId, $dataVersion, $qType, $qText
 	if (!file_exists($logFile)) {
 		// the first row is unique
 		error_log('Creating log file '.$dataVersion.' in '.$saveDir);
-		$logEntry = buildMetaRow($qType, $qText, $answerDetails, $answerKey);
+		$logEntry = buildMetaRow($qType, $qText, $answerDetails, $answerKey, $points);
 		file_put_contents($logFile, $logEntry);
 	}
 	$logEntry = buildLogEntry($studentId, $answers);
@@ -28,7 +28,7 @@ function logStudentSubmission($saveDir, $studentId, $dataVersion, $qType, $qText
 	return $result;
 }
 
-//TODO switch the following to Shibboleth
+//TODO verify the following works at NCSU
 function getStudentIdFromServer() {
 	$userid = (isset($_SERVER['WRAP_USERID'])) ? $_SERVER['WRAP_USERID'] : (isset($_SERVER['SHIB_UID']) ? $_SERVER['SHIB_UID'] : $_SERVER['REMOTE_USER']);
 	error_log("student ID: "+$userid);
@@ -42,7 +42,7 @@ function buildLogEntry($studentId, $submission) {
 }
 
 function buildMetaRow($typeOfQuestion, $questionText, $answerDetails, $correctAnswer) {
-	$logEntry = removeDelimiters($typeOfQuestion) . "|" . removeDelimiters($questionText) . "|" . removeDelimiters(arrayOrValueToString($answerDetails)) . "|" . removeDelimiters(arrayOrValueToString($correctAnswer)) . "\n";
+	$logEntry = removeDelimiters($typeOfQuestion) . "|" . removeDelimiters($questionText) . "|" . removeDelimiters(arrayOrValueToString($answerDetails)) . "|" . removeDelimiters(arrayOrValueToString($correctAnswer)) . "|" . removeDelimiters(arrayOrValueToString($points)) . "\n";
 	return $logEntry;
 }
 

@@ -1,22 +1,26 @@
 // code used by any/all dashboard questions
 
-function loadStageParam(paramName,type) {
-	// note: when expecting a number returned, check for NaN
+function loadStageParam(paramName,type,default) {
 	var paramString = $("#Stage_"+paramName).readInputString();
+	var result;
 	if (type == "boolean")
-		return (exists(paramString) && paramString.substring(0,1) == "t");
+		result = (exists(paramString) && paramString.substring(0,1) == "t");
 	if (type == "int")
-		return parseInt(paramString);
+		result = parseInt(paramString);
 	if (type == "float")
-		return parseFloat(paramString);
+		result = parseFloat(paramString);
 	if (type == "array") {
 		var arr = paramString.stripSpaces().split(",");
-		return (arr.length > 1) ? arr : paramString.split(" ");
+		result = (arr.length > 1) ? arr : paramString.split(" ");
 	}
-	return paramString; // return a string unless otherwise specified
+	if (!exists(result))
+		return paramString; // return a string if no type was specified
+	if (isNaN(result) && exists(default))
+		return default;
+	return result;
 }
 
-function logSubmission(vNum,qType,qSummary,aSummary,saArray,akArray) {
+function logSubmission(vNum,qType,qSummary,aSummary,saArray,akArray,pointsArray) {
 	console.log("Logging...");
 	// if (typeof studentId === 'undefined' || studentId.length == 0) {
 	// 	if (typeof Storage !== 'undefined') {
@@ -52,7 +56,8 @@ function logSubmission(vNum,qType,qSummary,aSummary,saArray,akArray) {
 				qs : qSummary,
 				ad : aSummary,
 				sa : saArray,
-				ak : akArray
+				ak : akArray,
+				pt : pointsArray
 		},
 		dataType: 'json'
 	});
