@@ -3,6 +3,8 @@ var checkboxes = $(".checkbox");
 var feedbackBoxes = $(".feedback");
 //
 var logResponsesToDashboard;
+var pointsOnFirstTry;
+var pointsOnLastTry;
 var nextPageUrl;
 var qTextSummary = $(".qText").html();
 var dataVersionNumber = 3;
@@ -20,6 +22,8 @@ function init() {
 
 loadTeacherParams = function() {
 	logResponsesToDashboard = loadStageParam("config-logResponsesToDashboard","boolean");
+	pointsOnFirstTry = loadStageParam("config-pointsOnFirstTry","integer",0);
+	pointsOnLastTry = loadStageParam("config-pointsOnLastTry","integer",0);
 	nextPageUrl = loadStageParam("config-nextPageUrl");
 }
 
@@ -49,7 +53,7 @@ checkAnswers = function() {
 		if (typeof logResponsesToDashboard === 'undefined')
 			logResponsesToDashboard = false;
 		if (logResponsesToDashboard) {
-			var logSuccess = logSubmission(dataVersionNumber,questionType,qTextSummary," ",studentChoices,cc);
+			var logSuccess = logSubmission(dataVersionNumber,questionType,qTextSummary," ",studentChoices,cc,[pointsOnFirstTry,0,pointsOnLastTry]);
 			if (logSuccess == false) {
 				alert("You must provide a valid student ID for answers to be checked.");
 				return;

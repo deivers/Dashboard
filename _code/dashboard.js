@@ -13,6 +13,7 @@ var qTypeIndex = 0;
 var qTextIndex = 1;
 var aDetailsIndex = 2;
 var aKeyIndex = 3;
+var pointsIndex = 4;
 // index parameters for incoming data, after first line
 var timestampIndex = 0;
 var studentIdIndex = 1;
@@ -47,16 +48,17 @@ function getData() {
 }
 
 function computeAndDisplayStats(logArray) {
-	var nFirst, nLast, answerDetailsHtml, answerKeyArray, answerKeyHtml;
+	var nFirst, nLast, answerDetailsHtml, answerKeyArray, answerKeyHtml, pointsArray;
 	// for each log file
 	$(".stats").remove(); // if hitting the button again, clear the previously displayed stats
 	logArray.forEach(function(logString,quizpageIndex) {
 		student = parseLogString(quizpageIndex+1,logString);
 		answerDetailsHtml = "<ul style='list-style:none'><li>"+student.answerDetails.replaceAwithB(";","</li><li>")+"</li></ul>";
 		answerKeyArray = student.answerKeyString.split(";");
-		///answerKeyHtml = addToEach(answerKeyArray,1).join(", ");
+		//
 		nFirst = numberCorrectSubmissions(firstSubmissionIndex);
 		nLast = numberCorrectSubmissions(lastSubmissionIndex);
+		//
 		console.log("First student's first submitted answers: "+student[0][firstSubmissionIndex]);
 		console.log("First student's last submitted answers: "+student[0][lastSubmissionIndex]);
 		console.log("Number of submissions by the first student: "+student[0][numberOfSubmissionsIndex]);
@@ -113,6 +115,7 @@ function parseLogString(dataVersion,logString) {
 	logArrayOneLinePerStudent.questionText = logArray[0][qTextIndex];
 	logArrayOneLinePerStudent.answerDetails = logArray[0][aDetailsIndex];
 	logArrayOneLinePerStudent.answerKeyString = logArray[0][aKeyIndex];
+	logArrayOneLinePerStudent.pointsString = logArray[0][pointsIndex];
 	return logArrayOneLinePerStudent;
 }
 
@@ -231,7 +234,16 @@ function mostCommonIncorrectAnswers(whichColumn) {
 	return results;
 }
 
-// utility functions
+// gamification points //
+
+function getLeaderboard() {
+	//TODO
+	// find and read each log file
+	
+	alert("this function hasn't been written yet");
+}
+
+// utility functions //
 
 function toPercent(aNumber,total) {
 	return Math.round((aNumber*100)/total);
