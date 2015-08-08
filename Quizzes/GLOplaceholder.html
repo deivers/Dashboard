@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+	<script>
+		function getMyPoints() {
+			// $("#points-display").val("12300");
+
+			$.ajax({
+				type: 'GET',
+				url: "../_code/dashLoader.php",
+				dataType: 'json',
+				success: function(data) {
+					if (data == null || data.length == 0) {
+						console.log("  Dashboard loader found no logged data!\n");
+						alert("Dashboard loader found no logged data!\n");
+					} else {
+						console.log("  Dashboard loader is done\n\n");
+						console.log(data);//////
+						alert(data);//////
+					}
+				},
+				error: function() {
+					console.log("  Loader failed!\n\n");
+					alert("Loader failed!\n\n");
+				}
+			});
+
+		}
+	</script>
+	<style>
+		input {
+			font-size: 50px;
+			width: 200px;
+			text-align: right;
+		}
+		button {
+			font-size: 16px;
+		}
+	</style>
+</head>
+<body>
+
+	<input type="text" id="points-display" disabled>
+	<button onclick="getMyPoints()">Refresh</button>
+</body>
+</html>
