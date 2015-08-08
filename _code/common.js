@@ -1,6 +1,6 @@
 // code used by any/all dashboard questions
 
-function loadStageParam(paramName,type,default) {
+function loadStageParam(paramName,type,deflt) {
 	var paramString = $("#Stage_"+paramName).readInputString();
 	var result;
 	if (type == "boolean")
@@ -15,8 +15,8 @@ function loadStageParam(paramName,type,default) {
 	}
 	if (!exists(result))
 		return paramString; // return a string if no type was specified
-	if (isNaN(result) && exists(default))
-		return default;
+	if (isNaN(result) && exists(deflt))
+		return deflt;
 	return result;
 }
 
