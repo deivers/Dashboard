@@ -3,8 +3,7 @@ var checkboxes = $(".checkbox");
 var feedbackBoxes = $(".feedback");
 //
 var logResponsesToDashboard;
-var pointsOnFirstTry;
-var pointsOnLastTry;
+var pointsOnFirstTry, pointsOnLastTry;
 var nextPageUrl;
 var qTextSummary = $(".qText").html();
 var dataVersionNumber = 3;
@@ -45,7 +44,6 @@ checkAnswers = function() {
 	else
 		questionType = "Multiple Choice";
 	allCorrect = areArraysTheSame(studentChoices,cc);
-	var ptArray = [pointsOnFirstTry,0,pointsOnLastTry];
 	// respond to student
 	if (!isQuizComplete)
 		alert("You must mark at least one checkbox before submitting.");
@@ -54,6 +52,7 @@ checkAnswers = function() {
 		if (typeof logResponsesToDashboard === 'undefined')
 			logResponsesToDashboard = false;
 		if (logResponsesToDashboard) {
+			var ptArray = [pointsOnFirstTry,0,pointsOnLastTry];
 			var logSuccess = logSubmission(dataVersionNumber,questionType,qTextSummary," ",studentChoices,cc,ptArray);
 			if (logSuccess == false) {
 				alert("You must provide a valid student ID for answers to be checked.");

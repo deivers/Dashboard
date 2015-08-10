@@ -16,6 +16,7 @@ var correctNames;
 var allNames;
 var clickParam;
 var logResponsesToDashboard;
+var pointsOnFirstTry, pointsOnLastTry;
 var nextPageUrl;
 var completed = false;
 
@@ -29,6 +30,8 @@ function loadTeacherParams() {
 	if (!clickParam)
 		selectedOpacity = 0;
 	logResponsesToDashboard = loadStageParam("config-logResponsesToDashboard","boolean");
+	pointsOnFirstTry = loadStageParam("config-pointsOnFirstTry","integer",0);
+	pointsOnLastTry = loadStageParam("config-pointsOnLastTry","integer",0);
 	nextPageUrl = loadStageParam("config-nextPageUrl");
 }
 
@@ -88,7 +91,8 @@ function logResponse(thisChoice) {
 		logResponsesToDashboard = false;
 	if (logResponsesToDashboard) {
 		var questionText = $(".qText")[0].textContent;
-		var logSuccess = logSubmission(dataVersionNumber,"Locator",questionText,allNames,[thisChoice],correctNames);
+		var ptArray = [pointsOnFirstTry,0,pointsOnLastTry];
+		var logSuccess = logSubmission(dataVersionNumber,"Locator",questionText,allNames,[thisChoice],correctNames,ptArray);
 		// if (logSuccess == false) {
 		// 	alert("You must provide a valid student ID for answers to be checked.");
 		// 	return;

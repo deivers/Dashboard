@@ -6,6 +6,7 @@ var questionType;
 var answerTypeIsMenus;
 var showWrongAnswers;
 var logResponsesToDashboard;
+var pointsOnFirstTry, pointsOnLastTry;
 var nextPageUrl;
 var dataVersionNumber = 3;
 // additional globals needed if ShortAnswer type
@@ -37,6 +38,8 @@ loadTeacherParams = function() {
 	answerTypeIsMenus = loadStageParam("config-answerTypeIsMenus","boolean");
 	showWrongAnswers = loadStageParam("config-showWrongAnswers","boolean");
 	logResponsesToDashboard = loadStageParam("config-logResponsesToDashboard","boolean");
+	pointsOnFirstTry = loadStageParam("config-pointsOnFirstTry","integer",0);
+	pointsOnLastTry = loadStageParam("config-pointsOnLastTry","integer",0);
 	nextPageUrl = loadStageParam("config-nextPageUrl");
 }
 
@@ -170,8 +173,9 @@ checkAnswers = function() {
 		if (logResponsesToDashboard) {
 			var saArray = convertToIndexes(answerTexts,texts);
 			var akArray = arrayFactory(answerTexts.length,1,0);
+			var ptArray = [pointsOnFirstTry,0,pointsOnLastTry];
 			//console.log(texts); console.log(saArray); console.log(akArray);
-			var logSuccess = logSubmission(dataVersionNumber,questionType,"Image Labeler",texts,saArray,akArray);
+			var logSuccess = logSubmission(dataVersionNumber,questionType,"Image Labeler",texts,saArray,akArray,ptArray);
 			if (logSuccess == false) {
 				alert("You must provide a valid student ID for answers to be checked.");
 				return;

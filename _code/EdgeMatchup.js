@@ -2,14 +2,17 @@ var rejectWrongAnswers;		// false increases difficulty
 var requireCompletion;			// true increases difficulty
 var introAnimation;				// helps convey to user that drag elements are in fact draggable
 var nextPageUrl;				 // either a relative url: "../folder/filename.html" or an absolute url: "https://www.dictionary.com"
+var pointsOnFirstTry, pointsOnLastTry;
 var logResponsesToDashboard;
 
 function getTeacherParams() {
 	rejectWrongAnswers = loadStageParam("config-rejectWrongAnswers", "boolean");
 	requireCompletion = loadStageParam("config-requireCompletion", "boolean");
 	introAnimation = loadStageParam("config-introAnimation", "boolean");
-	nextPageUrl = loadStageParam("config-nextPageUrl");
 	logResponsesToDashboard = loadStageParam("config-logResponsesToDashboard","boolean");
+	pointsOnFirstTry = loadStageParam("config-pointsOnFirstTry","integer",0);
+	pointsOnLastTry = loadStageParam("config-pointsOnLastTry","integer",0);
+	nextPageUrl = loadStageParam("config-nextPageUrl");
 }
 
 function init() {
@@ -181,7 +184,8 @@ function init() {
 			if (typeof logResponsesToDashboard === 'undefined')
 				logResponsesToDashboard = false;
 			if (logResponsesToDashboard) {
-				var logSuccess = logSubmission(dataVersionNumber,"Edge Matchup",questionTextArray.join(','),answerTextArray.join(','),saIndexes,akIndexes);
+				var ptArray = [pointsOnFirstTry,0,pointsOnLastTry];
+				var logSuccess = logSubmission(dataVersionNumber,"Edge Matchup",questionTextArray.join(','),answerTextArray.join(','),saIndexes,akIndexes,ptArray);
 				if (logSuccess == false) {
 					alert("You must provide a valid student ID for answers to be checked.");
 					return;
