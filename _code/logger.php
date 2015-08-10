@@ -41,7 +41,7 @@ function buildLogEntry($studentId, $submission) {
 	return $logEntry;
 }
 
-function buildMetaRow($typeOfQuestion, $questionText, $answerDetails, $correctAnswer) {
+function buildMetaRow($typeOfQuestion, $questionText, $answerDetails, $correctAnswer, $points) {
 	$logEntry = removeDelimiters($typeOfQuestion) . "|" . removeDelimiters($questionText) . "|" . removeDelimiters(arrayOrValueToString($answerDetails)) . "|" . removeDelimiters(arrayOrValueToString($correctAnswer)) . "|" . removeDelimiters(arrayOrValueToString($points)) . "\n";
 	return $logEntry;
 }

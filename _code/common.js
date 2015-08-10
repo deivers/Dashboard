@@ -5,7 +5,7 @@ function loadStageParam(paramName,type,deflt) {
 	var result;
 	if (type == "boolean")
 		result = (exists(paramString) && paramString.substring(0,1) == "t");
-	if (type == "int")
+	if (type == "int" || type == "integer")
 		result = parseInt(paramString);
 	if (type == "float")
 		result = parseFloat(paramString);
