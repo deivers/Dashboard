@@ -189,7 +189,7 @@ jQuery.fn.readInputString = function() {
 		return "";
 	// workaround for Adobe bug and other clean up
 	var cleanString = rawString.trim()
-		// .replace(/\u200B/g,"") // strip Adobe mystery char (if we used .text() above)
+		.replace(/\u200B/g,"") // strip Adobe mystery char
 		.stripHtmlMarkup(); // remove any embedded html (if we used .html() above)
 	return cleanString;
 }
