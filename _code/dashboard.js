@@ -32,7 +32,7 @@ function getData() {
 
 	$.ajax({
 		type: 'GET',
-		url: "../../_code/dashLoader.php",
+		url: "../_code/dashLoader.php",
 		dataType: 'json',
 		success: function(data) {
 			if (data == null || data.length == 0)
