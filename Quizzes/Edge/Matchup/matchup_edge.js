@@ -375,37 +375,67 @@
                         {
                             id: 'config-nextPageUrl',
                             type: 'text',
-                            rect: ['60', '-64px', '212px', '18px', 'auto', 'auto'],
+                            rect: ['-230px', '-40px', '212px', '18px', 'auto', 'auto'],
                             text: "",
-                            font: ['Arial, Helvetica, sans-serif', [14, "px"], "rgba(255,255,255,1.00)", "400", "none", "", "break-word", ""]
+                            align: "right",
+                            font: ['Arial, Helvetica, sans-serif', [14, "px"], "rgba(214,214,214,1.00)", "700", "none", "", "break-word", ""]
+                        },
+                        {
+                            id: 'config-pointsOnLastTry',
+                            type: 'text',
+                            rect: ['-230px', '-72px', '212px', '18px', 'auto', 'auto'],
+                            text: "<p style=\"margin:0px\">3​</p>",
+                            align: "right",
+                            font: ['Arial, Helvetica, sans-serif', [14, "px"], "rgba(214,214,214,1.00)", "700", "none", "", "break-word", ""]
+                        },
+                        {
+                            id: 'config-pointsOnFirstTry',
+                            type: 'text',
+                            rect: ['-230px', '-104px', '212px', '18px', 'auto', 'auto'],
+                            text: "<p style=\"margin:0px\">10​</p>",
+                            align: "right",
+                            font: ['Arial, Helvetica, sans-serif', [14, "px"], "rgba(214,214,214,1.00)", "700", "none", "", "break-word", ""]
                         },
                         {
                             id: 'config-logResponsesToDashboard',
                             type: 'text',
-                            rect: ['60', '-93px', '212px', '18px', 'auto', 'auto'],
+                            rect: ['-230px', '-136px', '212px', '18px', 'auto', 'auto'],
                             text: "true",
-                            font: ['Arial, Helvetica, sans-serif', [14, "px"], "rgba(255,255,255,1.00)", "400", "none", "", "break-word", ""]
+                            align: "right",
+                            font: ['Arial, Helvetica, sans-serif', [14, "px"], "rgba(214,214,214,1.00)", "700", "none", "", "break-word", ""]
                         },
                         {
                             id: 'config-introAnimation',
                             type: 'text',
-                            rect: ['60', '-124px', '212px', '18px', 'auto', 'auto'],
+                            rect: ['-230px', '-168px', '212px', '18px', 'auto', 'auto'],
                             text: "true",
-                            font: ['Arial, Helvetica, sans-serif', [14, "px"], "rgba(255,255,255,1.00)", "400", "none", "", "break-word", ""]
+                            align: "right",
+                            font: ['Arial, Helvetica, sans-serif', [14, "px"], "rgba(214,214,214,1.00)", "700", "none", "", "break-word", ""]
                         },
                         {
                             id: 'config-requireCompletion',
                             type: 'text',
-                            rect: ['60', '-155px', '212px', '18px', 'auto', 'auto'],
+                            rect: ['-230px', '-200px', '212px', '18px', 'auto', 'auto'],
                             text: "true",
-                            font: ['Arial, Helvetica, sans-serif', [14, "px"], "rgba(255,255,255,1.00)", "400", "none", "", "break-word", ""]
+                            align: "right",
+                            font: ['Arial, Helvetica, sans-serif', [14, "px"], "rgba(214,214,214,1.00)", "700", "none", "", "break-word", ""]
                         },
                         {
                             id: 'config-rejectWrongAnswers',
                             type: 'text',
-                            rect: ['60', '-188px', '212px', '18px', 'auto', 'auto'],
+                            rect: ['-230px', '-231px', '212px', '18px', 'auto', 'auto'],
                             text: "true",
-                            font: ['Arial, Helvetica, sans-serif', [14, "px"], "rgba(255,255,255,1.00)", "400", "none", "", "break-word", ""]
+                            align: "right",
+                            font: ['Arial, Helvetica, sans-serif', [14, "px"], "rgba(214,214,214,1.00)", "700", "none", "", "break-word", ""]
+                        },
+                        {
+                            id: 'configInstructions',
+                            type: 'text',
+                            rect: ['0px', '-232px', '434px', '216px', 'auto', 'auto'],
+                            text: "<p style=\"margin: 0px;\">Reject (reveal) wrong answers? &nbsp;(true/false)</p><p style=\"margin: 0px;\">​</p><p style=\"margin: 0px;\">Require completion before checking answers? &nbsp;(true/false)</p><p style=\"margin: 0px;\">​</p><p style=\"margin: 0px;\">Do fly-in animation? &nbsp;(true/false)</p><p style=\"margin: 0px;\">​</p><p style=\"margin: 0px;\">​Log responses to the dashboard? &nbsp;(true/false)</p><p style=\"margin: 0px;\">​</p><p style=\"margin: 0px; text-align: left;\">​Points awarded if correctly answered on the first try &nbsp;(integer)</p><p style=\"margin: 0px; text-align: left;\">​</p><p style=\"margin: 0px; text-align: left;\">​Points awarded if correctly answered eventually &nbsp;(integer)</p><p style=\"margin: 0px; text-align: left;\">​</p><p style=\"margin: 0px; text-align: left; font-family: Arial, Helvetica, sans-serif; font-weight: 400; font-style: normal; text-decoration: none; font-size: 14px; color: rgb(144, 143, 143); background-color: rgba(0, 0, 0, 0); letter-spacing: 0px; text-transform: none; word-spacing: 0px; text-indent: 0px; line-height: normal;\">Next page url&nbsp;(if this is the last question in the quiz, leave this empty)</p><p style=\"margin: 0px;\">​​</p><p style=\"margin:0px\">​</p>",
+                            align: "left",
+                            font: ['Arial, Helvetica, sans-serif', [14, "px"], "rgba(144,143,143,1.00)", "400", "none", "normal", "break-word", ""],
+                            textStyle: ["", "", "", "", "none"]
                         }
                     ],
                     style: {
@@ -562,42 +592,42 @@
                             '1'
                         ],
                         [
-                            "eid56",
+                            "eid1",
                             "opacity",
                             0,
                             0,
                             "linear",
-                            "${dragHint1Copy3}",
+                            "${drag1}",
                             '0',
                             '0'
                         ],
                         [
-                            "eid57",
-                            "opacity",
-                            2000,
-                            0,
-                            "linear",
-                            "${dragHint1Copy3}",
-                            '0',
-                            '0.97'
-                        ],
-                        [
-                            "eid54",
-                            "opacity",
-                            0,
-                            0,
-                            "linear",
-                            "${dragText1Copy3}",
-                            '0',
-                            '0'
-                        ],
-                        [
-                            "eid55",
+                            "eid3",
                             "opacity",
                             1000,
                             0,
                             "linear",
-                            "${dragText1Copy3}",
+                            "${drag1}",
+                            '0',
+                            '1'
+                        ],
+                        [
+                            "eid46",
+                            "opacity",
+                            0,
+                            0,
+                            "linear",
+                            "${dragText1Copy2}",
+                            '0',
+                            '0'
+                        ],
+                        [
+                            "eid47",
+                            "opacity",
+                            1000,
+                            0,
+                            "linear",
+                            "${dragText1Copy2}",
                             '0',
                             '0.98'
                         ],
@@ -682,44 +712,44 @@
                             '1'
                         ],
                         [
-                            "eid46",
+                            "eid54",
                             "opacity",
                             0,
                             0,
                             "linear",
-                            "${dragText1Copy2}",
+                            "${dragText1Copy3}",
                             '0',
                             '0'
                         ],
                         [
-                            "eid47",
+                            "eid55",
                             "opacity",
                             1000,
                             0,
                             "linear",
-                            "${dragText1Copy2}",
+                            "${dragText1Copy3}",
                             '0',
                             '0.98'
                         ],
                         [
-                            "eid1",
+                            "eid56",
                             "opacity",
                             0,
                             0,
                             "linear",
-                            "${drag1}",
+                            "${dragHint1Copy3}",
                             '0',
                             '0'
                         ],
                         [
-                            "eid3",
+                            "eid57",
                             "opacity",
-                            1000,
+                            2000,
                             0,
                             "linear",
-                            "${drag1}",
+                            "${dragHint1Copy3}",
                             '0',
-                            '1'
+                            '0.97'
                         ]
                     ]
                 }

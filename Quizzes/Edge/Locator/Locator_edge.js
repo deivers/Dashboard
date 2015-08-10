@@ -71,15 +71,6 @@
                             textStyle: ["", "", "", "", "none"]
                         },
                         {
-                            id: 'Text-instructions1Copy',
-                            type: 'text',
-                            rect: ['-241px', '-193px', '220px', '141px', 'auto', 'auto'],
-                            text: "<p style=\"margin: 0px;\">​List the names of the correct buttons here (separated by single spaces)</p>",
-                            align: "left",
-                            font: ['Arial, Helvetica, sans-serif', [12, "px"], "rgba(164,160,160,1)", "100", "none", "normal", "break-word", ""],
-                            textStyle: ["", "", "", "", "none"]
-                        },
-                        {
                             id: 'left',
                             type: 'rect',
                             rect: ['122px', '38px', '211px', '325px', 'auto', 'auto'],
@@ -101,37 +92,58 @@
                         {
                             id: 'config-nextPageUrl',
                             type: 'text',
-                            rect: ['1', '-67px', '325px', '16px', 'auto', 'auto'],
+                            rect: ['-341px', '-41px', '325px', '16px', 'auto', 'auto'],
                             text: "",
-                            font: ['Arial, Helvetica, sans-serif', [12, "px"], "rgba(164,160,160,1.00)", "100", "none", "", "break-word", ""]
+                            align: "right",
+                            font: ['Arial, Helvetica, sans-serif', [12, "px"], "rgba(215,207,207,1.00)", "700", "none", "", "break-word", ""]
+                        },
+                        {
+                            id: 'config-pointsOnLastTry',
+                            type: 'text',
+                            rect: ['-86px', '-72px', '70px', '16px', 'auto', 'auto'],
+                            text: "<p style=\"margin:0px\">​1</p>",
+                            align: "right",
+                            font: ['Arial, Helvetica, sans-serif', [12, "px"], "rgba(215,207,207,1.00)", "700", "none", "", "break-word", ""]
+                        },
+                        {
+                            id: 'config-pointsOnFirstTry',
+                            type: 'text',
+                            rect: ['-86px', '-104px', '70px', '16px', 'auto', 'auto'],
+                            text: "<p style=\"margin:0px\">5​</p>",
+                            align: "right",
+                            font: ['Arial, Helvetica, sans-serif', [12, "px"], "rgba(215,207,207,1.00)", "700", "none", "", "break-word", ""]
                         },
                         {
                             id: 'config-logResponsesToDashboard',
                             type: 'text',
-                            rect: ['1', '-95px', '70px', '16px', 'auto', 'auto'],
+                            rect: ['-86px', '-136px', '70px', '16px', 'auto', 'auto'],
                             text: "true",
-                            font: ['Arial, Helvetica, sans-serif', [12, "px"], "rgba(164,160,160,1.00)", "100", "none", "", "break-word", ""]
+                            align: "right",
+                            font: ['Arial, Helvetica, sans-serif', [12, "px"], "rgba(215,207,207,1.00)", "700", "none", "", "break-word", ""]
                         },
                         {
                             id: 'config-colorAnimationOnClick',
                             type: 'text',
-                            rect: ['1', '-126px', '70px', '16px', 'auto', 'auto'],
+                            rect: ['-86px', '-168px', '70px', '16px', 'auto', 'auto'],
                             text: "<p style=\"margin:0px\">false​</p>",
-                            font: ['Arial, Helvetica, sans-serif', [12, "px"], "rgba(164,160,160,1.00)", "100", "none", "", "break-word", ""]
+                            align: "right",
+                            font: ['Arial, Helvetica, sans-serif', [12, "px"], "rgba(215,207,207,1.00)", "700", "none", "", "break-word", ""]
                         },
                         {
                             id: 'config-revealButtonsOnHover',
                             type: 'text',
-                            rect: ['1', '-156px', '70px', '16px', 'auto', 'auto'],
+                            rect: ['-86px', '-200px', '70px', '16px', 'auto', 'auto'],
                             text: "false",
-                            font: ['Arial, Helvetica, sans-serif', [12, "px"], "rgba(164,160,160,1.00)", "100", "none", "", "break-word", ""]
+                            align: "right",
+                            font: ['Arial, Helvetica, sans-serif', [12, "px"], "rgba(215,207,207,1.00)", "700", "none", "", "break-word", ""]
                         },
                         {
                             id: 'config-correctButtonNames',
                             type: 'text',
-                            rect: ['1', '-186px', '158px', '16px', 'auto', 'auto'],
+                            rect: ['-174px', '-230px', '158px', '16px', 'auto', 'auto'],
                             text: "<p style=\"margin: 0px;\">​B1 B2</p>",
-                            font: ['Arial, Helvetica, sans-serif', [12, "px"], "rgba(164,160,160,1.00)", "100", "none", "", "break-word", ""]
+                            align: "right",
+                            font: ['Arial, Helvetica, sans-serif', [12, "px"], "rgba(215,207,207,1.00)", "700", "none", "", "break-word", ""]
                         },
                         {
                             id: 'B1',
@@ -152,6 +164,15 @@
                             stroke: [0,"rgb(0, 0, 0)","none"],
                             userClass: "answer-button",
                             transform: [[],['8']]
+                        },
+                        {
+                            id: 'configInstructions',
+                            type: 'text',
+                            rect: ['0px', '-232px', '434px', '216px', 'auto', 'auto'],
+                            text: "<p style=\"margin: 0px;\">List the names of the correct buttons separated by single spaces</p><p style=\"margin: 0px; font-family: Arial, Helvetica, sans-serif; font-weight: 100; font-style: normal; text-decoration: none; font-size: 12px; color: rgb(164, 160, 160); background-color: rgba(0, 0, 0, 0); letter-spacing: 0px; text-transform: none; word-spacing: 0px; text-align: left; text-indent: 0px; line-height: normal;\">​</p><p style=\"margin: 0px;\">Reveal buttons on hover? &nbsp;(true/false)</p><p style=\"margin: 0px;\">​</p><p style=\"margin: 0px;\">Animate color on click? &nbsp;(true or false)</p><p style=\"margin: 0px;\">​</p><p style=\"margin: 0px;\">​Log responses to the dashboard? &nbsp;(true/false)</p><p style=\"margin: 0px;\">​</p><p style=\"margin: 0px; text-align: left;\">​Points awarded if correctly answered on the first try &nbsp;(integer)</p><p style=\"margin: 0px; text-align: left;\">​</p><p style=\"margin: 0px; text-align: left;\">​Points awarded if correctly answered eventually &nbsp;(integer)</p><p style=\"margin: 0px; text-align: left;\">​</p><p style=\"margin: 0px; text-align: left; font-family: Arial, Helvetica, sans-serif; font-weight: 400; font-style: normal; text-decoration: none; font-size: 14px; color: rgb(144, 143, 143); background-color: rgba(0, 0, 0, 0); letter-spacing: 0px; text-transform: none; word-spacing: 0px; text-indent: 0px; line-height: normal;\">Next page url&nbsp;(if this is the last question in the quiz, leave this empty)</p><p style=\"margin: 0px;\">​​</p><p style=\"margin:0px\">​</p>",
+                            align: "left",
+                            font: ['Arial, Helvetica, sans-serif', [14, "px"], "rgba(144,143,143,1.00)", "400", "none", "normal", "break-word", ""],
+                            textStyle: ["", "", "", "", "none"]
                         }
                     ],
                     style: {

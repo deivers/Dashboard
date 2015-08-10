@@ -211,30 +211,59 @@
                         {
                             id: 'config-nextPageUrl',
                             type: 'text',
-                            rect: ['60', '-64px', '212px', '18px', 'auto', 'auto'],
+                            rect: ['-224px', '-39px', '212px', '18px', 'auto', 'auto'],
                             text: "",
+                            align: "right",
+                            font: ['Arial, Helvetica, sans-serif', [14, "px"], "rgba(255,255,255,1.00)", "400", "none", "", "break-word", ""]
+                        },
+                        {
+                            id: 'config-pointsOnLastTry',
+                            type: 'text',
+                            rect: ['-224px', '-72px', '212px', '18px', 'auto', 'auto'],
+                            text: "<p style=\"margin:0px\">​5</p><p style=\"margin: 0px;\">​</p>",
+                            align: "right",
+                            font: ['Arial, Helvetica, sans-serif', [14, "px"], "rgba(255,255,255,1.00)", "400", "none", "", "break-word", ""]
+                        },
+                        {
+                            id: 'config-pointsOnFirstTry',
+                            type: 'text',
+                            rect: ['-224px', '-104px', '212px', '18px', 'auto', 'auto'],
+                            text: "<p style=\"margin:0px\">​20​</p>",
+                            align: "right",
                             font: ['Arial, Helvetica, sans-serif', [14, "px"], "rgba(255,255,255,1.00)", "400", "none", "", "break-word", ""]
                         },
                         {
                             id: 'config-logResponsesToDashboard',
                             type: 'text',
-                            rect: ['60', '-93px', '212px', '18px', 'auto', 'auto'],
+                            rect: ['-224px', '-136px', '212px', '18px', 'auto', 'auto'],
                             text: "true<br>",
+                            align: "right",
                             font: ['Arial, Helvetica, sans-serif', [14, "px"], "rgba(255,255,255,1.00)", "400", "none", "", "break-word", ""]
                         },
                         {
                             id: 'config-showWrongAnswers',
                             type: 'text',
-                            rect: ['60', '-122px', '212px', '18px', 'auto', 'auto'],
+                            rect: ['-224px', '-168px', '212px', '18px', 'auto', 'auto'],
                             text: "true<br>",
+                            align: "right",
                             font: ['Arial, Helvetica, sans-serif', [14, "px"], "rgba(255,255,255,1.00)", "400", "none", "", "break-word", ""]
                         },
                         {
                             id: 'config-answerTypeIsMenus',
                             type: 'text',
-                            rect: ['60', '-150px', '212px', '18px', 'auto', 'auto'],
+                            rect: ['-224px', '-200px', '212px', '18px', 'auto', 'auto'],
                             text: "false<br>",
+                            align: "right",
                             font: ['Arial, Helvetica, sans-serif', [14, "px"], "rgba(255,255,255,1.00)", "400", "none", "", "break-word", ""]
+                        },
+                        {
+                            id: 'configInstructions',
+                            type: 'text',
+                            rect: ['-1px', '-200px', 'auto', 'auto', 'auto', 'auto'],
+                            text: "<p style=\"margin: 0px;\">Answer type is menus?</p><p style=\"margin: 0px;\">​</p><p style=\"margin: 0px;\">Show which answers are wrong on submit?</p><p style=\"margin: 0px;\">​</p><p style=\"margin: 0px;\">Log student responses to the Dashboard? &nbsp;(true or false)</p><p style=\"margin: 0px;\">​</p><p style=\"margin: 0px; text-align: left;\">​Points awarded if correctly answered on the first try &nbsp;(integer)</p><p style=\"margin: 0px; text-align: left;\">​</p><p style=\"margin: 0px; text-align: left;\">​Points awarded if correctly answered eventually &nbsp;(integer)</p><p style=\"margin: 0px; text-align: left;\">​</p><p style=\"margin: 0px; text-align: left; font-family: Arial, Helvetica, sans-serif; font-weight: 400; font-style: normal; text-decoration: none; font-size: 14px; color: rgb(144, 143, 143); background-color: rgba(0, 0, 0, 0); letter-spacing: 0px; text-transform: none; word-spacing: 0px; text-indent: 0px; line-height: normal;\">Next page url&nbsp;(if this is the last question in the quiz, leave this empty)</p><p style=\"margin: 0px;\">​​</p><p></p>",
+                            align: "left",
+                            font: ['Arial, Helvetica, sans-serif', [14, "px"], "rgba(144,143,143,1.00)", "400", "none", "normal", "break-word", "nowrap"],
+                            textStyle: ["", "", "", "", "none"]
                         }
                     ],
                     style: {
@@ -264,25 +293,25 @@
                 content: {
                     dom: [
                         {
-                            rect: ['0', '0', '700', '36', 'auto', 'auto'],
-                            id: 'Group',
                             type: 'group',
+                            id: 'Group',
+                            rect: ['0', '0', '700', '36', 'auto', 'auto'],
                             c: [
                             {
-                                rect: ['0', '2', '602', '16', 'auto', 'auto'],
                                 font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(119,119,119,1.00)', 'normal', 'none', '', 'break-word', ''],
+                                type: 'text',
                                 id: 'Text',
                                 text: 'Copyright 2015 North Carolina State University. Code by One Time Software. Version 2.0 June 2015.',
                                 align: 'center',
-                                type: 'text'
+                                rect: ['0', '2', '602', '16', 'auto', 'auto']
                             },
                             {
-                                rect: ['0', '20', '602', '16', 'auto', 'auto'],
                                 font: ['Arial, Helvetica, sans-serif', [12, 'px'], 'rgba(119,119,119,1.00)', 'normal', 'none', '', 'break-word', ''],
+                                type: 'text',
                                 id: 'TextCopy2',
                                 text: 'Free for academic use when displaying this notice.',
                                 align: 'center',
-                                type: 'text'
+                                rect: ['0', '20', '602', '16', 'auto', 'auto']
                             },
                             {
                                 type: 'rect',
@@ -326,9 +355,9 @@
                         {
                             rect: [0, 0, '106px', '16px', 'auto', 'auto'],
                             borderRadius: ['10px', '10px', '10px', '10px'],
-                            stroke: [0, 'rgba(0,0,0,1)', 'none'],
-                            id: 'RoundRect',
                             opacity: '0',
+                            id: 'RoundRect',
+                            stroke: [0, 'rgba(0,0,0,1)', 'none'],
                             type: 'rect',
                             fill: ['rgba(192,192,192,1)']
                         }
@@ -359,9 +388,9 @@
                         {
                             rect: [0, 0, 168, '16px', 'auto', 'auto'],
                             borderRadius: ['10px', '10px', '10px', '10px'],
-                            opacity: '0',
-                            id: 'RoundRect2',
                             stroke: [0, 'rgb(0, 0, 0)', 'none'],
+                            id: 'RoundRect2',
+                            opacity: '0',
                             type: 'rect',
                             fill: ['rgba(192,192,192,1)']
                         }
