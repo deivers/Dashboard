@@ -52,8 +52,8 @@
                             id: 'Note',
                             type: 'text',
                             rect: ['-188px', '577px', '174', '60', 'auto', 'auto'],
-                            text: "<p style=\"margin:0px\">Note: don't style the Submit button here. The code will position it and apply css styling at run time.​</p><p style=\"margin:0px\">​</p><p style=\"margin:0px\">​Same for the Reset button.</p><p style=\"margin:0px\">​</p><p style=\"margin:0px\">​Leave at least an inch of vertical space for these buttons and for the footer.</p><p style=\"margin:0px\">​</p><p style=\"margin: 0px; font-family: Arial, Helvetica, sans-serif; font-weight: 400; font-style: normal; text-decoration: none; font-size: 12px; color: rgba(191, 191, 191, 0.992157); background-color: rgba(0, 0, 0, 0); letter-spacing: 0px; text-transform: none; word-spacing: 0px; text-align: start; text-indent: 0px; line-height: normal;\">Remember: don't use answer revealing names for items on the timeline below.​</p>",
-                            font: ['Arial, Helvetica, sans-serif', [12, "px"], "rgba(191,191,191,0.99)", "normal", "none", "", "break-word", ""]
+                            text: "<p style=\"margin:0px\">Note: don't style the Submit button here. The code will position it and apply css styling at run time.​</p><p style=\"margin:0px\">​</p><p style=\"margin:0px\">​Same for the Reset button.</p><p style=\"margin:0px\">​</p><p style=\"margin:0px\">​Leave at least an inch of vertical space for these buttons and for the footer.</p><p style=\"margin:0px\">​</p><p style=\"margin:0px\">​Remember: don't use answer revealing names for items on the timeline below.</p><p style=\"margin:0px\">​</p>",
+                            font: ['Arial, Helvetica, sans-serif', [12, "px"], "rgba(144,143,143,1.00)", "normal", "none", "", "break-word", ""]
                         },
                         {
                             id: 'Text',
@@ -158,18 +158,45 @@
                             font: ['Arial, Helvetica, sans-serif', [15, "px"], "rgba(90,90,90,1)", "normal", "none", "", "break-word", ""]
                         },
                         {
+                            id: 'config-pointsOnLastTry',
+                            type: 'text',
+                            rect: ['-240px', '-86px', '212px', '18px', 'auto', 'auto'],
+                            text: "<p style=\"margin:0px\">​3</p>",
+                            align: "right",
+                            font: ['Arial, Helvetica, sans-serif', [14, "px"], "rgba(255,255,255,1.00)", "400", "none", "", "break-word", ""]
+                        },
+                        {
+                            id: 'config-pointsOnFirstTry',
+                            type: 'text',
+                            rect: ['-240px', '-117px', '212px', '18px', 'auto', 'auto'],
+                            text: "10",
+                            align: "right",
+                            font: ['Arial, Helvetica, sans-serif', [14, "px"], "rgba(255,255,255,1.00)", "400", "none", "", "break-word", ""]
+                        },
+                        {
                             id: 'config-nextPageUrl',
                             type: 'text',
-                            rect: ['60', '-64px', '212px', '18px', 'auto', 'auto'],
+                            rect: ['-240px', '-52px', '212px', '18px', 'auto', 'auto'],
                             text: "",
+                            align: "right",
                             font: ['Arial, Helvetica, sans-serif', [14, "px"], "rgba(255,255,255,1.00)", "400", "none", "", "break-word", ""]
                         },
                         {
                             id: 'config-logResponsesToDashboard',
                             type: 'text',
-                            rect: ['60', '-93px', '212px', '18px', 'auto', 'auto'],
+                            rect: ['-240px', '-148px', '212px', '18px', 'auto', 'auto'],
                             text: "true",
+                            align: "right",
                             font: ['Arial, Helvetica, sans-serif', [14, "px"], "rgba(255,255,255,1.00)", "400", "none", "", "break-word", ""]
+                        },
+                        {
+                            id: 'configInstructions',
+                            type: 'text',
+                            rect: ['-3px', '-148px', 'auto', 'auto', 'auto', 'auto'],
+                            text: "<p style=\"margin: 0px;\">Log student responses to the Dashboard? &nbsp;(true or false)</p><p style=\"margin: 0px;\">​</p><p style=\"margin: 0px; text-align: left;\">​Points awarded if correctly answered on the first try &nbsp;(integer)</p><p style=\"margin: 0px; text-align: left;\">​</p><p style=\"margin: 0px; text-align: left;\">​Points awarded if correctly answered eventually &nbsp;(integer)</p><p style=\"margin: 0px; text-align: left;\">​</p><p style=\"margin: 0px; text-align: left; font-family: Arial, Helvetica, sans-serif; font-weight: 400; font-style: normal; text-decoration: none; font-size: 14px; color: rgb(144, 143, 143); background-color: rgba(0, 0, 0, 0); letter-spacing: 0px; text-transform: none; word-spacing: 0px; text-indent: 0px; line-height: normal;\">Next page url&nbsp;(if this is the last question in the quiz, leave this empty)</p><p style=\"margin: 0px;\">​​</p><p></p>",
+                            align: "left",
+                            font: ['Arial, Helvetica, sans-serif', [14, "px"], "rgba(144,143,143,1.00)", "400", "none", "normal", "break-word", "nowrap"],
+                            textStyle: ["", "", "", "", "none"]
                         }
                     ],
                     style: {
@@ -186,16 +213,6 @@
                     autoPlay: false,
                     data: [
                         [
-                            "eid29",
-                            "left",
-                            0,
-                            0,
-                            "linear",
-                            "${Checkbox2}",
-                            '217px',
-                            '217px'
-                        ],
-                        [
                             "eid27",
                             "left",
                             0,
@@ -204,6 +221,16 @@
                             "${Checkbox4}",
                             '216px',
                             '216px'
+                        ],
+                        [
+                            "eid29",
+                            "left",
+                            0,
+                            0,
+                            "linear",
+                            "${Checkbox2}",
+                            '217px',
+                            '217px'
                         ],
                         [
                             "eid28",
@@ -246,9 +273,9 @@
                             fill: ['rgba(255,255,255,1.00)', [270, [['rgba(167,167,167,1.00)', 0], ['rgba(222,222,222,1.00)', 100]]]]
                         },
                         {
-                            rect: [0, 0, 18, 18, 'auto', 'auto'],
-                            id: 'checkmark',
                             type: 'image',
+                            id: 'checkmark',
+                            rect: [0, 0, 18, 18, 'auto', 'auto'],
                             fill: ['rgba(0,0,0,0)', 'images/checkmark_outlined_centered.png', '0px', '0px']
                         }
                     ],
