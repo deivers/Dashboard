@@ -5,7 +5,7 @@ function init() {
 	loadTeacherParams();
 }
 
-var dataVersionNumber = 3;
+var dataVersionNumber = 4;
 var hoverOpacity = 0.5;
 var thresholdOpacity = 0.7; //TODO eliminate
 var selectedOpacity = 0.9; //TODO eliminate

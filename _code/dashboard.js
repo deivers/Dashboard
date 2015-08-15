@@ -116,7 +116,10 @@ function parseLogString(dataVersion,logString) {
 	logArrayOneLinePerStudent.questionText = logArray[0][qTextIndex];
 	logArrayOneLinePerStudent.answerDetails = logArray[0][aDetailsIndex];
 	logArrayOneLinePerStudent.answerKeyString = logArray[0][aKeyIndex];
-	logArrayOneLinePerStudent.pointsString = logArray[0][pointsIndex];
+	if (dataVersion > 3) {
+		logArrayOneLinePerStudent.rubricType = logArray[0][rubricType];
+		logArrayOneLinePerStudent.pointsString = logArray[0][pointsIndex];
+	}
 	return logArrayOneLinePerStudent;
 }
 

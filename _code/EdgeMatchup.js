@@ -25,7 +25,7 @@ function init() {
 		return;
 	}
 	getTeacherParams();
-	var dataVersionNumber = 3;
+	var dataVersionNumber = 4;
 	var myLeft, myTop;
 	var dragElements = $('.dragTab').sort(sortElementByPosition); // assume these are initially positioned in the correct order (before the shuffle below)
 	var targetElements = $('.dropZone').sort(sortElementByPosition);

@@ -8,7 +8,7 @@ var showWrongAnswers;
 var logResponsesToDashboard;
 var pointsOnFirstTry, pointsOnLastTry;
 var nextPageUrl;
-var dataVersionNumber = 3;
+var dataVersionNumber = 4;
 // additional globals needed if ShortAnswer type
 //	minNumChars
 

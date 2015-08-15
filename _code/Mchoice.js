@@ -6,7 +6,7 @@ var logResponsesToDashboard;
 var pointsOnFirstTry, pointsOnLastTry;
 var nextPageUrl;
 var qTextSummary = $(".qText").html();
-var dataVersionNumber = 3;
+var dataVersionNumber = 4;
 // globals defined elsewhere but needed herein
 
 function init() {

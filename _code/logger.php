@@ -13,7 +13,7 @@ function logStudentSubmission($saveDir, $studentId, $dataVersion, $qType, $qText
 	error_log("log file name:  ". $logFile);
 	if (!file_exists($logFile)) {
 		// the first row is unique
-		error_log('Creating log file '.$dataVersion.' in '.$saveDir);
+		error_log('Creating log file with data version '.$dataVersion.' in '.$saveDir);
 		$logEntry = buildMetaRow($qType, $qText, $answerDetails, $answerKey, $rubric, $points);
 		file_put_contents($logFile, $logEntry);
 	}

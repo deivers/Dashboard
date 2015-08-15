@@ -20,7 +20,7 @@ function loadStageParam(paramName,type,deflt) {
 	return result;
 }
 
-function logSubmission(vNum,qType,qSummary,aSummary,saArray,akArray,rubricType,pointsArray) {
+function logSubmission(dvNum,qType,qSummary,aSummary,saArray,akArray,rubricType,pointsArray) {
 	console.log("Logging...");
 	// if (typeof studentId === 'undefined' || studentId.length == 0) {
 	// 	if (typeof Storage !== 'undefined') {
@@ -51,7 +51,7 @@ function logSubmission(vNum,qType,qSummary,aSummary,saArray,akArray,rubricType,p
 		type: 'POST',
 		url: 'LogResponse.php',  // in the original directory
 		data: {	si : "", ///studentId,
-				qn : vNum,
+				dv : dvNum,
 				qt : qType,
 				qs : qSummary,
 				ad : aSummary,
