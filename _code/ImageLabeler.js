@@ -175,7 +175,7 @@ checkAnswers = function() {
 			var akArray = arrayFactory(answerTexts.length,1,0);
 			var ptArray = [pointsOnFirstTry,0,pointsOnLastTry];
 			//console.log(texts); console.log(saArray); console.log(akArray);
-			var logSuccess = logSubmission(dataVersionNumber,questionType,"Image Labeler",texts,saArray,akArray,ptArray);
+			var logSuccess = logSubmission(dataVersionNumber,questionType,"Image Labeler",texts,saArray,akArray,"all",ptArray);
 			if (logSuccess == false) {
 				alert("You must provide a valid student ID for answers to be checked.");
 				return;

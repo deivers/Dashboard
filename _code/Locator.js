@@ -92,7 +92,7 @@ function logResponse(thisChoice) {
 	if (logResponsesToDashboard) {
 		var questionText = $(".qText")[0].textContent;
 		var ptArray = [pointsOnFirstTry,0,pointsOnLastTry];
-		var logSuccess = logSubmission(dataVersionNumber,"Locator",questionText,allNames,[thisChoice],correctNames,ptArray);
+		var logSuccess = logSubmission(dataVersionNumber,"Locator",questionText,allNames,[thisChoice],correctNames,"any",ptArray);
 		// if (logSuccess == false) {
 		// 	alert("You must provide a valid student ID for answers to be checked.");
 		// 	return;

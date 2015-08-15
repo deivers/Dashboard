@@ -123,7 +123,7 @@ function init() {
 		// variables
 		var allCorrect = true;
 		var saIndexes = [];
-		var akIndexes = arrayFactory(dragElements.length,1,0);
+		var akIndexes = arrayFactory(targetElements.length,1,0);
 		// config
 		var rejectOption = rejectWrongAnswers;
 		var requireOption = requireCompletion;
@@ -185,7 +185,7 @@ function init() {
 				logResponsesToDashboard = false;
 			if (logResponsesToDashboard) {
 				var ptArray = [pointsOnFirstTry,0,pointsOnLastTry];
-				var logSuccess = logSubmission(dataVersionNumber,"Edge Matchup",questionTextArray.join(','),answerTextArray.join(','),saIndexes,akIndexes,ptArray);
+				var logSuccess = logSubmission(dataVersionNumber,"Edge Matchup",questionTextArray.join(','),answerTextArray.join(','),saIndexes,akIndexes,"all",ptArray);
 				if (logSuccess == false) {
 					alert("You must provide a valid student ID for answers to be checked.");
 					return;

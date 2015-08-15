@@ -53,7 +53,7 @@ checkAnswers = function() {
 			logResponsesToDashboard = false;
 		if (logResponsesToDashboard) {
 			var ptArray = [pointsOnFirstTry,0,pointsOnLastTry];
-			var logSuccess = logSubmission(dataVersionNumber,questionType,qTextSummary," ",studentChoices,cc,ptArray);
+			var logSuccess = logSubmission(dataVersionNumber,questionType,qTextSummary," ",studentChoices,cc,"all",ptArray);
 			if (logSuccess == false) {
 				alert("You must provide a valid student ID for answers to be checked.");
 				return;
