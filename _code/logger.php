@@ -5,7 +5,7 @@ header('Content-type: application/json');
 // example return value:  "2014-01-31T23:59:00+0000|smith15|6,4,5,3,1"
 // date-time is ISO8601 format (GMT)
 
-function logStudentSubmission($saveDir, $studentId, $dataVersion, $qType, $qText, $answerDetails, $answers, $answerKey, $points) {
+function logStudentSubmission($saveDir, $studentId, $dataVersion, $qType, $qText, $answerDetails, $answers, $answerKey, $rubric, $points) {
 	//TODO remove the second argument
 	$studentId = getStudentIdFromServer();
 	//* Log student answers *//
@@ -14,7 +14,7 @@ function logStudentSubmission($saveDir, $studentId, $dataVersion, $qType, $qText
 	if (!file_exists($logFile)) {
 		// the first row is unique
 		error_log('Creating log file '.$dataVersion.' in '.$saveDir);
-		$logEntry = buildMetaRow($qType, $qText, $answerDetails, $answerKey, $points);
+		$logEntry = buildMetaRow($qType, $qText, $answerDetails, $answerKey, $rubric, $points);
 		file_put_contents($logFile, $logEntry);
 	}
 	$logEntry = buildLogEntry($studentId, $answers);
@@ -41,8 +41,8 @@ function buildLogEntry($studentId, $submission) {
 	return $logEntry;
 }
 
-function buildMetaRow($typeOfQuestion, $questionText, $answerDetails, $correctAnswer, $points) {
-	$logEntry = removeDelimiters($typeOfQuestion) . "|" . removeDelimiters($questionText) . "|" . removeDelimiters(arrayOrValueToString($answerDetails)) . "|" . removeDelimiters(arrayOrValueToString($correctAnswer)) . "|" . removeDelimiters(arrayOrValueToString($points)) . "\n";
+function buildMetaRow($typeOfQuestion, $questionText, $answerDetails, $correctAnswer, $rubric, $points) {
+	$logEntry = removeDelimiters($typeOfQuestion) . "|" . removeDelimiters($questionText) . "|" . removeDelimiters(arrayOrValueToString($answerDetails)) . "|" . removeDelimiters(arrayOrValueToString($correctAnswer)) . "|" . removeDelimiters($rubric) . "|" . removeDelimiters(arrayOrValueToString($points)) . "\n";
 	return $logEntry;
 }
 

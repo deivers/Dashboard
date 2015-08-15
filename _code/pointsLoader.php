@@ -36,7 +36,8 @@ $qTypeIndex = 0;
 $qTextIndex = 1;
 $aDetailsIndex = 2;
 $aKeyIndex = 3;
-$pointsIndex = 4;
+$rubricTypeIndex = 4;
+$pointsIndex = 5;
 // index params for after first line of log file
 $studentIdIndex = 1;
 $studentAnswersIndex = 2;

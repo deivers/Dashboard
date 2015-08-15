@@ -20,7 +20,7 @@ function loadStageParam(paramName,type,deflt) {
 	return result;
 }
 
-function logSubmission(vNum,qType,qSummary,aSummary,saArray,akArray,pointsArray) {
+function logSubmission(vNum,qType,qSummary,aSummary,saArray,akArray,rubricType,pointsArray) {
 	console.log("Logging...");
 	// if (typeof studentId === 'undefined' || studentId.length == 0) {
 	// 	if (typeof Storage !== 'undefined') {
@@ -57,6 +57,7 @@ function logSubmission(vNum,qType,qSummary,aSummary,saArray,akArray,pointsArray)
 				ad : aSummary,
 				sa : saArray,
 				ak : akArray,
+				rt : rubricType,
 				pt : pointsArray
 		},
 		dataType: 'json'

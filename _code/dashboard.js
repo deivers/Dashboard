@@ -13,7 +13,8 @@ var qTypeIndex = 0;
 var qTextIndex = 1;
 var aDetailsIndex = 2;
 var aKeyIndex = 3;
-var pointsIndex = 4;
+var rubricTypeIndex = 4;
+var pointsIndex = 5;
 // index parameters for incoming data, after first line
 var timestampIndex = 0;
 var studentIdIndex = 1;

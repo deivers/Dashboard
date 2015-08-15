@@ -12,8 +12,9 @@ $qTextSummary = $_POST['qs'];
 $answerDetailArray = $_POST['ad'];
 $studentAnswerArray = $_POST['sa'];
 $answerArray = $_POST['ak'];
+$rubricType = $_POST['rt'];
 $pointsArray = $_POST['pt'];
-error_log("/t".$workingDir." ".$studentId." ".$qNumber." ".$qType." ".$qTextSummary." ".print_r($answerDetailArray)." ".print_r($studentAnswerArray)." ".print_r($answerArray)." ".print_r($pointsArray));
+error_log("/t".$workingDir." ".$studentId." ".$qNumber." ".$qType." ".$qTextSummary." ".print_r($answerDetailArray)." ".print_r($studentAnswerArray)." ".print_r($answerArray)." ".$rubricType." ".print_r($pointsArray));
 $result = logStudentSubmission(
 		$workingDir,
 		$studentId,
@@ -23,6 +24,7 @@ $result = logStudentSubmission(
 		$answerDetailArray,
 		$studentAnswerArray,
 		$answerArray,
+		$rubricType,
 		$pointsArray
 );
 //todo: if ($result <= 0) notify the user to try again
