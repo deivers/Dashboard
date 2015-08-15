@@ -69,10 +69,13 @@ foreach($logContents as $logString) {
 			break;
 		}
 	}
-	//* return the points earned
-	if ($thisStudentsLine[$firstSubmissionIndex] == $answerKeyArray)		// then first submission was correct
+	//* return the points earned using the rubric to check correctness
+	$firstSubm = $thisStudentsLine[$firstSubmissionIndex];
+	$lastSubm = $thisStudentsLine[$lastSubmissionIndex];
+	$rubric = $firstLineArray[$rubricTypeIndex];
+	if (($rubric == "all" && $firstSubm == $answerKeyArray) || ($rubric != "all" && array_search($firstSubm, $answerKeyArray)))		// then first submission was correct
 		print json_encode($possiblePointsArray[0]);							// return the possible points for first submission
-	else if ($thisStudentsLine[$lastSubmissionIndex] == $answerKeyArray)	// then last submission was correct
+	else if (($rubric == "all" && $lastSubm == $answerKeyArray) || ($rubric != "all" && array_search($lastSubm, $answerKeyArray)))	// then last submission was correct
 		print json_encode(end($possiblePointsArray));						// return the possible points for last submission
 	else
 		print json_encode(0);
