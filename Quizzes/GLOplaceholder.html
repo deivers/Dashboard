@@ -9,7 +9,7 @@
 
 			$.ajax({
 				type: 'GET',
-				url: "../_code/pointsLoader.php" + "?" + studId,
+				url: "../_code/pointsLoader.php",
 				dataType: 'json',
 				success: function(data) {
 					if (data == null || data.length == 0) {
