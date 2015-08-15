@@ -1,9 +1,9 @@
 <?php
-// load all log files of this folder's subfolders into an array
+//* load all log files of this folder's subfolders into an array
 error_log("dashLoader.php");
 error_log("loading all submissions in sub-folders");
 $dashboardVersionString = "3";
-// figure out the working directory (based on assumed folder depth!)
+//* figure out the working directory (based on assumed folder depth!)
 $sourceUrl = $_SERVER['HTTP_REFERER']; // the dashboard.html file?
 $workingDir = dirname($sourceUrl);
 error_log("working directory: ".$workingDir);
@@ -12,7 +12,7 @@ $relativePath = "../".$array[count($array)-1];		// folder containing the origina
 error_log("path = ". $relativePath);
 $fileNameSuffix = ".txt";
 $logContents = array();
-
+//* append each log file to the array
 $index = 0;
 $it = new RecursiveDirectoryIterator($relativePath);
 foreach(new RecursiveIteratorIterator($it) as $path) {
@@ -24,9 +24,7 @@ foreach(new RecursiveIteratorIterator($it) as $path) {
 		$logContents[$index] = file_get_contents($path);
 	}
 }
-
-//TODO strip out quotes?  or does json_encode take care of the issue?
-
+//* return the array
 error_log("number of log files found: " . count($logContents) /*. "\ncontents of first file:\n" . $logContents[1]*/);
 print json_encode(array_values($logContents));
 

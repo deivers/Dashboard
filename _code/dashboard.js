@@ -51,7 +51,7 @@ function computeAndDisplayStats(logArray) {
 	var nFirst, nLast, answerDetailsHtml, answerKeyArray, answerKeyHtml, pointsArray;
 	// for each log file
 	$(".stats").remove(); // if hitting the button again, clear the previously displayed stats
-	logArray.forEach(function(logString,quizpageIndex) {
+	logArray.forEach(function(logString,quizpageIndex) { //TODO quizpageIndex no longer used
 		student = parseLogString(quizpageIndex+1,logString);
 		answerDetailsHtml = "<ul style='list-style:none'><li>"+student.answerDetails.replaceAwithB(";","</li><li>")+"</li></ul>";
 		answerKeyArray = student.answerKeyString.split(";");
