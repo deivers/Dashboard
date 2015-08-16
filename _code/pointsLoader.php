@@ -30,7 +30,7 @@ foreach(new RecursiveIteratorIterator($it) as $path) {
 }
 error_log("number of log files found: " . count($logContents) /*. "\ncontents of first file:\n" . $logContents[1]*/);
 //* parse each log, accumulate points for the currently logged in student
-$studentId = getStudentIdFromServer();
+$studentId = "abc";//////////////////////////////////////////////////////getStudentIdFromServer();
 // index params for first line of log file
 $qTypeIndex = 0;
 $qTextIndex = 1;
@@ -45,7 +45,10 @@ $studentAnswersIndex = 2;
 $firstSubmissionIndex = 2;
 $lastSubmissionIndex = 3;
 $numberOfSubmissionsIndex = 4;
-$totalPoints = 0;
+
+$firstLineString;
+$pointsTotal = 0;
+
 foreach($logContents as $logString) {
 
 	error_log("---this log:  ".$logString);
@@ -53,67 +56,84 @@ foreach($logContents as $logString) {
 	//* parse log string
 	//** split log string into array by "/n"
 	$studentArray = parseLogString($dashboardVersionString, $logString); // each element is one line from the log file
-	error_log(var_dump("---parsed array:  ".$studentArray));////
+	error_log("---parsed array:  ".print_r($studentArray,true));////
 	//** split first line into sub array by "|"
-	$firstLineArray = explode("|", $studentArray[0]);
+	$firstLineArray = explode("|", print_r($firstLineString,true)); // print_r to make sure we give a string to explode()
 	//** get answer key
-	$answerKeyArray = explode(";", $firstLineArray[$studentAnswersIndex]);
+	$answerKeyString = print_r($firstLineArray[$aKeyIndex],true);
+	$answerKeyArray = explode(";", $answerKeyString);
 	//** get possible points array
-	$possiblePointsArray = explode(";", $studentArray['pointsString']);
+	$possiblePointsArray = explode(";", print_r($firstLineArray[$pointsIndex],true));
 
 	//* which line belongs to the student logged in?
-	$thisStudentsLine = [];
+	$thisStudentsLine = array();
 	foreach($studentArray as $studentLine) {
 		if ($studentLine[$studentIdIndex] == $studentId) {
 			$thisStudentsLine = $studentLine;
 			break;
 		}
 	}
+	// error_log("this student line: ".print_r($thisStudentsLine),true);
 	//* return the points earned using the rubric to check correctness
 	$firstSubm = $thisStudentsLine[$firstSubmissionIndex];
 	$lastSubm = $thisStudentsLine[$lastSubmissionIndex];
 	$rubric = $firstLineArray[$rubricTypeIndex];
-	if (($rubric == "all" && $firstSubm == $answerKeyArray) || ($rubric != "all" && array_search($firstSubm, $answerKeyArray)))		// then first submission was correct
-		print json_encode($possiblePointsArray[0]);							// return the possible points for first submission
-	else if (($rubric == "all" && $lastSubm == $answerKeyArray) || ($rubric != "all" && array_search($lastSubm, $answerKeyArray)))	// then last submission was correct
-		print json_encode(end($possiblePointsArray));						// return the possible points for last submission
-	else
-		print json_encode(0);
+	// error_log($firstSubm ." ". $lastSubm ." ". $rubric ." ". $answerKeyString);////
+	if (($rubric == "all" && $firstSubm == $answerKeyString) || ($rubric != "all" && array_search($firstSubm, $answerKeyArray)))		// then first submission was correct
+		$pointsTotal += $possiblePointsArray[0];							// return the possible points for first submission
+	else if (($rubric == "all" && $lastSubm == $answerKeyString) || ($rubric != "all" && array_search($lastSubm, $answerKeyArray)))	// then last submission was correct
+		$pointsTotal = end($possiblePointsArray);						// return the possible points for last submission
+	error_log("running total: ".$pointsTotal);
 }
+print $pointsTotal;
 
 function parseLogString($dataVersion, $logStr) {
-	//* this code works for data version 3
+	//* this code works for data version 4
+	global $studentIdIndex;
+	global $firstLineString;
 	error_log("parsing the log file");
-	$logArray = explode("\n", $logStr);
+	$logArray = explode(PHP_EOL, $logStr);
+	error_log("number of lines found: ".count($logArray));
+	$firstLineString = print_r($logArray[0], true);
 	if (end($logArray) == "")
-		pop($logArray);
+		array_pop($logArray);
 	reset($logArray);
 	// split each line
+	$logMultiArray = array();
 	foreach($logArray as $logLine) {
-		$logLine = explode("|", $logLine);
-		error_log($logLine);///////////
+		$logMultiArray[] = explode("|", print_r($logLine,true));
 	}
-	$logArrayOneLinePerStudent = condenseSubmissions($logArray, $studentIdIndex);
+	// error_log(print_r($logMultiArray[0],true));
+	// error_log(print_r($logMultiArray[1],true));
+	$logArrayOneLinePerStudent = condenseSubmissions($logMultiArray, $studentIdIndex);
+	error_log("final array: ".print_r($logArrayOneLinePerStudent,true));///////////
 	return $logArrayOneLinePerStudent;
 }
 
 function condenseSubmissions($logArr, $columnToCompare) {
 	$newArr = array();
 	for ($i = 1; $i < count($logArr); $i++) { // note: skip the first line
+		$newArrIndex = count($newArr);
 		$studentPreviouslySubmitted = false;
 		for ($j = 0; $j < count($newArr); $j++) {
-			if ($logArr[$i][$columnToCompare] == $newArr[$j][$columnToCompare]) {
+			error_log("comparing: ".print_r($logArr[$i][$columnToCompare],true) ." and ". print_r($newArr[$j][$columnToCompare],true));
+			if (print_r($logArr[$i][$columnToCompare],true) == print_r($newArr[$j][$columnToCompare],true)) { // if student id's match
 				$studentPreviouslySubmitted = true;
+				$newArrIndex = $j;
 				break;
 			}
 		}
+	error_log("*".$newArrIndex."*");///////////
 		if (!$studentPreviouslySubmitted) {
-			$newArr[] = $logArr[$i]; // student's first response
-			$newArr[$j][$lastSubmissionIndex] = $logArr[$i][$studentAnswersIndex]; // this is or will be replaced with the student's last submitted response
-			$newArr[$j][$numberOfSubmissionsIndex] = 1;
+			$newArr[$newArrIndex] = array();
+			$newArr[$newArrIndex][0] = print_r($logArr[$i][0],true); // copy of student's first response
+			$newArr[$newArrIndex][1] = print_r($logArr[$i][1],true); // copy of student's first response
+			$newArr[$newArrIndex][2] = print_r($logArr[$i][2],true); // copy of student's first response
+			$newArr[$newArrIndex][3] = print_r($logArr[$i][2],true); // this is or will be replaced with the student's last submitted response
+			$newArr[$newArrIndex][4] = 1;
 		} else {
-			$newArr[$j][$lastSubmissionIndex] = $logArr[$i][$studentAnswersIndex]; // keep replacing until it's the last one  //TODO until it's the correct response
-			$newArr[$j][$numberOfSubmissionsIndex]++;
+			$newArr[$newArrIndex][3] = print_r($logArr[$i][2],true); // keep replacing until it's the last one  //TODO until it's the correct response
+			$newArr[$newArrIndex][4]++;
 		}
 	}
 	return $newArr;
