@@ -79,9 +79,9 @@ foreach($logContents as $logString) {
 	$lastSubm = $thisStudentsLine[$lastSubmissionIndex];
 	$rubric = $firstLineArray[$rubricTypeIndex];
 	// error_log($firstSubm ." ". $lastSubm ." ". $rubric ." ". $answerKeyString);////
-	if (($rubric == "all" && $firstSubm == $answerKeyString) || ($rubric != "all" && array_search($firstSubm, $answerKeyArray)))		// then first submission was correct
+	if (($rubric == "all" && $firstSubm == $answerKeyString) || ($rubric != "all" && in_array($firstSubm, $answerKeyArray)))		// then first submission was correct
 		$pointsTotal += $possiblePointsArray[0];							// return the possible points for first submission
-	else if (($rubric == "all" && $lastSubm == $answerKeyString) || ($rubric != "all" && array_search($lastSubm, $answerKeyArray)))	// then last submission was correct
+	else if (($rubric == "all" && $lastSubm == $answerKeyString) || ($rubric != "all" && in_array($lastSubm, $answerKeyArray)))	// then last submission was correct
 		$pointsTotal = end($possiblePointsArray);						// return the possible points for last submission
 	error_log("running total: ".$pointsTotal);
 }
