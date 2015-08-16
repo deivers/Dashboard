@@ -52,8 +52,8 @@ function computeAndDisplayStats(logArray) {
 	var nFirst, nLast, answerDetailsHtml, answerKeyArray, answerKeyHtml, pointsArray;
 	// for each log file
 	$(".stats").remove(); // if hitting the button again, clear the previously displayed stats
-	logArray.forEach(function(logString,quizpageIndex) { //TODO quizpageIndex no longer used
-		student = parseLogString(quizpageIndex+1,logString);
+	logArray.forEach(function(logString) {
+		student = parseLogString(4,logString);
 		answerDetailsHtml = "<ul style='list-style:none'><li>"+student.answerDetails.replaceAwithB(";","</li><li>")+"</li></ul>";
 		answerKeyArray = student.answerKeyString.split(";");
 		//
@@ -67,12 +67,12 @@ function computeAndDisplayStats(logArray) {
 		// console.log("Details: "+student.answerDetails);
 		$("body")
 			.append($("<div class='stats'></div>")
-				.append($("<h2>Question #"+(quizpageIndex+1)+"</h2>"))
+				.append($("<h2>Question</h2>"))
 				.append($("<p>Question type: "+student.questionType+"</p>"))
 				.append($("<p>Question summary: "+student.questionText+"</p>"))
 				.append($("<p>Answer details: </p>"+answerDetailsHtml))
 				///.append($("<p>Answer key: "+answerKeyHtml+"</p>"))
-				.append($("<h3>Statistics for #"+(quizpageIndex+1)+"</h3>"))
+				.append($("<h3>Statistics</h3>"))
 				.append($("<p>Number of students that responded: "+student.length+"</p>"))
 				.append($("<p>Number of students with all correct on final submission: "+nLast+" &nbsp; "+toPercent(nLast,student.length)+"%</p>"))
 				.append($("<p>Number of students with all correct on first submission: "+nFirst+" &nbsp; "+toPercent(nFirst,student.length)+"%</p>"))

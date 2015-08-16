@@ -2,7 +2,7 @@
 //* load all log files of this folder's subfolders into an array
 error_log("dashLoader.php");
 error_log("loading all submissions in sub-folders");
-$dashboardVersionString = "3";
+$dashboardVersionString = "4";
 //* figure out the working directory (based on assumed folder depth!)
 $sourceUrl = $_SERVER['HTTP_REFERER']; // the dashboard.html file?
 $workingDir = dirname($sourceUrl);

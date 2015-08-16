@@ -6,7 +6,7 @@ include 'logger.php';
 
 error_log("pointsLoader.php");
 error_log("loading submissions in sub-folders");
-$dashboardVersionString = "3";
+$dashboardVersionString = "4";
 //* figure out the working directory
 $sourceUrl = $_SERVER['HTTP_REFERER'];
 $workingDir = dirname($sourceUrl);
