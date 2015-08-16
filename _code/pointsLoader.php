@@ -94,7 +94,7 @@ function parseLogString($dataVersion, $logStr) {
 	error_log("parsing the log file");
 	$logArray = explode(PHP_EOL, $logStr);
 	error_log("number of lines found: ".count($logArray));
-	$firstLineString = print_r($logArray[0], true);
+	$firstLineString = $logArray[0];
 	if (end($logArray) == "")
 		array_pop($logArray);
 	reset($logArray);
@@ -103,37 +103,39 @@ function parseLogString($dataVersion, $logStr) {
 	foreach($logArray as $logLine) {
 		$logMultiArray[] = explode("|", print_r($logLine,true));
 	}
-	// error_log(print_r($logMultiArray[0],true));
-	// error_log(print_r($logMultiArray[1],true));
 	$logArrayOneLinePerStudent = condenseSubmissions($logMultiArray, $studentIdIndex);
-	error_log("final array: ".print_r($logArrayOneLinePerStudent,true));///////////
 	return $logArrayOneLinePerStudent;
 }
 
 function condenseSubmissions($logArr, $columnToCompare) {
+	global $studentIdIndex;
+	global $studentAnswersIndex;
+	global $firstSubmissionIndex;
+	global $lastSubmissionIndex;
+	global $numberOfSubmissionsIndex;
 	$newArr = array();
 	for ($i = 1; $i < count($logArr); $i++) { // note: skip the first line
 		$newArrIndex = count($newArr);
 		$studentPreviouslySubmitted = false;
 		for ($j = 0; $j < count($newArr); $j++) {
-			error_log("comparing: ".print_r($logArr[$i][$columnToCompare],true) ." and ". print_r($newArr[$j][$columnToCompare],true));
+			// error_log("comparing: ".print_r($logArr[$i][$columnToCompare],true) ." and ". print_r($newArr[$j][$columnToCompare],true));
 			if (print_r($logArr[$i][$columnToCompare],true) == print_r($newArr[$j][$columnToCompare],true)) { // if student id's match
 				$studentPreviouslySubmitted = true;
 				$newArrIndex = $j;
 				break;
 			}
 		}
-	error_log("*".$newArrIndex."*");///////////
+		error_log("*".$newArrIndex."*");////
 		if (!$studentPreviouslySubmitted) {
 			$newArr[$newArrIndex] = array();
-			$newArr[$newArrIndex][0] = print_r($logArr[$i][0],true); // copy of student's first response
-			$newArr[$newArrIndex][1] = print_r($logArr[$i][1],true); // copy of student's first response
-			$newArr[$newArrIndex][2] = print_r($logArr[$i][2],true); // copy of student's first response
-			$newArr[$newArrIndex][3] = print_r($logArr[$i][2],true); // this is or will be replaced with the student's last submitted response
-			$newArr[$newArrIndex][4] = 1;
+			$newArr[$newArrIndex][0] = $logArr[$i][0]; // copy the time stamp
+			$newArr[$newArrIndex][$studentIdIndex] = $logArr[$i][$studentIdIndex]; // copy student id
+			$newArr[$newArrIndex][$firstSubmissionIndex] = $logArr[$i][$studentAnswersIndex]; // copy student's first response
+			$newArr[$newArrIndex][$lastSubmissionIndex] = $logArr[$i][$studentAnswersIndex]; // this is or will be replaced with the student's last submitted response
+			$newArr[$newArrIndex][$numberOfSubmissionsIndex] = 1;
 		} else {
-			$newArr[$newArrIndex][3] = print_r($logArr[$i][2],true); // keep replacing until it's the last one  //TODO until it's the correct response
-			$newArr[$newArrIndex][4]++;
+			$newArr[$newArrIndex][$lastSubmissionIndex] = $logArr[$i][$studentAnswersIndex]; // keep replacing until it's the last one  //TODO until it's the correct response
+			$newArr[$newArrIndex][$numberOfSubmissionsIndex]++;
 		}
 	}
 	return $newArr;
