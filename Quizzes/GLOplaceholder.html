@@ -6,7 +6,7 @@
 	<script src="../_code/dashboard.js"></script>
 	<script>
 		function getMyPoints() {
-
+			$("#points-display").val(""); // the purpose of this is to "flash" the number so the user knows it was updated
 			$.ajax({
 				type: 'GET',
 				url: "../_code/pointsLoader.php",
@@ -17,8 +17,6 @@
 						alert("The points loader found no logged data!\n");
 					} else {
 						console.log("  Points loader is done\n\n");
-						console.log(data);//////
-						alert(data);//////
 						handlePointsReceived(data);
 					}
 				},
