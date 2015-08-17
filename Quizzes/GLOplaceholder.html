@@ -1,12 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<style>
+	.spinner {
+		background:
+                url('../_code/spin.gif') 
+                50% 50% 
+                no-repeat;
+	}
+	.error {
+		background:
+				url('../_code/error.png')
+				50% 50%
+				no-repeat;
+		background-size: 20px;
+	}
+	</style>
 	<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
 	<script src="../_code/common.js"></script>
 	<script src="../_code/dashboard.js"></script>
 	<script>
 		function getMyPoints() {
 			$("#points-display").val(""); // the purpose of this is to "flash" the number so the user knows it was updated
+			$("#points-display").addClass("spinner").removeClass("error");
 			$.ajax({
 				type: 'GET',
 				url: "../_code/pointsLoader.php",
@@ -14,15 +30,15 @@
 				success: function(data) {
 					if (data == null || data.length == 0) {
 						console.log("  The points loader found no logged data!\n");
-						alert("The points loader found no logged data!\n");
 					} else {
 						console.log("  Points loader is done\n\n");
+						$("#points-display").removeClass("spinner");
 						handlePointsReceived(data);
 					}
 				},
 				error: function() {
+					$("#points-display").removeClass("spinner").addClass("error");
 					console.log("  Points loader failed!\n\n");
-					alert("Points loader failed!\n\n");
 				}
 			});
 		}
@@ -45,7 +61,7 @@
 </head>
 <body>
 
-	<input type="text" id="points-display" disabled>
+	<input type="text" id="points-display" class="" disabled>
 	<button onclick="getMyPoints()">Refresh</button>
 </body>
 </html>
